@@ -1,0 +1,13 @@
+{
+  "name": "svelte-cloudinary",
+  "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
+  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@colbyfayock/semantic-release-pnpm": "^1.0.7",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^19.0.5"
+  }
+}

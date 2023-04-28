@@ -1,0 +1,44 @@
+name: Test & Release
+on: [push, pull_request]
+env:
+  CI: false
+jobs:
+  tests:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '16', '18' ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
+      - run: pnpm install
+        working-directory: ./svelte-cloudinary
+      # - run: pnpm test
+      #   working-directory: ./svelte-cloudinary
+
+  release:
+    name: Release
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release --branches main
