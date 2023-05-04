@@ -1,36 +1,14 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next Cloudinary",
-  "compilerOptions": {
-    "target": "es6",
-    "composite": false,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
-    "isolatedModules": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "ES2015"
-    ],
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "jsx": "react"
-
-  },
-  "exclude": ["node_modules"]
+	"extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "NodeNext"
+	}
 }
