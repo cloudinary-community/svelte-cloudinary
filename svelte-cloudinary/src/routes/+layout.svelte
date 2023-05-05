@@ -1,7 +1,6 @@
 <script>
 	import '../app.postcss';
 	export let data;
-	console.log(data.articles);
 </script>
 
 <div class="container sticky top-0 z-20 w-full bg-transparent">
@@ -64,7 +63,17 @@
 <main class="mx-auto flex max-w-[90rem]">
 	<aside
 		class="flex flex-col md:top-16 md:w-64 md:shrink-0 md:transform-none md:sticky md:self-start [transform:translate3d(0,-100%,0)]"
-	/>
+	>
+			<ul class="flex flex-col gap-1 md:flex">
+				{#each data.articles as article}
+				<li class="flex flex-col gap-1 active">
+					<a href={article.slug}> 
+						{article.title}
+						</a>
+					</li>
+				{/each}
+				</ul>
+		</aside>
 	<div class="toc order-last hidden w-64 shrink-0 xl:block px-4">
 		<div
 			class="scrollbar sticky top-16 overflow-y-auto pr-4 pt-8 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"
