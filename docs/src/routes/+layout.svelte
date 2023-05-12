@@ -3,7 +3,7 @@
 	export let data;
 </script>
 
-<div class="container sticky top-0 z-20 w-full bg-transparent">
+<div class="sticky top-0 z-20 w-full bg-transparent">
 	<div
 		class="pointer-events-none absolute z-[-1] h-full w-full bg-dark shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:shadow-[0_0_0_1px_#fff]"
 	/>
@@ -64,16 +64,28 @@
 	<aside
 		class="flex flex-col md:top-16 md:w-64 md:shrink-0 md:transform-none md:sticky md:self-start [transform:translate3d(0,-100%,0)]"
 	>
-			<ul class="flex flex-col gap-1 md:flex">
-				{#each data.articles as article}
-				<li class="flex flex-col gap-1 active">
-					<a href={article.slug}> 
-						{article.title}
-						</a>
-					</li>
-				{/each}
-				</ul>
-		</aside>
+		<div
+			class="overflow-y-auto overflow-x-hidden p-4 grow md:h-[calc(100vh-var(--nextra-navbar-height)-var(--nextra-menu-height))] nextra-scrollbar"
+		>
+			<div
+				class="transform-gpu overflow-hidden transition-all ease-in-out motion-reduce:transition-none"
+			>
+				<div
+					class="transition-opacity duration-500 ease-in-out motion-reduce:transition-none opacity-100"
+				>
+					<ul class="flex flex-col gap-1 md:flex">
+						{#each data.articles as article}
+							<li class="flex flex-col gap-1 active">
+								<a href={article.slug}>
+									{article.title}
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</aside>
 	<div class="toc order-last hidden w-64 shrink-0 xl:block px-4">
 		<div
 			class="scrollbar sticky top-16 overflow-y-auto pr-4 pt-8 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"
@@ -98,7 +110,7 @@
 	<article
 		class="flex min-h-[calc(100vh-4rem)] w-full min-w-0 max-w-full justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]"
 	>
-		<main class="w-full min-w-0 max-w-4xl px-6 pt-4 md:px-8 prose prose-lg prose-invert">
+		<main class="w-full min-w-0 max-w-4xl px-6 pt-4 md:px-8 prose prose-invert">
 			<slot />
 		</main>
 	</article>
