@@ -1,7 +1,7 @@
-import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '../constants/sizes';
+import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '$lib/constants/sizes.js';
 
-import { getCldImageUrl } from './getCldImageUrl';
-import type { GetCldImageUrl, GetCldImageUrlOptions } from './getCldImageUrl';
+import { getCldImageUrl } from './getCldImageUrl.js';
+import type { GetCldImageUrl, GetCldImageUrlOptions } from './getCldImageUrl.js';
 
 /**
  * getCldImageUrl

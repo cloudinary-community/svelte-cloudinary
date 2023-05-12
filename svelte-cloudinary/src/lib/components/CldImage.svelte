@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	export type CldImageProps = ImageOptions &
+		Omit<HTMLImageElement, 'srcset' | 'height' | 'width'> & {
+			src: string;
+			width: string;
+			height: string;
+			alt: string;
+			preserverTransformations?: boolean;
+			// From Unpic
+			layout?: 'constrained' | 'fullWidth' | 'fixed';
+			priority?: boolean;
+			background?: 'auto' | string;
+		};
+</script>
+
 <script lang="ts">
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
@@ -6,17 +21,18 @@
 
 	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
 
-	interface $$Props extends ImageOptions {
-		src: string;
-		width: string;
-		height: string;
-		alt: string;
-		preserverTransformations?: boolean;
-	}
-
+	interface $$Props extends CldImageProps {}
 	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
 
-	$: ({ alt, src, width, height } = $$props as $$Props);
+	$: ({
+		alt,
+		src,
+		width,
+		height,
+		layout = 'constrained',
+		priority = false,
+		background = 'auto'
+	} = $$props as $$Props);
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -62,6 +78,7 @@
 		}
 	}
 	let newSrc = getCldImageUrl({ ...imageProps, ...cldOptions });
+	console.log({ newSrc });
 </script>
 
-<Image src={newSrc} {width} {height} {alt} />
+<Image src={newSrc} {width} {height} {alt} {layout} {background} {priority} />
