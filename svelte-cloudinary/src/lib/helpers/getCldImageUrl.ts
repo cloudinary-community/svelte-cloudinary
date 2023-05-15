@@ -5,8 +5,7 @@ import {
   SVELTE_CLOUDINARY_ANALYTICS_ID,
   SVELTE_CLOUDINARY_VERSION,
   SVELTE_VERSION
-} from '$lib/constants/analytics.js';
-// import { env } from '$env/dynamic/public';
+} from '$lib/constants/analytics.ts';
 /**
  * getCldImage
  */
