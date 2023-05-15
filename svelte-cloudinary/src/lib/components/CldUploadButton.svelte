@@ -14,17 +14,37 @@
 		onClose,
 		...buttonProps
 	} = $$props as $$Props);
+
+	let baseProps = {
+		onClose,
+		onOpen,
+		options,
+		onUpload,
+		onError
+	};
+	function withSignature(
+		options: typeof baseProps
+	): options is typeof baseProps & { signatureEndpoint: string } {
+		return signatureEndpoint != null;
+	}
+	function withPreset(
+		options: typeof baseProps
+	): options is typeof baseProps & { uploadPreset: string } {
+		return uploadPreset != null;
+	}
+	let props = {} as CldUploadWidgetProps;
+	if (withPreset(baseProps)) {
+		props = { ...baseProps, uploadPreset: uploadPreset as string };
+	}
+	if (withSignature(baseProps)) {
+		props = {
+			...baseProps,
+			signatureEndpoint: signatureEndpoint as string
+		};
+	}
 </script>
 
-<CldUploadWidget
-	{uploadPreset}
-	{signatureEndpoint}
-	{onError}
-	{onUpload}
-	{options}
-	let:open
-	let:isLoading
->
+<CldUploadWidget {...props} let:open let:isLoading>
 	{#if $$slots.default}
 		<slot />
 	{:else}
