@@ -47,7 +47,7 @@
 		src,
 		width,
 		height
-	} satisfies ImageOptions & $$Props;
+	} as ImageOptions & $$Props;
 
 	(Object.keys($$props) as Array<keyof $$Props>)
 		.filter((key) => !CLD_OPTIONS.includes(key))
@@ -78,7 +78,6 @@
 		}
 	}
 	let newSrc = getCldImageUrl({ ...imageProps, ...cldOptions });
-	console.log({ newSrc });
 </script>
 
 <Image src={newSrc} {width} {height} {alt} {layout} {background} {priority} />

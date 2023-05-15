@@ -6,7 +6,7 @@ import {
   SVELTE_CLOUDINARY_VERSION,
   SVELTE_VERSION
 } from '$lib/constants/analytics.js';
-import { env } from '$env/dynamic/public';
+// import { env } from '$env/dynamic/public';
 /**
  * getCldImage
  */
@@ -31,7 +31,7 @@ export function getCldImageUrl(
     config: Object.assign(
       {
         cloud: {
-          cloudName: env.PUBLIC_CLOUDINARY_CLOUD_NAME
+          cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME
         }
       },
       config

@@ -1,7 +1,8 @@
-export { getCldImageUrl } from './helpers/getCldImageUrl';
-export type { GetCldImageUrl, GetCldImageUrlOptions, GetCldImageUrlConfig, GetCldImageUrlAnalytics } from './helpers/getCldImageUrl';
+export { getCldImageUrl } from '$lib/helpers/getCldImageUrl.ts';
+export type { GetCldImageUrl, GetCldImageUrlOptions, GetCldImageUrlConfig, GetCldImageUrlAnalytics } from '$lib/helpers/getCldImageUrl.ts';
 
-export { getCldOgImageUrl } from './helpers/getCldOgImageUrl';
-export type { GetCldOgImageUrl } from './helpers/getCldOgImageUrl';
+export { getCldOgImageUrl } from '$lib/helpers/getCldOgImageUrl.ts';
+export type { GetCldOgImageUrl } from '$lib/helpers/getCldOgImageUrl.ts';
 
-export type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions, CloudinaryVideoPlayerOptionsColors, CloudinaryVideoPlayerOptionsLogo } from './types/player';
+export type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions, CloudinaryVideoPlayerOptionsColors, CloudinaryVideoPlayerOptionsLogo } from './types/player.ts';
+

@@ -9,3 +9,15 @@ export function triggerOnIdle(callback: any) {
   }
   return setTimeout(() => callback(), 1);
 }
+
+
+export function invariant(condition: boolean,
+message?: string ) {
+  if(condition){
+    return 
+  }
+
+  throw Error(message)
+
+
+}

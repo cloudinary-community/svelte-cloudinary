@@ -1,17 +1,26 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { env } from '$env/dynamic/public';
-	import { triggerOnIdle } from '$lib/util.ts';
-	import type { CldUploadWidgetPropsOptions } from './CldUploadWidgetTypes.ts';
-	import type { ResultsEvents, UploadWidget } from '../../types/cloudinary.ts';
+	// import { env } from '$env/dynamic/public';
+	import { triggerOnIdle, invariant } from '$lib/util.ts';
+	import type {
+		ResultsEvents,
+		UploadWidget,
+		CldUploadWidgetProps
+	} from './CldUploadWidgetTypes.ts';
 
-	export let uploadPreset: string | undefined;
-	export let signatureEndpoint: string | undefined;
-	export let onError: (error: any, widget?: UploadWidget) => void | undefined;
-	export let onUpload: (result: ResultsEvents, widget?: UploadWidget) => void | undefined;
-	export let options: CldUploadWidgetPropsOptions | undefined;
-	export let onOpen: (widget?: UploadWidget) => void | undefined;
-	export let onClose: (widget?: UploadWidget) => void | undefined;
+	type $$Props = CldUploadWidgetProps;
+
+	invariant(
+		!($$props.uploadPreset == undefined && $$props.signatureEndpoint == undefined),
+		'You need to pass at least of of the following props: `uploadPreset` or `signatureEndpoint`'
+	);
+	invariant(
+		!($$props.uploadPreset != undefined && $$props.signatureEndpoint != undefined),
+		'You can only pass one of the following props: `uploadPreset` or `signatureEndpoint`'
+	);
+	// destructure the props
+	$: ({ uploadPreset, signatureEndpoint, onError, onUpload, options, onOpen, onClose } =
+		$$props as $$Props);
 
 	// References
 	let cloudinary: typeof window.cloudinary;
@@ -25,9 +34,9 @@
 	let isLoading = true;
 
 	const uploadOptions = {
-		cloudName: env.PUBLIC_CLOUDINARY_CLOUD_NAME,
-		uploadPreset: uploadPreset || env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-		apiKey: env.PUBLIC_CLOUDINARY_API_KEY,
+		cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
+		uploadPreset: uploadPreset || import.meta.env.VITE_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+		apiKey: import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
 		...options
 	};
 
@@ -115,8 +124,8 @@
 		}
 	}
 
-	function onLoadingError(e) {
-		console.error(`Failed to load Cloudinary Upload Widget: ${e.message}`);
+	function onLoadingError() {
+		console.error(`Failed to load Cloudinary Upload Widget`);
 	}
 	// Side effects
 
@@ -140,8 +149,8 @@
 		}
 	}
 	onMount(() => {
-		handleOnLoad()
-	})
+		handleOnLoad();
+	});
 </script>
 
 <svelte:head>
@@ -152,8 +161,17 @@
 	></script>
 </svelte:head>
 
-{#if $$slots.default}
-	<slot />
-{:else}
-	<button on:click={open}>Upload</button>
-{/if}
+<!-- {#if $$slots.default} -->
+<!-- 	<slot /> -->
+<!-- {:else} -->
+<!-- 	<button on:click={open}>Upload</button> -->
+<!-- {/if} -->
+<slot {open} {widget} {cloudinary} {isLoading}/>
+
+<!-- USAGE
+
+<CldUploadWidget uploadPreset="preset" let:open>
+	<button on:click={open}>Upload Image</button>
+</CldUploadWidget>
+
+	-->
