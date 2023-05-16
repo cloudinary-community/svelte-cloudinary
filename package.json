@@ -1,7 +1,7 @@
 {
   "name": "svelte-cloudinary",
   "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "author": "Matias Hernandez <hola@matiashernandez.dev>",
   "license": "MIT",
   "private": true,
   "devDependencies": {

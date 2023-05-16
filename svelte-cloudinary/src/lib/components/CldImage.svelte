@@ -11,19 +11,23 @@
 			priority?: boolean;
 			background?: 'auto' | string;
 		};
+	import type { ImageOptions } from '@cloudinary-util/url-loader';
 </script>
 
 <script lang="ts">
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';
-
 	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
 
-	interface $$Props extends CldImageProps {}
-	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
+	/** 
+	* set the compomnent $$props to be of type CldImageProps 
+	*/
+	type $$Props = CldImageProps
 
+	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
+	
+	// reactively destructure the props
 	$: ({
 		alt,
 		src,
@@ -53,8 +57,8 @@
 		.filter((key) => !CLD_OPTIONS.includes(key))
 		// @ts-expect-error imageProps doesn't know the types of the keys
 		.forEach((key) => (imageProps[key] = $$props[key]));
-	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
 
+	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
 	const cldOptions = {};
 	CLD_OPTIONS.forEach((key) => {
 		if ($$props[key]) {
@@ -62,6 +66,7 @@
 			cldOptions[key] = $$props[key] || undefined;
 		}
 	});
+
 	// Try to preserve the original transformations from the Cloudinary URL passed in
 	// to the component. This only works if the URL has a version number on it and otherwise
 	// will fail to load
@@ -79,5 +84,4 @@
 	}
 	let newSrc = getCldImageUrl({ ...imageProps, ...cldOptions });
 </script>
-
 <Image src={newSrc} {width} {height} {alt} {layout} {background} {priority} />

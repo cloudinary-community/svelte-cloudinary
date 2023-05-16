@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	// import { env } from '$env/dynamic/public';
-	import { triggerOnIdle, invariant } from '$lib/util.ts';
+	import { triggerOnIdle, invariant } from '$lib/util.js';
 	import type {
 		ResultsEvents,
 		UploadWidget,

@@ -2,26 +2,7 @@
 	export let columns = 2;
 </script>
 
-<ul class="imageGrid" data-column-count={columns}>
+<ul data-column-count={columns} class="grid grid-cols-1 md:grid-cols-2 list-none p-0 mt-4 gap-3">
 	<slot />
 </ul>
 
-<style>
-	.imageGrid {
-		list-style: none;
-		padding: 0;
-		margin: 2em 0;
-		display: grid;
-		grid-gap: 3em;
-
-		&[data-column-count='2'] {
-			grid-template-columns: repeat(2, calc(50% - 1.5em));
-		}
-
-		&[data-column-count='2'] {
-			@media (max-width: 480px) {
-				grid-template-columns: 1fr;
-			}
-		}
-	}
-</style>

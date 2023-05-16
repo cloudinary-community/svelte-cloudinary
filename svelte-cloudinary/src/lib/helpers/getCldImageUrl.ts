@@ -5,7 +5,7 @@ import {
   SVELTE_CLOUDINARY_ANALYTICS_ID,
   SVELTE_CLOUDINARY_VERSION,
   SVELTE_VERSION
-} from '$lib/constants/analytics.ts';
+} from '$lib/constants/analytics.js';
 /**
  * getCldImage
  */
@@ -20,6 +20,12 @@ export interface GetCldImageUrl {
   analytics?: GetCldImageUrlAnalytics;
 }
 
+/**
+ * Generates the Cloudinary url for the assets  
+ * based on the configuration passed to the function  
+ * @returns string
+*/
+console.log(import.meta.env)
 export function getCldImageUrl(
   options: ImageOptions,
   config?: ConfigOptions,

@@ -1,6 +1,16 @@
 <script>
+	import { afterUpdate, onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import '../app.postcss';
+	/** @type {import('./$types').LayoutData} */
 	export let data;
+	const groups = data.components.reduce((acc, current) => {
+		if (acc[current.component] === undefined) {
+			acc[current.component] = [];
+		}
+		acc[current.component].push(current);
+		return acc;
+	}, {});
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-transparent">
@@ -15,19 +25,19 @@
 		>
 		<div class="flex flex-row justify-self-end">
 			<div class="relative md:w-64 hidden md:inline-block mx-min-w-[200px]">
-				<div class="relative flex flex-row items-center text-gray-300 contrast-more:text-gray-300">
-					<input
-						spellcheck="false"
-						class="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-gray-50/10 focus:bg-dark placeholder:text-gray-500 contrast-more:border contrast-more:border-current"
-						type="search"
-						placeholder="Search documentation…"
-						value=""
-					/>
-					<kbd
-						class="absolute my-1.5 select-none right-1.5 rtl:left-1.5 h-5 rounded px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100"
-						><span class="text-xs">⌘</span>K</kbd
-					>
-				</div>
+				<!-- <div class="relative flex flex-row items-center text-gray-300 contrast-more:text-gray-300"> -->
+				<!-- 	<input -->
+				<!-- 		spellcheck="false" -->
+				<!-- 		class="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-ase leading-tight md:text-sm bg-gray-50/10 focus:bg-dark placeholder:text-gray-500 contrast-more:border contrast-more:border-current" -->
+				<!-- 		type="search" -->
+				<!-- 		placeholder="Search documentation…" -->
+				<!-- 		value="" -->
+				<!-- 	/> -->
+				<!-- 	<kbd -->
+				<!-- 		class="absolute my-1.5 select-none right-1.5 rtl:left-1.5 h-5 rounded px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100" -->
+				<!-- 		><span class="text-xs">⌘</span>K</kbd -->
+				<!-- 	> -->
+				<!-- </div> -->
 			</div>
 			<a
 				href="https://github.com/colbyfayock/next-cloudinary"
@@ -73,15 +83,44 @@
 				<div
 					class="transition-opacity duration-500 ease-in-out motion-reduce:transition-none opacity-100"
 				>
-					<ul class="flex flex-col gap-1 md:flex">
-						{#each data.articles as article}
-							<li class="flex flex-col gap-1 active">
-								<a href={article.slug}>
+					<ul class="">
+						{#each data.base as article}
+							<li class="flex flex-col gap-1 h-12 hover:bg-gray-800/80 justify-center px-2 rounded">
+								<a
+									href={article.slug}
+									class="text-gray-500 hover:text-gray-50 text-sm transition-colors"
+								>
 									{article.title}
 								</a>
 							</li>
 						{/each}
 					</ul>
+					<div class="collapse collapse-arrow text-sm text-gray-500 rounded px-2 min-h-12">
+						<input type="checkbox" />
+						<div class="collapse-title p-0 m-0 section-title hover:text-gray-50">Components</div>
+						<ul class="collapse-content">
+							{#each Object.keys(groups) as group}
+								<li class="collapse collapse-arrow">
+									<input type="checkbox" />
+									<div class="collapse-title p-0 m-0 section-title">{group}</div>
+									<ul class="flex flex-col gap-1 md:flex collapse-content">
+										{#each groups[group] as item}
+											<li
+												class="flex flex-col gap-1 h-12 hover:bg-gray-800/80 justify-center px-2 rounded"
+											>
+												<a
+													href={item.slug}
+													class="text-gray-500 hover:text-gray-50 text-sm transition-colors"
+												>
+													{item.title}
+												</a>
+											</li>
+										{/each}
+									</ul>
+								</li>
+							{/each}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -93,17 +132,17 @@
 			<div
 				class="sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400"
 			>
-				<a
-					href="https://github.com/colbyfayock/next-cloudinary/issues/new?title=Feedback%20for%20%E2%80%9CNext%20Cloudinary%E2%80%9D&amp;labels=feedback"
-					target="_blank"
-					rel="noreferrer"
-					class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50"
-					>Question? Give us feedback →</a
-				><a
-					class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50"
-					href="https://github.com/colbyfayock/next-cloudinary/tree/main/docs/pages/index.mdx"
-					>Edit this page on GitHub</a
-				>
+				<!-- <a -->
+				<!-- 	href="https://github.com/colbyfayock/next-cloudinary/issues/new?title=Feedback%20for%20%E2%80%9CNext%20Cloudinary%E2%80%9D&amp;labels=feedback" -->
+				<!-- 	target="_blank" -->
+				<!-- 	rel="noreferrer" -->
+				<!-- 	class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50" -->
+				<!-- 	>Question? Give us feedback →</a -->
+				<!-- ><a -->
+				<!-- 	class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50" -->
+				<!-- 	href="https://github.com/colbyfayock/next-cloudinary/tree/main/docs/pages/index.mdx" -->
+				<!-- 	>Edit this page on GitHub</a -->
+				<!-- > -->
 			</div>
 		</div>
 	</div>
@@ -123,3 +162,13 @@
 		MIT 2023 ©
 	</div>
 </footer>
+
+<style>
+	.section-title {
+		margin-top: 10px;
+		min-height: 1.75rem;
+	}
+	.section-title::after {
+		top: 25%;
+	}
+</style>

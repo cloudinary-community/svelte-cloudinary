@@ -1,6 +1,7 @@
 {
 	"name": "svelte-cloudinary",
 	"version": "0.0.1",
+	"license":"MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -17,7 +18,8 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
-		}
+		},
+		".package.json":"./package.json"
 	},
 	"files": [
 		"dist",

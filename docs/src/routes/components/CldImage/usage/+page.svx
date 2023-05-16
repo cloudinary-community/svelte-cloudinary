@@ -1,5 +1,6 @@
 ---
-title: Basic Usage 
+title: CldImage/Basic Usage 
+order: 1
 --- 
 <script> 
     import Callout from '$lib/components/Callout.svelte'
@@ -34,7 +35,13 @@ The basic required props include width, height, src, and alt:
 
 The sizes prop is optional, but recommended for [Responsive Sizing.](https://next-cloudinary.spacejelly.dev/guides/responsive-images)
 
-HERE IS AN IMAGE
+<CldImage
+  width="960"
+  height="600"
+  src="cld-sample-4"
+  sizes="100vw"
+  alt="Description of my image"
+/>
 
 The `src` property takes in a Cloudinary Public ID which includes the folder path along with the ID of the image itself.
 
@@ -48,14 +55,21 @@ You can further take advantage of Cloudinary features like background removal an
   height="1200"
   src="<Public ID>"
   crop="thumb"
-  removeBackground
   tint="70:blue:green:purple"
-  underlay="<Public ID>"
   sizes="100vw"
   alt="Description of my image"
 />
 ```
-HERE IT GOES ANOTHER IMAGE
+
+<CldImage
+  width="1200"
+  height="1200"
+  src="cld-sample-4"
+  crop="thumb"
+  tint="70:blue:green:purple"
+  sizes="100vw"
+  alt="Description of my image"
+/>
 
 ## Using Cloudinary URLs 
 

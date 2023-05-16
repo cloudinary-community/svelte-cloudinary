@@ -1,4 +1,6 @@
 /* Write your global styles here, in PostCSS syntax */
+
+@tailwind base;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,12 +18,16 @@
 	p {
 		margin-bottom: 1.5rem;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    }
+	p:last-child {
+        margin-bottom: 0;
+    }
 
 	pre {
 		display: grid;
 	}
 }
+
+@tailwind components;
+
+@tailwind utilities;
