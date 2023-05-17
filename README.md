@@ -55,7 +55,7 @@ VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
 
 ```svelte
 <script>
-	import { CldImage } from 'svelte-cloudinary';
+import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage width="600" height="600" src="<Public ID or Cloudinary URL>" alt="<Alt Text>" />
