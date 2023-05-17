@@ -1,11 +1,13 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/62209650/196528621-b68e9e10-7e55-4c7d-9177-904cadbb4296.png" align="center" height=50>
   <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/62209650/196528761-a815025a-271a-4d8e-ac7e-cea833728bf9.png" align="center" height=50>
-  <img alt="Cloudinary" src="https://user-images.githubusercontent.com/62209650/196528761-a815025a-271a-4d8e-ac7e-cea833728bf9.png" align="center" height=30>
+  <img alt="Cloudinary" src="https://user-images.githubusercontent.com/62209650/196528761-a815025a-271a-4d8e-ac7e-cea833728bf9.png" align="center" height=50>
 </picture>
 &ensp;&ensp;
 <picture style="padding: 30px">
- <img src="https://kit.svelte.dev/_app/immutable/assets/svelte-kit-machine.3af040cb.png" alt="SvelteKit illustration" align="center" height=30>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/1045274/239017547-730820e4-ac7a-453e-b382-f89e4ce6d934.png" align="center" height=50>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/1045274/239017537-12fda7f7-5625-4b86-8363-25cc1204b375.png" align="center" height=50>
+  <img alt="Svelte" src="https://github-production-user-asset-6210df.s3.amazonaws.com/1045274/239017537-12fda7f7-5625-4b86-8363-25cc1204b375.png" align="center" height=50>
 </picture>
 
 ######
