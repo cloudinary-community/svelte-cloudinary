@@ -46,7 +46,7 @@ export function getCldImageUrl(
         sdkCode: SVELTE_CLOUDINARY_ANALYTICS_ID,
         sdkSemver: SVELTE_CLOUDINARY_VERSION,
         techVersion: SVELTE_VERSION,
-        feature: ''
+        product: 'B'
       },
       analytics
     )
