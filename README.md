@@ -152,7 +152,11 @@ While inside `svelte-cloudinary`, run tests with:
 pnpm test:unit
 ```
 
-### Contributors
+## Acknowledgement
+
+Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the original [svelte-cloudinary](https://github.com/cupcakearmy/svelte-cloudinary) to allow us to continue on the work for the Svelte community!
+
+## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
