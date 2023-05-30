@@ -40,7 +40,7 @@
 				<!-- </div> -->
 			</div>
 			<a
-				href="https://github.com/colbyfayock/next-cloudinary"
+				href="https://github.com/cloudinary-community/svelte-cloudinary"
 				target="_blank"
 				rel="noreferrer"
 				class="p-2 text-current"

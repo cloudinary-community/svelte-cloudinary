@@ -1,7 +1,7 @@
 ---
-title: CldImage/Examples 
+title: CldImage/Examples
 order: 3
---- 
+---
 <script>
 import ImageGrid from '$lib/components/ImageGrid.svelte';
 import Callout from '$lib/components/Callout.svelte'
@@ -10,8 +10,8 @@ import { CldImage } from 'svelte-cloudinary'
 
 
 <svelte:head>
-  <title>CldImage Examples - Next Cloudinary</title>
-  <meta name="og:title" content="CldImage Examples - Next Cloudinary" />
+  <title>CldImage Examples - Svelte Cloudinary</title>
+  <meta name="og:title" content="CldImage Examples - Svelte Cloudinary" />
   <meta name="og:url" content={`https://next-cloudinary.spacejelly.dev/components/cldimage/examples`} />
 </svelte:head>
 
@@ -588,7 +588,7 @@ overlays={[{
 </li>
 </ImageGrid>
 
-## Next Image Features
+## Svelte Image Features
 
 <ImageGrid>
 <li>
