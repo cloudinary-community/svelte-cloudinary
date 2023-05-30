@@ -25,7 +25,6 @@ export interface GetCldImageUrl {
  * based on the configuration passed to the function  
  * @returns string
 */
-console.log(import.meta.env)
 export function getCldImageUrl(
   options: ImageOptions,
   config?: ConfigOptions,

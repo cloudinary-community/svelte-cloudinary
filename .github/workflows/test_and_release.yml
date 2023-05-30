@@ -40,8 +40,12 @@ jobs:
           version: 7
       - name: Install dependencies
         run: pnpm install
+        working-directory: ./svelte-cloudinary
+      - name: Build package
+        run: pnpm package
+        working-directory: ./svelte-cloudinary
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release --branches main
+        run: npx semantic-release
