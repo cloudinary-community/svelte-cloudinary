@@ -40,11 +40,7 @@ High-performance image delivery and uploading at scale in Svelte powered by Clou
 - Install `svelte-cloudinary` with:
 
 ```bash
-yarn add svelte-cloudinary
-# or
 npm install svelte-cloudinary
-# or
-pnpm install svelte-cloudinary
 ```
 
 - Add an environment variable with your Cloud Name:
