@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2023-05-30)
+
+
+### Features
+
+* test ([4be583a](https://github.com/cloudinary-community/svelte-cloudinary/commit/4be583a4dc8be8cf74fe299b1b4ed3b44bdd13c3))
+
 # [1.0.0-beta.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2023-05-30)
 
 
