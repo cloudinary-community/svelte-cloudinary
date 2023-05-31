@@ -50,7 +50,8 @@
       {
         "assets": [
           "svelte-cloudinary/package.json",
-          "CHANGELOG.md"
+          "CHANGELOG.md",
+          "README.md"
         ]
       }
     ],
