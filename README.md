@@ -12,7 +12,12 @@
 
 ######
 
-<a href="https://github.com/cloudinary-community/svelte-cloudinary/actions/workflows/test_and_release.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/cloudinary-community/svelte-cloudinary/test_and_release.yml?branch=main&label=Test%20%26%20Release&style=flat-square"></a> <a href="https://www.npmjs.com/package/svelte-cloudinary"><img alt="npm" src="https://img.shields.io/npm/v/svelte-cloudinary?style=flat-square"></a> <a href="https://github.com/cloudinary-community/svelte-cloudinary/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/cloudinary-community/svelte-cloudinary?label=License&style=flat-square"></a>
+<a href="https://github.com/cloudinary-community/svelte-cloudinary/actions/workflows/test_and_release.yml">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/cloudinary-community/svelte-cloudinary/test_and_release.yml?branch=beta&label=Test%20%26%20Release&style=flat-square"></a>
+
+<a href="https://www.npmjs.com/package/svelte-cloudinary"><img alt="npm" src="https://img.shields.io/npm/v/svelte-cloudinary?style=flat-square"></a>
+
+<a href="https://github.com/cloudinary-community/svelte-cloudinary/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/cloudinary-community/svelte-cloudinary?label=License&style=flat-square"></a>
 
 # Svelte Cloudinary
 
