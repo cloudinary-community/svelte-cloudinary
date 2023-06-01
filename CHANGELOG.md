@@ -1,3 +1,10 @@
+# [1.0.0-beta.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2023-06-01)
+
+
+### Bug Fixes
+
+* improve docs site, use a light theme as default ([baec45e](https://github.com/cloudinary-community/svelte-cloudinary/commit/baec45e334baf93df1a83a1e9e5651e6fba949d6))
+
 # 1.0.0-beta.1 (2023-06-01)
 
 
