@@ -86,3 +86,13 @@ To preserve those transformations, you can apply the `preserveTransformations` p
   alt="Description of my image"
 />
 ```
+
+
+<br />
+<br />
+<br />
+
+# Learn More about CldImage
+---
+- [Configuration](/components/CldImage/configuration)
+- [Examples](/components/CldImage/examples)

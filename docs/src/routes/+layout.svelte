@@ -1,6 +1,4 @@
 <script>
-	import { afterUpdate, onMount } from 'svelte';
-	import { page } from '$app/stores';
 	import '../app.postcss';
 	/** @type {import('./$types').LayoutData} */
 	export let data;
@@ -25,19 +23,6 @@
 		>
 		<div class="flex flex-row justify-self-end">
 			<div class="relative md:w-64 hidden md:inline-block mx-min-w-[200px]">
-				<!-- <div class="relative flex flex-row items-center text-gray-300 contrast-more:text-gray-300"> -->
-				<!-- 	<input -->
-				<!-- 		spellcheck="false" -->
-				<!-- 		class="block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-ase leading-tight md:text-sm bg-gray-50/10 focus:bg-dark placeholder:text-gray-500 contrast-more:border contrast-more:border-current" -->
-				<!-- 		type="search" -->
-				<!-- 		placeholder="Search documentation…" -->
-				<!-- 		value="" -->
-				<!-- 	/> -->
-				<!-- 	<kbd -->
-				<!-- 		class="absolute my-1.5 select-none right-1.5 rtl:left-1.5 h-5 rounded px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 pointer-events-none hidden sm:flex opacity-100" -->
-				<!-- 		><span class="text-xs">⌘</span>K</kbd -->
-				<!-- 	> -->
-				<!-- </div> -->
 			</div>
 			<a
 				href="https://github.com/cloudinary-community/svelte-cloudinary"
@@ -85,10 +70,10 @@
 				>
 					<ul class="">
 						{#each data.base as article}
-							<li class="flex flex-col gap-1 h-12 hover:bg-gray-800/80 justify-center px-2 rounded">
+							<li class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded">
 								<a
 									href={article.slug}
-									class="text-gray-500 hover:text-gray-50 text-sm transition-colors"
+									class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
 								>
 									{article.title}
 								</a>
@@ -97,20 +82,20 @@
 					</ul>
 					<div class="collapse collapse-arrow text-sm text-gray-500 rounded px-2 min-h-12">
 						<input type="checkbox" />
-						<div class="collapse-title p-0 m-0 section-title hover:text-gray-50">Components</div>
+						<div class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80">Components</div>
 						<ul class="collapse-content">
 							{#each Object.keys(groups) as group}
 								<li class="collapse collapse-arrow">
 									<input type="checkbox" />
-									<div class="collapse-title p-0 m-0 section-title">{group}</div>
+									<div class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80">{group}</div>
 									<ul class="flex flex-col gap-1 md:flex collapse-content">
 										{#each groups[group] as item}
 											<li
-												class="flex flex-col gap-1 h-12 hover:bg-gray-800/80 justify-center px-2 rounded"
+												class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
 											>
 												<a
 													href={item.slug}
-													class="text-gray-500 hover:text-gray-50 text-sm transition-colors"
+													class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
 												>
 													{item.title}
 												</a>
@@ -130,7 +115,7 @@
 			class="scrollbar sticky top-16 overflow-y-auto pr-4 pt-8 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"
 		>
 			<div
-				class="sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400"
+				class="sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-400 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400"
 			>
 				<!-- <a -->
 				<!-- 	href="https://github.com/colbyfayock/next-cloudinary/issues/new?title=Feedback%20for%20%E2%80%9CNext%20Cloudinary%E2%80%9D&amp;labels=feedback" -->
@@ -154,8 +139,8 @@
 		</main>
 	</article>
 </main>
-<footer class="pb-[env(safe-area-inset-bottom)] bg-neutral-900">
-	<hr class="dark:border-neutral-800" />
+<footer class="pb-[env(safe-area-inset-bottom)] bg-neutral-100">
+	<hr class="dark:border-neutral-400" />
 	<div
 		class="mx-auto flex max-w-[90rem] justify-center py-12 text-gray-400 md:justify-start pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]"
 	>
