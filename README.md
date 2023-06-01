@@ -23,7 +23,7 @@
 
 High-performance image delivery and uploading at scale in Svelte powered by Cloudinary.
 
-<a href="#-features">Features</a> • <a href="#-getting-started">Getting Started</a> • <a href="#%EF%B8%8F-community--support">Community & Support</a> • <a href="#-contributing">Contributing</a>
+<a href="#-features">Features</a> • <a href="#-getting-started">Getting Started</a> • <a href="#-community--support">Community & Support</a> • <a href="#-contributing">Contributing</a>
 
 **This plugin is a community library and not officially supported by Cloudinary.**
 
