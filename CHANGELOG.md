@@ -1,3 +1,10 @@
+# [1.0.0-beta.4](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2023-06-08)
+
+
+### Features
+
+* pnpm > npm release ([83d2309](https://github.com/cloudinary-community/svelte-cloudinary/commit/83d23092ac4d7516280ee5caf79f3e2042124647))
+
 # [1.0.0-beta.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2023-06-08)
 
 
