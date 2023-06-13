@@ -1,17 +1,15 @@
 <script lang="ts" context="module">
-	export type CldImageProps = ImageOptions &
-		Omit<HTMLImageElement, 'srcset' | 'height' | 'width'> & {
-			src: string;
-			width: string;
-			height: string;
-			alt: string;
-			preserverTransformations?: boolean;
-			// From Unpic
-			layout?: 'constrained' | 'fullWidth' | 'fixed';
-			priority?: boolean;
-			background?: 'auto' | string;
-		};
+	// This types still comes wrong
+	// import type { ImageProps } from '@unpic/svelte'
+	// But this is the same used by the @unpic/svelte package
+	import type { UnpicImageProps } from '@unpic/core';
+	import type { HTMLImgAttributes } from 'svelte/elements';
+	type ImageProps = UnpicImageProps<HTMLImgAttributes, string | null>;
 	import type { ImageOptions } from '@cloudinary-util/url-loader';
+	export type CldImageProps = ImageOptions &
+		ImageProps & {
+			layout: ImageProps['layout'];
+		};
 </script>
 
 <script lang="ts">
@@ -20,23 +18,15 @@
 	import { Image } from '@unpic/svelte';
 	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
 
-	/** 
-	* set the compomnent $$props to be of type CldImageProps 
-	*/
-	type $$Props = CldImageProps
+	/**
+	 * set the compomnent $$props to be of type CldImageProps
+	 */
+	type $$Props = CldImageProps;
 
 	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
-	
+
 	// reactively destructure the props
-	$: ({
-		alt,
-		src,
-		width,
-		height,
-		layout = 'constrained',
-		priority = false,
-		background = 'auto'
-	} = $$props as $$Props);
+	$: ({ alt, src, width, height } = $$props as $$Props);
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -82,6 +72,10 @@
 			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
 		}
 	}
-	let newSrc = getCldImageUrl({ ...imageProps, ...cldOptions });
 </script>
-<Image src={newSrc} {width} {height} {alt} {layout} {background} {priority} />
+
+<Image
+	{...$$props}
+	{...imageProps}
+	transformer={() => getCldImageUrl({ ...imageProps, ...cldOptions })}
+/>

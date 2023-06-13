@@ -1,5 +1,5 @@
 ---
-title: Getting Started 
+title: Getting Started
 order: 1
 ---
 
@@ -9,17 +9,17 @@ order: 1
 </script>
 
 
-# Svelte Cloudinary 
+# Svelte Cloudinary
 
 High-performance image delivery and uploading at scale in Svelte/SvelteKit powered by
-Cloudinary. 
+Cloudinary.
 * Automatically optimize images and deliver in modern formats * Remove backgrounds from
-images 
-* Dynamically add image and text overlays to images 
-* AI-based cropping and resizing 
-* Transform images using color and effects 
-* Generate Open Graph Social Media cards on the fly 
-* Drop-in Upload Widget 
+images
+* Dynamically add image and text overlays to images
+* AI-based cropping and resizing
+* Transform images using color and effects
+* Generate Open Graph Social Media cards on the fly
+* Drop-in Upload Widget
 * ...all at scale with Cloudinary
 <ImageGrid>
 	<li>
@@ -38,7 +38,9 @@ images
       sizes="50vw"
       crop="thumb"
       gravity="faces"
-      tint="40:253f8c"
+      removeBackground
+  tint="40:253f8c"
+  underlay="images/city-skyline"
       overlays={[
         {
           position: {
