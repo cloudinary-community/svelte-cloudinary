@@ -1,3 +1,10 @@
+# [1.0.0-beta.5](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2023-06-14)
+
+
+### Bug Fixes
+
+* fix issues on beta for CldImage ([#15](https://github.com/cloudinary-community/svelte-cloudinary/issues/15)) ([3c2fdec](https://github.com/cloudinary-community/svelte-cloudinary/commit/3c2fdec1a8e6b74b51def7ed21ff21a4a91b723e)), closes [#11](https://github.com/cloudinary-community/svelte-cloudinary/issues/11) [#13](https://github.com/cloudinary-community/svelte-cloudinary/issues/13) [#12](https://github.com/cloudinary-community/svelte-cloudinary/issues/12) [#10](https://github.com/cloudinary-community/svelte-cloudinary/issues/10)
+
 # [1.0.0-beta.4](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2023-06-08)
 
 
