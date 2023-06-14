@@ -21,7 +21,7 @@ As CldImage is a wrapper around the Svelte Image component, you also gain access
 The basic required props include width, height, src, and alt:
 
 ```js
-    import { CldImage } from 'next-cloudinary';
+    import { CldImage } from 'svelte-cloudinary';
 
     <CldImage
       width="960"

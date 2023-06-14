@@ -113,9 +113,12 @@ importers:
       '@cloudinary-util/util':
         specifier: 2.0.1
         version: 2.0.1
+      '@unpic/core':
+        specifier: 0.0.24
+        version: 0.0.24
       '@unpic/svelte':
-        specifier: 0.0.22
-        version: 0.0.22(svelte@3.58.0)
+        specifier: 0.0.25
+        version: 0.0.25(svelte@3.58.0)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^2.0.0
@@ -1279,20 +1282,21 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@unpic/core@0.0.22:
-    resolution: {integrity: sha512-62usKKKwU67TW8v4qT9lcbB6nanuj+3uhfduZ7dW4l4k6ovbrVkXcMPVSPwuwsmah9k0ddSOsL3QIc+9Di7SIQ==}
+  /@unpic/core@0.0.24:
+    resolution: {integrity: sha512-HFa7ry3iNYfIOkaWGb0N/w1sxt6MAyUfoXXOvjyz50vtomDUbxK4krcRcQWIca64bORQKncxeJbGETRQLF20WQ==}
     dependencies:
-      unpic: 3.5.0
+      unpic: 3.6.1
     dev: false
 
-  /@unpic/svelte@0.0.22(svelte@3.58.0):
-    resolution: {integrity: sha512-cGUcuQnPC9/A8D/BLmF/LQQPcrwqSaWo6P896oP97t8GhRDiatidoTKnO5ixwvurl/EO/2ziYaqla5+JPMVx3A==}
+  /@unpic/svelte@0.0.25(svelte@3.58.0):
+    resolution: {integrity: sha512-jXyOl9BDfspJ03/kAeozy69eHjLtKIZjsZ4257mz8J/sn5Il3xsRD4vR701NjEC0fkkLQg9Xol+v92o0LGImtw==}
     peerDependencies:
       svelte: '*'
     dependencies:
-      '@unpic/core': 0.0.22
+      '@unpic/core': 0.0.24
       style-object-to-css-string: 1.0.1
       svelte: 3.58.0
+      unpic: 3.6.1
     dev: false
 
   /JSONStream@1.3.5:
@@ -6344,8 +6348,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unpic@3.5.0:
-    resolution: {integrity: sha512-5e9p4E5MElX/pfrilIr+Be/9VGBiroCdLBxUSHGjRq/KUJBCHhPHxfZ2e+2b5YQ+7euqlYNqz02zimnGO51Bew==}
+  /unpic@3.6.1:
+    resolution: {integrity: sha512-4/ZAW3vXkvU2tpyuuAaIrlg58rh55EfzCFDJCxaaua/Ru8Q5f3bABjh5KQtQqRULzV6OaT05PF2pB6h1by98sg==}
     dev: false
 
   /unpipe@1.0.0:

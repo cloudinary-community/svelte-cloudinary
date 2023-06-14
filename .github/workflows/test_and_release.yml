@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '16', '18' ]
+        node: ['18' ]
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2
@@ -34,22 +34,22 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7
-          
+
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'pnpm'
           # https://github.com/pnpm/pnpm/issues/3141
           registry-url: 'https://registry.npmjs.org'
-          
+
       - name: Install dependencies
         run: pnpm install
         working-directory: ./svelte-cloudinary
-        
+
       - name: Build package
         run: pnpm package
         working-directory: ./svelte-cloudinary
-        
+
       - name: Release
         run: npx semantic-release
         env:
