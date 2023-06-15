@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CldImageProps } from '../CldImageProps.ts'
+	import type { CldImageProps } from './CldImageTypes.ts'
 	// This unused import is a hack to get around a bug in svelte2tsx
 	import type { UrlTransformer, ImageCdn } from "unpic";
 	import type { ImageOptions } from '@cloudinary-util/url-loader';
