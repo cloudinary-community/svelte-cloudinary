@@ -1,3 +1,10 @@
+# [1.0.0-beta.8](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2023-06-15)
+
+
+### Bug Fixes
+
+* copying README to project directory ([#18](https://github.com/cloudinary-community/svelte-cloudinary/issues/18)) ([66d0d18](https://github.com/cloudinary-community/svelte-cloudinary/commit/66d0d18a3a453508caf76cd2a897a278b8f67958))
+
 # [1.0.0-beta.7](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2023-06-15)
 
 
