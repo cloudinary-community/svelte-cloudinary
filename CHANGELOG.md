@@ -1,3 +1,10 @@
+# [1.0.0-beta.6](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2023-06-15)
+
+
+### Bug Fixes
+
+* patch update, fix package.json import ([6a42d6d](https://github.com/cloudinary-community/svelte-cloudinary/commit/6a42d6d995da9c131ca966ef5433856b3977a9b7))
+
 # [1.0.0-beta.5](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2023-06-14)
 
 
