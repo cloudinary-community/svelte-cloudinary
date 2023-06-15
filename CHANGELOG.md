@@ -1,3 +1,10 @@
+# [1.0.0-beta.7](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2023-06-15)
+
+
+### Bug Fixes
+
+* patch update, copy README and LICENSE on build ([6bf3f65](https://github.com/cloudinary-community/svelte-cloudinary/commit/6bf3f659210028140701338cb2392beb141d8712))
+
 # [1.0.0-beta.6](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2023-06-15)
 
 
