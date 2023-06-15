@@ -175,5 +175,3 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-4
