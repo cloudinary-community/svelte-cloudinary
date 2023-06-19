@@ -1,18 +1,8 @@
-<script lang="ts" context="module">
-	// This types still comes wrong
-	// import type { ImageProps } from '@unpic/svelte'
-	// But this is the same used by the @unpic/svelte package
-	import type { UnpicImageProps } from '@unpic/core';
-	import type { HTMLImgAttributes } from 'svelte/elements';
-	type ImageProps = UnpicImageProps<HTMLImgAttributes, string | null>;
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
-	export type CldImageProps = ImageOptions &
-		ImageProps & {
-			layout: ImageProps['layout'];
-		};
-</script>
-
 <script lang="ts">
+	import type { CldImageProps } from './CldImageTypes.ts'
+	// This unused import is a hack to get around a bug in svelte2tsx
+	import type { UrlTransformer, ImageCdn } from "unpic";
+	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';

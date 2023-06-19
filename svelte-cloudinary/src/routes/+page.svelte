@@ -3,8 +3,8 @@
 </script>
 
 <CldImage
-	width="1200"
-	height="1200"
+	width={1200}
+	height={1200}
 	src="images/woman-headphones"
 	crop="thumb"
 	removeBackground
@@ -20,7 +20,6 @@
 	src="images/woman-headphones"
 	sizes="50vw"
 	crop="thumb"
-	layout="constrained"
 	tint="40:253f8c"
 	gravity="faces"
 	underlay="images/city-skyline"
