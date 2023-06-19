@@ -1,3 +1,11 @@
+# [1.0.0-beta.9](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2023-06-19)
+
+
+### Bug Fixes
+
+* patch update, fix ts import not recognized ([0359711](https://github.com/cloudinary-community/svelte-cloudinary/commit/0359711c95786d8e4031777114513f3aa37beb3c))
+* patch update, generate CldImageProps.svelte.d.ts ([2d58ca0](https://github.com/cloudinary-community/svelte-cloudinary/commit/2d58ca034bd897d565549a80a42d2a9ccefe7f78))
+
 # [1.0.0-beta.8](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2023-06-15)
 
 
