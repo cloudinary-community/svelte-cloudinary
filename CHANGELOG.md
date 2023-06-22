@@ -1,3 +1,13 @@
+# [1.0.0-beta.10](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2023-06-22)
+
+
+### Bug Fixes
+
+* patch update, fix importing lib version when building and packaging ([0152f38](https://github.com/cloudinary-community/svelte-cloudinary/commit/0152f384a14e872a920034b3e8584ea5366eb62b))
+* patch update, fix importing lib version when building and packaging ([169366c](https://github.com/cloudinary-community/svelte-cloudinary/commit/169366ceeec85c89669efa657e5103324fa74198))
+* patch update, generate metadata as json file on dev/build/packaging ([f62a855](https://github.com/cloudinary-community/svelte-cloudinary/commit/f62a855378e228ede51104289afd839ad026df10))
+* patch update, generate metadata as json file on dev/build/packaging ([1847cbb](https://github.com/cloudinary-community/svelte-cloudinary/commit/1847cbb70f835597f270fd01939ac78fa26278fa))
+
 # [1.0.0-beta.9](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2023-06-19)
 
 
