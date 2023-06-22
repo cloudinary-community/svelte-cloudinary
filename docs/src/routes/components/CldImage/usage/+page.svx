@@ -23,23 +23,24 @@ The basic required props include width, height, src, and alt:
     import { CldImage } from 'svelte-cloudinary';
 
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       src="<Public ID>"
-      sizes="100vw"
       alt="Description of my image"
+      sizes="100vw"
     />
 ```
 
 
 The sizes prop is optional.
+    <CldImage
+      width={960}
+      height={600}
+      src={`images/turtle`}
+      sizes="100vw"
+    />
 
-<CldImage
-  width="960"
-  height="600"
-  src="cld-sample-4"
-  alt="Description of my image"
-/>
+
 
 The `src` property takes in a Cloudinary Public ID which includes the folder path along with the ID of the image itself.
 
@@ -49,8 +50,8 @@ You can further take advantage of Cloudinary features like background removal an
 
 ```js
 <CldImage
-  width="1200"
-  height="1200"
+  width={1200}
+  height={1200}
   src="<Public ID>"
   crop="thumb"
   tint="70:blue:green:purple"
@@ -59,9 +60,9 @@ You can further take advantage of Cloudinary features like background removal an
 ```
 
 <CldImage
-  width="1200"
-  height="1200"
-  src="cld-sample-4"
+  width={1200}
+  height={1200}
+  src="images/turtle"
   crop="thumb"
   tint="70:blue:green:purple"
   alt="Description of my image"
@@ -75,8 +76,8 @@ To preserve those transformations, you can apply the `preserveTransformations` p
 
 ```js
 <CldImage
-  width="600"
-  height="600"
+  width={600}
+  height={600}
   src="<Cloudinary URL>"
   preserveTransformations
   alt="Description of my image"
