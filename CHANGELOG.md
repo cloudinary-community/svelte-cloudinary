@@ -1,3 +1,11 @@
+# [1.0.0-beta.11](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2023-06-22)
+
+
+### Bug Fixes
+
+* patch update, upgrade to svelte 4, fix analytics ([18ade13](https://github.com/cloudinary-community/svelte-cloudinary/commit/18ade13c6f7b4b1963c83a8de4f0cf4562a49faf))
+* patch update, upgrade to svelte 4, fix analytics ([6d697e1](https://github.com/cloudinary-community/svelte-cloudinary/commit/6d697e19e1d597ef1c6c73a3160cfb4b01d7da6b))
+
 # [1.0.0-beta.10](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2023-06-22)
 
 
