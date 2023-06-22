@@ -6,7 +6,7 @@ order: 2
 <svelte:head>
   <title>CldImage Configuration - SvelteKit Cloudinary</title>
   <meta name="og:title" content="CldImage Configuration - SvelteKit Cloudinary" />
-  <meta name="og:url" content={`https://svelte-cloudinary.spacejelly.dev/components/cldimage/configuration`} />
+  <meta name="og:url" content={`https://svelte-cloudinary.vercel.app/components/cldimage/configuration`} />
 </svelte:head>
 
 

@@ -64,15 +64,7 @@ import { CldImage } from 'svelte-cloudinary';
 <CldImage width="600" height="600" src="<Public ID or Cloudinary URL>" alt="<Alt Text>" />
 ```
 
-[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.spacejelly.dev/components/cldimage/basic-usage)
-
-### Other Use Cases
-
-- [Background Removal](https://svelte-cloudinary.spacejelly.dev/use-cases/background-removal)
-- [Image Overlays](https://svelte-cloudinary.spacejelly.dev/use-cases/image-overlays)
-- [Image Underlays](https://svelte-cloudinary.spacejelly.dev/use-cases/image-underlays)
-- [Social Media Card](https://svelte-cloudinary.spacejelly.dev/use-cases/social-media-card)
-- [Text Overlays](https://svelte-cloudinary.spacejelly.dev/use-cases/text-overlays)
+[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
 
 ## ❤️ Community & Support
 

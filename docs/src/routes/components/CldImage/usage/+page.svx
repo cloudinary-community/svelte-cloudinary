@@ -13,7 +13,6 @@ The CldImage component provides an easy way to deliver images from Cloudinary wi
 
 With it comes access to more advanced features like dynamic cropping, background removal, overlays, and other Cloudinary transformations.
 
-As CldImage is a wrapper around the Svelte Image component, you also gain access to all built-in Image component features will work out-of-the-box like [Responsive Sizing](https://next-cloudinary.spacejelly.dev/guides/responsive-images).
 
 
 ## Basic Usage
@@ -33,7 +32,7 @@ The basic required props include width, height, src, and alt:
 ```
 
 
-The sizes prop is optional, but recommended for [Responsive Sizing.](https://next-cloudinary.spacejelly.dev/guides/responsive-images)
+The sizes prop is optional.
 
 <CldImage
   width="960"

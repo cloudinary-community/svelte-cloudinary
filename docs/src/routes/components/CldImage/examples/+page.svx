@@ -12,7 +12,7 @@ import { CldImage } from 'svelte-cloudinary'
 <svelte:head>
   <title>CldImage Examples - Svelte Cloudinary</title>
   <meta name="og:title" content="CldImage Examples - Svelte Cloudinary" />
-  <meta name="og:url" content={`https://next-cloudinary.spacejelly.dev/components/cldimage/examples`} />
+  <meta name="og:url" content={`https://next-cloudinary.vercel.app/components/cldimage/examples`} />
 </svelte:head>
 
 
@@ -23,8 +23,8 @@ import { CldImage } from 'svelte-cloudinary'
 <ImageGrid>
 <li>
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       src={`images/turtle`}
       sizes="(max-width: 480px) 100vw, 50vw"
       removeBackground
@@ -43,8 +43,8 @@ Background removal requires the <a href="https://cloudinary.com/documentation/cl
   </li>
   <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   zoompan="loop"
@@ -59,8 +59,8 @@ zoompan="loop"
   </li>
   <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   blur="1200"
@@ -75,8 +75,8 @@ blur="1200"
   </li>
   <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   pixelate
@@ -91,8 +91,8 @@ pixelate
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   grayscale
@@ -107,8 +107,8 @@ grayscale
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   tint="equalize:80:blue:blueviolet"
@@ -123,8 +123,8 @@ tint="equalize:80:blue:blueviolet"
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   opacity="50"
   alt=""
@@ -138,8 +138,8 @@ opacity="50"
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   shear="40:0"
   alt=""
@@ -153,8 +153,8 @@ shear="40:0"
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   border="40px_solid_purple"
   alt=""
@@ -168,8 +168,8 @@ border="40px_solid_purple"
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   background="blue"
   removeBackground
@@ -185,8 +185,8 @@ background="blue"
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   trim
   alt=""
@@ -200,8 +200,8 @@ trim
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src={`images/turtle`}
   effects={[
     {
@@ -241,7 +241,7 @@ effects={[
 <ImageGrid>
 <li>
 <CldImage
-  width="600"
+  width={600}
   height="900"
   src="images/woman-headphones"
   sizes="(max-width: 480px) 100vw, 50vw"
@@ -255,8 +255,8 @@ effects={[
 </li>
 <li>
 <CldImage
-  width="600"
-  height="600"
+  width={600}
+  height={600}
   src="images/woman-headphones"
   sizes="(max-width: 480px) 100vw, 50vw"
   crop="thumb"
@@ -273,8 +273,8 @@ gravity="auto"
 </li>
 <li>
 <CldImage
-  width="600"
-  height="600"
+  width={600}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   crop="thumb"
@@ -291,8 +291,8 @@ gravity="faces"
 </li>
 <li>
 <CldImage
-  width="600"
-  height="600"
+  width={600}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   crop="thumb"
@@ -315,8 +315,8 @@ zoom="0.5"
 <ImageGrid>
   <li>
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       src={`images/turtle`}
       sizes="(max-width: 480px) 100vw, 50vw"
       overlays={[{
@@ -361,8 +361,8 @@ overlays={[{
   </li>
   <li>
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       crop="fill"
       src={`images/white`}
       colorize="100,co_darkviolet"
@@ -408,8 +408,8 @@ overlays={[{
   </li>
   <li>
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       crop="fill"
       src={`images/white`}
       colorize="100,co_darkviolet"
@@ -456,8 +456,8 @@ overlays={[{
   </li>
   <li>
     <CldImage
-      width="960"
-      height="600"
+      width={960}
+      height={600}
       crop="fill"
       src={`images/white`}
       colorize="100,co_darkviolet"
@@ -650,8 +650,8 @@ overlays={[{
 <ImageGrid>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   transformations={[
@@ -670,8 +670,8 @@ transformations={[
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src="images/turtle"
   rawTransformations={['c_crop,h_359,w_517,x_1200,y_100/c_scale,h_359,w_517/f_auto,q_auto']}
   sizes="(max-width: 480px) 100vw, 50vw"
@@ -689,8 +689,8 @@ rawTransformations={[
 </li>
 <li>
 <CldImage
-  width="960"
-  height="600"
+  width={960}
+  height={600}
   src={`https://res.cloudinary.com/${import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_fill,h_300,w_250/e_blur:1000/v1/images/turtle`}
   preserveTransformations
   tint="equalize:80:blue:blueviolet"
