@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { CldImageProps } from './CldImageTypes.ts'
+	import type { CldImageProps } from './CldImageTypes.ts';
 	// This unused import is a hack to get around a bug in svelte2tsx
-	import type { UrlTransformer, ImageCdn } from "unpic";
+	import type { UrlTransformer, ImageCdn } from 'unpic';
 	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
@@ -62,10 +62,16 @@
 			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
 		}
 	}
+	$: console.log();
 </script>
 
 <Image
 	{...$$props}
 	{...imageProps}
-	transformer={() => getCldImageUrl({ ...imageProps, ...cldOptions })}
+	transformer={() =>
+		getCldImageUrl({
+			...imageProps,
+			...cldOptions,
+			...{ width: $$props.width ? $$props.width : '100%' }
+		})}
 />

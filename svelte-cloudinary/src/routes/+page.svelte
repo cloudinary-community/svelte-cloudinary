@@ -3,6 +3,17 @@
 </script>
 
 <CldImage
+	height={1200}
+	src="images/woman-headphones"
+	crop="thumb"
+	removeBackground
+	tint="70:blue:green:purple"
+	underlay="images/city-skyline"
+	sizes="100vw"
+	alt="Description of my image"
+	layout="fullWidth"
+/>
+<CldImage
 	width={1200}
 	height={1200}
 	src="images/woman-headphones"

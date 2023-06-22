@@ -7,5 +7,6 @@ type ImageProps = UnpicImageProps<HTMLImgAttributes, string | null>;
 import type { ImageOptions } from '@cloudinary-util/url-loader';
 export type CldImageProps = ImageOptions &
   ImageProps & {
-    layout: ImageProps['layout'];
+    layout?: ImageProps['layout'];
+    tint?: string;
   };
