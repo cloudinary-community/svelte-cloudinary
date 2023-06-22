@@ -1,3 +1,10 @@
+# [1.0.0-beta.15](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2023-06-22)
+
+
+### Bug Fixes
+
+* patch update, patch missing srcset on unpic Image component ([5509f36](https://github.com/cloudinary-community/svelte-cloudinary/commit/5509f3698180e26068a035281a40437818f00f53))
+
 # [1.0.0-beta.14](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2023-06-22)
 
 
