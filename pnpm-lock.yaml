@@ -189,6 +189,9 @@ importers:
       vite:
         specifier: ^4.3.0
         version: 4.3.4(@types/node@18.16.3)
+      vite-plugin-transform:
+        specifier: 2.0.1
+        version: 2.0.1
       vitest:
         specifier: ^0.25.3
         version: 0.25.8(jsdom@22.0.0)
@@ -6435,6 +6438,10 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
       unist-util-stringify-position: 2.0.3
+    dev: true
+
+  /vite-plugin-transform@2.0.1:
+    resolution: {integrity: sha512-sI9SzcuFbCj04YHEmhw9C14kNnVq3QFLWq7eofjNnDWnw/p+i+6pnSvVZSx1GDVpW1ciZglrv794XEU/lGGvyA==}
     dev: true
 
   /vite@4.3.4(@types/node@18.16.3):

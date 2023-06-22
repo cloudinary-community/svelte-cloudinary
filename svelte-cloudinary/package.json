@@ -7,7 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package && publint",
+		"package": "svelte-kit sync && svelte-package && node scripts/set-package-version.js && publint",
 		"prepublishOnly": "cp ../README.md . && npm run package",
 		"postpublish": "rm ./README.md",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -55,6 +55,7 @@
 		"typescript": "^5.0.0",
 		"unpic": "3.6.1",
 		"vite": "^4.3.0",
+		"vite-plugin-transform": "2.0.1",
 		"vitest": "^0.25.3"
 	},
 	"types": "./dist/index.d.ts",
