@@ -1,3 +1,10 @@
+# [1.0.0-beta.12](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2023-06-22)
+
+
+### Bug Fixes
+
+* patch update, updated docs ([b723c0d](https://github.com/cloudinary-community/svelte-cloudinary/commit/b723c0d759e69a47cb744401f49b8b6de0b5b9dc))
+
 # [1.0.0-beta.11](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2023-06-22)
 
 
