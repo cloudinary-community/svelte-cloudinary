@@ -38,7 +38,6 @@ The sizes prop is optional.
   width="960"
   height="600"
   src="cld-sample-4"
-  sizes="100vw"
   alt="Description of my image"
 />
 
@@ -55,7 +54,6 @@ You can further take advantage of Cloudinary features like background removal an
   src="<Public ID>"
   crop="thumb"
   tint="70:blue:green:purple"
-  sizes="100vw"
   alt="Description of my image"
 />
 ```
@@ -66,7 +64,6 @@ You can further take advantage of Cloudinary features like background removal an
   src="cld-sample-4"
   crop="thumb"
   tint="70:blue:green:purple"
-  sizes="100vw"
   alt="Description of my image"
 />
 
