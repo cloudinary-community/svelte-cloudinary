@@ -103,7 +103,7 @@ You can use `aspectRatio` prop instead of using both `width` and `height` at the
     />
 
 
-br />
+<br />
 <br />
 <br />
 

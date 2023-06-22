@@ -62,16 +62,23 @@
 			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
 		}
 	}
-	$: console.log();
+	const url = getCldImageUrl({
+		...imageProps,
+		...cldOptions,
+	})
 </script>
 
 <Image
 	{...$$props}
 	{...imageProps}
-	transformer={() =>
-		getCldImageUrl({
+	transformer={({ width, url, height}) => {
+		return 	getCldImageUrl({
 			...imageProps,
 			...cldOptions,
-			...{ width: $$props.width ? $$props.width : '100%' }
+			width,
+			height,
+			src:url
 		})}
+	}
+	src={url}
 />

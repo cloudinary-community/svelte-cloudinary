@@ -24,7 +24,7 @@ images
 <ImageGrid>
 	<li>
 		<CldImage
-			width="987"
+                        layout="fullWidth"
 			height="1481"
 			src="images/woman-headphones"
 			alt="Original image of images/woman with headphones"
