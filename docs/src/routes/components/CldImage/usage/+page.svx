@@ -31,6 +31,8 @@ The basic required props include width, height, src, and alt:
     />
 ```
 
+*Note: A Cloud Name must be first be configured. See [Installation](/installation) for more details.*
+
 
 The sizes prop is optional.
     <CldImage
