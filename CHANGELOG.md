@@ -1,3 +1,10 @@
+# [1.0.0-beta.16](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2023-06-23)
+
+
+### Bug Fixes
+
+* CDN option for Unpic ([#23](https://github.com/cloudinary-community/svelte-cloudinary/issues/23)) ([8180008](https://github.com/cloudinary-community/svelte-cloudinary/commit/81800089d1e7550e3b1f21ce8cddcdf7b94ed278)), closes [#22](https://github.com/cloudinary-community/svelte-cloudinary/issues/22)
+
 # [1.0.0-beta.15](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2023-06-22)
 
 
