@@ -71,14 +71,15 @@
 <Image
 	{...$$props}
 	{...imageProps}
+	cdn="cloudinary"
 	transformer={({ width, url, height}) => {
-		return 	getCldImageUrl({
+		return getCldImageUrl({
 			...imageProps,
 			...cldOptions,
 			width,
 			height,
-			src:url
+			// @ts-ignore
+			src: url
 		})}
 	}
-	src={url}
 />
