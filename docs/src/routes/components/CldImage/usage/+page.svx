@@ -20,27 +20,28 @@ With it comes access to more advanced features like dynamic cropping, background
 The basic required props include width, height, src, and alt:
 
 ```js
-    import { CldImage } from 'svelte-cloudinary';
+import { CldImage } from 'svelte-cloudinary';
 
-    <CldImage
-      width={960}
-      height={600}
-      src="<Public ID>"
-      alt="Description of my image"
-      sizes="100vw"
-    />
+<CldImage
+  width={960}
+  height={600}
+  src="<Public ID>"
+  alt="Description of my image"
+  sizes="100vw"
+/>
 ```
 
 *Note: A Cloud Name must be first be configured. See [Installation](/installation) for more details.*
 
 
 The sizes prop is optional.
-    <CldImage
-      width={960}
-      height={600}
-      src={`images/turtle`}
-      sizes="100vw"
-    />
+
+<CldImage
+  width={960}
+  height={600}
+  src={`images/turtle`}
+  sizes="100vw"
+/>
 
 
 

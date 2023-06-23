@@ -12,7 +12,7 @@ import { CldImage } from 'svelte-cloudinary'
 <svelte:head>
   <title>CldImage Examples - Svelte Cloudinary</title>
   <meta name="og:title" content="CldImage Examples - Svelte Cloudinary" />
-  <meta name="og:url" content={`https://next-cloudinary.vercel.app/components/cldimage/examples`} />
+  <meta name="og:url" content={`https://svelte-cloudinary.vercel.app/components/cldimage/examples`} />
 </svelte:head>
 
 
@@ -655,7 +655,7 @@ overlays={[{
   src="images/turtle"
   sizes="(max-width: 480px) 100vw, 50vw"
   transformations={[
-    'next-cloudinary-named-transformation'
+    'svelte-cloudinary-named-transformation'
   ]}
   alt=""
 />
@@ -664,7 +664,7 @@ overlays={[{
 
 ```jsx
 transformations={[
-  'next-cloudinary-named-transformation'
+  'svelte-cloudinary-named-transformation'
 ]}
 ```
 </li>
