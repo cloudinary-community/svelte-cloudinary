@@ -13,7 +13,7 @@
 	 */
 	type $$Props = CldImageProps;
 
-	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
+	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
 
 	// reactively destructure the props
 	$: ({ alt, src, width, height } = $$props as $$Props);
@@ -78,6 +78,6 @@
 			height,
 			// @ts-ignore
 			src: url
-		})}
+		}, $$props.config)}
 	}
 />
