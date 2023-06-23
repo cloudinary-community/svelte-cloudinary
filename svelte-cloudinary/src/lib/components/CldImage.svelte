@@ -70,14 +70,25 @@
 <Image
 	{...imageProps}
 	cdn="cloudinary"
-	transformer={({ width, url, height}) => {
-		return getCldImageUrl({
+	transformer={({ width }) => {
+		const options = {
 			...imageProps,
 			...cldOptions,
-			width,
-			height,
-			// @ts-ignore
-			src: url
-		})}
-	}
+			// Without, get a "never" type error on options.width
+			width: imageProps.width
+		}
+
+		options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
+		options.height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
+
+		// The transformer options are used to create dynamic sizing when working with responsive images
+		// so these should override the default options collected from the props alone if
+		// the results are different.
+
+		if ( typeof width === 'number' && typeof options.width === 'number' && width !== options.width ) {
+			options.widthResize = width;
+		}
+
+		return getCldImageUrl(options);
+	}}
 />
