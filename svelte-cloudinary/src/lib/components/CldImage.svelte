@@ -26,6 +26,7 @@
 			CLD_OPTIONS.push(prop);
 		});
 	});
+
 	const imageProps = {
 		alt,
 		src,
@@ -39,7 +40,9 @@
 		.forEach((key) => (imageProps[key] = $$props[key]));
 
 	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
+
 	const cldOptions = {};
+
 	CLD_OPTIONS.forEach((key) => {
 		if ($$props[key]) {
 			// @ts-expect-error cldOptions doesn't know the types of the keys
@@ -62,14 +65,9 @@
 			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
 		}
 	}
-	const url = getCldImageUrl({
-		...imageProps,
-		...cldOptions,
-	})
 </script>
 
 <Image
-	{...$$props}
 	{...imageProps}
 	cdn="cloudinary"
 	transformer={({ width, url, height}) => {
