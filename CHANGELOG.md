@@ -1,3 +1,10 @@
+# [1.0.0-beta.17](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2023-06-23)
+
+
+### Bug Fixes
+
+* Remove direct Props spread from Image tag ([#26](https://github.com/cloudinary-community/svelte-cloudinary/issues/26)) ([7fc0832](https://github.com/cloudinary-community/svelte-cloudinary/commit/7fc0832bb5545c79caf9921000f398d87342f54a)), closes [/github.com/cloudinary-community/svelte-cloudinary/blob/main/svelte-cloudinary/src/lib/components/CldImage.svelte#L56](https://github.com//github.com/cloudinary-community/svelte-cloudinary/blob/main/svelte-cloudinary/src/lib/components/CldImage.svelte/issues/L56) [#25](https://github.com/cloudinary-community/svelte-cloudinary/issues/25)
+
 # [1.0.0-beta.16](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2023-06-23)
 
 
