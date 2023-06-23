@@ -1,3 +1,10 @@
+# [1.0.0-beta.18](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2023-06-23)
+
+
+### Bug Fixes
+
+* preserveTransformations Type Def ([#31](https://github.com/cloudinary-community/svelte-cloudinary/issues/31)) ([91a3736](https://github.com/cloudinary-community/svelte-cloudinary/commit/91a3736caa9f3d309f4a654240eab86e0cc6a510)), closes [#28](https://github.com/cloudinary-community/svelte-cloudinary/issues/28)
+
 # [1.0.0-beta.17](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2023-06-23)
 
 
