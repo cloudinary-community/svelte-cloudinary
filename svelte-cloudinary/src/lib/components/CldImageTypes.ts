@@ -8,5 +8,6 @@ import type { ImageOptions } from '@cloudinary-util/url-loader';
 export type CldImageProps = ImageOptions &
   ImageProps & {
     layout?: ImageProps['layout'];
+    preserveTransformations?: boolean;
     tint?: string;
   };
