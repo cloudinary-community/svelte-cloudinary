@@ -2,7 +2,6 @@
 	import type { CldImageProps } from './CldImageTypes.ts';
 	// This unused import is a hack to get around a bug in svelte2tsx
 	import type { UrlTransformer, ImageCdn } from 'unpic';
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';
@@ -16,7 +15,7 @@
 	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
 
 	// reactively destructure the props
-	$: ({ alt, src, width, height } = $$props as $$Props);
+	const { alt, src, width, height } = $$props as $$Props;
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -32,7 +31,7 @@
 		src,
 		width,
 		height
-	} as ImageOptions & $$Props;
+	} as $$Props;
 
 	(Object.keys($$props) as Array<keyof $$Props>)
 		.filter((key) => !CLD_OPTIONS.includes(key))
@@ -76,8 +75,7 @@
 			...cldOptions,
 			// Without, get a "never" type error on options.width
 			width: imageProps.width
-		}
-
+		};
 		options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
 		options.height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
 
@@ -85,7 +83,7 @@
 		// so these should override the default options collected from the props alone if
 		// the results are different.
 
-		if ( typeof width === 'number' && typeof options.width === 'number' && width !== options.width ) {
+		if (typeof width === 'number' && typeof options.width === 'number' && width !== options.width) {
 			options.widthResize = width;
 		}
 
