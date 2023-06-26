@@ -1,3 +1,10 @@
+# [1.0.0-beta.19](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2023-06-26)
+
+
+### Bug Fixes
+
+* patch update, add support for config options ([ac89edc](https://github.com/cloudinary-community/svelte-cloudinary/commit/ac89edc1427fe1e2f1fa82c7bda3147090edf617))
+
 # [1.0.0-beta.18](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2023-06-23)
 
 
