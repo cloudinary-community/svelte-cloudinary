@@ -13,10 +13,10 @@
 	 */
 	type $$Props = CldImageProps;
 
-	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
+	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
 
 	// reactively destructure the props
-	$: ({ alt, src, width, height } = $$props as $$Props);
+	$: ({ alt, src, width, height, config } = $$props as $$Props);
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -89,6 +89,6 @@
 			options.widthResize = width;
 		}
 
-		return getCldImageUrl(options);
+		return getCldImageUrl(options, config);
 	}}
 />

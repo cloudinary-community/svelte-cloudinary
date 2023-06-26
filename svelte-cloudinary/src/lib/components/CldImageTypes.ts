@@ -4,9 +4,10 @@
 import type { UnpicImageProps } from '@unpic/core';
 import type { HTMLImgAttributes } from 'svelte/elements';
 type ImageProps = UnpicImageProps<HTMLImgAttributes, string | null>;
-import type { ImageOptions } from '@cloudinary-util/url-loader';
+import type { ImageOptions, ConfigOptions } from '@cloudinary-util/url-loader';
 export type CldImageProps = ImageOptions &
   ImageProps & {
+    config?: ConfigOptions;
     layout?: ImageProps['layout'];
     preserveTransformations?: boolean;
     tint?: string;

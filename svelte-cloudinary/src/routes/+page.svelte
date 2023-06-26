@@ -2,15 +2,27 @@
 	import CldImage from '$lib/components/CldImage.svelte';
 </script>
 
+<!-- <CldImage -->
+<!-- 	height={300} -->
+<!-- 	src="images/woman-headphones" -->
+<!-- 	removeBackground -->
+<!-- 	tint="70:blue:green:purple" -->
+<!-- 	underlay="images/city-skyline" -->
+<!-- 	sizes="100vw" -->
+<!-- 	alt="Description of my image" -->
+<!-- 	layout="fullWidth" -->
+<!-- /> -->
 <CldImage
-	height={1200}
+	width={200}
+	height={200}
 	src="images/woman-headphones"
-	removeBackground
-	tint="70:blue:green:purple"
-	underlay="images/city-skyline"
-	sizes="100vw"
-	alt="Description of my image"
-	layout="fullWidth"
+	alt="Original image of images/woman with headphones"
+	config={{
+		cloud: {
+			cloudName: 'next-cloudinary'
+		},
+		url: { secureDistribution: 'spacejelly.dev' }
+	}}
 />
 <!-- <CldImage -->
 <!-- 	width={1200} -->
