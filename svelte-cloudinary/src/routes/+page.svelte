@@ -3,26 +3,26 @@
 </script>
 
 <!-- <CldImage -->
-<!-- 	height={300} -->
+<!-- 	width="200" -->
+<!-- 	height={200} -->
 <!-- 	src="images/woman-headphones" -->
-<!-- 	removeBackground -->
-<!-- 	tint="70:blue:green:purple" -->
-<!-- 	underlay="images/city-skyline" -->
-<!-- 	sizes="100vw" -->
-<!-- 	alt="Description of my image" -->
-<!-- 	layout="fullWidth" -->
+<!-- 	alt="Original image of images/woman with headphones" -->
+<!-- 	config={{ -->
+<!-- 		cloud: { -->
+<!-- 			cloudName: 'next-cloudinary' -->
+<!-- 		}, -->
+<!-- 		url: { secureDistribution: 'spacejelly.dev' } -->
+<!-- 	}} -->
 <!-- /> -->
 <CldImage
-	width={200}
-	height={200}
+	height="300"
+	width={300}
 	src="images/woman-headphones"
-	alt="Original image of images/woman with headphones"
-	config={{
-		cloud: {
-			cloudName: 'next-cloudinary'
-		},
-		url: { secureDistribution: 'spacejelly.dev' }
-	}}
+	removeBackground
+	tint="70:blue:green:purple"
+	underlay="images/city-skyline"
+	sizes="100vw"
+	alt="Description of my image"
 />
 <!-- <CldImage -->
 <!-- 	width={1200} -->

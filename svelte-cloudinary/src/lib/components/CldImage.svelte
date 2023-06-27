@@ -11,12 +11,12 @@
 	/**
 	 * set the compomnent $$props to be of type CldImageProps
 	 */
-	type $$Props = CldImageProps;
+	type $$Props = CldImageProps
 
 	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
 
 	// reactively destructure the props
-	$: ({ alt, src, width, height, config } = $$props as $$Props);
+	const { alt, src, width, height, config } = $$props as $$Props;
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -32,7 +32,7 @@
 		src,
 		width,
 		height
-	} as ImageOptions & $$Props;
+	} as $$Props;
 
 	(Object.keys($$props) as Array<keyof $$Props>)
 		.filter((key) => !CLD_OPTIONS.includes(key))
@@ -76,7 +76,7 @@
 			...cldOptions,
 			// Without, get a "never" type error on options.width
 			width: imageProps.width
-		}
+		};
 
 		options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
 		options.height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
@@ -85,10 +85,9 @@
 		// so these should override the default options collected from the props alone if
 		// the results are different.
 
-		if ( typeof width === 'number' && typeof options.width === 'number' && width !== options.width ) {
+		if (typeof width === 'number' && typeof options.width === 'number' && width !== options.width) {
 			options.widthResize = width;
 		}
-
-		return getCldImageUrl(options, config);
+		return getCldImageUrl(options, config)
 	}}
 />
