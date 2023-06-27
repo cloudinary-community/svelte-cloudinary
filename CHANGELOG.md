@@ -1,3 +1,10 @@
+# [1.0.0-beta.20](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2023-06-27)
+
+
+### Bug Fixes
+
+* patch update, add support for with and height as number | string | undefined ([17b5479](https://github.com/cloudinary-community/svelte-cloudinary/commit/17b5479733709ad7de20d080a72f18c79e3e08f1))
+
 # [1.0.0-beta.19](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2023-06-26)
 
 
