@@ -39,7 +39,6 @@ async function loadContent(): Promise<Data> {
 		.then((p) => {
 		return p.sort((a, b) => a.order - b.order);
 	});
-
 	const groups = pages.reduce(
 		(acc, current) => {
 			if (current.slug.includes('components')) {
@@ -51,17 +50,17 @@ async function loadContent(): Promise<Data> {
 					path: current.path,
 					slug: current.slug
 				};
-				// if (acc.components[group] == undefined) {
-				// 	acc.components[group] = { docs: [] };
-				// }
-				// acc.components[group].docs.push(item);
-				acc.components.push(item)
+				if (acc.components[group] == undefined) {
+					acc.components[group] = [];
+				}
+				acc.components[group].push(item);
+				// acc.components.push(item)
 				return acc;
 			}
 			acc.base.push(current);
 			return acc;
 		},
-		{ components: [], base: [] }
+		{ components: {}, base: [] }
 	);
 	return groups;
 }

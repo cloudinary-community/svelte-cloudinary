@@ -30,8 +30,8 @@
 	const imageProps = {
 		alt,
 		src,
-		width,
-		height
+		width: typeof width === 'string' ? parseInt(width) : width,
+		height: typeof height === 'string' ? parseInt(height) : height,
 	} as $$Props;
 
 	(Object.keys($$props) as Array<keyof $$Props>)

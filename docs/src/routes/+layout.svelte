@@ -2,13 +2,6 @@
 	import '../app.postcss';
 	/** @type {import('./$types').LayoutData} */
 	export let data;
-	const groups = data.components.reduce((acc, current) => {
-		if (acc[current.component] === undefined) {
-			acc[current.component] = [];
-		}
-		acc[current.component].push(current);
-		return acc;
-	}, {});
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-transparent">
@@ -84,12 +77,12 @@
 						<input type="checkbox" />
 						<div class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80">Components</div>
 						<ul class="collapse-content">
-							{#each Object.keys(groups) as group}
+							{#each Object.keys(data.components) as group, index}
 								<li class="collapse collapse-arrow">
 									<input type="checkbox" />
 									<div class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80">{group}</div>
 									<ul class="flex flex-col gap-1 md:flex collapse-content">
-										{#each groups[group] as item}
+										{#each data.components[group] as item}
 											<li
 												class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
 											>
