@@ -1,3 +1,10 @@
+# [1.0.0-beta.21](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2023-06-27)
+
+
+### Bug Fixes
+
+* patch update, add support for CldOgImage, remove non-released components. Updated documentation ([5f55b59](https://github.com/cloudinary-community/svelte-cloudinary/commit/5f55b5978cd5a0a4faac59e19cc32aece5037739))
+
 # [1.0.0-beta.20](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2023-06-27)
 
 
