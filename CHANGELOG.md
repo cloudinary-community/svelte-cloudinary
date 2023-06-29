@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0...v1.0.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* docs og image and spacing ([0d6e775](https://github.com/cloudinary-community/svelte-cloudinary/commit/0d6e77535d5a8e6a4688fcbd6b8cf93dab2e3daa))
+
 # 1.0.0 (2023-06-29)
 
 
