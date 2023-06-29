@@ -1,3 +1,11 @@
+# 1.0.0 (2023-06-29)
+
+
+### Features
+
+* release 1.0.0 ([#16](https://github.com/cloudinary-community/svelte-cloudinary/issues/16)) ([3380f97](https://github.com/cloudinary-community/svelte-cloudinary/commit/3380f975d0024650492fe05b0c5a518b90e5e15f))
+* Update README.md ([5677fe4](https://github.com/cloudinary-community/svelte-cloudinary/commit/5677fe420b6d9d2d87d36e5d8225892131099731))
+
 # [1.0.0-beta.21](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2023-06-27)
 
 
