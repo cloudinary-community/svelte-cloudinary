@@ -1,8 +1,66 @@
 <script>
+	import { page } from '$app/stores';
+	import { CldOgImage } from 'svelte-cloudinary';
 	export let title;
 	export let parent;
+	const renderTitle = title.replace('/', ' ');
 </script>
 
+<svelte:head>
+	<title>{renderTitle} - Svelte Cloudinary</title>
+	<meta name="og:title" content={`${renderTitle} - Svelte Cloudinary`} />
+	<meta name="og:url" content={$page.url.href} />
+</svelte:head>
+
+<CldOgImage
+	src={`images/next-cloudinary-social-background`}
+	title={renderTitle}
+	twitterTitle={renderTitle}
+	overlays={[
+		{
+			width: 2000,
+			crop: 'fit',
+			position: {
+				y: -160
+			},
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 200,
+				fontWeight: 'black',
+				text: renderTitle,
+				alignment: 'center',
+				lineSpacing: -50
+			}
+		},
+		{
+			publicId: 'images/cloudinary-white',
+			position: {
+				x: -200,
+				y: 180
+			}
+		},
+		{
+			publicId: 'images/nextjs-white',
+			position: {
+				x: 350,
+				y: 180
+			}
+		},
+		{
+			position: {
+				y: 320
+			},
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 60,
+				fontWeight: 'bold',
+				text: 'svelte-cloudinary.vercel.app'
+			}
+		}
+	]}
+/>
 <ul
 	class="breadcrumb mt-2.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 contrast-more:text-current"
 >

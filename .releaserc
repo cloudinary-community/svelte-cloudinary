@@ -40,7 +40,7 @@
       }
     ],
     [
-      "@colbyfayock/semantic-release-pnpm",
+      "@semantic-release/npm",
       {
         "pkgRoot": "svelte-cloudinary"
       }
@@ -50,7 +50,8 @@
       {
         "assets": [
           "svelte-cloudinary/package.json",
-          "CHANGELOG.md"
+          "CHANGELOG.md",
+          "README.md"
         ]
       }
     ],

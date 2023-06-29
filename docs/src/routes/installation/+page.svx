@@ -1,10 +1,10 @@
 ---
-title: Installation 
+title: Installation
 order: 2
 ---
 
 <script>
-    import { Tabs, Tab} from '$lib/components/Tabs' 
+    import { Tabs, Tab} from '$lib/components/Tabs'
     import Code from '$lib/components/Code.svelte'
     import Callout from '$lib/components/Callout.svelte'
 </script>
@@ -36,7 +36,7 @@ Add the following variable to your `.env.local` or `.env` file.
 VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="[Your Cloud Name]"
 </Code>
 
-<Callout>Don't have a Cloudinary account? <a href="https://cloudinary.com/users/register_free?utm_campaign=devx_nextcloudinary&utm_medium=referral&utm_source=nextcloudinary">Sign up for free</a> on cloudinary.com!</Callout>
+<Callout>Don't have a Cloudinary account? <a href="https://cloudinary.com/users/register_free?utm_campaign=devx_sveltecloudinary&utm_medium=referral&utm_source=sveltecloudinary">Sign up for free</a> on cloudinary.com!</Callout>
 
 <!-- </Steps> -->
 

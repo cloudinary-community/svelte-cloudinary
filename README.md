@@ -12,13 +12,18 @@
 
 ######
 
-<a href="https://github.com/cloudinary-community/svelte-cloudinary/actions/workflows/test_and_release.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/cloudinary-community/svelte-cloudinary/test_and_release.yml?branch=main&label=Test%20%26%20Release&style=flat-square"></a> <a href="https://www.npmjs.com/package/svelte-cloudinary"><img alt="npm" src="https://img.shields.io/npm/v/svelte-cloudinary?style=flat-square"></a> <a href="https://github.com/cloudinary-community/svelte-cloudinary/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/cloudinary-community/svelte-cloudinary?label=License&style=flat-square"></a>
+<a href="https://github.com/cloudinary-community/svelte-cloudinary/actions/workflows/test_and_release.yml">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/cloudinary-community/svelte-cloudinary/test_and_release.yml?branch=beta&label=Test%20%26%20Release&style=flat-square"></a>
+
+<a href="https://www.npmjs.com/package/svelte-cloudinary"><img alt="npm" src="https://img.shields.io/npm/v/svelte-cloudinary?style=flat-square"></a>
+
+<a href="https://github.com/cloudinary-community/svelte-cloudinary/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/cloudinary-community/svelte-cloudinary?label=License&style=flat-square"></a>
 
 # Svelte Cloudinary
 
 High-performance image delivery and uploading at scale in Svelte powered by Cloudinary.
 
-<a href="#-features">Features</a> • <a href="#-getting-started">Getting Started</a> • <a href="#%EF%B8%8F-community--support">Community & Support</a> • <a href="#-contributing">Contributing</a>
+<a href="#-features">Features</a> • <a href="#-getting-started">Getting Started</a> • <a href="#-community--support">Community & Support</a> • <a href="#-contributing">Contributing</a>
 
 **This plugin is a community library and not officially supported by Cloudinary.**
 
@@ -59,15 +64,7 @@ import { CldImage } from 'svelte-cloudinary';
 <CldImage width="600" height="600" src="<Public ID or Cloudinary URL>" alt="<Alt Text>" />
 ```
 
-[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.spacejelly.dev/components/cldimage/basic-usage)
-
-### Other Use Cases
-
-- [Background Removal](https://svelte-cloudinary.spacejelly.dev/use-cases/background-removal)
-- [Image Overlays](https://svelte-cloudinary.spacejelly.dev/use-cases/image-overlays)
-- [Image Underlays](https://svelte-cloudinary.spacejelly.dev/use-cases/image-underlays)
-- [Social Media Card](https://svelte-cloudinary.spacejelly.dev/use-cases/social-media-card)
-- [Text Overlays](https://svelte-cloudinary.spacejelly.dev/use-cases/text-overlays)
+[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
 
 ## ❤️ Community & Support
 
@@ -170,4 +167,3 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-

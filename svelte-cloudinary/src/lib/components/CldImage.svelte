@@ -1,42 +1,22 @@
-<script lang="ts" context="module">
-	export type CldImageProps = ImageOptions &
-		Omit<HTMLImageElement, 'srcset' | 'height' | 'width'> & {
-			src: string;
-			width: string;
-			height: string;
-			alt: string;
-			preserverTransformations?: boolean;
-			// From Unpic
-			layout?: 'constrained' | 'fullWidth' | 'fixed';
-			priority?: boolean;
-			background?: 'auto' | string;
-		};
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
-</script>
-
 <script lang="ts">
+	import type { CldImageProps } from './CldImageTypes.ts';
+	// This unused import is a hack to get around a bug in svelte2tsx
+	import type { UrlTransformer, ImageCdn } from 'unpic';
+	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';
 	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
 
-	/** 
-	* set the compomnent $$props to be of type CldImageProps 
-	*/
+	/**
+	 * set the compomnent $$props to be of type CldImageProps
+	 */
 	type $$Props = CldImageProps
 
-	const CLD_OPTIONS = ['deliveryType', 'preserveTransformations'];
-	
+	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
+
 	// reactively destructure the props
-	$: ({
-		alt,
-		src,
-		width,
-		height,
-		layout = 'constrained',
-		priority = false,
-		background = 'auto'
-	} = $$props as $$Props);
+	const { alt, src, width, height, config } = $$props as $$Props;
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -46,12 +26,13 @@
 			CLD_OPTIONS.push(prop);
 		});
 	});
+
 	const imageProps = {
 		alt,
 		src,
-		width,
-		height
-	} as ImageOptions & $$Props;
+		width: typeof width === 'string' ? parseInt(width) : width,
+		height: typeof height === 'string' ? parseInt(height) : height,
+	} as $$Props;
 
 	(Object.keys($$props) as Array<keyof $$Props>)
 		.filter((key) => !CLD_OPTIONS.includes(key))
@@ -59,7 +40,9 @@
 		.forEach((key) => (imageProps[key] = $$props[key]));
 
 	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
+
 	const cldOptions = {};
+
 	CLD_OPTIONS.forEach((key) => {
 		if ($$props[key]) {
 			// @ts-expect-error cldOptions doesn't know the types of the keys
@@ -82,6 +65,29 @@
 			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
 		}
 	}
-	let newSrc = getCldImageUrl({ ...imageProps, ...cldOptions });
 </script>
-<Image src={newSrc} {width} {height} {alt} {layout} {background} {priority} />
+
+<Image
+	{...imageProps}
+	cdn="cloudinary"
+	transformer={({ width }) => {
+		const options = {
+			...imageProps,
+			...cldOptions,
+			// Without, get a "never" type error on options.width
+			width: imageProps.width
+		};
+
+		options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
+		options.height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
+
+		// The transformer options are used to create dynamic sizing when working with responsive images
+		// so these should override the default options collected from the props alone if
+		// the results are different.
+
+		if (typeof width === 'number' && typeof options.width === 'number' && width !== options.width) {
+			options.widthResize = width;
+		}
+		return getCldImageUrl(options, config)
+	}}
+/>
