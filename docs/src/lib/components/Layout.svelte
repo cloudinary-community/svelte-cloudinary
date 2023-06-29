@@ -36,20 +36,21 @@
 		{
 			publicId: 'images/cloudinary-white',
 			position: {
-				x: -200,
+				x: -350,
 				y: 180
 			}
 		},
 		{
-			publicId: 'images/nextjs-white',
+			publicId: 'images/svelte-white',
 			position: {
-				x: 350,
+				x: 300,
 				y: 180
 			}
 		},
 		{
 			position: {
-				y: 320
+				y: 320,
+				x: -50
 			},
 			text: {
 				color: 'white',

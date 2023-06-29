@@ -11,11 +11,11 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [
+		mdsvex(mdsvexConfig),
 		vitePreprocess(),
 		preprocess({
 			postcss: true
 		}),
-		mdsvex(mdsvexConfig)
 	],
 
 	kit: {

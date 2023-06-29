@@ -3,7 +3,7 @@ title: CldImage/Examples
 order: 3
 ---
 <script>
-import ImageGrid frm '$lib/components/ImageGrid.svelte';
+import ImageGrid from '$lib/components/ImageGrid.svelte';
 import Callout from '$lib/components/Callout.svelte'
 import { CldImage } from 'svelte-cloudinary'
 </script>
