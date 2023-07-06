@@ -33,8 +33,7 @@ import { CldImage } from 'svelte-cloudinary';
 
 *Note: A Cloud Name must be first be configured. See [Installation](/installation) for more details.*
 
-
-The sizes prop is optional.
+The sizes prop is optional but recommended for responsive sizing.
 
 <CldImage
   width={960}
@@ -42,8 +41,6 @@ The sizes prop is optional.
   src={`images/turtle`}
   sizes="100vw"
 />
-
-
 
 The `src` property takes in a Cloudinary Public ID which includes the folder path along with the ID of the image itself.
 
@@ -87,6 +84,7 @@ To preserve those transformations, you can apply the `preserveTransformations` p
 />
 ```
 
+*Note: Cloudinary URLs must include a version number (/v1234) in order to be correctly parsed.*
 
 <br />
 <br />
