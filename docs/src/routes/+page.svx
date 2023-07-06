@@ -13,8 +13,8 @@ order: 1
 
 High-performance image delivery and uploading at scale in Svelte/SvelteKit powered by
 Cloudinary.
-* Automatically optimize images and deliver in modern formats * Remove backgrounds from
-images
+* Automatically optimize images and deliver in modern formats
+* Remove backgrounds from images
 * Dynamically add image and text overlays to images
 * AI-based cropping and resizing
 * Transform images using color and effects
