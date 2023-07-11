@@ -31,7 +31,6 @@ High-performance image delivery and uploading at scale in Svelte powered by Clou
 - AI-based cropping and resizing
 - Transform images using color and effects
 - Generate Open Graph Social Media cards on the fly
-- Drop-in Upload Widget
 - ...all at scale with Cloudinary
 
 ## 🚀 Getting Started
