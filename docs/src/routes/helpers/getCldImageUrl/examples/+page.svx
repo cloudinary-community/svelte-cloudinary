@@ -19,7 +19,7 @@ order: 3
 <li>
     <CldImage
       src={getCldImageUrl({
-        src: `${process.env.IMAGES_DIRECTORY}/turtle`,
+        src: `images/turtle`,
         width: 960,
         height: 600,
       })}
@@ -43,7 +43,7 @@ getCldImageUrl({
 <li>
     <CldImage
       src={getCldImageUrl({
-        src: `${process.env.IMAGES_DIRECTORY}/turtle`,
+        src: `images/turtle`,
         width: 960,
         height: 600,
         removeBackground: true
@@ -73,7 +73,7 @@ getCldImageUrl({
 <li>
     <CldImage
       src={getCldImageUrl({
-        src: `${process.env.IMAGES_DIRECTORY}/woman-headphones`,
+        src: `images/woman-headphones`,
         width: 960,
         height: 600,
         crop: 'pad',
