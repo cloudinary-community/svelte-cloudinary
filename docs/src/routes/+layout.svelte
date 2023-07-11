@@ -98,6 +98,40 @@
 							{/each}
 						</ul>
 					</div>
+					<div class="collapse collapse-arrow text-sm text-gray-500 rounded px-2 min-h-12 -mt-2">
+						<input type="checkbox" />
+						<div
+							class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
+						>
+							Helpers
+						</div>
+						<ul class="collapse-content">
+							{#each Object.keys(data.helpers) as group, index}
+								<li class="collapse collapse-arrow">
+									<input type="checkbox" />
+									<div
+										class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
+									>
+										{group}
+									</div>
+									<ul class="flex flex-col gap-1 md:flex collapse-content">
+										{#each data.helpers[group] as item}
+											<li
+												class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
+											>
+												<a
+													href={item.slug}
+													class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
+												>
+													{item.title}
+												</a>
+											</li>
+										{/each}
+									</ul>
+								</li>
+							{/each}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

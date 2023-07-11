@@ -12,7 +12,7 @@ order: 2
 
 # CldImage Configuration
 
-Configuration for CldImage is the same as [getCldImageUrl](/helpers/getcldimageurl/configuration), which both use the same underlying API.
+Configuration for CldImage is the same as [getCldImageUrl](/helpers/getCldImageUrl/configuration), which both use the same underlying API.
 
 ## General Props
 
