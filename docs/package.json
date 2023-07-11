@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-cloudinary": "workspace:*"
+		"svelte-cloudinary": "workspace:*",
+		"svelte-hamburgers": "4.1.0"
 	}
 }
