@@ -66,7 +66,6 @@ async function loadContent(): Promise<Data> {
 				return acc;
 			}
 			if (current.slug.includes('helpers')) {
-				console.log(current)
 				const [group, doc] = current.title.split('/');
 				const item = {
 					component: group,
