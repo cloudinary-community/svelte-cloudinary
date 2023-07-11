@@ -40,7 +40,7 @@ const url = getCldImageUrl({
 />
 
 <Callout emoji={false}>
-  getCldImageUrl uses the same API as <a href="/components/CldImge/usage">CldImage</a>.
+  getCldImageUrl uses the same API as <a href="/components/CldImage/usage">CldImage</a>.
   They're both wrappers around <a href="https://github.com/colbyfayock/cloudinary-util/tree/main/packages/url-loader">@cloudinary-util/url-loader</a> which provide a simpler way to generate images and Cloudinary URLs.
 </Callout>
 
