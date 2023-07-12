@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.2...v1.0.3) (2023-07-12)
+
+
+### Bug Fixes
+
+* patch update update url-loader ([c748d33](https://github.com/cloudinary-community/svelte-cloudinary/commit/c748d334139425a9ba4564a310761373e6448a75))
+
 ## [1.0.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.1...v1.0.2) (2023-07-12)
 
 
