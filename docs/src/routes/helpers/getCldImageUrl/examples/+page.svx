@@ -71,20 +71,15 @@ getCldImageUrl({
 </Callout>
 </li>
 <li>
-    <CldImage
-      src={getCldImageUrl({
-        src: `images/woman-headphones`,
-        width: 960,
-        height: 600,
-        crop: 'pad',
-        fillBackground: true
-      })}
-      width="960"
-      height="600"
-      sizes="(max-width: 480px) 100vw, 50vw"
-      alt=""
-      preserveTransformations
-    />
+  <CldImage
+    width="960"
+    height="600"
+    crop="pad"
+    src={`images/woman-headphones`}
+    sizes="(max-width: 480px) 100vw, 50vw"
+    fillBackground
+    alt=""
+  />
 
 ### Generative Fill
 
