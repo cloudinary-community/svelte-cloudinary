@@ -115,11 +115,11 @@ importers:
   svelte-cloudinary:
     dependencies:
       '@cloudinary-util/url-loader':
-        specifier: 3.8.1
-        version: 3.8.1
+        specifier: 3.9.0
+        version: 3.9.0
       '@cloudinary-util/util':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 2.1.0
+        version: 2.1.0
       '@unpic/core':
         specifier: 0.0.24
         version: 0.0.24
@@ -270,15 +270,15 @@ packages:
       regenerator-runtime: 0.13.11
     dev: true
 
-  /@cloudinary-util/url-loader@3.8.1:
-    resolution: {integrity: sha512-cBAPiAulWIG5M6HkFDvHhWVo0BJfWnZrr3jz7mIvdVrhKJl3CgK6p9kzSWKC62Ib9SUHMzKBC9R2B8jn+ZCBKA==}
+  /@cloudinary-util/url-loader@3.9.0:
+    resolution: {integrity: sha512-DJiu+a3Mr2GEyjAo4Gy2KWX0YoXoP0CFp2jvw8+3gJj7wvmIb7mcjRk1yHSGIyJcolb0uR+tWGO6KVhStpreMg==}
     dependencies:
-      '@cloudinary-util/util': 2.0.1
+      '@cloudinary-util/util': 2.1.0
       '@cloudinary/url-gen': 1.10.1
     dev: false
 
-  /@cloudinary-util/util@2.0.1:
-    resolution: {integrity: sha512-d2imgUjYTLjv8ZhZPMAts/uPbMvIE71X4I/5hwdY/7vM4BuFQoJMSyq+h2pW1z1MyGG9BOWBm70vp082lSrbEQ==}
+  /@cloudinary-util/util@2.1.0:
+    resolution: {integrity: sha512-PGjVxyhhOP8IaD6uawXzfDnI8ArPqpiLfIXc8TEjhv3CGhDFBAM3dCT3xeAgg+92sQsx/AN74j+qckdWPfoO6w==}
     dev: false
 
   /@cloudinary/transformation-builder-sdk@1.2.9:
@@ -933,7 +933,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.20.4(svelte@4.0.0)(vite@4.3.9)
+      '@sveltejs/kit': 1.20.4(svelte@3.59.2)(vite@4.3.9)
       import-meta-resolve: 3.0.0
     dev: true
 
