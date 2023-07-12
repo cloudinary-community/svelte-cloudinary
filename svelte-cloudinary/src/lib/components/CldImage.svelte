@@ -11,12 +11,12 @@
 	/**
 	 * set the compomnent $$props to be of type CldImageProps
 	 */
-	type $$Props = CldImageProps
+	type $$Props = CldImageProps;
 
 	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
 
 	// reactively destructure the props
-	const { alt, src, width, height, config } = $$props as $$Props;
+	$: ({ alt, src, width, height, config } = $$props as $$Props);
 
 	transformationPlugins.forEach(({ props = [] }) => {
 		props.forEach((prop) => {
@@ -27,17 +27,21 @@
 		});
 	});
 
-	const imageProps = {
+	$: imageProps = {
 		alt,
 		src,
 		width: typeof width === 'string' ? parseInt(width) : width,
-		height: typeof height === 'string' ? parseInt(height) : height,
+		height: typeof height === 'string' ? parseInt(height) : height
 	} as $$Props;
 
-	(Object.keys($$props) as Array<keyof $$Props>)
-		.filter((key) => !CLD_OPTIONS.includes(key))
-		// @ts-expect-error imageProps doesn't know the types of the keys
-		.forEach((key) => (imageProps[key] = $$props[key]));
+	$: if (imageProps) {
+		(Object.keys($$props) as Array<keyof $$Props>)
+			.filter((key) => !CLD_OPTIONS.includes(key))
+			.forEach((key) => {
+				//@ts-expect-error imageProps doesn't know the types of the keys
+				imageProps[key] = $$props[key];
+			});
+	}
 
 	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
 
@@ -67,27 +71,34 @@
 	}
 </script>
 
-<Image
-	{...imageProps}
-	cdn="cloudinary"
-	transformer={({ width }) => {
-		const options = {
-			...imageProps,
-			...cldOptions,
-			// Without, get a "never" type error on options.width
-			width: imageProps.width
-		};
+{#if imageProps.src}
+	<Image
+		{...imageProps}
+		cdn="cloudinary"
+		transformer={({ width }) => {
+			const options = {
+				...imageProps,
+				...cldOptions,
+				// Without, get a "never" type error on options.width
+				width: imageProps.width
+			};
 
-		options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
-		options.height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
+			options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
+			options.height =
+				typeof options.height === 'string' ? parseInt(options.height) : options.height;
 
-		// The transformer options are used to create dynamic sizing when working with responsive images
-		// so these should override the default options collected from the props alone if
-		// the results are different.
+			// The transformer options are used to create dynamic sizing when working with responsive images
+			// so these should override the default options collected from the props alone if
+			// the results are different.
 
-		if (typeof width === 'number' && typeof options.width === 'number' && width !== options.width) {
-			options.widthResize = width;
-		}
-		return getCldImageUrl(options, config)
-	}}
-/>
+			if (
+				typeof width === 'number' &&
+				typeof options.width === 'number' &&
+				width !== options.width
+			) {
+				options.widthResize = width;
+			}
+			return getCldImageUrl(options, config);
+		}}
+	/>
+{/if}
