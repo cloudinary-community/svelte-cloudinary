@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.1...v1.0.2) (2023-07-12)
+
+
+### Bug Fixes
+
+* allow reactive props ([#41](https://github.com/cloudinary-community/svelte-cloudinary/issues/41)) ([4d6e1a9](https://github.com/cloudinary-community/svelte-cloudinary/commit/4d6e1a9b167d7b8a9b796aa665d988199bf460d2))
+
 ## [1.0.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.0...v1.0.1) (2023-06-29)
 
 
