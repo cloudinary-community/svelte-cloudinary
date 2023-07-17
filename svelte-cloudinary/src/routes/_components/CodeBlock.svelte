@@ -11,7 +11,7 @@
         rawTransformations={${JSON.stringify(rawTransformations)}}
         height={800}
         width={800}
-        src={baseURL + selectedImage}
+        src={baseDir + selectedImage}
         alt={selectedImage}
       />
     `;
