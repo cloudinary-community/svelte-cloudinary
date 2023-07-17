@@ -5,8 +5,7 @@
 	import Toggle from './_components/Toggle.svelte';
 	import type { CldPropOptions, CldPropValueType, CldProps } from './types.ts';
 
-	const baseURL =
-		'https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_80/v1/images/';
+	const baseDir = 'images/';
 	const images = [
 		{ fileName: 'turtle' },
 		{ fileName: 'woman-headphones' },
@@ -87,7 +86,7 @@
 					><CldImage
 						height={150}
 						width={150}
-						src={baseURL + image.fileName}
+						src={baseDir + image.fileName}
 						alt={image.fileName}
 					/></button
 				>
@@ -139,7 +138,7 @@
 						{...cldProps}
 						height={800}
 						width={800}
-						src={baseURL + selectedImage}
+						src={baseDir + selectedImage}
 						alt={selectedImage}
 					/>
 				</div>
