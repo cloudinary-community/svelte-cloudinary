@@ -17,7 +17,7 @@
     `;
 </script>
 
-<div class="max-w-3xl mx-auto bg-gray-200 p-4">
+<div class="max-w-xl mx-auto bg-gray-200 p-4">
 	<div class="flex justify-end">
 		<div class="relative">
 			<button
@@ -53,8 +53,9 @@
 			{/if}
 		</div>
 	</div>
-	<!-- TODO: display this better -->
-	<div class="p-4">
-		{codeString}
+	<div class="flex flex-col items-center">
+		<pre>
+			{codeString}
+		</pre>
 	</div>
 </div>
