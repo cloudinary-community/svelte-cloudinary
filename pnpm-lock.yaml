@@ -169,6 +169,9 @@ importers:
       eslint-plugin-svelte:
         specifier: ^2.31.0
         version: 2.31.0(eslint@8.43.0)(svelte@3.59.2)
+      highlight.js:
+        specifier: ^11.8.0
+        version: 11.8.0
       jest-dom:
         specifier: 4.0.0
         version: 4.0.0
@@ -199,6 +202,9 @@ importers:
       svelte-check:
         specifier: ^3.4.4
         version: 3.4.4(postcss-load-config@4.0.1)(postcss@8.4.24)(svelte@3.59.2)
+      svelte-highlight:
+        specifier: ^7.3.0
+        version: 7.3.0
       svelte-preprocess:
         specifier: ^5.0.4
         version: 5.0.4(postcss-load-config@4.0.1)(postcss@8.4.24)(svelte@3.59.2)(typescript@5.1.3)
@@ -963,7 +969,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.20.4(svelte@4.0.0)(vite@4.3.9)
+      '@sveltejs/kit': 1.20.4(svelte@3.59.2)(vite@4.3.9)
       import-meta-resolve: 3.0.0
     dev: true
 
@@ -3377,6 +3383,11 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /highlight.js@11.8.0:
+    resolution: {integrity: sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /hook-std@2.0.0:
@@ -6268,6 +6279,12 @@ packages:
     dependencies:
       svelte: 4.0.0
     dev: false
+
+  /svelte-highlight@7.3.0:
+    resolution: {integrity: sha512-59oE9/xOFXAdT97qXIt6HMlzL2f+0YNQ+BArzRONwCW96ElxX7TGme1kU5s3tsk1D88G5dhBixcP1chOGOkVsg==}
+    dependencies:
+      highlight.js: 11.8.0
+    dev: true
 
   /svelte-hmr@0.15.2(svelte@3.59.2):
     resolution: {integrity: sha512-q/bAruCvFLwvNbeE1x3n37TYFb3mTBJ6TrCq6p2CoFbSTNhDE9oAtEfpy+wmc9So8AG0Tja+X0/mJzX9tSfvIg==}

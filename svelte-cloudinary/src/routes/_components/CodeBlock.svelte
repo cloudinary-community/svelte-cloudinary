@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import type { Effect } from '../types.ts';
+	import Highlight from 'svelte-highlight';
+	import typescript from 'svelte-highlight/languages/typescript';
+	import atlas from 'svelte-highlight/styles/atlas';
 
 	export let effects: Effect[];
 	export let rawTransformations: string[];
@@ -16,6 +19,10 @@
       />
     `;
 </script>
+
+<svelte:head>
+	{@html atlas}
+</svelte:head>
 
 <div class="max-w-xl mx-auto bg-gray-200 p-4">
 	<div class="flex justify-end">
@@ -47,15 +54,11 @@
 				</svg>
 			</button>
 			{#if showCopyToolTip}
-				<span class="absolute -top-10 -translate-x-1/2" transition:fly={{ y: 20, duration: 200 }}
-					>Copied!</span
-				>
+				<span class="absolute -top-10 -translate-x-1/2" transition:fly={{ y: 20, duration: 200 }}>
+					Copied!
+				</span>
 			{/if}
 		</div>
 	</div>
-	<div class="flex flex-col items-center">
-		<pre>
-			{codeString}
-		</pre>
-	</div>
+	<Highlight language={typescript} code={codeString} />
 </div>
