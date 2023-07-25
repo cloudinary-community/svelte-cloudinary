@@ -1,10 +1,20 @@
 <script lang="ts">
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import CldUploadWidget from './CldUploadWidget.svelte';
-	import type { CldUploadWidgetProps, DiscriminatedProps } from './CldUploadWidgetTypes.ts';
+	import type { CldUploadWidgetProps } from './CldUploadWidgetTypes.ts';
+	import { invariant } from '$lib/util.ts';
 
-	type $$Props = CldUploadWidgetProps & svelteHTML.HTMLAttributes<HTMLButtonElement>;
+	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
+	invariant(
+		!($$props.uploadPreset == undefined && $$props.signatureEndpoint == undefined),
+		'You need to pass at least of of the following props: `uploadPreset` or `signatureEndpoint`'
+	);
+	invariant(
+		!($$props.uploadPreset != undefined && $$props.signatureEndpoint != undefined),
+		'You can only pass one of the following props: `uploadPreset` or `signatureEndpoint`'
+	);
 	// destructure the props
-	$: ({
+	const {
 		uploadPreset,
 		signatureEndpoint,
 		onError,
@@ -13,7 +23,7 @@
 		onOpen,
 		onClose,
 		...buttonProps
-	} = $$props as $$Props);
+	} = $$props as $$Props;
 
 	let baseProps = {
 		onClose,
@@ -42,12 +52,17 @@
 			signatureEndpoint: signatureEndpoint as string
 		};
 	}
+	// @ts-expect-error the $$slots and $$scope attributes inside the buttonsProps object
+	// appears because of the spread operator on line 39
+	// this attributes should not be passed to the button html elements since are not valid attributes
+	delete buttonProps['$$slots']
+	// @ts-expect-error
+	delete buttonProps['$$scope']
+
 </script>
 
 <CldUploadWidget {...props} let:open let:isLoading>
-	{#if $$slots.default}
-		<slot />
-	{:else}
-		<button {...buttonProps} on:click|preventDefault={open} disabled={isLoading}> Upload </button>
-	{/if}
+	<button {...buttonProps} on:click|preventDefault={open} disabled={isLoading}>
+		<slot>Upload</slot>
+	</button>
 </CldUploadWidget>

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { tick } from 'svelte';
 	import CldImage from '$lib/components/CldImage.svelte';
+	import CldUploadWidget from '$lib/components/CldUploadWidget.svelte';
+	import CldUploadButton from '$lib/components/CldUploadButton.svelte';
 	import CodeBlock from './_components/CodeBlock.svelte';
 	import Toggle from './_components/Toggle.svelte';
 	import type { CldPropOptions, CldPropValueType, CldProps } from './types.ts';
@@ -149,4 +151,10 @@
 			bind:rawTransformations={cldProps.rawTransformations}
 		/>
 	</main>
+	<div class="w-full py-8">
+		<CldUploadButton uploadPreset="test"class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+				>
+		Uppload Button
+		</CldUploadButton>
+	</div>
 </div>

@@ -4,7 +4,10 @@
 	import type {
 		ResultsEvents,
 		UploadWidget,
-		CldUploadWidgetProps
+		CldUploadWidgetProps,
+
+		ResultCallback
+
 	} from './CldUploadWidgetTypes.ts';
 
 	type $$Props = CldUploadWidgetProps;
@@ -18,8 +21,8 @@
 		'You can only pass one of the following props: `uploadPreset` or `signatureEndpoint`'
 	);
 	// destructure the props
-	$: ({ uploadPreset, signatureEndpoint, onError, onUpload, options, onOpen, onClose } =
-		$$props as $$Props);
+	const { uploadPreset, signatureEndpoint, onError, onUpload, options, onOpen, onClose } =
+		$$props as $$Props;
 
 	// References
 	let cloudinary: typeof window.cloudinary;
@@ -28,8 +31,6 @@
 	const WIDGET_WATCHED_EVENTS = ['success', 'display-changed'];
 
 	// State
-	let error: any = undefined;
-	let results: ResultsEvents | undefined = undefined;
 	let isLoading = true;
 
 	const uploadOptions = {
@@ -90,20 +91,22 @@
 	 */
 
 	function createWidget() {
-		return cloudinary?.createUploadWidget(uploadOptions, (uploadError: any, uploadResult: any) => {
+		const resultCallback: ResultCallback = (uploadError, uploadResult) => {
 			// The callback is a bit more chatty than failed or success so
 			// only trigger when one of those are the case. You can additionally
 			// create a separate handler such as onEvent and trigger it on
 			// ever occurrence
-
-			if (typeof uploadError !== 'undefined') {
-				error = uploadError;
+			if (uploadError != null){
+				console.log(uploadError, uploadResult)
+				handleError(uploadError)
 			}
 
 			if (WIDGET_WATCHED_EVENTS.includes(uploadResult?.event)) {
-				results = uploadResult;
+				handleResults(uploadResult)
 			}
-		});
+
+		}
+		return cloudinary?.createUploadWidget(uploadOptions, resultCallback)
 	}
 
 	/**
@@ -128,7 +131,7 @@
 	}
 	// Side effects
 
-	$: {
+	function handleResults(results: ResultsEvents) {
 		if (results != null) {
 			const isSuccess = results.event === 'success';
 			const isClosed = results.event === 'display-changed' && results.info === 'hidden';
@@ -142,7 +145,7 @@
 		}
 	}
 
-	$: {
+	function handleError(error: any) {
 		if (error && typeof onError === 'function') {
 			onError(error, widget);
 		}
@@ -160,12 +163,7 @@
 	></script>
 </svelte:head>
 
-<!-- {#if $$slots.default} -->
-<!-- 	<slot /> -->
-<!-- {:else} -->
-<!-- 	<button on:click={open}>Upload</button> -->
-<!-- {/if} -->
-<slot {open} {widget} {cloudinary} {isLoading}/>
+<slot {open} {widget} {cloudinary} {isLoading} />
 
 <!-- USAGE
 

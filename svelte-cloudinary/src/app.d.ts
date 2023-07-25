@@ -1,8 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 
-import type { CldUploadWidgetPropsOptions } from '$lib/components/CldUploadWidgetTypes.ts';
-import type { ResultCallback, UploadWidget } from './types/cloudinary.ts';
+import type { CldUploadWidgetPropsOptions, ResultsEvents, ResultCallback, UploadWidget } from '$lib/components/CldUploadWidgetTypes.ts';
 declare global {
 	namespace App {
 		// interface Error {}
