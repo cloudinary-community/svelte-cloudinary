@@ -6,7 +6,7 @@ import CldImage from './CldImage.svelte';
 
 describe('CldImage', () => {
     it('should render a Cloudinary image with the given attributes', () => {
-        const expectedUrl = 'image/upload/c_limit,w_300/b_#123456/f_auto/q_auto/sample?_a=BBECcRAD0';
+        const expectedUrl = 'image/upload/c_limit,w_300/b_#123456/f_auto/q_auto/sample';
         const expectedSizes = "(min-width: 300px) 300px, 100vw"
         const props = {
             src: 'sample',
@@ -26,8 +26,8 @@ describe('CldImage', () => {
         expect(img.sizes).toBe(expectedSizes)
     });
     it('should update the image when src change', async () => {
-        const original = 'image/upload/c_limit,w_300/f_auto/q_auto/sample?_a=BBECcRAD0';
-        const expectedUrl = 'image/upload/c_limit,w_300/f_auto/q_auto/sample2?_a=BBECcRAD0';
+        const original = 'image/upload/c_limit,w_300/f_auto/q_auto/sample';
+        const expectedUrl = 'image/upload/c_limit,w_300/f_auto/q_auto/sample2';
         const props = {
             src: 'sample',
             alt: 'sample image',
