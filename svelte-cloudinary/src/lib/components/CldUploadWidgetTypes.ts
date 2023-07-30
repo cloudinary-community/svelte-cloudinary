@@ -172,26 +172,28 @@ export interface UploadWidget {
   isDestroyed: () => boolean;
 }
 
-export type DiscriminatedProps =
-  | {
-    uploadPreset: string;
-    signatureEndpoint?: never;
-  }
-  | {
-    uploadPreset?: never;
-    signatureEndpoint: string;
-  };
 export type CldUploadWidgetProps = {
-  onError?: (error: any, widget?: UploadWidget) => void;
+  onError?: (error: UploadError, widget?: UploadWidget) => void;
   onUpload?: (result: ResultsEvents, widget?: UploadWidget) => void;
   options?: CldUploadWidgetPropsOptions;
   onOpen?: (widget?: UploadWidget) => void;
   onClose?: (widget?: UploadWidget) => void;
-} & DiscriminatedProps;
+  uploadPreset?: string;
+  signatureEndpoint?: string;
+}
 
-export type ResultCallback = (error: any, result: ResultsEvents) => void;
+/* From the docs:
+* The callback method has the following signature function(error, result) where error is either null if successful
+* or an error message if there was a failure,
+*/
+type UploadError = {
+  status: string;
+  statusText: string;
+} | null
+export type ResultCallback = (error: UploadError, result: ResultsEvents) => void;
 export type CreateUploadWidgetProps = {
   cloudName: string;
   uploadPreset?: string; // @TODO this should be optional if signature is present
   apiKey?: string;
 } & CldUploadWidgetPropsOptions;
+

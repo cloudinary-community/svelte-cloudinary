@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
-import CldImage from './CldImage.svelte';
+import CldImage from '../CldImage.svelte';
 
 describe('CldImage', () => {
     it('should render a Cloudinary image with the given attributes', () => {
