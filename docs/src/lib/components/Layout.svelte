@@ -9,7 +9,7 @@
 <svelte:head>
 	<title>{renderTitle} - Svelte Cloudinary</title>
 	<meta name="og:title" content={`${renderTitle} - Svelte Cloudinary`} />
-	<meta name="og:url" content={$page.url.href} />
+	<meta name="og:url" content={$page.url.href.toLowerCase()} />
 </svelte:head>
 
 <CldOgImage
@@ -57,7 +57,7 @@
 				fontFamily: 'Source Sans Pro',
 				fontSize: 60,
 				fontWeight: 'bold',
-				text: 'svelte-cloudinary.vercel.app'
+				text: 'svelte.cloudinary.dev'
 			}
 		}
 	]}

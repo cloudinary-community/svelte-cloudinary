@@ -7,6 +7,11 @@
 	export let data;
 	let menuOpen = false;
 	$: if ($navigating) menuOpen = false;
+
+	function getLink(item) {
+		console.log(item.title.toLowerCase().replace(/\s/g, '-'));
+		return '';
+	}
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-neutral-100 shadow-md">
@@ -52,86 +57,29 @@
 				<div
 					class="transition-opacity duration-500 ease-in-out motion-reduce:transition-none opacity-100"
 				>
-					<ul>
-						{#each data.base as article}
-							<li class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded">
-								<a
-									href={article.slug}
-									class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
-								>
-									{article.title}
-								</a>
-							</li>
-						{/each}
-					</ul>
-					<div class="collapse collapse-arrow text-sm text-gray-500 rounded px-2 min-h-12">
-						<input type="checkbox" />
-						<div
-							class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
-						>
-							Components
-						</div>
-						<ul class="collapse-content">
-							{#each Object.keys(data.components) as group, index}
-								<li class="collapse collapse-arrow">
-									<input type="checkbox" />
-									<div
-										class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
+					{#each data.sections as section}
+						{@const key = Object.keys(section)[0]}
+						<div class="collapse bg-base-200">
+							<input type="radio" name="my-accordion-1" />
+							<div class="collapse-title text-xl font-medium">
+								{section[key].title}
+							</div>
+							<div class="collapse-content">
+								{#each section[key].children as item}
+									<li
+										class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
 									>
-										{group}
-									</div>
-									<ul class="flex flex-col gap-1 md:flex collapse-content">
-										{#each data.components[group] as item}
-											<li
-												class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
-											>
-												<a
-													href={item.slug}
-													class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
-												>
-													{item.title}
-												</a>
-											</li>
-										{/each}
-									</ul>
-								</li>
-							{/each}
-						</ul>
-					</div>
-					<div class="collapse collapse-arrow text-sm text-gray-500 rounded px-2 min-h-12 -mt-2">
-						<input type="checkbox" />
-						<div
-							class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
-						>
-							Helpers
+										<a
+											href={getLink(section[key])}
+											class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
+										>
+											{item.title}
+										</a>
+									</li>
+								{/each}
+							</div>
 						</div>
-						<ul class="collapse-content">
-							{#each Object.keys(data.helpers) as group, index}
-								<li class="collapse collapse-arrow">
-									<input type="checkbox" />
-									<div
-										class="collapse-title p-0 m-0 section-title hover:text-gray-600 hover:bg-gray-200/80"
-									>
-										{group}
-									</div>
-									<ul class="flex flex-col gap-1 md:flex collapse-content">
-										{#each data.helpers[group] as item}
-											<li
-												class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
-											>
-												<a
-													href={item.slug}
-													class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
-												>
-													{item.title}
-												</a>
-											</li>
-										{/each}
-									</ul>
-								</li>
-							{/each}
-						</ul>
-					</div>
+					{/each}
 				</div>
 			</div>
 		</div>
