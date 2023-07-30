@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { triggerOnIdle, invariant } from '$lib/util.js';
+	import { triggerOnIdle } from '$lib/util.js';
 	import type {
 		ResultsEvents,
 		UploadWidget,
@@ -12,14 +12,6 @@
 
 	type $$Props = CldUploadWidgetProps;
 
-	invariant(
-		!($$props.uploadPreset == undefined && $$props.signatureEndpoint == undefined),
-		'You need to pass at least of of the following props: `uploadPreset` or `signatureEndpoint`'
-	);
-	invariant(
-		!($$props.uploadPreset != undefined && $$props.signatureEndpoint != undefined),
-		'You can only pass one of the following props: `uploadPreset` or `signatureEndpoint`'
-	);
 	// destructure the props
 	const { uploadPreset, signatureEndpoint, onError, onUpload, options, onOpen, onClose } =
 		$$props as $$Props;
@@ -32,10 +24,9 @@
 
 	// State
 	let isLoading = true;
-
 	const uploadOptions = {
 		cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
-		uploadPreset: uploadPreset || import.meta.env.VITE_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+		uploadPreset: uploadPreset || import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
 		apiKey: import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
 		...options
 	};
@@ -97,7 +88,6 @@
 			// create a separate handler such as onEvent and trigger it on
 			// ever occurrence
 			if (uploadError != null){
-				console.log(uploadError, uploadResult)
 				handleError(uploadError)
 			}
 
@@ -163,7 +153,7 @@
 	></script>
 </svelte:head>
 
-<slot {open} {widget} {cloudinary} {isLoading} />
+<slot {open} {widget} {cloudinary} {isLoading} data-testid="slot"/>
 
 <!-- USAGE
 
