@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tick } from 'svelte';
 	import CldImage from '$lib/components/CldImage.svelte';
+	import CldVideoPlayer from '$lib/components/CldVideoPlayer.svelte';
 	import CodeBlock from './_components/CodeBlock.svelte';
 	import Toggle from './_components/Toggle.svelte';
 	import type { CldPropOptions, CldPropValueType, CldProps } from './types.ts';
@@ -148,5 +149,20 @@
 			bind:effects={cldProps.effects}
 			bind:rawTransformations={cldProps.rawTransformations}
 		/>
+		<div class="flex flex-col items-center justify-center mb-10 mx-auto">
+			<h2 class="text-3xl text-center py-8 font-display font-extrabold">Video Player</h2>
+			<CldVideoPlayer
+				width="1620"
+				height="1080"
+				src={`mountain-stars`}
+				class="border-red-50 border bg-sky-"
+				colors={{
+					accent: '#ff0000',
+					base: '#00ff00',
+					text: '#0000ff'
+				}}
+				fontFace="Source Serif Pro"
+			/>
+		</div>
 	</main>
 </div>
