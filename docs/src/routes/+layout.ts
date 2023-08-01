@@ -96,7 +96,8 @@ const components = ['cldimage', 'cldogimage', 'clduploadbutton', 'clduploadwidge
 const helpers = ['getcldimageurl']
 
 function getDoc(slug: string | undefined, section: string | undefined) {
-	const folder = slug?.toLowerCase() ?? '/'
+	console.log({ slug })
+	const folder = slug?.toLowerCase().split(" ").join("-") ?? '/'
 	const file = section?.toLowerCase()
 
 	let path = `${slug?.toLowerCase()}.md`
@@ -118,13 +119,10 @@ export const load: PageServerLoad = async ({ params }) => {
 	const post = await getDoc(params.slug, params.section)
 	const { default: page, metadata } = post;
 	const { default: meta } = await import('../docs/meta.json')
-	const sections = Object.keys(meta).map((key) => {
-		return { [key]: meta[key] }
-	})
 	return {
 		page,
 		metadata,
-		sections
+		sections: meta.sections
 		// slug: path,
 	}
 }

@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import '../app.postcss';
 	import { Hamburger } from 'svelte-hamburgers';
+	import Dropdown from '$lib/components/Dropdown.svelte';
 	/** @type {import('./$types').LayoutData} */
 	export let data;
 	let menuOpen = false;
@@ -12,6 +13,7 @@
 		console.log(item.title.toLowerCase().replace(/\s/g, '-'));
 		return '';
 	}
+	console.log(data.sections[2]);
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-neutral-100 shadow-md">
@@ -57,29 +59,31 @@
 				<div
 					class="transition-opacity duration-500 ease-in-out motion-reduce:transition-none opacity-100"
 				>
-					{#each data.sections as section}
-						{@const key = Object.keys(section)[0]}
-						<div class="collapse bg-base-200">
-							<input type="radio" name="my-accordion-1" />
-							<div class="collapse-title text-xl font-medium">
-								{section[key].title}
-							</div>
-							<div class="collapse-content">
-								{#each section[key].children as item}
-									<li
-										class="flex flex-col gap-1 h-12 hover:bg-gray-200/80 justify-center px-2 rounded"
+					<ul class="flex flex-col gap-1 max-md:hidden">
+						{#each data.sections as section}
+							{@const title = section.title}
+							{@const type = section.type}
+							{#if type === 'separator'}
+								<li class="[word-break:break-word] mt-5 mb-2 px-2 py-1.5 text-sm font-semibold text-gray-900 first:mt-0 ">
+									{title}
+								</li>
+							    {#each section.children as child}
+									<li>
+										<Dropdown title={child.title} items={child.children} link={child.link} />
+	</li>
+{/each}
+							{:else}
+								<li class="flex flex-col gap-1 active">
+									<a
+										class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border bg-primary-100 font-semibold text-primary-800 contrast-more:border-primary-500"
+										href={`/${section.link}`}
 									>
-										<a
-											href={getLink(section[key])}
-											class="text-gray-500 hover:text-gray-600 text-sm transition-colors"
-										>
-											{item.title}
-										</a>
-									</li>
-								{/each}
-							</div>
-						</div>
-					{/each}
+										{title}
+									</a>
+								</li>
+							{/if}
+						{/each}
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -93,7 +97,7 @@
 	</article>
 </main>
 <footer class="pb-[env(safe-area-inset-bottom)] bg-neutral-100">
-	<hr class="dark:border-neutral-400" />
+	<hr class="" />
 	<div
 		class="mx-auto flex max-w-[90rem] justify-center py-12 text-gray-400 md:justify-start pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]"
 	>

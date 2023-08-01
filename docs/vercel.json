@@ -1,0 +1,26 @@
+
+{
+  "rewrites": [
+    {
+      "source": "/components/:path(.*)",
+      "destination": "/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/helpers/:path(.*)",
+      "destination": "/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/use-cases/:path(.*)",
+      "destination": "/guides/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/resources",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
+}
+

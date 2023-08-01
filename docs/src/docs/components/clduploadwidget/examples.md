@@ -19,16 +19,17 @@ let info
 
 ### Unsigned
 
-<CldUploadButton
-class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-onOpen={(e) => { console.log(e)}}
-onUpload={(result, widget) => {
-  info = result?.info
-  widget.close();
-}}
-uploadPreset="svelte-cloudinary-unsigned"
-/>
-<p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
+<div class="mt-6">
+      <CldUploadButton
+        class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
+        onUpload={(result, widget) => {
+          info = result?.info
+          widget.close();
+        }}
+        uploadPreset="svelte-cloudinary-unsigned"
+      />
+      <p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
+</div>
 
 ```
 <CldUploadButton

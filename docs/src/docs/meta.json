@@ -1,0 +1,80 @@
+{
+  "sections": [
+    {
+      "title": "Getting Started",
+      "link":""
+    },
+    {
+      "title": "Installation",
+      "link":"installation"
+    },
+    {
+      "type": "separator",
+      "title": "Components",
+      "children":[
+        {
+          "title": "<CldImage />",
+          "link": "cldimage",
+          "children": [
+            "usage",
+            "configuration",
+            "examples",
+            "responsive images"
+          ]
+        },
+       {
+          "title": "<CldOgImage />",
+          "link": "cldogimage",
+          "children": [
+            "usage",
+            "configuration",
+            "examples"
+          ]
+        },
+        {
+          "title": "<CldUploadButton />",
+          "link": "clduploadbutton",
+          "children": [
+            "usage",
+            "configuration",
+            "examples"
+          ]
+        },
+        {
+          "title": "<CldUploadWidget />",
+          "link": "clduploadwidget",
+          "children": [
+            "usage",
+            "configuration",
+            "examples"
+          ]
+        }
+      ]
+
+    },
+    {
+      "type": "separator",
+      "title": "Helpers",
+      "children":[
+        {
+          "title": "getCldImageUrl",
+          "link":"getcldimageurl",
+          "children": [
+            "usage",
+            "configuration",
+            "examples"
+          ]
+        },
+        {
+          "title": "getCldOgImageUrl",
+          "link":"getcldogimageurl",
+          "children": [
+            "usage",
+            "configuration",
+            "examples"
+          ]
+        }
+      ]
+    }
+  ]
+}
