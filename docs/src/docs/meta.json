@@ -48,6 +48,16 @@
             "configuration",
             "examples"
           ]
+        },
+        {
+          "title": "<CldVideoPlayer />",
+          "link": "cldvideoplayer",
+          "children": [
+            "usage",
+            "configuration",
+            "examples",
+            "transformations"
+          ]
         }
       ]
 

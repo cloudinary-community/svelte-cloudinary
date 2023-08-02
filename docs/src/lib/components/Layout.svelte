@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
 	import { CldOgImage } from 'svelte-cloudinary';
 	export let title;
 	export let parent;
@@ -9,7 +8,7 @@
 <svelte:head>
 	<title>{renderTitle} - Svelte Cloudinary</title>
 	<meta name="og:title" content={`${renderTitle} - Svelte Cloudinary`} />
-	<meta name="og:url" content={$page.url.href.toLowerCase()} />
+	<!-- <meta name="og:url" content={$page.url.href.toLowerCase()} /> -->
 </svelte:head>
 
 <CldOgImage

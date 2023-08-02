@@ -6,7 +6,8 @@ order: 1
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadButton } from 'svelte-cloudinary'
-let info
+	import { env } from '$env/dynamic/public';
+    let info
 </script>
 
 # Getting Started with CldUploadButton
@@ -24,19 +25,19 @@ import { CldUploadButton } from 'svelte-cloudinary';
 ```
 
 
-<div class="mt-6">
-      <CldUploadButton
-        class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-        onUpload={(result, widget) => {
-          info = result?.info
-          widget.close();
-        }}
-        uploadPreset="svelte-cloudinary-unsigned"
-      />
-      <p>URL: { info?.secure_url }</p>
-</div>
+<CldUploadButton
+class="cldbutton"
+  onUpload={(result, widget) => {
+    info = result?.info
+    widget.close();
+  }}
+  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD}
+/>
+<p>URL: { info?.secure_url }</p>
 
 ## Learn More about CldUploadButton
 * [Configuration](/clduploadbutton/configuration)
 * [Examples](/clduploadbutton/examples)
+
+
 

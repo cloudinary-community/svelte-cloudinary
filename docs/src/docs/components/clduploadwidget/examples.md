@@ -1,64 +1,89 @@
 ---
-title: CldUploadButton/Examples
+title: CldUploadWidget/Examples
 order: 3
 ---
 <script>
     import Callout from '$lib/components/Callout.svelte'
-    import { CldUploadButton } from 'svelte-cloudinary'
-let info
+    import { CldUploadWidget } from 'svelte-cloudinary'
+	import ImageGrid from '$lib/components/ImageGrid.svelte';
+	import { env } from '$env/dynamic/public';
+    let info
     let infoSecure
+    let infoSecure2
 </script>
 
-# CldUploadButton Examples
+# CldUploadWidget Examples
 
 ## Examples
 
-<Callout type="info" emoji={false}>
-  Button styles are not included as part of CldUploadButton and are only applied for this demo.
-</Callout>
+<ImageGrid>
+<li>
+<CldUploadWidget
+  let:open let:isLoading
+  onUpload={(result, widget) => {
+    info = result?.info
+    widget.close();
+  }}
+  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+>
+  <button on:click|preventDefault={open} class="cldbutton">
+    Unsigned Upload
+  </button>
+</CldUploadWidget>
+<p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
 
 ### Unsigned
 
-<div class="mt-6">
-      <CldUploadButton
-        class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-        onUpload={(result, widget) => {
-          info = result?.info
-          widget.close();
-        }}
-        uploadPreset="svelte-cloudinary-unsigned"
-      />
-      <p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
-</div>
-
+```jsx
+uploadPreset="svelte-cloudinary-unsigned"
 ```
-<CldUploadButton
-  uploadPreset="<Upload Preset>"
-/>
-```
+<li>
+<li>
 
-<Callout emoji={false}>
-  The Upload Preset must have unsigned uploads enabled.  Learn more about <a href="https://cloudinary.com/documentation/upload_images#unauthenticated_requests">unauthenticated requests</a>.
-</Callout>
+<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading
+    signatureEndpoint="/api/sign-cloudinary-params"
+      onUpload={(result, widget) => {
+          infoSecure = result?.info
+          widget.close()
+    }}>
+      <button on:click={open} class="cldbutton">
+        Upload an Image
+      </button>
+</CldUploadWidget>
+<p>URL: { infoSecure?.secure_url }</p>
 
 ### Signed
-
-<div class="mt-6">
-      <CldUploadButton
-        class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-        onUpload={(result, widget) => {
-          infoSecure = result?.info
-          widget.close();
-        }}
-        uploadPreset="svelte-cloudinary-signed"
-        signatureEndpoint="/api/sign-cloudinary-params"
-      />
-      <p><strong>URL:</strong> { infoSecure?.secure_url || 'Upload to see example result.' }</p>
-</div>
-
+```jsx
+signatureEndpoint="/api/sign-cloudinary-params"
 ```
-<CldUploadButton
-  signatureEndpoint="<Endpoint (ex: /api/sign-cloudinary-params)>"
-  uploadPreset="<Upload Preset>"
-/>
+</li>
+<li>
+<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading options={{sources: ['local']}}
+    signatureEndpoint="/api/sign-cloudinary-params"
+      onUpload={(result, widget) => {
+          infoSecure2 = result?.info
+          widget.close()
+    }}>
+      <button on:click={open} class="cldbutton">
+        Upload an Image
+      </button>
+</CldUploadWidget>
+<p>URL: { infoSecure2?.secure_url }</p>
+
+### Custom Sources
+```jsx
+options={{
+  sources: ['local']
+}}
 ```
+
+</li>
+
+</ImageGrid>
+
+<Callout emoji={false}>
+  Note: all files will eventually be deleted after upload.
+</Callout>
+
+
+

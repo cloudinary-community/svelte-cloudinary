@@ -9,11 +9,6 @@
 	let menuOpen = false;
 	$: if ($navigating) menuOpen = false;
 
-	function getLink(item) {
-		console.log(item.title.toLowerCase().replace(/\s/g, '-'));
-		return '';
-	}
-	console.log(data.sections[2]);
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-neutral-100 shadow-md">

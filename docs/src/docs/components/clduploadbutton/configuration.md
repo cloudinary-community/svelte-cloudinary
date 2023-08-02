@@ -9,7 +9,6 @@ order: 2
 
 | Prop Name          | Type               | Example                                |
 |--------------------|--------------------|----------------------------------------|
-| className          | string             | `"my-button"`                          |
 | onClick            | function           | `function (event) { }`                 |
 | onError            | function           | `function (error, widget) { }`         |
 | onUpload           | function           | `function (result, widget) { }`        |
@@ -17,6 +16,7 @@ order: 2
 | signatureEndpoint  | string             | `"/api/sign-cloudinary-params.js"`     |
 | uploadPreset       | string             | `"my-upload-preset"`                   |
 
-`children` are rendered "as is" inside of the `<button>` element if provided, otherwise, the button will include a label of "Upload".
 
 The remaining props are spread onto the `<button>` element for full control of the UI.
+
+It accepts any `slot` as an usual button.

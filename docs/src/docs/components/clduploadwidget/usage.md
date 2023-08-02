@@ -6,7 +6,10 @@ order: 1
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-let info
+	import { env } from '$env/dynamic/public';
+    let infoUpload
+	let infoUploadSecure
+
 </script>
 
 
@@ -47,18 +50,21 @@ import { CldUploadWidget } from 'svelte-cloudinary';
 ```
 
 
+<CldUploadWidget
+  let:open let:isLoading
+  onUpload={(result, widget) => {
+    infoUpload = result?.info
+    widget.close();
+  }}
+  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+>
+  <button on:click|preventDefault={open} class="cldbutton">
+    Unsigned Upload
+  </button>
+</CldUploadWidget>
+<p><strong>URL:</strong> { infoUpload?.secure_url || 'Upload to see example result.' }</p>
 
-<div class="mt-6">
-    <CldUploadWidget uploadPreset="svelte-cloudinary-unsigned" let:open let:isLoading onUpload={(result, widget) => {
-    info = result?.info
-          widget.close()
-          }}>
-          <button className="button" on:click={open} disabled={isLoading}>
-            Upload an Image
-          </button>
-    </CldUploadWidget>
-    <p>URL: { info?.secure_url }</p>
-</div>
+
 
 ### Signed
 
@@ -100,20 +106,20 @@ res.status(200).json({
 
 To use the above, create a Node-based API route, add the snippet, and use that endpoint as the `signatureEndpoint` prop.
 
-See a full example of an API endpoint used with the Next Cloudinary docs: https://github.com/colbyfayock/next-cloudinary/blob/main/docs/pages/api/sign-cloudinary-params.js
+See a full example of an API endpoint used with the Svelte Cloudinary docs: https://github.com/cloudinary-community/svelte-cloudinary/blob/main/docs/src/routes/api/sign-cloudinary-params/+server.ts
 
 <div class="mt-6">
-    <CldUploadWidget uploadPreset="svelte-cloudinary-unsigned" let:open let:isLoading
+    <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading
         signatureEndpoint="/api/sign-cloudinary-params"
           onUpload={(result, widget) => {
-          info = result?.info
+              infoUploadSecure = result?.info
               widget.close()
         }}>
-          <button className="button" on:click={open} disabled={isLoading}>
+          <button class="cldbutton" on:click={open}>
             Upload an Image
           </button>
     </CldUploadWidget>
-    <p>URL: { info?.secure_url }</p>
+    <p>URL: { infoUploadSecure?.secure_url }</p>
 </div>
 
 
@@ -121,3 +127,4 @@ See a full example of an API endpoint used with the Next Cloudinary docs: https:
 ## Learn More about CldUploadWidget
 * [Configuration](/clduploadwidget/configuration)
 * [Examples](/clduploadwidget/examples)
+

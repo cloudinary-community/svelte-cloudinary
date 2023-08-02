@@ -5,7 +5,8 @@ order: 3
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadButton } from 'svelte-cloudinary'
-let info
+	import { env } from '$env/dynamic/public';
+    let info
     let infoSecure
 </script>
 
@@ -20,17 +21,18 @@ let info
 ### Unsigned
 
 <CldUploadButton
-class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-onOpen={(e) => { console.log(e)}}
-onUpload={(result, widget) => {
-  info = result?.info
-  widget.close();
-}}
-uploadPreset="svelte-cloudinary-unsigned"
+class="cldbutton"
+  onUpload={(result, widget) => {
+    info = result?.info;
+    widget.close();
+  }}
+  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
+
 <p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
 
-```
+
+```jsx
 <CldUploadButton
   uploadPreset="<Upload Preset>"
 />
@@ -42,18 +44,17 @@ uploadPreset="svelte-cloudinary-unsigned"
 
 ### Signed
 
-<div class="mt-6">
-      <CldUploadButton
-        class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
-        onUpload={(result, widget) => {
-          infoSecure = result?.info
-          widget.close();
-        }}
-        uploadPreset="svelte-cloudinary-signed"
-        signatureEndpoint="/api/sign-cloudinary-params"
-      />
-      <p><strong>URL:</strong> { infoSecure?.secure_url || 'Upload to see example result.' }</p>
-</div>
+<CldUploadButton
+class="cldbutton"
+  signatureEndpoint="/api/sign-cloudinary-params"
+  onUpload={(result, widget) => {
+    infoSecure = result?.info;
+    widget.close();
+  }}
+  uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
+/>
+
+<p><strong>URL:</strong> { infoSecure?.secure_url || 'Upload to see example result.' }</p>
 
 ```
 <CldUploadButton
