@@ -59,13 +59,13 @@
 				<div
 					class="transition-opacity duration-500 ease-in-out motion-reduce:transition-none opacity-100"
 				>
-					<ul class="flex flex-col gap-1 max-md:hidden">
+					<ul class="flex flex-col gap-1">
 						{#each data.sections as section}
 							{@const title = section.title}
 							{@const type = section.type}
 							{#if type === 'separator'}
 								<li
-									class="[word-break:break-word] mt-5 mb-2 px-2 py-1.5 text-sm font-semibold text-gray-900 first:mt-0"
+									class="[word-break:break-word] mt-5 mb-2 px-2 py-1.5 text-sm font-semibold text-gray-900 first:mt-0 "
 								>
 									{title}
 								</li>
@@ -75,7 +75,7 @@
 									</li>
 								{/each}
 							{:else}
-								<li class="flex flex-col gap-1 active">
+								<li class="flex flex-col gap-1 hover:bg-neutral-200">
 									<a
 										class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border bg-primary-100 font-semibold text-primary-800 contrast-more:border-primary-500"
 										href={`/${section.link}`}
@@ -93,7 +93,7 @@
 	<article
 		class="flex min-h-[calc(100vh-4rem)] w-full min-w-0 max-w-full justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]"
 	>
-		<main class="w-full min-w-0 max-w-4xl px-6 pt-4 md:px-8 prose prose-invert">
+		<main class="w-full min-w-0 max-w-4xl px-6 pt-4 md:px-8 prose prose-invert prose-lg">
 			<slot />
 		</main>
 	</article>
