@@ -4,11 +4,16 @@
 	import '../app.postcss';
 	import { Hamburger } from 'svelte-hamburgers';
 	import Dropdown from '$lib/components/Dropdown.svelte';
+
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+	inject({ mode: dev ? 'development' : 'production' });
+
+
 	/** @type {import('./$types').LayoutData} */
 	export let data;
 	let menuOpen = false;
 	$: if ($navigating) menuOpen = false;
-
 </script>
 
 <div class="sticky top-0 z-20 w-full bg-neutral-100 shadow-md">
@@ -59,14 +64,16 @@
 							{@const title = section.title}
 							{@const type = section.type}
 							{#if type === 'separator'}
-								<li class="[word-break:break-word] mt-5 mb-2 px-2 py-1.5 text-sm font-semibold text-gray-900 first:mt-0 ">
+								<li
+									class="[word-break:break-word] mt-5 mb-2 px-2 py-1.5 text-sm font-semibold text-gray-900 first:mt-0"
+								>
 									{title}
 								</li>
-							    {#each section.children as child}
+								{#each section.children as child}
 									<li>
 										<Dropdown title={child.title} items={child.children} link={child.link} />
-	</li>
-{/each}
+									</li>
+								{/each}
 							{:else}
 								<li class="flex flex-col gap-1 active">
 									<a
