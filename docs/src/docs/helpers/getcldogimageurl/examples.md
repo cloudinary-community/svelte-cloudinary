@@ -11,11 +11,6 @@ order: 3
     const OG_IMAGE_WIDTH = 2400;
     const OG_IMAGE_WIDTH_RESIZE = 1200;
     const OG_IMAGE_HEIGHT = 1254;
-    console.log(getCldOgImageUrl({
-      src: `images/turtle`,
-      removeBackground: true,
-      underlay: `images/galaxy`,
-    }))
 </script>
 
 # getCldOgImageUrl Examples
