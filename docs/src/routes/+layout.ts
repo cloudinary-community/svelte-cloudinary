@@ -13,7 +13,6 @@ function getDoc(slug: string | undefined, section: string | undefined) {
 	const folder = slug?.toLowerCase().split(" ").join("-") ?? '/'
 	const file = section?.toLowerCase()
 
-
 	if (components.includes(folder)) {
 		return import(`../docs/components/${folder}/${file}.md`)
 	}
@@ -22,8 +21,8 @@ function getDoc(slug: string | undefined, section: string | undefined) {
 	}
 	if (folder === '/') {
 		return import(`../docs/index.md`)
-
 	}
+	return import(`../docs/${folder}.md`)
 }
 
 export const load: PageServerLoad = async ({ params }) => {

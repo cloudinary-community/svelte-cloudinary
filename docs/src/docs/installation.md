@@ -44,13 +44,13 @@ VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="[Your Cloud Name]"
 
 Learn how to add one of the Svelte Cloudinary components:
 
-* [CldImage](/components/CldImage/usage)
-<!-- * [CldOgImage](/components/cldogimage/basic-usage) -->
-<!-- * [CldUploadButton](/components/clduploadbutton/basic-usage) -->
-<!-- * [CldUploadWidget](/components/clduploadwidget/basic-usage) -->
-<!-- * [CldVideoPlayer](/components/cldvideoplayer/basic-usage) -->
+* [CldImage](/CldImage/usage)
+* [CldOgImage](/cldogimage/usage)
+* [CldUploadButton](/clduploadbutton/usage)
+* [CldUploadWidget](/clduploadwidget/usage)
+* [CldVideoPlayer](/cldvideoplayer/usage)
 
-<!-- Or use the helper methods to generate URLs: -->
+Or use the helper methods to generate URLs:
 <!---->
-<!-- * [getCldImageUrl](/helpers/getcldimageurl/basic-usage) -->
-<!-- * [getCldOgImageUrl](/helpers/getcldogimageurl/basic-usage) -->
+* [getCldImageUrl](/getcldimageurl/usage)
+* [getCldOgImageUrl](/getcldogimageurl/usage)
