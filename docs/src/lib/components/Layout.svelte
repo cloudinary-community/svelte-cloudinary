@@ -1,7 +1,6 @@
-<script>
+<script lang="ts">
 	import { CldOgImage } from 'svelte-cloudinary';
-	export let title;
-	export let parent;
+	export let title: string;
 	const renderTitle = title.replace('/', ' ');
 </script>
 

@@ -36,3 +36,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		sections: meta.sections
 	}
 }
+
+export const prerender = true
+// export const csr = true
+export const trailingSlash = "always"

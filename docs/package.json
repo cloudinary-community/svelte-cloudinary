@@ -38,10 +38,14 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@microflash/rehype-toc": "1.0.2",
 		"@sveltejs/adapter-vercel": "3.0.2",
 		"@vercel/analytics": "1.0.1",
 		"cloudinary": "^1.32.0",
+		"rehype-autolink-headings": "6.1.1",
+		"rehype-slug": "5.1.0",
 		"svelte-cloudinary": "workspace:*",
-		"svelte-hamburgers": "4.1.0"
+		"svelte-hamburgers": "4.1.0",
+		"theme-change": "2.5.0"
 	}
 }

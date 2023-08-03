@@ -11,7 +11,7 @@ const config = {
 
 	plugins: [typography, daisyui],
 	daisyui: {
-		themes: ["light"]
+		themes: ["lofi","black"]
 	}
 };
 

@@ -9,6 +9,7 @@ order: 1
 
 # Getting Started with CldImage
 
+
 The CldImage component provides an easy way to deliver images from Cloudinary with the same experience you'd expect inside of a SvelteKit app.
 
 With it comes access to more advanced features like dynamic cropping, background removal, overlays, and other Cloudinary transformations.

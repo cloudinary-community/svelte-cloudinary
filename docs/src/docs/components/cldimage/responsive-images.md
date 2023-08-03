@@ -109,5 +109,5 @@ You can use `aspectRatio` prop instead of using both `width` and `height` at the
 
 # Learn More about CldImage
 ---
-- [Configuration](/components/CldImage/configuration)
-- [Examples](/components/CldImage/examples)
+- [Configuration](/CldImage/configuration)
+- [Examples](/CldImage/examples)
