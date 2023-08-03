@@ -9,7 +9,7 @@
 	export let items: Array<Item> = [];
 </script>
 
-<div tabIndex="0" class="collapse collapse-arrow">
+<div tabIndex="0" class="collapse collapse-arrow" style="padding: 0 0 0 10px!important">
 	<input type="checkbox" class="peer" />
 	<div
 		class="collapse-title items-center justify-between gap-2 text-left w-[200px] flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border text-gray-500 hover:bg-primary-200 hover:text-gray-900 contrast-more:text-gray-900 contrast-more:border-transparent contrast-more:hover:border-gray-900"
