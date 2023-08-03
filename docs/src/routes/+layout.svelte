@@ -25,9 +25,9 @@
 		<Navbar />
 		<main class="max-w-[100vw] px-6 pb-16 xl:pr-2">
 			<div class="flex flex-col-reverse justify-between gap-6 xl:flex-row">
-				<article class="prose prose-sm md:prose-base w-full max-w-4xl flex-grow pt-10">
+				<article class="prose prose-sm md:prose-base dark:prose-invert w-full max-w-4xl flex-grow pt-10">
 			<slot />
-					<footer class="pb-[env(safe-area-inset-bottom)] no-prose">
+					<footer class="pb-[env(safe-area-inset-bottom)] not-prose">
 						<hr class="" />
 						<div
 							class="mx-auto flex max-w-[90rem] justify-center py-12 text-gray-400 md:justify-start pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]"

@@ -82,13 +82,6 @@ Or listening to player events for advanced interactions with:
 ```
 
 
-## Watch & Learn
-
-<Video
-  title="Embedding a Video Player in Next.js with Next Cloudinary"
-  url="https://www.youtube.com/watch?v=Et7TTfwvBFo"
-/>
-
 ## Learn More about CldVideoPlayer
 * [Configuration](/cldvideoplayer/configuration)
 * [Examples](/cldvideoplayer/examples)
