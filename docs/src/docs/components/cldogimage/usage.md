@@ -64,7 +64,7 @@ The resulting HTML will be applied to the Head of the document:
 
 You can further take advantage of Cloudinary features like background removal and overlays by adding additional props.
 
-The CldOgImage component uses the same API as [CldImage](/components/CldImage/configuration), meaning you can use the same transformations and effects.
+The CldOgImage component uses the same API as [CldImage](/CldImage/configuration), meaning you can use the same transformations and effects.
 
 ```jsx
 <CldOgImage
@@ -117,5 +117,5 @@ The CldOgImage component uses the same API as [CldImage](/components/CldImage/co
 
 
 ## Learn More about CldOgImage
-* [Configuration](/components/CldOgImage/configuration)
-* [Examples](/components/CldOgImage/examples)
+* [Configuration](/CldOgImage/configuration)
+* [Examples](/CldOgImage/examples)

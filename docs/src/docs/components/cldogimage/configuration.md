@@ -13,7 +13,7 @@ order: 2
 
 The CldOgImage component is built on top of the same APIs used for CldImage, giving you the ability to apply the same transformations to your social cards as you can any image.
 
-See [CldImage](/components/cldimage/configuration) for all image transformations.
+See [CldImage](/cldimage/configuration) for all image transformations.
 
 ## General Props
 
