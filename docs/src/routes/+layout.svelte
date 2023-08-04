@@ -17,6 +17,11 @@
 	onMount(() => {
 	  themeChange(false)
 	})
+
+	const singleItems = data.sections.filter(item => !item.children)
+	const separators = data.sections.filter(item => item.type === 'separator')
+	const components = data.sections.filter(item => item.title === 'Components')[0]
+	const helpers = data.sections.filter(item => item.title === 'Helpers')[0]
 </script>
 
 <div class="bg-base-100 drawer lg:drawer-open">
@@ -47,35 +52,25 @@
 			</div>
 			<div class="h-4"></div>
 			<ul class="menu menu-sm lg:menu-md px-4 py-0">
-						{#each data.sections as section}
-							{@const title = section.title}
-							{@const type = section.type}
-							{#if type === 'separator'}
-								<li
-									class="flex flex-col gap-1 hover:bg-primary-200"
-								>
-							<span
-										class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border bg-primary-100 font-semibold text-primary-800 dark:text-primary-300 contrast-more:border-primary-500">
-									{title}
-								</span>
-								</li>
-								{#each section.children as child}
-									<li>
-										<Dropdown title={child.title} items={child.children} link={child.link} />
-									</li>
-								{/each}
-							{:else}
-								<li class="flex flex-col gap-1 hover:bg-primary-200">
-									<a
-										class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border bg-primary-100 font-semibold text-primary-800 dark:text-primary-300 contrast-more:border-primary-500"
-										href={`/${section.link}`}
-									>
-										{title}
-									</a>
-								</li>
-							{/if}
-						{/each}
-				</ul>
+				{#each singleItems as item}
+					<li>
+						<a href="/{item.link}" data-sveltekit-preload-data="hover" class="rounded px-2 py-1.5 text-sm bg-primary-100 font-semibold text-primary-800 dark:text-primary-300">
+							<span class="">{item.title}</span>
+
+						</a>
+					</li>
+				{/each}
+			</ul>
+			<p class="px-8 pt-8 pb-0 mb-2 text-sm font-semibold text-primary-800 ">Components</p>
+				{#each components.children as child}
+						<Dropdown title={child.title} items={child.children} link={child.link} />
+				{/each}
+
+			<p class="px-8 pt-8 pb-0 mb-2 text-sm font-semibold text-primary-800 ">Helpers</p>
+				{#each helpers.children as child}
+						<Dropdown title={child.title} items={child.children} link={child.link} />
+				{/each}
+
 
 	   </aside>
 	</div>
