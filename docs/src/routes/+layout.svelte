@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+	import { page } from '$app/stores'
 	import { themeChange } from 'theme-change'
 	import '../app.postcss';
 	import Dropdown from '$lib/components/Dropdown.svelte';
@@ -22,6 +23,7 @@
 	const separators = data.sections.filter(item => item.type === 'separator')
 	const components = data.sections.filter(item => item.title === 'Components')[0]
 	const helpers = data.sections.filter(item => item.title === 'Helpers')[0]
+	$: console.log($page.url.pathname)
 </script>
 
 <div class="bg-base-100 drawer lg:drawer-open">
@@ -53,8 +55,9 @@
 			<div class="h-4"></div>
 			<ul class="menu menu-sm lg:menu-md px-4 py-0">
 				{#each singleItems as item}
-					<li>
-						<a href="/{item.link}" data-sveltekit-preload-data="hover" class="rounded px-2 py-1.5 text-sm bg-primary-100 font-semibold text-primary-800 dark:text-primary-300">
+					<li >
+						<a href="/{item.link}" data-sveltekit-preload-data="hover" class="rounded px-2 py-1.5 text-sm bg-primary-100 font-semibold text-primary-800 dark:text-primary-300"
+							class:active={$page.url.pathname === `/${item.link}/`}>
 							<span class="">{item.title}</span>
 
 						</a>
