@@ -64,7 +64,7 @@ order: 3
     height="1080"
     src={`videos/mountain-stars`}
     transformation={{
-      overlay: `videos:space-jelly-cosmo-helmet`,
+      overlay: `assets:space-jelly-cosmo-helmet`,
       width: 150,
       gravity: "south_east",
       x: 50,
