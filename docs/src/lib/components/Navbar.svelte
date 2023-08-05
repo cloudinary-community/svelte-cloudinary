@@ -43,7 +43,12 @@
 					data-svelte-h="svelte-11qcss2"
 					>
 					<div class="font-title inline-flex text-lg md:text-2xl">
-						<span class="font-bold capitalize">Svelte Cloudinary</span>
+						<div class="flex items-start flex-row justify-between">
+							<img src="/logo.svg" width="24" />
+							<span class="font-bold capitalize ml-2 text-sm"
+								>Svelte <span class="text-[#3448c5]">Cloudinary</span></span
+							>
+						</div>
 					</div></a
 				>
 			</div>
