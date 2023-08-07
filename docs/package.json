@@ -46,6 +46,7 @@
 		"rehype-slug": "5.1.0",
 		"svelte-cloudinary": "workspace:*",
 		"svelte-hamburgers": "4.1.0",
+		"svelte-typeahead": "4.4.1",
 		"theme-change": "2.5.0"
 	}
 }

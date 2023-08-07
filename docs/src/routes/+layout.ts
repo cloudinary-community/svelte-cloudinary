@@ -1,10 +1,5 @@
-import type { SvelteComponent } from "svelte";
 import type { PageServerLoad } from "./$types";
 
-interface MdsvexFile {
-	default: SvelteComponent;
-	metadata: Record<string, string>;
-}
 
 const components = ['cldimage', 'cldogimage', 'clduploadbutton', 'clduploadwidget','cldvideoplayer']
 const helpers = ['getcldimageurl','getcldogimageurl']
@@ -32,10 +27,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	return {
 		page,
 		metadata,
-		sections: meta.sections
+		sections: meta.sections,
 	}
 }
 
 export const prerender = true
-// export const csr = true
 export const trailingSlash = "always"

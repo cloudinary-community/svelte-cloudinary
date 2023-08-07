@@ -2,11 +2,13 @@
   "sections": [
     {
       "title": "Getting Started",
-      "link":""
+      "link":"",
+      "tags": "getting started start how to"
     },
     {
       "title": "Installation",
-      "link":"installation"
+      "link":"installation",
+      "tags": "how setup install npm pnpm installation"
     },
     {
       "type": "separator",
@@ -15,6 +17,7 @@
         {
           "title": "<CldImage />",
           "link": "cldimage",
+          "tags":"image how img cloudName transformations optimization",
           "children": [
             "usage",
             "configuration",
@@ -25,6 +28,7 @@
        {
           "title": "<CldOgImage />",
           "link": "cldogimage",
+          "tags":"social image how og",
           "children": [
             "usage",
             "configuration",
@@ -34,6 +38,7 @@
         {
           "title": "<CldUploadButton />",
           "link": "clduploadbutton",
+          "tags":"button upload how",
           "children": [
             "usage",
             "configuration",
@@ -43,6 +48,7 @@
         {
           "title": "<CldUploadWidget />",
           "link": "clduploadwidget",
+          "tags":"widget upload how custom",
           "children": [
             "usage",
             "configuration",
@@ -52,6 +58,7 @@
         {
           "title": "<CldVideoPlayer />",
           "link": "cldvideoplayer",
+          "tags":"video player how transformtions overlay",
           "children": [
             "usage",
             "configuration",
@@ -69,6 +76,7 @@
         {
           "title": "getCldImageUrl",
           "link":"getcldimageurl",
+          "tags":"image url composable",
           "children": [
             "usage",
             "configuration",
@@ -78,6 +86,7 @@
         {
           "title": "getCldOgImageUrl",
           "link":"getcldogimageurl",
+          "tags":"social image url composable",
           "children": [
             "usage",
             "configuration",

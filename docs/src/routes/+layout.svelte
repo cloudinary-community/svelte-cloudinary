@@ -11,6 +11,8 @@
 
 	import type { LayoutData } from './$types';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import { beforeNavigate } from '$app/navigation';
+	import Search from '$lib/components/Search.svelte';
 
 	export let data: LayoutData;
 
@@ -21,10 +23,15 @@
 	const singleItems = data.sections.filter((item) => !item.children);
 	const components = data.sections.filter((item) => item.title === 'Components')[0];
 	const helpers = data.sections.filter((item) => item.title === 'Helpers')[0];
+
+	let drawer: HTMLInputElement;
+	beforeNavigate(() => {
+		drawer.checked = false;
+	});
 </script>
 
 <div class="bg-base-100 drawer lg:drawer-open">
-	<input id="drawer" type="checkbox" class="drawer-toggle" />
+	<input id="drawer" type="checkbox" class="drawer-toggle" bind:this={drawer} />
 	<div class="drawer-content">
 		<Navbar />
 		<main class="max-w-[100vw] px-6 pb-16 xl:pr-2">
@@ -62,6 +69,9 @@
 					</div></a
 				>
 			</div>
+			<div class="mt-16 flex md:hidden">
+			<Search />
+				</div>
 			<div class="h-4" />
 			<ul class="menu menu-sm lg:menu-md px-4 py-0">
 				{#each singleItems as item}
