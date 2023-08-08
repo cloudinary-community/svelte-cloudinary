@@ -44,7 +44,7 @@
 					item.children.forEach((child) => {
 						const link = `/${item.link}/${child}/`;
 						acc.push({
-							title: `${item.title} - ${child}`,
+							title: `${item.title.replace(/[^\w\s]/gi,"")} - ${child}`,
 							link: link,
 							tags: `${item.tags} ${child}`
 						});
