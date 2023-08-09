@@ -88,11 +88,14 @@
 	});
 
 	let cloudinaryRef: typeof window.cloudinary;
-	let videoRef: HTMLVideoElement
-	let playerRef: CloudinaryVideoPlayer
+	let videoRef: HTMLVideoElement;
+	let playerRef: CloudinaryVideoPlayer;
 
 	const playerId = id || `player-${publicId.replace('/', '-')}-${idRef}`;
 	let playerClassName = 'cld-video-player cld-fluid';
+	if ($$props.class) {
+		playerClassName = `${playerClassName} ${$$props.class}`;
+	}
 
 	const events: Record<string, Function | undefined> = {
 		error: onError,
@@ -199,10 +202,8 @@
 	<video
 		bind:this={videoRef}
 		id={playerId}
-		class={`${playerClassName} ${$$props.class || ''}`}
+		class={playerClassName}
 		{width}
 		{height}
-	>
-		<track kind="captions" />
-	</video>
+	/>
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { triggerOnIdle } from '$lib/util.js';
+	import { triggerOnIdle, loadCloudinary } from '$lib/util.js';
 	import type {
 		ResultsEvents,
 		UploadWidget,
@@ -141,24 +141,14 @@
 		}
 	}
 	onMount(() => {
-		handleOnLoad();
+		if(!window.cloudinary) {
+			return loadCloudinary({ onLoad: handleOnLoad, onError: handleError })
+		}
+		return handleOnLoad();
 	});
+
 </script>
 
-<svelte:head>
-	<script
-		id={`cloudinary-uploadwidget-${Math.floor(Math.random() * 100)}`}
-		src="https://widget.cloudinary.com/v2.0/global/all.js"
-		on:error={onLoadingError}
-	></script>
-</svelte:head>
 
 <slot {open} {widget} {cloudinary} {isLoading} data-testid="slot"/>
 
-<!-- USAGE
-
-<CldUploadWidget uploadPreset="preset" let:open>
-	<button on:click={open}>Upload Image</button>
-</CldUploadWidget>
-
-	-->
