@@ -199,11 +199,7 @@
 </svelte:head>
 
 <div style="width:100%;aspect-ratio:{$$props.width} / {$$props.height}">
-	<video
-		bind:this={videoRef}
-		id={playerId}
-		class={playerClassName}
-		{width}
-		{height}
-	/>
+	<video bind:this={videoRef} id={playerId} class={playerClassName} {width} {height}>
+		<track kind="captions" />
+	</video>
 </div>
