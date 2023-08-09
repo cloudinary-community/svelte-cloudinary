@@ -45,7 +45,7 @@ The resulting HTML will be applied to the Head of the document:
 <meta property="twitter:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_webp/q_auto/v1/images/galaxy" />
 ```
 
-<p className="nx-mt-6">
+<p class="nx-mt-6">
 <CldImage
   width="1200"
   height="627"
@@ -87,7 +87,7 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
 />
 ```
 
-<p className="nx-mt-6">
+<p class="nx-mt-6">
 <CldImage
   width="1200"
   height="627"

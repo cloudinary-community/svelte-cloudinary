@@ -61,7 +61,7 @@
 				<a href="/" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
 					<div class="font-title inline-flex text-lg md:text-2xl">
 						<div class="flex items-center flex-row justify-between">
-							<img src="/logo.svg" width="34" />
+							<img src="/logo.svg" width="34" alt="svelte cloudinary"/>
 							<span class="font-bold capitalize ml-2"
 								>Svelte <span class="text-[#3448c5]">Cloudinary</span></span
 							>

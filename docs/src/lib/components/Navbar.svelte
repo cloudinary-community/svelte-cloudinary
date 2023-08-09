@@ -45,7 +45,7 @@
 				>
 					<div class="font-title inline-flex text-lg md:text-2xl">
 						<div class="flex items-start flex-row justify-between">
-							<img src="/logo.svg" width="24" />
+							<img src="/logo.svg" width="24" alt="svelte cloudinary"/>
 							<span class="font-bold capitalize ml-2 text-sm"
 								>Svelte <span class="text-[#3448c5]">Cloudinary</span></span
 							>
