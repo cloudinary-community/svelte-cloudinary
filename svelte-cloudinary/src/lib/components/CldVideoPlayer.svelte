@@ -5,7 +5,7 @@
 		CloudinaryVideoPlayerOptions,
 		CloudinaryVideoPlayerOptionsColors,
 		CloudinaryVideoPlayerOptionsLogo
-	} from '../../types/player.ts';
+	} from '../../types/player';
 
 	export type CldVideoPlayerProps = Pick<
 		CloudinaryVideoPlayerOptions,
@@ -42,6 +42,9 @@
 
 <script lang="ts">
 	import { parseUrl } from '@cloudinary-util/util';
+	import { loadCloudinary } from '$lib/util.js';
+	import { onMount } from 'svelte';
+
 	const idRef = Math.ceil(Math.random() * 100000);
 	type $$Props = CldVideoPlayerProps;
 	const {
@@ -183,6 +186,13 @@
 	function onLoadError(e) {
 		console.error(`Failed to load Cloudinary Video Player: ${e.message}`);
 	}
+
+	onMount(() => {
+		if(!window.cloudinary?.videoPlayer){
+			return loadCloudinary({type: 'video', onLoad: handleOnLoad, onError: onLoadError })
+		}
+		return handleOnLoad();
+	});
 </script>
 
 <svelte:head>
@@ -190,12 +200,6 @@
 		href={`https://unpkg.com/cloudinary-video-player@${version}/dist/cld-video-player.min.css`}
 		rel="stylesheet"
 	/>
-	<script
-		id={`cloudinary-videoplayer-${Math.floor(Math.random() * 100)}`}
-		src={`https://unpkg.com/cloudinary-video-player@${version}/dist/cld-video-player.min.js`}
-		on:load={handleOnLoad}
-		on:error={onLoadError}
-	></script>
 </svelte:head>
 
 <div style="width:100%;aspect-ratio:{$$props.width} / {$$props.height}">

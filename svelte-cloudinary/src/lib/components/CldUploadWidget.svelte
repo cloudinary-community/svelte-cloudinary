@@ -141,7 +141,7 @@
 		}
 	}
 	onMount(() => {
-		if(!window.cloudinary) {
+		if(!window.cloudinary?.createUploadWidget) {
 			return loadCloudinary({ onLoad: handleOnLoad, onError: handleError })
 		}
 		return handleOnLoad();
