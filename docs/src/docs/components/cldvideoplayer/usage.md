@@ -26,12 +26,13 @@ import { CldVideoPlayer } from 'next-cloudinary';
   src="<Public ID>"
 />
 ```
-
+<div class="not-prose">
 <CldVideoPlayer
   width="1620"
   height="1080"
   src={`videos/mountain-stars`}
 />
+</div>
 
 ## Customization
 
@@ -51,6 +52,7 @@ You can further take advantage of features like customizing your player:
 />
 ```
 
+<div class="not-prose">
 <CldVideoPlayer
   width="1620"
   height="1080"
@@ -62,6 +64,7 @@ You can further take advantage of features like customizing your player:
   }}
   fontFace="Source Serif Pro"
 />
+</div>
 
 ## Player Events
 

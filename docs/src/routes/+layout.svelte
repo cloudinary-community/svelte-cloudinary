@@ -30,7 +30,7 @@
 	});
 </script>
 
-<div class="bg-base-100 drawer lg:drawer-open">
+<div class="bg-base-100 drawer lg:drawer-open max-w-7xl mx-auto">
 	<input id="drawer" type="checkbox" class="drawer-toggle" bind:this={drawer} />
 	<div class="drawer-content">
 		<Navbar />

@@ -34,7 +34,7 @@ For instance, if we wanted to crop and resize a video to a square, we could use:
 
 This will apply a width and height of 500 as a transformation. It will set a crop mode of fill to make sure the entire video frame is filled. We finally use gravity of auto to make sure the subject of the video is tracked and not lost in frame.
 
-<div style="max-width: 500; margin: 0 auto">
+<div style="max-width: 500; margin: 0 auto" class="not-prose">
   <CldVideoPlayer
     width="500"
     height="500"
@@ -71,13 +71,13 @@ If you instead wanted to add a watermark to the video, you could use overlays in
 ```
 
 When you play the video, you'll notice the Space Jelly logo on the bottom right of the video!
-
+<div class="not-prose">
 <CldVideoPlayer
   width="1620"
   height="1080"
   src={`videos/mountain-stars`}
   transformation={{
-    overlay: `videos:space-jelly-cosmo-helmet`,
+    overlay: `assets:space-jelly-cosmo-helmet`,
     width: 150,
     gravity: "south_east",
     x: 50,
@@ -85,5 +85,6 @@ When you play the video, you'll notice the Space Jelly logo on the bottom right 
     opacity: 80
   }}
 />
+</div>
 
 For more information and examples of using the `transformation` prop, check out the [Cloudinary Video Player documentation](https://cloudinary.com/documentation/video_manipulation_and_delivery).

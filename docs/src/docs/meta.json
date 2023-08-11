@@ -17,7 +17,7 @@
         {
           "title": "<CldImage />",
           "link": "cldimage",
-          "tags":"image how img cloudName transformations optimization",
+          "tags":"image how img cloudName transformations ",
           "children": [
             "usage",
             "configuration",
