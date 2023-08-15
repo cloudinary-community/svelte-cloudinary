@@ -16,7 +16,7 @@ order: 3
 
 ## Examples
 
-<ImageGrid>
+<ImageGrid prose>
 <li>
 <CldUploadWidget
   let:open let:isLoading
@@ -38,7 +38,6 @@ order: 3
 uploadPreset="svelte-cloudinary-unsigned"
 ```
 <li>
-<li>
 
 <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading
     signatureEndpoint="/api/sign-cloudinary-params"
@@ -47,7 +46,7 @@ uploadPreset="svelte-cloudinary-unsigned"
           widget.close()
     }}>
       <button on:click={open} class="cldbutton">
-        Upload an Image
+        Signed Upload
       </button>
 </CldUploadWidget>
 <p>URL: { infoSecure?.secure_url }</p>
@@ -65,7 +64,7 @@ signatureEndpoint="/api/sign-cloudinary-params"
           widget.close()
     }}>
       <button on:click={open} class="cldbutton">
-        Upload an Image
+        Upload an Image from your disk
       </button>
 </CldUploadWidget>
 <p>URL: { infoSecure2?.secure_url }</p>
