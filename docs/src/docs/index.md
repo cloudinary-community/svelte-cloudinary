@@ -21,16 +21,27 @@ Cloudinary.
 * Generate Open Graph Social Media cards on the fly
 * ...all at scale with Cloudinary
 
-<ImageGrid>
-	<li>
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 480px) {
+ .grid {
+   grid-template-columns: 1fr;
+ }
+}
+</style>
+
+<div class="grid">
 		<CldImage
 			width="987"
 			height="1481"
 			src="images/woman-headphones"
 			alt="Original image of images/woman with headphones"
 		/>
-	</li>
-	<li>
+
 	  <CldImage
       width="987"
       height="987"
@@ -78,8 +89,8 @@ Cloudinary.
       ]}
       alt="Image of woman with headphones transformed with Cloudinary"
     />
-	</li>
-</ImageGrid>
+
+</div>
 
 ```svelte
 <CldImage
