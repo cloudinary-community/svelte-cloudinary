@@ -54,7 +54,7 @@
 	</div>
 	<div class="drawer-side" style="scroll-behavior: smooth; scroll-padding-top: 5rem;">
 		<label for="drawer" class="drawer-overlay" aria-label="Close menu" />
-		<aside class="bg-base-100 w-80">
+		<aside class="bg-base-100 w-80 h-full">
 			<div
 				class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex"
 			>
