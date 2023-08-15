@@ -31,7 +31,7 @@ class="cldbutton"
     info = result?.info
     widget.close();
   }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD}
+  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
 <p>URL: { info?.secure_url }</p>
 
