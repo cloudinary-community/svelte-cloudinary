@@ -109,7 +109,7 @@ To use the above, create a Node-based API route, add the snippet, and use that e
 See a full example of an API endpoint used with the Svelte Cloudinary docs: https://github.com/cloudinary-community/svelte-cloudinary/blob/main/docs/src/routes/api/sign-cloudinary-params/+server.ts
 
 <div class="mt-6">
-    <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading
+    <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
         signatureEndpoint="/api/sign-cloudinary-params"
           onUpload={(result, widget) => {
               infoUploadSecure = result?.info

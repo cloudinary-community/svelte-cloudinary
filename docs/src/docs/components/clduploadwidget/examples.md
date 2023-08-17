@@ -39,7 +39,7 @@ uploadPreset="svelte-cloudinary-unsigned"
 ```
 <li>
 
-<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading
+<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
     signatureEndpoint="/api/sign-cloudinary-params"
       onUpload={(result, widget) => {
           infoSecure = result?.info
@@ -57,7 +57,7 @@ signatureEndpoint="/api/sign-cloudinary-params"
 ```
 </li>
 <li>
-<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD} let:open let:isLoading options={{sources: ['local']}}
+<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading options={{sources: ['local']}}
     signatureEndpoint="/api/sign-cloudinary-params"
       onUpload={(result, widget) => {
           infoSecure2 = result?.info
