@@ -12,6 +12,7 @@ export const POST = (async ({ request }) => {
 			paramsToSign,
 			env.CLOUDINARY_API_SECRET
 		);
+		console.log(signature, env.CLOUDINARY_API_SECRET, paramsToSign)
 		return json({ signature })
 	} catch (e) {
 		console.error(e)
