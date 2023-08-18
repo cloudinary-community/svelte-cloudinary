@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.3...v1.1.0) (2023-08-18)
+
+
+### Features
+
+* CldUploadButton, CldUploadWidget, CldVideoPlayer and new docs site ([#52](https://github.com/cloudinary-community/svelte-cloudinary/issues/52)) ([190a4f5](https://github.com/cloudinary-community/svelte-cloudinary/commit/190a4f55c573930fdaec036b97b5f9dd52c4ef7f)), closes [#45](https://github.com/cloudinary-community/svelte-cloudinary/issues/45) [#44](https://github.com/cloudinary-community/svelte-cloudinary/issues/44) [#15](https://github.com/cloudinary-community/svelte-cloudinary/issues/15) [#4](https://github.com/cloudinary-community/svelte-cloudinary/issues/4) [#46](https://github.com/cloudinary-community/svelte-cloudinary/issues/46)
+
 ## [1.0.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.2...v1.0.3) (2023-07-12)
 
 
