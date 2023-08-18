@@ -88,20 +88,28 @@ import { CldUploadWidget } from 'svelte-cloudinary';
 </CldUploadWidget>
 ```
 
-<Callout emoji={false}>
-  If using the Next.js 13 `app` directory, you must add the `"use client"` directive at the top of your file.
-</Callout>
+Here's an example of how you could process the signature in an API endpoint that signs a request using SvelteKit:
 
-Here's an example of how you could process the signature in an API endpoint that signs a request:
+```ts
+import { v2 as cloudinary } from "cloudinary";
+import type { RequestHandler } from './$types';
+import { env } from '$env/dynamic/private';
+import { error, json } from "@sveltejs/kit";
 
-```js
-import { v2 as cloudinary } from 'cloudinary';
+export const POST = (async ({ request }) => {
+	const body = await request.json()
+	const { paramsToSign } = body;
 
-const signature = cloudinary.utils.api_sign_request(body.paramsToSign, process.env.CLOUDINARY_API_SECRET);
-
-res.status(200).json({
-  signature,
-});
+	try {
+		const signature = cloudinary.utils.api_sign_request(
+			paramsToSign,
+			env.CLOUDINARY_API_SECRET
+		);
+		return json({ signature })
+	} catch (e) {
+		return error(500, e.message)
+	}
+}) satisfies RequestHandler;
 ```
 
 To use the above, create a Node-based API route, add the snippet, and use that endpoint as the `signatureEndpoint` prop.

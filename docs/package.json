@@ -39,6 +39,7 @@
 	"type": "module",
 	"dependencies": {
 		"@microflash/rehype-toc": "1.0.2",
+		"@sentry/sveltekit": "7.64.0",
 		"@sveltejs/adapter-vercel": "3.0.2",
 		"@vercel/analytics": "1.0.1",
 		"cloudinary": "^1.32.0",
