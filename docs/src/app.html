@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
@@ -14,9 +14,14 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="theme-color" content="#000000" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+		<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme'));}catch(e){}</script>
 		%sveltekit.head%
 	</head>
-	<body class="bg-neutral-100 ">
+	<body>
 		<div>%sveltekit.body%</div>
 	</body>
 </html>

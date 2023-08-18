@@ -10,6 +10,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"moduleResolution": "NodeNext",
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"types":["vitest/globals"]
 	}
 }

@@ -15,7 +15,6 @@
 	import { writable, type Writable } from 'svelte/store';
 	/** Props **/
 	export let tabs: string[];
-	export let type: 'shell' | 'code' = 'code';
 
 	let panels: Panel[] = [];
 	const selectedTab = writable<number | null>(1);

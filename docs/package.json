@@ -19,7 +19,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.60.0",
 		"@typescript-eslint/parser": "^5.60.0",
 		"autoprefixer": "^10.4.14",
-		"daisyui": "^2.52.0",
+		"daisyui": "^3.5.0",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.31.0",
@@ -38,7 +38,16 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@microflash/rehype-toc": "1.0.2",
+		"@sentry/sveltekit": "7.64.0",
+		"@sveltejs/adapter-vercel": "3.0.2",
+		"@vercel/analytics": "1.0.1",
+		"cloudinary": "^1.32.0",
+		"rehype-autolink-headings": "6.1.1",
+		"rehype-slug": "5.1.0",
 		"svelte-cloudinary": "workspace:*",
-		"svelte-hamburgers": "4.1.0"
+		"svelte-hamburgers": "4.1.0",
+		"svelte-typeahead": "4.4.1",
+		"theme-change": "2.5.0"
 	}
 }

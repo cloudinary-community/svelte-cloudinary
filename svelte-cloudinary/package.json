@@ -40,14 +40,15 @@
 		"@tailwindcss/typography": "^0.5.9",
 		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/svelte": "3.2.2",
+		"@testing-library/user-event": "14.4.3",
 		"@typescript-eslint/eslint-plugin": "^5.60.0",
 		"@typescript-eslint/parser": "^5.60.0",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte": "^2.31.0",
+		"happy-dom": "10.5.2",
 		"highlight.js": "^11.8.0",
-		"jest-dom": "4.0.0",
 		"jsdom": "22.0.0",
 		"postcss": "^8.4.24",
 		"postcss-load-config": "^4.0.1",
@@ -65,7 +66,8 @@
 		"unpic": "3.6.1",
 		"vite": "^4.3.9",
 		"vite-plugin-transform": "2.0.1",
-		"vitest": "^0.25.8"
+		"vitest": "^0.25.8",
+		"vitest-svelte-kit": "0.0.7"
 	},
 	"types": "./dist/index.d.ts",
 	"type": "module",
@@ -73,6 +75,7 @@
 		"@cloudinary-util/url-loader": "3.9.0",
 		"@cloudinary-util/util": "2.1.0",
 		"@unpic/core": "0.0.24",
-		"@unpic/svelte": "0.0.25"
+		"@unpic/svelte": "0.0.25",
+		"cloudinary": "^1.32.0"
 	}
 }

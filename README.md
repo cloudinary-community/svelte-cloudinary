@@ -93,6 +93,11 @@ To work on the project, you need to have an active Cloudinary account. With the 
 VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloudinary Cloud Name>"
 VITE_PUBLIC_CLOUDINARY_API_KEY="<Your Cloudinary API Key>"
 CLOUDINARY_API_SECRET="<Your Cloudinary API Secret>"
+
+# The following are used for the internal playground not the library
+PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET="<Your unsigned preset>"
+PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET="<Your signed preset>"
+
 ```
 
 > Note: The Cloudinary account can be free, but some features may not work beyond free tier like Background Removal
@@ -106,8 +111,8 @@ In order to run the Docs project, you need to have the images referenced availab
 To do this, navigate to the `scripts` directory and first create a new `.env` file with:
 
 ```
-VITE_CLOUDINARY_CLOUD_NAME="<Your Cloudinary Cloud Name>"
-VITE_CLOUDINARY_API_KEY="<Your API Key>"
+CLOUDINARY_CLOUD_NAME="<Your Cloudinary Cloud Name>"
+CLOUDINARY_API_KEY="<Your API Key>"
 CLOUDINARY_API_SECRET="<Your API Secret>"
 ```
 

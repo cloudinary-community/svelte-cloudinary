@@ -1,10 +1,12 @@
 <script lang="ts">
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import CldUploadWidget from './CldUploadWidget.svelte';
-	import type { CldUploadWidgetProps, DiscriminatedProps } from './CldUploadWidgetTypes.ts';
+	import type { CldUploadWidgetProps } from './CldUploadWidgetTypes.ts';
+	import { invariant } from '$lib/util.js';
 
-	type $$Props = CldUploadWidgetProps & svelteHTML.HTMLAttributes<HTMLButtonElement>;
+	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
 	// destructure the props
-	$: ({
+	const {
 		uploadPreset,
 		signatureEndpoint,
 		onError,
@@ -13,41 +15,28 @@
 		onOpen,
 		onClose,
 		...buttonProps
-	} = $$props as $$Props);
+	} = $$props as $$Props;
 
-	let baseProps = {
+	let baseProps: CldUploadWidgetProps = {
 		onClose,
 		onOpen,
 		options,
 		onUpload,
-		onError
+		onError,
+		uploadPreset,
+		signatureEndpoint
 	};
-	function withSignature(
-		options: typeof baseProps
-	): options is typeof baseProps & { signatureEndpoint: string } {
-		return signatureEndpoint != null;
-	}
-	function withPreset(
-		options: typeof baseProps
-	): options is typeof baseProps & { uploadPreset: string } {
-		return uploadPreset != null;
-	}
-	let props = {} as CldUploadWidgetProps;
-	if (withPreset(baseProps)) {
-		props = { ...baseProps, uploadPreset: uploadPreset as string };
-	}
-	if (withSignature(baseProps)) {
-		props = {
-			...baseProps,
-			signatureEndpoint: signatureEndpoint as string
-		};
-	}
+	// @ts-expect-error the $$slots and $$scope attributes inside the buttonsProps object
+	// appears because of the spread operator on line 39
+	// this attributes should not be passed to the button html elements since are not valid attributes
+	delete buttonProps['$$slots']
+	// @ts-expect-error
+	delete buttonProps['$$scope']
+
 </script>
 
-<CldUploadWidget {...props} let:open let:isLoading>
-	{#if $$slots.default}
-		<slot />
-	{:else}
-		<button {...buttonProps} on:click|preventDefault={open} disabled={isLoading}> Upload </button>
-	{/if}
+<CldUploadWidget {...baseProps} let:open let:isLoading>
+	<button {...buttonProps} on:click|preventDefault={open} disabled={isLoading}>
+		<slot>Upload</slot>
+	</button>
 </CldUploadWidget>
