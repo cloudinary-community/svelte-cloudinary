@@ -1,6 +1,6 @@
 <picture>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/62209650/196528621-b68e9e10-7e55-4c7d-9177-904cadbb4296.png" align="center" height=50>
   <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/62209650/196528761-a815025a-271a-4d8e-ac7e-cea833728bf9.png" align="center" height=50>
@@ -161,6 +161,7 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://troycies.co"><img src="https://avatars.githubusercontent.com/u/24758859?v=4?s=100" width="100px;" alt="Troy Ciesco"/><br /><sub><b>Troy Ciesco</b></sub></a><br /><a href="#example-troyciesco" title="Examples">💡</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://leovoon.github.io"><img src="https://avatars.githubusercontent.com/u/16155802?v=4?s=100" width="100px;" alt="Lih Haur Voon"/><br /><sub><b>Lih Haur Voon</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=leovoon" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
