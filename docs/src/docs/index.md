@@ -11,15 +11,18 @@ order: 1
 
 # Svelte Cloudinary
 
-High-performance image delivery and uploading at scale in Svelte/SvelteKit powered by
-Cloudinary.
-* Automatically optimize images and deliver in modern formats
-* Remove backgrounds from images
-* Dynamically add image and text overlays to images
-* AI-based cropping and resizing
-* Transform images using color and effects
-* Generate Open Graph Social Media cards on the fly
-* ...all at scale with Cloudinary
+Leverage the power of Cloudinary’s Programmable Media to enable high-performance image delivery and uploads in Svelte/SvelteKit applications at scale.
+
+This SDK enables the following:
+* **Automated image optimization:** Our solution automatically refines images for optimal performance and renders them in the latest formats.
+* **Remove background:** Effortlessly remove backgrounds from images for a polished and professional appearance.
+* **Dynamic image and text overlays:** Customize your images further by dynamically adding image and text overlays, giving a unique touch to each visual.
+* **AI-powered image processing:** Take advantage of AI-driven technology for intelligent cropping and resizing, ensuring your images are always displayed in optimal dimensions.
+* **Image transformation:** Modify the aesthetics of your images using a variety of color alterations and special effects.
+* **On-the-fly Open Graph social media cards:** Generate customized social media cards dynamically to represent your content engagingly and effectively in social sharing.
+* **Scalability with Cloudinary:** Experience the power of Cloudinary in handling all these functions at scale, ensuring a smooth and seamless user experience.
+
+Benefit from these use cases and take your media experience to the next level by using Cloudinary in Svelte/SveltekIt applications.
 
 <style>
 .grid {
