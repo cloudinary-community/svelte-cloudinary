@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.0...v1.1.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* Validation for cloud name ([#63](https://github.com/cloudinary-community/svelte-cloudinary/issues/63)) ([63edb00](https://github.com/cloudinary-community/svelte-cloudinary/commit/63edb0072e69d10026e45aa0eb1047d9d40bfb83))
+
 # [1.1.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.0.3...v1.1.0) (2023-08-18)
 
 
