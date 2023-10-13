@@ -1,4 +1,5 @@
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
+import { checkCloudinaryCloudName } from '../cloudinary.ts';
 import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
 
 import {
@@ -30,6 +31,10 @@ export function getCldImageUrl(
   config?: ConfigOptions,
   analytics?: AnalyticsOptions
 ) {
+
+  // Validation
+  checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+
   return constructCloudinaryUrl({
     options,
     config: Object.assign(
