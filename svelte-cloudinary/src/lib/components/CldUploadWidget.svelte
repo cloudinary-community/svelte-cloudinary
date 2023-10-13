@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { triggerOnIdle, loadCloudinary } from '$lib/util.js';
+	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import type {
 		ResultsEvents,
 		UploadWidget,
@@ -21,6 +22,9 @@
 	let widget: UploadWidget;
 	const signed = !!signatureEndpoint;
 	const WIDGET_WATCHED_EVENTS = ['success', 'display-changed'];
+
+	// Validation
+	checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
 
 	// State
 	let isLoading = true;

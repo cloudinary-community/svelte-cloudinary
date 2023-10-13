@@ -43,6 +43,7 @@
 <script lang="ts">
 	import { parseUrl } from '@cloudinary-util/util';
 	import { loadCloudinary } from '$lib/util.js';
+	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { onMount } from 'svelte';
 
 	const idRef = Math.ceil(Math.random() * 100000);
@@ -144,6 +145,9 @@
 				};
 			}
 
+			// Validation
+			checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+			
 			let playerOptions: CloudinaryVideoPlayerOptions = {
 				autoplayMode: autoPlay,
 				cloud_name: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
