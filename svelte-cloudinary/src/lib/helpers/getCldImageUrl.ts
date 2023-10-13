@@ -1,5 +1,5 @@
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
-import { checkCloudinaryCloudName } from '../cloudinary.ts';
+import { checkCloudinaryCloudName } from '../cloudinary.js';
 import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
 
 import {
