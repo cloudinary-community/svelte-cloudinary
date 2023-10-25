@@ -17,7 +17,7 @@ You can use the getCldImageUrl helper function to generate Cloudinary URLs witho
 The basic required options include `width`, `height`, and `src`:
 
 ```js
-import { getCldImageUrl } from 'next-cloudinary';
+import { getCldImageUrl } from 'svelte-cloudinary';
 
 const url = getCldImageUrl({
   width: 960,

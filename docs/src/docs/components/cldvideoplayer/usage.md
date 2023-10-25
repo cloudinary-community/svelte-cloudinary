@@ -18,7 +18,7 @@ The CldVideoPlayer component helps to embed Cloudinary videos using the [Cloudin
 The basic required props include `width`, `height`, and `src`:
 
 ```jsx
-import { CldVideoPlayer } from 'next-cloudinary';
+import { CldVideoPlayer } from 'svelte-cloudinary';
 
 <CldVideoPlayer
   width="1920"
