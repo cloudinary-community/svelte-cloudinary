@@ -154,18 +154,17 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://colbyfayock/newsletter"><img src="https://avatars.githubusercontent.com/u/1045274?v=4?s=100" width="100px;" alt="Colby Fayock"/><br /><sub><b>Colby Fayock</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=colbyfayock" title="Code">💻</a> <a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=colbyfayock" title="Documentation">📖</a> <a href="#example-cloudinary-community" title="Examples">💡</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://matiashernandez.dev"><img src="https://avatars.githubusercontent.com/u/282006?v=4?s=100" width="100px;" alt="Matias Hernández"/><br /><sub><b>Matias Hernández</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=matiasfha" title="Code">💻</a> <a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=matiasfha" title="Documentation">📖</a> <a href="#example-cloudinary-community" title="Examples">💡</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://troycies.co"><img src="https://avatars.githubusercontent.com/u/24758859?v=4?s=100" width="100px;" alt="Troy Ciesco"/><br /><sub><b>Troy Ciesco</b></sub></a><br /><a href="#example-troyciesco" title="Examples">💡</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://leovoon.github.io"><img src="https://avatars.githubusercontent.com/u/16155802?v=4?s=100" width="100px;" alt="Lih Haur Voon"/><br /><sub><b>Lih Haur Voon</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=leovoon" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HeetVekariya"><img src="https://avatars.githubusercontent.com/u/91054457?v=4?s=100" width="100px;" alt="HeetVekariya"/><br /><sub><b>HeetVekariya</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=HeetVekariya" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
