@@ -63,7 +63,7 @@ import { CldImage } from 'svelte-cloudinary';
 
 ## ❤️ Community & Support
 
-- [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues)
+- [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new)
 - [Twitter: @matiasfha](https://twitter.com/matiasfha)
 
 ## 🛠 Contributing
