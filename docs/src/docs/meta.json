@@ -94,6 +94,36 @@
           ]
         }
       ]
+    },
+    {
+     "type": "separator",
+      "title": "Resources",
+      "children": [
+        {
+          "title": "Guides",
+          "link": "guides",
+          "tags": "svelte cloudinary guides",
+          "children": [
+            "background-removal",
+            "image-optimization",
+            "image-overlays",
+            "image-underlays",
+            "placeholders",
+            "responsive-images",
+            "social-media-cards",
+            "text-overlays",
+            "uploading-images-and-videos"
+          ]
+        },
+        {
+          "title": "Templates",
+          "link": "templates",
+          "tags": "svelte cloudinary templates",
+          "children": [
+            "social-media-cards"
+          ]
+        }
+      ]
     }
   ]
 }

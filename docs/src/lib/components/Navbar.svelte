@@ -68,7 +68,7 @@
 				>
 					<input
 						type="checkbox"
-						data-toggle-theme="black,light"
+						data-toggle-theme="night,light"
 						data-act-class="ACTIVECLASS"
 						checked={currentTheme === 'light'}
 					/>

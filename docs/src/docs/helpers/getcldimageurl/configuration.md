@@ -26,7 +26,7 @@ Configuration for getCldImageUrl is the same as [CldImage](/CldImage/configurati
 | sanitize           | bool               | `true` if svg | `true` (Applies only to SVG) |
 | seoSuffix          | string             | -          | `my-image-content`           |
 | src                | string             | -          | `"my-public-id"`             |
-| text               | string             | -          | `"Next Cloudinary"`          |
+| text               | string             | -          | `"Svelte Cloudinary"`          |
 | transformations    | string/array       | -          | `['my-named-transformation']`|
 | underlay           | string             | -          | `"my-public-id"`             |
 | underlays          | array              | -          | See Below                    |
@@ -99,7 +99,7 @@ The `overlays` prop is an array of objects with the following configuration opti
 | effects          | array         | See Below                            |
 | position         | object        | See Below                            |
 | publicId         | string        | `"thumb"`                            |
-| text             | object|string | `"Next Cloudinary"` or See Below     |
+| text             | object|string | `"Svelte Cloudinary"` or See Below     |
 | url              | string        | `"https://.../image.jpg"`            |
 
 The position property can include:

@@ -102,7 +102,7 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
       fontFamily: 'Source Sans Pro',
       fontSize: 80,
       fontWeight: 'bold',
-      text: 'Next Cloudinary'
+      text: 'Svelte Cloudinary'
     }
   }]}
   underlay={`images/galaxy`}

@@ -11,9 +11,7 @@ Sentry.init({
 // If you have custom handlers, make sure to place them after `sentryHandle()` in the `sequence` function.
 const logger: Handle = async({ event, resolve}) => {
   if(event.request.method === 'POST') {
-    console.log('POST request received', event.url.pathname)
     const req = event.request.clone()
-    console.log(await req.json())
   }
   return resolve(event)
 }

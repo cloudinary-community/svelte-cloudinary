@@ -42,3 +42,14 @@
     border: none;
     border-radius: 999px;
 }
+
+:root {
+  --searchbox-bg: #fff;
+  /* or any other variables/style */
+}
+[data-theme='light'] {
+  --searchbox-bg: oklch(0.961151 0 0);
+}
+[data-theme='night'] {
+  --searchbox-bg: rgba(249,250,251,.1);
+}

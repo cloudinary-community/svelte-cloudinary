@@ -7,18 +7,18 @@ order: 1
     import { CldImage } from 'svelte-cloudinary'
 </script>
 
+
 # Getting Started with CldImage
 
-
-The CldImage component provides an easy way to deliver images from Cloudinary with the same experience you'd expect inside of a SvelteKit app.
+The CldImage component provides an easy way to deliver images from Cloudinary with the same experience you'd expect inside of a Svelte app.
 
 With it comes access to more advanced features like dynamic cropping, background removal, overlays, and other Cloudinary transformations.
 
-
+As CldImage is a wrapper around the amazing ]Unpic Image component](https://unpic.pics/img/svelte/), you also gain access to all built-in Image component features will work out-of-the-box like [Responsive Sizing](/guides/responsive-images).
 
 ## Basic Usage
 
-The basic required props include width, height, src, and alt:
+The basic required props include `width`, `height`, `src`, and `alt`:
 
 ```js
 import { CldImage } from 'svelte-cloudinary';

@@ -44,7 +44,7 @@
 					item.children.forEach((child) => {
 						const link = `/${item.link}/${child}/`;
 						acc.push({
-							title: `${item.title.replace(/[^\w\s]/gi,"")} - ${child}`,
+							title: `${item.title.replace(/[^\w\s]/gi, '')} - ${child}`,
 							link: link,
 							tags: `${item.tags} ${child}`
 						});
@@ -80,9 +80,9 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<label class={`searchbox relative mx-3 w-full border border-base-400 rounded`} bind:this={seachboxEl}>
+<label class={`searchbox relative mx-3 w-full border-0 rounded`} bind:this={seachboxEl}>
 	<svg
-		class={`pointer-events-none absolute z-10 my-3.5 ml-4 stroke-current opacity-60 ${
+		class={`pointer-events-none absolute z-10 my-3 ml-4 stroke-current opacity-60 text-xs ${
 			$page.url.pathname == '/' ? 'text-current' : 'text-base-content'
 		}`}
 		width="16"
@@ -121,11 +121,11 @@
 		}`}
 	>
 		{#if ['macos'].includes(os)}
-			<kbd class="kbd kbd-sm">⌘</kbd>
-			<kbd class="kbd kbd-sm">K</kbd>
+			<kbd class="kbd kbd-xs">⌘</kbd>
+			<kbd class="kbd kbd-xs">K</kbd>
 		{:else if ['windows', 'linux'].includes(os)}
-			<kbd class="kbd kbd-sm">ctrl</kbd>
-			<kbd class="kbd kbd-sm">K</kbd>
+			<kbd class="kbd kbd-xs">ctrl</kbd>
+			<kbd class="kbd kbd-xs">K</kbd>
 		{/if}
 	</div>
 </label>
@@ -140,11 +140,12 @@
 		display: none;
 	}
 	[data-svelte-search][data-svelte-search] input {
-		background-color: transparent;
+		background-color: var(--searchbox-bg);
 		color: inherit;
 		border: 2px solid transparent;
 		border-radius: var(--rounded-btn);
-		padding-left: 2.5em;
+		padding-left: 3.5em;
+		font-size: 12px;
 	}
 	[data-svelte-search][data-svelte-search] input::placeholder {
 		color: inherit;
@@ -184,4 +185,5 @@
 	[data-svelte-typeahead][data-svelte-typeahead] .svelte-typeahead-list li:not(:last-of-type) {
 		border-bottom: none;
 	}
+
 </style>

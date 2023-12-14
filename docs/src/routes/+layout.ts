@@ -14,6 +14,14 @@ function getDoc(slug: string | undefined, section: string | undefined) {
 	if (helpers.includes(folder)) {
 		return import(`../docs/helpers/${folder}/${file}.md`)
 	}
+	if(folder === 'guides'){
+		return import(`../docs/guides/${file}.md`)
+	}
+
+	if(folder === 'templates'){
+		return import(`../docs/templates/${file}.md`)
+	}
+
 	if (folder === '/') {
 		return import(`../docs/index.md`)
 	}

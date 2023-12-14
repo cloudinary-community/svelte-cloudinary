@@ -35,6 +35,7 @@ order: 3
   ### Basic
 
   ```js
+
   getCldOgImageUrl({
     src: 'images/galaxy',
   })
