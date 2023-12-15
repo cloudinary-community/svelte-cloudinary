@@ -154,8 +154,8 @@ importers:
   svelte-cloudinary:
     dependencies:
       '@cloudinary-util/url-loader':
-        specifier: 3.9.0
-        version: 3.9.0
+        specifier: 3.17.0
+        version: 3.17.0
       '@cloudinary-util/util':
         specifier: 2.1.0
         version: 2.1.0
@@ -267,7 +267,7 @@ importers:
         version: 3.6.1
       vite:
         specifier: ^4.3.9
-        version: 4.3.9(@types/node@20.3.1)
+        version: 4.3.9(sass@1.69.5)
       vite-plugin-transform:
         specifier: 2.0.1
         version: 2.0.1
@@ -373,27 +373,31 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@cloudinary-util/url-loader@3.9.0:
-    resolution: {integrity: sha512-DJiu+a3Mr2GEyjAo4Gy2KWX0YoXoP0CFp2jvw8+3gJj7wvmIb7mcjRk1yHSGIyJcolb0uR+tWGO6KVhStpreMg==}
+  /@cloudinary-util/url-loader@3.17.0:
+    resolution: {integrity: sha512-udFtlJ3jmPn8rAYQZymLViOiSKV1GKXVl93gHVKH96NigJ8iObVdaVw+AFphLM4mF1sLtzLO8mUG7oRcmlDLEQ==}
     dependencies:
-      '@cloudinary-util/util': 2.1.0
-      '@cloudinary/url-gen': 1.10.1
+      '@cloudinary-util/util': 2.3.0
+      '@cloudinary/url-gen': 1.14.0
     dev: false
 
   /@cloudinary-util/util@2.1.0:
     resolution: {integrity: sha512-PGjVxyhhOP8IaD6uawXzfDnI8ArPqpiLfIXc8TEjhv3CGhDFBAM3dCT3xeAgg+92sQsx/AN74j+qckdWPfoO6w==}
     dev: false
 
-  /@cloudinary/transformation-builder-sdk@1.2.9:
-    resolution: {integrity: sha512-qbLAfKhX4hy5tFPv4erpxdBT9x0GZgzDuMeDBIygqutNJTeB7lNuEZedf8X++0ZinkDccrJwXzDJty60MEfyHw==}
-    dependencies:
-      '@cloudinary/url-gen': 1.10.1
+  /@cloudinary-util/util@2.3.0:
+    resolution: {integrity: sha512-0Gojd+ZRQjJQmlBEAa8Ua94amvx7uWHoUzVUEGi1S8bgF1wPcMqG07cSUGQfRwHsFQ/9XOesx76Df622E+CevA==}
     dev: false
 
-  /@cloudinary/url-gen@1.10.1:
-    resolution: {integrity: sha512-6pBmapnL7G231NbNWhKbi+08HcpNASci7M3OmZWaUCQWUfdmo3au27HT3Zqg9NMsisfyer3t7o0RXzPQ4XlmMg==}
+  /@cloudinary/transformation-builder-sdk@1.9.0:
+    resolution: {integrity: sha512-19ZV3r2dE2mYMZTN/ytP7p7hmqiD7PC6EoWdQwJByabN4JXtNwgotElHYC509/eD7j5xJajghgHiIXTonrgMhQ==}
     dependencies:
-      '@cloudinary/transformation-builder-sdk': 1.2.9
+      '@cloudinary/url-gen': 1.14.0
+    dev: false
+
+  /@cloudinary/url-gen@1.14.0:
+    resolution: {integrity: sha512-XbG8QgD5fkTUO/YYUWftfz3sUpKzRZJkXhp6xLSxmK/36iyMy2wA4SF5FLCOnv6fLLUneQzXbc4OAwaDM0EWCQ==}
+    dependencies:
+      '@cloudinary/transformation-builder-sdk': 1.9.0
     dev: false
 
   /@colors/colors@1.5.0:
@@ -1457,7 +1461,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.20.4(svelte@4.0.0)(vite@4.3.9)
+      '@sveltejs/kit': 1.20.4(svelte@3.59.2)(vite@4.3.9)
       import-meta-resolve: 3.0.0
     dev: true
 
@@ -7858,7 +7862,6 @@ packages:
       rollup: 3.25.1
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /vite@4.3.9(@types/node@20.3.1):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
@@ -7933,7 +7936,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.9(sass@1.69.5)
+      vite: 4.3.9
 
   /vitest-svelte-kit@0.0.7:
     resolution: {integrity: sha512-B83C14BAQEwNqTHcZ1dEV9EuCwOEKglcix32zBqRFonTmnc652JUOPJhMDAkQmOzHlA+SIXZ3FNEKiJjXyd1JA==}
