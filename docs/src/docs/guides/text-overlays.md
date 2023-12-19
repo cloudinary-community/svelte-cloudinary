@@ -51,7 +51,7 @@ You can add text on top of your image with text-based overlays.
 
 ```svelte
 <script>
-  import { CldImage } from 'next-cloudinary';
+  import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
@@ -86,7 +86,7 @@ You can add text on top of your image with text-based overlays.
 
 ```svelte
 <script>
-  import { getCldImageUrl } from 'next-cloudinary';
+  import { getCldImageUrl } from 'svelte-cloudinary';
 
 const cldUrl = getCldImageUrl({
     width: 1335,

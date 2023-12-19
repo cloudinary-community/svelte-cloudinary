@@ -38,7 +38,7 @@ order: 2
 | version            | string         | `"1.9.4"`       | Cloudinary Video Player version          | `"1.9.4"`                    |
 | width              | string/number  | -               | **Required**: Player width               | `1920`                       |
 
-Missing an option from the [Video Player docs](https://cloudinary.com/documentation/video_player_api_reference) you'd like to see? [Create an issue](https://github.com/colbyfayock/next-cloudinary/issues/new?assignees=&labels=Type%3A+Feature&template=feature_request.md&title=%5BFeature%5D+)!
+Missing an option from the [Video Player docs](https://cloudinary.com/documentation/video_player_api_reference) you'd like to see? [Create an issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new?assignees=&labels=Type%3A+Feature&template=feature_request.md&title=%5BFeature%5D+)!
 
 ## Colors Prop
 

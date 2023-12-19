@@ -151,7 +151,7 @@ import { CldOgImage, CldImage } from 'svelte-cloudinary'
 ```svelte
 <script>
 
-  import { getCldOgImageUrl } from 'next-cloudinary';
+  import { getCldOgImageUrl } from 'svelte-cloudinary';
 
   const cldUrl = getCldOgImageUrl({
     src: 'images/white',

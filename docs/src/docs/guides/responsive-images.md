@@ -71,15 +71,15 @@ For instance, in the above, the resulting responive image in the HTML may look l
 <img
   sizes="(max-width: 480px) 100vw, 50vw"
   srcset="
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/c_scale,w_384/f_auto/q_auto/v1/images/woman-headphones 384w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 640w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 750w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 828w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1080w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1200w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1920w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 2048w,
-    https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 3840w
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/c_scale,w_384/f_auto/q_auto/v1/images/woman-headphones 384w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 640w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 750w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 828w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1080w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1200w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 1920w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 2048w,
+    https://res.cloudinary.com/svelte-cloudinary/image/upload/c_thumb,w_600,h_600,g_faces/f_auto/q_auto/v1/images/woman-headphones 3840w
   " ... />
 ```
 

@@ -52,7 +52,7 @@ You can further optimize delivery by using [responsive sizing](/guides/responsiv
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary'
+  import { getCldImageUrl } from 'svelte-cloudinary'
 
   getCldImageUrl({
     width: 960,

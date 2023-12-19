@@ -37,9 +37,9 @@ To give unsigned access for upload, provide an upload preset as part of the comp
 
 Use the following to generate an unsigned upload widget:
 
-```html
+```svelte
 <script>
-import { CldUploadWidget } from 'svelte-cloudinary';
+  import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
 <CldUploadWidget uploadPreset="<Upload Preset>" let:open let:isLoading>
@@ -74,9 +74,9 @@ You can do this by creating a serverless function that reads the parameters as t
 
 Use the following to generate an signed upload widget:
 
-```html
+```svelte
 <script>
-import { CldUploadWidget } from 'svelte-cloudinary';
+  import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
 <CldUploadWidget uploadPreset="<Upload Preset>" let:open let:isLoading

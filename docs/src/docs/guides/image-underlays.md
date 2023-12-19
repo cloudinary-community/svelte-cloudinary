@@ -36,7 +36,7 @@ See the examples above under Overlays to learn more about the available configur
 
 ```svelte
 <script>
-  import { CldImage } from 'next-cloudinary';
+  import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
@@ -55,7 +55,7 @@ See the examples above under Overlays to learn more about the available configur
 
 ```svelte
 <script>
-  import { getCldImageUrl } from 'next-cloudinary';
+  import { getCldImageUrl } from 'svelte-cloudinary';
 
   const cldUrl = getCldImageUrl({
     width: 960,

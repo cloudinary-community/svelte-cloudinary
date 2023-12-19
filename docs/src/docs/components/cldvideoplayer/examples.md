@@ -121,8 +121,8 @@ order: 3
     height="2160"
     src={`videos/dog-running-snow`}
     logo={{
-      imageUrl: 'https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/v1676058142/assets/space-jelly-cosmo-helmet.svg',
-      onClickUrl: 'https://spacejelly.dev'
+      imageUrl: 'https://svelte.cloudinary.dev/logo.svg',
+      onClickUrl: 'https://svelte.cloudinary.dev'
     }}
   />
 
@@ -132,8 +132,8 @@ order: 3
 
   ```jsx
   logo={{
-    imageUrl: 'https://res.cloudinary.com/colbycloud-next-cloudinary/image/upload/v1676058142/assets/space-jelly-cosmo-helmet.svg',
-    onClickUrl: 'https://spacejelly.dev'
+    imageUrl: 'https://svelte.cloudinary.dev/logo.svg',
+    onClickUrl: 'https://svelte.cloudinary.dev'
   }}
   ```
 </li>

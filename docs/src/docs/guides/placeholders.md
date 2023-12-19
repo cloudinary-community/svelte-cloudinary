@@ -79,7 +79,7 @@ export const load = () => {
 ```svelte
 
 <script>
-  import { CldImage } from 'next-cloudinary';
+  import { CldImage } from 'svelte-cloudinary';
   export let data
 </script>
 
