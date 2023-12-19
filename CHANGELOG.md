@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.1...v1.1.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* [#72](https://github.com/cloudinary-community/svelte-cloudinary/issues/72) correctly read preserveTransformations prop ([#73](https://github.com/cloudinary-community/svelte-cloudinary/issues/73)) ([81002ce](https://github.com/cloudinary-community/svelte-cloudinary/commit/81002ce3eaadb383c1954455efc7d1ad225e51a5))
+
 ## [1.1.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.0...v1.1.1) (2023-10-13)
 
 
