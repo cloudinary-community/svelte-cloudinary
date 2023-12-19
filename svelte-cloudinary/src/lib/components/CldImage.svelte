@@ -57,7 +57,7 @@
 	// Try to preserve the original transformations from the Cloudinary URL passed in
 	// to the component. This only works if the URL has a version number on it and otherwise
 	// will fail to load
-	if ($$props.preserveTransformations) {
+	$: if ($$props.preserveTransformations) {
 		try {
 			const transformations = getTransformations(imageProps.src).map((t) => t.join(','));
 			// @ts-expect-error rawTranformations key is not declared in cldOptions
