@@ -24,10 +24,6 @@ To do this, we have several options:
 - `placeholder="blur"` coupled with a `blurDataURL`
 - `placeholder="..."` with the contents being a data URL
 
-<Callout emoji={false} type="info">
-  When working in the App Router, its currently recommended to wrap CldImage to make it easier
-  to use in Server Components without having to opt an entire page in to a Client Component. [Learn more](/nextjs-14#app-router-app)
-</Callout>
 
 ## Blurred Images
 
@@ -98,8 +94,6 @@ export const load = () => {
 
 In a similar fashion, we can create a shimmer effect when
 our images are loading.
-
-> Example from: https://github.com/vercel/next.js/blob/canary/examples/image-component/pages/shimmer.tsx
 
 <HeaderImage>
   <CldImage
