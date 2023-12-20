@@ -2,224 +2,597 @@
 title: CldImage/Examples
 order: 3
 ---
+
 <script>
-import ImageGrid from '$lib/components/ImageGrid.svelte';
-import Callout from '$lib/components/Callout.svelte'
-import { CldImage } from 'svelte-cloudinary'
+  import CodeBlock from '$lib/components/CodeBlock.svelte';
+  import HeaderImage from '$lib/components/HeaderImage.svelte';
+  import ImageGrid from '$lib/components/ImageGrid.svelte';
+  import Callout from '$lib/components/Callout.svelte'
+  import { CldImage } from 'svelte-cloudinary'
 </script>
 
 
 # CldImage Examples
 
-## Effects
+## Basic Transformations
 
-<ImageGrid>
-<li>
-    <CldImage
-      width={960}
-      height={600}
-      src={`images/turtle`}
-      sizes="(max-width: 480px) 100vw, 50vw"
-      removeBackground
-      alt=""
-    />
+Cloudinary supports a wide variety of powerful transformations that allow you to
+not only deliver, but easily edit and build new images on the fly.
 
-    ### Background Removal
+### Background Removal
 
-```jsx
-removeBackground
-```
+#### Remove Background
 
-<Callout emoji={false}>
-Background removal requires the <a href="https://cloudinary.com/documentation/cloudinary_ai_background_removal_addon">Cloudinary AI Background Removal</a> Add-On
-</Callout>
-  </li>
-<li>
+`removeBackground`: Removes the background of the image using AI
+
+<HeaderImage>
   <CldImage
     width="960"
     height="600"
-    crop="pad"
-    src={`images/woman-headphones`}
-    sizes="(max-width: 480px) 100vw, 50vw"
-    fillBackground
+    src={`images/turtle`}
+    sizes="100vw"
+    removeBackground
     alt=""
   />
+</HeaderImage>
 
-  ### Generative Fill
+<CodeBlock>
 
-  ```jsx
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
   width="960"
-  height="600" // Original 1440
-  crop="pad" // Returns the given size with padding
-  fillBackground // Uses AI to extend image
-  ```
-
-  <Callout emoji={false}>
-    The generative fill transformation is currently in Beta. <a href="https://cloudinary.com/documentation/effects_and_artistic_enhancements#generative_fill">Learn more</a>.
-  </Callout>
-</li>
-  <li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  zoompan="loop"
-  alt=""
-/>
-
-### Zoom &amp; Pan
-
-```jsx
-zoompan="loop"
-```
-  </li>
-  <li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  blur="1200"
-  alt=""
-/>
-
-### Blur
-
-```jsx
-blur="1200"
-```
-  </li>
-  <li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  pixelate
-  alt=""
-/>
-
-### Pixelate
-
-```jsx
-pixelate
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  grayscale
-  alt=""
-/>
-
-### Grayscale
-
-```jsx
-grayscale
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  tint="equalize:80:blue:blueviolet"
-  alt=""
-/>
-
-### Tint
-
-```jsx
-tint="equalize:80:blue:blueviolet"
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  opacity="50"
-  alt=""
-/>
-
-### Opacity
-
-```jsx
-opacity="50"
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  shear="40:0"
-  alt=""
-/>
-
-### Shear
-
-```jsx
-shear="40:0"
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  border="40px_solid_purple"
-  alt=""
-/>
-
-### Border
-
-```jsx
-border="40px_solid_purple"
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  background="blue"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
   removeBackground
   alt=""
 />
-
-### Background
-
-```jsx
-removeBackground
-background="blue"
 ```
-</li>
-<li>
+</CodeBlock>
+
+<Callout emoji={false} type="info">
+  The Cloudinary AI Background Removal add-on is required to use this feature.
+</Callout>
+
+#### Color Background
+
+`background`: Specifies a color to use as a background.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    removeBackground
+    background="blueviolet"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+
 <CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  trim
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  removeBackground
+  background="blueviolet"
   alt=""
 />
-
-### Trim
-
-```jsx
-trim
 ```
-</li>
-<li>
+</CodeBlock>
+
+#### Image Background
+
+`underlay`: Specifies a public ID to use as an underlaying image.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    removeBackground
+    underlay={`images/galaxy`}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
 <CldImage
-  width={960}
-  height={600}
-  src={`images/turtle`}
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  removeBackground
+  underlay="<Your Public ID>"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Cropping & Resizing
+
+#### Cropping
+
+`crop`: Specifies the mode to use when cropping an image based on the given dimensions.
+
+> Note: By default, CldImage uses a gravity of auto, meaning the crop will automatically
+position the subject in the center of the resulting image.
+
+<HeaderImage>
+  <CldImage
+    width="300"
+    height="300"
+    src={`images/woman-headphones`}
+    sizes="100vw"
+    crop="thumb"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+
+<CldImage
+  width="300"
+  height="300"
+  src="<Your Public ID>"
+  sizes="100vw"
+  crop="thumb"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Generative Fill
+
+`fillBackground`: Fills the background of an image using Generative AI
+
+<HeaderImage>
+  <CldImage
+    src={`images/woman-headphones`}
+    width="960"
+    height="600"
+    crop="pad"
+    fillBackground
+    alt=""
+    sizes="100vw"
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  src="<Your Public ID>"
+  width="960"
+  height="600" // Original 1440
+  crop="pad"  // Returns the given size with padding
+  fillBackground
+  alt=""
+  sizes="100vw"
+/>
+```
+</CodeBlock>
+
+<Callout emoji={false}>
+  The generative fill transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#b_gen_fill">Learn more</a>.
+</Callout>
+
+### Generative Recolor
+
+`recolor`: Recolors an object in an image using Generative AI
+
+<HeaderImage>
+  <CldImage
+    src={`images/sneakers`}
+    width="960"
+    height="600"
+    crop="fill"
+    recolor={['shoelaces', 'purple']}
+    alt=""
+    sizes="100vw"
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+
+<CldImage
+  src="<Your Public ID>"
+  width="960"
+  height="600"
+  crop="fill"
+  recolor={['shoelaces', 'purple']}
+  alt=""
+  sizes="100vw"
+/>
+```
+</CodeBlock>
+
+<Callout emoji={false}>
+  The generative replace transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_replace">Learn more</a>.
+</Callout>
+
+### Generative Remove
+
+`remove`: Removes an object in an image using Generative AI
+
+<HeaderImage>
+  <CldImage
+    src={`images/mountain`}
+    width="960"
+    height="600"
+    crop="fill"
+    remove="mountain"
+    alt=""
+    sizes="100vw"
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  src="<Your Public ID>"
+  width="960"
+  height="600"
+  crop="fill"
+  remove="mountain"
+  alt=""
+  sizes="100vw"
+/>
+```
+</CodeBlock>
+
+<Callout emoji={false}>
+  The generative replace transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_replace">Learn more</a>.
+</Callout>
+
+### Generative Replace
+
+`replace`: Replaces an object in an image using Generative AI
+
+<HeaderImage>
+  <CldImage
+    src={`images/turtle`}
+    width="960"
+    height="600"
+    crop="fill"
+    replace={['turtle', 'shark']}
+    alt=""
+    sizes="100vw"
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  crop="fill"
+  src="<Your Public ID>"
+  replace={['turtle', 'shark']}
+  alt=""
+  sizes="100vw"
+/>
+```
+</CodeBlock>
+
+<Callout emoji={false}>
+  The generative replace transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_replace">Learn more</a>.
+</Callout>
+
+### Generative Restore
+
+`restore`: Restores an image using Generative AI
+
+<HeaderImage layout="grid">
+  <CldImage
+    src={`images/galaxy-poor`}
+    width="960"
+    height="600"
+    crop="fill"
+    alt=""
+    sizes="100vw"
+  />
+  <CldImage
+    src={`images/galaxy-poor`}
+    width="960"
+    height="600"
+    crop="fill"
+    restore
+    alt=""
+    sizes="100vw"
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  src="<Your Public ID>"
+  width="960"
+  height="600"
+  crop="fill"
+  restore
+  sizes="100vw"
+  alt=""
+/>
+```
+</CodeBlock>
+
+<Callout emoji={false}>
+  The generative restore transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_restore">Learn more</a>.
+</Callout>
+
+
+## Filters & Effects
+
+Included in the Cloudinary transformations library are different filters and effects
+that allow you to recolor, improve, fix, and artistically transform your images.
+
+### Blur
+
+`blur`: Applies a blurring filter to an asset.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    blur="1200"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  blur="1200"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Grayscale
+
+`grayscale`: Converts an image to grayscale (multiple shades of gray).
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    grayscale
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  grayscale
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Opacity
+
+`opacity`: Controls the opacity level of an image.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    opacity="50"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  opacity="50"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Pixelate
+
+`pixelate`: Applies a pixelation effect.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    pixelate
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  pixelate
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Tint
+
+`tint`: Blends an image with one or more tint colors.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    tint="equalize:80:blue:blueviolet"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  tint="equalize:80:blue:blueviolet"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Chaining Multiple Effects
+
+`effects`: An array of objects the configure the effects to apply to an image.
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    effects={[
+      {
+        background: 'green'
+      },
+      {
+        gradientFade: true
+      },
+      {
+        gradientFade: 'symetric,x_0.5'
+      }
+    ]}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
   effects={[
     {
       background: 'green'
@@ -233,343 +606,349 @@ trim
   ]}
   alt=""
 />
-
-### Multiple Effects
-
-```jsx
-effects={[
-  {
-    background: 'green'
-  },
-  {
-    gradientFade: true
-  },
-  {
-    gradientFade: 'symetric,x_0.5'
-  }
-]}
 ```
-</li>
-</ImageGrid>
+</CodeBlock>
 
+### More Filters & Effects
 
-## Cropping
-
-<ImageGrid>
-<li>
-<CldImage
-  width={600}
-  height="900"
-  src="images/woman-headphones"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  crop="thumb"
-  gravity="auto"
-  alt=""
-/>
-
-### Original
-
-</li>
-<li>
-<CldImage
-  width={600}
-  height={600}
-  src="images/woman-headphones"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  crop="thumb"
-  gravity="auto"
-  alt=""
-/>
-
-### Thumbnail with Auto Gravity
-
-```jsx
-crop="thumb"
-gravity="auto"
-```
-</li>
-<li>
-<CldImage
-  width={600}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  crop="thumb"
-  gravity="faces"
-  alt=""
-/>
-
-### Thumbnail with Faces Gravity
-
-```jsx
-crop="thumb"
-gravity="faces"
-```
-</li>
-<li>
-<CldImage
-  width={600}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  crop="thumb"
-  gravity="faces"
-  zoom="0.5"
-  alt=""
-/>
-
-### Thumbnail with Faces Gravity and Zoom
-
-```jsx
-crop="thumb"
-gravity="faces"
-zoom="0.5"
-```
-</li>
-</ImageGrid>
+Learn about what other filters and effects are supported on [CldImage Configuration](/cldimage/configuration#filters--effects).
 
 ## Image Overlays
-<ImageGrid>
-  <li>
-    <CldImage
-      width={960}
-      height={600}
-      src={`images/turtle`}
-      sizes="(max-width: 480px) 100vw, 50vw"
-      overlays={[{
-        publicId: `images/earth`,
+
+Image overlays allow you to place one or multiple images on top of another image.
+
+### Overlay Image by Public ID
+
+`overlays`: Any array of overlay objects
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    overlays={[{
+      publicId: `images/earth`,
+      position: {
+        x: 50,
+        y: 50,
+        gravity: 'north_west',
+      },
+      effects: [
+        {
+          crop: 'fill',
+          gravity: 'auto',
+          width: 500,
+          height: 500
+        }
+      ]
+    }]}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  overlays={[{
+    publicId: '<Your Public ID>',
+    position: {
+      x: 50,
+      y: 50,
+      gravity: 'north_west',
+    },
+    effects: [
+      {
+        crop: 'fill',
+        gravity: 'auto',
+        width: 500,
+        height: 500
+      }
+    ]
+  }]}
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Overlay Image with Blend Mode
+
+`appliedEffects`: When configured on an overlay object, allows you to set an effect
+that applies a blend mode, such as "multiply"
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    crop="fill"
+    src={`images/galaxy`}
+    overlays={[{
+      publicId: `images/earth`,
+      effects: [
+        {
+          crop: 'fill',
+          gravity: 'auto',
+          width: 960,
+          height: 600
+        }
+      ],
+      appliedEffects: [
+        {
+          multiply: true
+        }
+      ]
+    }]}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  crop="fill"
+  src="<Your Public ID>"
+  overlays={[{
+    publicId: '<Your Public ID>',
+    effects: [
+      {
+        crop: 'fill',
+        gravity: 'auto',
+        width: 960,
+        height: 600
+      }
+    ],
+    appliedEffects: [
+      {
+        multiply: true
+      }
+    ]
+  }]}
+  alt=""
+/>
+```
+</CodeBlock>
+
+## Image Underlays
+
+Image underlays allow you to place one or multiple images behind a base image.
+
+### Replace Background with Image
+
+`underlay`: Public ID of image to use under base image
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    removeBackground
+    underlay="images/galaxy"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  removeBackground
+  underlay="<Your Public ID>"
+  alt=""
+/>
+```
+</CodeBlock>
+
+### Replace Background with Multiple Images
+
+`underlays`: Array of underlay objects
+
+<HeaderImage>
+  <CldImage
+    width="960"
+    height="600"
+    src={`images/turtle`}
+    sizes="100vw"
+    removeBackground
+    underlays={[
+      {
+        publicId: 'images/galaxy',
+        width: 480,
+        height: 600,
+        crop: 'fill',
         position: {
-          x: 50,
-          y: 50,
-          gravity: 'north_west',
-        },
-        effects: [
-          {
-            crop: 'fill',
-            gravity: 'auto',
-            width: 500,
-            height: 500
-          }
-        ]
-      }]}
-      alt=""
-    />
+          gravity: 'north_west'
+        }
+      },
+      {
+        publicId: 'images/mountain',
+        width: 480,
+        height: 600,
+        crop: 'fill',
+        position: {
+          gravity: 'south_east'
+        }
+      },
+    ]}
+    alt=""
+  />
+</HeaderImage>
 
-    ### Overlay Image by Public ID
+<CodeBlock>
 
-```jsx
-overlays={[{
-  publicId: `images/earth`,
-  position: {
-    x: 10,
-    y: 10,
-    gravity: 'north_west',
-  },
-  effects: [
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width="960"
+  height="600"
+  src="<Your Public ID>"
+  sizes="100vw"
+  removeBackground
+  underlays={[
     {
+      publicId: '<Your Public ID>',
+      width: 480,
+      height: 600,
       crop: 'fill',
-      gravity: 'auto',
-      width: 500,
-      height: 500
-    }
-  ]
-}]}
-```
-  </li>
-  <li>
-    <CldImage
-      width={960}
-      height={600}
-      crop="fill"
-      src={`images/white`}
-      colorize="100,co_darkviolet"
-      overlays={[{
-        publicId: `images/earth`,
-        effects: [
-          {
-            crop: 'fill',
-            gravity: 'auto',
-            width: 960,
-            height: 600
-          }
-        ],
-        appliedEffects: [
-          {
-            multiply: true
-          }
-        ]
-      }]}
-      alt=""
-    />
-
-    ### Overlay with Multiply Effect
-
-```jsx
-overlays={[{
-  publicId: `images/earth`,
-  effects: [
+      position: {
+        gravity: 'north_west'
+      }
+    },
     {
+      publicId: '<Your Public ID>',
+      width: 480,
+      height: 600,
       crop: 'fill',
-      gravity: 'auto',
-      width: 960,
-      height: 600
-    }
-  ],
-  appliedEffects: [
-    {
-      multiply: true
-    }
-  ]
-}]}
+      position: {
+        gravity: 'south_east'
+      }
+    },
+  ]}
+  alt=""
+/>
 ```
-  </li>
-  <li>
-    <CldImage
-      width={960}
-      height={600}
-      crop="fill"
-      src={`images/white`}
-      colorize="100,co_darkviolet"
-      overlays={[{
-        publicId: `images/earth`,
-        effects: [
-          {
-            crop: 'fill',
-            gravity: 'auto',
-            width: 960,
-            height: 600
-          }
-        ],
-        appliedEffects: [
-          {
-            screen: true
-          }
-        ]
-      }]}
-      sizes="(max-width: 480px) 100vw, 50vw"
-      alt=""
-    />
+</CodeBlock>
 
-    ### Overlay with Screen Effect
-
-```jsx
-overlays={[{
-  publicId: `images/earth`,
-  effects: [
-    {
-      crop: 'fill',
-      gravity: 'auto',
-      width: 960,
-      height: 600
-    }
-  ],
-  appliedEffects: [
-    {
-      screen: true
-    }
-  ]
-}]}
-```
-  </li>
-  <li>
-    <CldImage
-      width={960}
-      height={600}
-      crop="fill"
-      src={`images/white`}
-      colorize="100,co_darkviolet"
-      overlays={[{
-        publicId: `images/earth`,
-        effects: [
-          {
-            crop: 'fill',
-            gravity: 'auto',
-            width: 960,
-            height: 600
-          }
-        ],
-        appliedEffects: [
-          {
-            overlay: true
-          }
-        ]
-      }]}
-      sizes="(max-width: 480px) 100vw, 50vw"
-      alt=""
-    />
-
-    ### Overlay with Overlay Effect
-
-```jsx
-overlays={[{
-  publicId: `images/earth`,
-  effects: [
-    {
-      crop: 'fill',
-      gravity: 'auto',
-      width: 960,
-      height: 600
-    }
-  ],
-  appliedEffects: [
-    {
-      overlay: true
-    }
-  ]
-}]}
-```
-  </li>
-</ImageGrid>
 
 ## Text Overlays
 
-<ImageGrid>
-<li>
+Text overlays allow you to place text on top of an image.
+
+### Adding Text
+
+`text`: Adds text to an image with default settings
+
+<HeaderImage>
+  <CldImage
+    width="1335"
+    height="891"
+    src={`images/galaxy`}
+    sizes="100vw"
+    blur="2000"
+    brightness="300"
+    text="Cool Beans"
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
 <CldImage
   width="1335"
   height="891"
-  src={`images/galaxy`}
-  sizes="(max-width: 480px) 100vw, 50vw"
+  src="<Your Public ID>"
+  sizes="100vw"
   blur="2000"
   brightness="300"
   text="Cool Beans"
   alt=""
 />
-
-### Text Overlay with text prop
-
-```jsx
-text="Cool Beans"
 ```
-</li>
-<li>
+</CodeBlock>
+
+### Adding Custom Text
+
+`overlays`: Uses overlay objects to add text on top of an image.
+
+<HeaderImage>
+  <CldImage
+    width="1335"
+    height="891"
+    src={`images/sneakers`}
+    sizes="100vw"
+    overlays={[{
+      width: 2670 - 20,
+      crop: 'fit',
+      position: {
+        x: 140,
+        y: 140,
+        angle: -20,
+        gravity: 'south_east',
+      },
+      text: {
+        color: 'blueviolet',
+        fontFamily: 'Source Sans Pro',
+        fontSize: 160,
+        fontWeight: 'bold',
+        textDecoration: 'underline',
+        letterSpacing: 14,
+        text: 'Cool Beans'
+      }
+    }]}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
 <CldImage
   width="1335"
   height="891"
-  src={`images/galaxy`}
-  sizes="(max-width: 480px) 100vw, 50vw"
-  blur="2000"
-  brightness="300"
-  overlays={[{
-    text: 'Cool Beans'
-  }]}
-  alt=""
-/>
-
-### Text Overlay with text string
-
-```jsx
-overlays={[{
-  text: 'Cool Beans'
-}]}
-```
-</li>
-<li>
-<CldImage
-  width="1335"
-  height="891"
-  src={`images/sneakers`}
-  sizes="(max-width: 480px) 100vw, 50vw"
+  src="<Your Public ID>"
+  sizes="100vw"
   overlays={[{
     width: 2670 - 20,
     crop: 'fit',
@@ -591,36 +970,51 @@ overlays={[{
   }]}
   alt=""
 />
-
-### Text Overlay with overlay configuration
-
-```jsx
-overlays={[{
-  width: 2670 - 20,
-  crop: 'fit',
-  position: {
-    x: 10,
-    y: 10,
-    gravity: 'north_west',
-  },
-  text: {
-    color: 'blueviolet',
-    fontFamily: 'Source Sans Pro',
-    fontSize: 160,
-    fontWeight: 'bold',
-    textDecoration: 'underline',
-    letterSpacing: 14,
-    text: 'Cool Beans'
-  }
-}]}
 ```
-</li>
-<li>
+</CodeBlock>
+
+### Adding Text with Effects
+
+`effects`: Applies effects to the overlaid text.
+
+<HeaderImage>
+  <CldImage
+    width="1335"
+    height="891"
+    src={`images/galaxy`}
+    sizes="100vw"
+    overlays={[{
+      text: {
+        color: 'white',
+        fontFamily: 'Source Sans Pro',
+        fontSize: 160,
+        fontWeight: 'bold',
+        text: 'Cool Beans'
+      },
+      effects: [
+        {
+          shear: '40:0',
+          opacity: 50
+        }
+      ]
+    }]}
+    alt=""
+  />
+</HeaderImage>
+
+<CodeBlock>
+
+```svelte
+
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
 <CldImage
   width="1335"
   height="891"
-  src={`images/galaxy`}
-  sizes="(max-width: 480px) 100vw, 50vw"
+  src="<Your Public ID>"
+  sizes="100vw"
   overlays={[{
     text: {
       color: 'white',
@@ -638,89 +1032,10 @@ overlays={[{
   }]}
   alt=""
 />
-
-### Text Overlay with Effects
-
-```jsx
-overlays={[{
-  text: {
-    color: 'white',
-    fontFamily: 'Source Sans Pro',
-    fontSize: 160,
-    fontWeight: 'bold',
-    text: 'Cool Beans'
-  },
-  effects: [
-    {
-      shear: '40:0',
-      opacity: 50
-    }
-  ]
-}]}
 ```
-</li>
-</ImageGrid>
+</CodeBlock>
 
+## More Examples
 
-## Other
+Find more examples on [Social Card Templates](/templates/social-media-cards).
 
-<ImageGrid>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  transformations={[
-    'svelte-cloudinary-named-transformation'
-  ]}
-  alt=""
-/>
-
-### Named Transformations
-
-```jsx
-transformations={[
-  'svelte-cloudinary-named-transformation'
-]}
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  rawTransformations={['c_crop,h_359,w_517,x_1200,y_100/c_scale,h_359,w_517/f_auto,q_auto']}
-  sizes="(max-width: 480px) 100vw, 50vw"
-  alt=""
-/>
-
-### Raw Transformations
-
-```jsx
-rawTransformations={[
-  // Example from Cloudinary Media Editor widget
-  'c_crop,h_359,w_517,x_1483,y_0/c_scale,h_359,w_517/f_auto,q_auto'
-]}
-```
-</li>
-<li>
-<CldImage
-  width={960}
-  height={600}
-  src={`https://res.cloudinary.com/${import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_fill,h_300,w_250/e_blur:1000/v1/images/turtle`}
-  preserveTransformations
-  tint="equalize:80:blue:blueviolet"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  alt=""
-/>
-
-### Preserve Transformations
-
-```jsx
-src={`https://res.cloudinary.com/<Cloud Name>/image/upload/c_fill,h_300,w_250/e_blur:1000/v1/<Public ID>`}
-preserveTransformations
-tint="equalize:80:blue:blueviolet"
-```
-</li>
-</ImageGrid>

@@ -22,8 +22,11 @@ The CldOgImage Component give you the ability to use the same CldImage API to ea
 
 The basic required prop is `src`:
 
-```jsx
-import { CldOgImage } from 'svelte-cloudinary';
+```svelte
+
+<script>
+  import { CldOgImage } from 'svelte-cloudinary';
+</script>
 
 <CldOgImage
   src="<Public ID>"
@@ -66,7 +69,11 @@ You can further take advantage of Cloudinary features like background removal an
 
 The CldOgImage component uses the same API as [CldImage](/CldImage/configuration), meaning you can use the same transformations and effects.
 
-```jsx
+```svelte
+<script>
+  import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
 <CldOgImage
   src="<Public ID>"
   tint="100:0762a0"
@@ -102,7 +109,7 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
       fontFamily: 'Source Sans Pro',
       fontSize: 80,
       fontWeight: 'bold',
-      text: 'Next Cloudinary'
+      text: 'Svelte Cloudinary'
     }
   }]}
   underlay={`images/galaxy`}

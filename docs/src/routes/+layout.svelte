@@ -21,8 +21,7 @@
 	});
 
 	const singleItems = data.sections.filter((item) => !item.children);
-	const components = data.sections.filter((item) => item.title === 'Components')[0];
-	const helpers = data.sections.filter((item) => item.title === 'Helpers')[0];
+	const sections = data.sections.filter((item) => item.children);
 
 	let drawer: HTMLInputElement;
 	beforeNavigate(() => {
@@ -37,7 +36,7 @@
 		<main class="max-w-[100vw] px-6 pb-16 xl:pr-2">
 			<div class="flex flex-col-reverse justify-between gap-6 xl:flex-row">
 				<article
-					class="prose prose-sm md:prose-base dark:prose-invert w-full max-w-4xl flex-grow pt-10"
+					class="prose prose-sm md:prose-sm dark:prose-invert w-full max-w-4xl flex-grow pt-10"
 				>
 					<slot />
 					<footer class="pb-[env(safe-area-inset-bottom)] not-prose">
@@ -54,14 +53,14 @@
 	</div>
 	<div class="drawer-side" style="scroll-behavior: smooth; scroll-padding-top: 5rem;">
 		<label for="drawer" class="drawer-overlay" aria-label="Close menu" />
-		<aside class="bg-base-100 w-80 h-full">
+		<aside class="bg-base-100 h-full w-64">
 			<div
 				class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex"
 			>
 				<a href="/" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
-					<div class="font-title inline-flex text-lg md:text-2xl">
+					<div class="font-title inline-flex text-lg ">
 						<div class="flex items-center flex-row justify-between">
-							<img src="/logo.svg" width="34" alt="svelte cloudinary"/>
+							<img src="/logo.svg" width="34" alt="svelte cloudinary" />
 							<span class="font-bold capitalize ml-2"
 								>Svelte <span class="text-[#3448c5]">Cloudinary</span></span
 							>
@@ -70,16 +69,16 @@
 				>
 			</div>
 			<div class="mt-16 flex md:hidden">
-			<Search />
-				</div>
+				<Search />
+			</div>
 			<div class="h-4" />
-			<ul class="menu menu-sm lg:menu-md px-4 py-0">
+			<ul class="menu menu-sm px-4 py-0">
 				{#each singleItems as item}
 					<li>
 						<a
 							href="/{item.link}"
 							data-sveltekit-preload-data="hover"
-							class="rounded px-2 py-1.5 text-sm bg-primary-100 font-semibold text-primary-800 dark:text-primary-300"
+							class="rounded px-2 py-1.5 text-xs bg-primary-100 font-semibold text-primary-800 dark:text-primary-300"
 							class:active={$page.url.pathname === `/${item.link}/`}
 						>
 							<span class="">{item.title}</span>
@@ -87,14 +86,11 @@
 					</li>
 				{/each}
 			</ul>
-			<p class="px-8 pt-8 pb-0 mb-2 text-sm font-semibold text-primary-800">Components</p>
-			{#each components.children as child}
-				<Dropdown title={child.title} items={child.children} link={child.link} />
-			{/each}
-
-			<p class="px-8 pt-8 pb-0 mb-2 text-sm font-semibold text-primary-800">Helpers</p>
-			{#each helpers.children as child}
-				<Dropdown title={child.title} items={child.children} link={child.link} />
+			{#each sections as section}
+				<p class="px-8 pt-8 pb-0 mb-2 text-xs font-semibold text-primary-800">{section.title}</p>
+				{#each section.children as child}
+					<Dropdown title={child.title} items={child.children} link={child.link} />
+				{/each}
 			{/each}
 		</aside>
 	</div>

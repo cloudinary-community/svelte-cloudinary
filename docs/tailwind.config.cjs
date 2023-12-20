@@ -10,12 +10,29 @@ const config = {
 			'sans': ['Poppins', 'ui-sans-serif', 'system-ui',],
 			'serif': ['Poppins', 'ui-serif', 'Georgia']
 		},
-		extend: {}
+		extend: {
+			typography: (theme) => ({
+				DEFAULT: {
+					css: {
+						a: {
+							color: theme('colors.blue.500')
+						}
+					}
+				},
+				dark: {
+					css: {
+						a: {
+							color: theme('colors.blue.400')
+						}
+					}
+				}
+			})
+		}
 	},
 
 	plugins: [typography, daisyui],
 	daisyui: {
-		themes: ["light", "black"]
+		themes: ["light", "night"]
 	}
 };
 

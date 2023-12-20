@@ -448,21 +448,21 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 /* Manual toggle Dark mode */
-html[data-theme="black"] pre[class*="language-"],
-html[data-theme="black"] code[class*="language-"] {
+html[data-theme="night"] pre[class*="language-"],
+html[data-theme="night"] code[class*="language-"] {
 	color: hsl(219, 13.5%, 71%);
 	background: hsl(204.1 38.4% 10.6%);
 }
 
 /* Dark mode Selection */
-html[data-theme="black"] code[class*="language-"]::selection,
-html[data-theme="black"] code[class*="language-"] *::selection,
-html[data-theme="black"] pre[class*="language-"] *::selection {
+html[data-theme="night"] code[class*="language-"]::selection,
+html[data-theme="night"] code[class*="language-"] *::selection,
+html[data-theme="night"] pre[class*="language-"] *::selection {
 	background: hsl(230 6% 32%);
 	color: inherit;
 }
 
 /* Dark mode Code blocks */
-html[data-theme="black"] .token.punctuation {
+html[data-theme="night"] .token.punctuation {
 	color: hsl(219, 13.5%, 71%);
 }

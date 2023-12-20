@@ -1,45 +1,36 @@
-<script lang="ts" context="module">
-	export type Panel = {
-		id: number;
-	};
-	export type TabsContext = {
-		selectedTab: Writable<number | null>;
-		registerPanel: (panel: Panel) => void;
-	};
+<script context="module" lang="ts">
+	import { writable, type Writable } from 'svelte/store';
 
-	export const KEY = Symbol();
+	export interface TabCtxType {
+		selected: Writable<HTMLElement>;
+	}
 </script>
 
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { writable, type Writable } from 'svelte/store';
-	/** Props **/
-	export let tabs: string[];
 
-	let panels: Panel[] = [];
-	const selectedTab = writable<number | null>(1);
-	const selectedPanel = writable<Panel | null>(null);
+	const ctx: TabCtxType = {
+		selected: writable<HTMLElement>()
+	};
+	setContext('ctx', ctx);
 
-	function selectTab(tab: number) {
-		selectedTab.set(tab);
-		selectedPanel.set(panels[tab]);
+	export let tabs: string[] = [];
+
+	function init(node: HTMLElement) {
+		const destroy = ctx.selected.subscribe((x: HTMLElement) => {
+			if (x) node.replaceChildren(x);
+		});
+
+		return { destroy };
 	}
-
-	setContext<TabsContext>(KEY, {
-		registerPanel(panel: Panel) {
-			panels.push(panel);
-		},
-		selectedTab
-	});
 </script>
 
-<div class="tabs pb-8">
-	{#each tabs as tab, index}
-		<button
-			class="tab tab-bordered"
-			class:tab-active={$selectedTab === index + 1}
-			on:click={() => selectTab(index + 1)}>{tab}</button
-		>
-	{/each}
-</div>
+<ul class="flex flex-wrap rtl:space-x-reverse list-none">
 	<slot />
+</ul>
+<div
+	class="p-4 pt-0 rounded-lg "
+	role="tabpanel"
+	aria-labelledby="id-tab"
+	use:init
+/>

@@ -7,6 +7,7 @@
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';
 	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
+	import { cloudinaryLoader } from '$lib/loaders/cloudinary-loader.js';
 
 	/**
 	 * set the compomnent $$props to be of type CldImageProps
@@ -75,30 +76,8 @@
 	<Image
 		{...imageProps}
 		cdn="cloudinary"
-		transformer={({ width }) => {
-			const options = {
-				...imageProps,
-				...cldOptions,
-				// Without, get a "never" type error on options.width
-				width: imageProps.width
-			};
-
-			options.width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
-			options.height =
-				typeof options.height === 'string' ? parseInt(options.height) : options.height;
-
-			// The transformer options are used to create dynamic sizing when working with responsive images
-			// so these should override the default options collected from the props alone if
-			// the results are different.
-
-			if (
-				typeof width === 'number' &&
-				typeof options.width === 'number' &&
-				width !== options.width
-			) {
-				options.widthResize = width;
-			}
-			return getCldImageUrl(options, config);
+		transformer={(loaderOptions) => {
+			return cloudinaryLoader( { loaderOptions, imageProps, cldOptions: {...cldOptions, width: imageProps.width }, cldConfig: config });
 		}}
 	/>
 {/if}

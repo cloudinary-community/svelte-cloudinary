@@ -29,14 +29,14 @@ order: 3
   gravity="auto"
   src={`images/white`}
   sizes="100vw"
-  text="Next Cloudinary"
-  alt="Next Cloudinary"
+  text="Svelte Cloudinary"
+  alt="Svelte Cloudinary"
 />
 
 ### Text over a white background
 
 ```jsx
-text="Next Cloudinary"
+text="Svelte Cloudinary"
 ```
 
 </li>
@@ -56,11 +56,11 @@ text="Next Cloudinary"
       fontFamily: 'Source Sans Pro',
       fontSize: 200,
       fontWeight: 'bold',
-      text: 'Next Cloudinary'
+      text: 'Svelte Cloudinary'
     }
   }]}
   underlay="images/galaxy"
-  alt="Next Cloudinary on a Galaxy"
+  alt="Svelte Cloudinary on a Galaxy"
 />
 
 ### Background removal with custom background
@@ -75,7 +75,7 @@ overlays={[{
     fontFamily: 'Source Sans Pro',
     fontSize: 200,
     fontWeight: 'bold',
-    text: 'Next Cloudinary'
+    text: 'Svelte Cloudinary'
   }
 }]}
 underlay="images/galaxy"

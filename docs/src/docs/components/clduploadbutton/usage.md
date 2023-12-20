@@ -18,8 +18,10 @@ The CldUploadButton component wraps the [CldUploadWidget](/CldUploadWidget/usage
 
 ## Basic Usage
 
-```jsx
-import { CldUploadButton } from 'svelte-cloudinary';
+```svelte
+<script>
+  import { CldUploadButton } from 'svelte-cloudinary';
+</script>
 
 <CldUploadButton uploadPreset="<Upload Preset>" />
 ```

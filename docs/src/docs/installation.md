@@ -18,13 +18,13 @@ To install Svelte Cloudinary, you can use your favorite package manager includin
 <!-- <Steps> -->
 
 <Tabs tabs={["npm","pnpm","yarn"]}>
-  <Tab type="shell">
+  <Tab type="shell" title="npm" open>
     npm install svelte-cloudinary
   </Tab>
-  <Tab type="shell">
+  <Tab type="shell" title="pnpm">
     pnpm install svelte-cloudinary
   </Tab>
-  <Tab type="shell">
+  <Tab type="shell" title="yarn">
     yarn add svelte-cloudinary
   </Tab>
 </Tabs>
