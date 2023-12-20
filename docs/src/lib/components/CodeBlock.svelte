@@ -7,7 +7,7 @@
 	<div class="codeBlockCode" data-codeblock-expanded={expanded}>
 		<slot />
 	</div>
-	<ul class="codeBlockActions">
+	<ul class="codeBlockActions list-none">
 		{#if !expanded}
 			<li>
 				<button on:click={() => (expanded = true)}>
