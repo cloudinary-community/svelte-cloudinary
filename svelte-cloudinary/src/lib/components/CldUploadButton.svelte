@@ -2,7 +2,6 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import CldUploadWidget from './CldUploadWidget.svelte';
 	import type { CldUploadWidgetProps } from './CldUploadWidgetTypes.ts';
-	import { invariant } from '$lib/util.js';
 
 	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
 	// destructure the props
