@@ -3,12 +3,17 @@
 	import { triggerOnIdle, loadCloudinary } from '$lib/util.js';
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import type {
-		ResultsEvents,
-		UploadWidget,
 		CldUploadWidgetProps,
-
-		ResultCallback
-
+		CldUploadWidgetInstanceMethods,
+		CldUploadWidgetCloseInstanceMethodOptions,
+		CldUploadWidgetDetsroyInstanceMethodOptions,
+		CldUploadWidgetOpenWidgetSources,
+		CldUploadWidgetOpenInstanceMethodOptions,
+		CldUploadEventCallback,
+		CldUploadWidgetError,
+		CldUploadWidgetResults,
+		CldUploadWidgetWidgetInstance,
+		CldUploadWidgetCloudinaryInstance,
 	} from './CldUploadWidgetTypes.ts';
 
 	type $$Props = CldUploadWidgetProps;
@@ -18,10 +23,26 @@
 		$$props as $$Props;
 
 	// References
-	let cloudinary: typeof window.cloudinary;
-	let widget: UploadWidget;
+	let cloudinary: CldUploadWidgetCloudinaryInstance;
+	let widget: CldUploadWidgetWidgetInstance;
 	const signed = !!signatureEndpoint;
 	const WIDGET_WATCHED_EVENTS = ['success', 'display-changed'];
+
+	const WIDGET_EVENTS: { [key: string]: string } = {
+		abort: 'onAbort',
+		'batch-cancelled': 'onBatchCancelled',
+		// 'close': 'onClose', // TODO: should follow other event patterns
+		'display-changed': 'onDisplayChanged',
+		publicid: 'onPublicId',
+		'queues-end': 'onQueuesEnd',
+		'queues-start': 'onQueuesStart',
+		retry: 'onRetry',
+		'show-completed': 'onShowCompleted',
+		'source-changed': 'onSourceChanged',
+		success: 'onSuccess',
+		tags: 'onTags',
+		'upload-added': 'onUploadAdded'
+	};
 
 	// Validation
 	checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
@@ -86,46 +107,36 @@
 	 */
 
 	function createWidget() {
-		const resultCallback: ResultCallback = (uploadError, uploadResult) => {
-			// The callback is a bit more chatty than failed or success so
-			// only trigger when one of those are the case. You can additionally
-			// create a separate handler such as onEvent and trigger it on
-			// ever occurrence
-			if (uploadError != null){
-				handleError(uploadError)
-			}
+		 return cloudinary?.createUploadWidget(uploadOptions, (uploadError: CldUploadWidgetError, uploadResult: CldUploadWidgetResults) => {
+      if ( uploadError && uploadError !== null ) {
+        handleError(uploadError);
+      }
 
-			if (WIDGET_WATCHED_EVENTS.includes(uploadResult?.event)) {
-				handleResults(uploadResult)
-			}
+      if ( typeof uploadResult?.event === 'string' ) {
+        if ( WIDGET_WATCHED_EVENTS.includes(uploadResult?.event) ) {
+          handleResults(uploadResult);
+        }
 
-		}
-		return cloudinary?.createUploadWidget(uploadOptions, resultCallback)
+        const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
+
+        if ( typeof widgetEvent === 'string' && typeof $$props[widgetEvent] === 'function' && typeof $$props[widgetEvent] ) {
+          const callback = $$props[widgetEvent] as CldUploadEventCallback;
+          callback(uploadResult, {
+            widget,
+            ...instanceMethods
+          });
+        }
+      }
+    });
 	}
 
-	/**
-	 * open
-	 * @description When triggered, uses the current widget instance to open the upload modal
-	 */
-
-	function open() {
-		if (!widget) {
-			widget = createWidget();
-		}
-
-		widget?.open();
-
-		if (typeof onOpen === 'function') {
-			onOpen(widget);
-		}
-	}
 
 	function onLoadingError() {
 		console.error(`Failed to load Cloudinary Upload Widget`);
 	}
 	// Side effects
 
-	function handleResults(results: ResultsEvents) {
+	function handleResults(results: CldUploadWidgetResults) {
 		if (results != null) {
 			const isSuccess = results.event === 'success';
 			const isClosed = results.event === 'display-changed' && results.info === 'hidden';
@@ -145,14 +156,97 @@
 		}
 	}
 	onMount(() => {
-		if(!window.cloudinary?.createUploadWidget) {
-			return loadCloudinary({ onLoad: handleOnLoad, onError: handleError })
+		if (!window.cloudinary?.createUploadWidget) {
+			return loadCloudinary({ onLoad: handleOnLoad, onError: handleError });
 		}
 		return handleOnLoad();
 	});
 
+	/**
+	 * Instance Methods
+	 * Gives the ability to interface directly with the Upload Widget instance methods like open and close
+	 * https://cloudinary.com/documentation/upload_widget_reference#instance_methods
+	 */
+
+	function invokeInstanceMethod<TMethod extends keyof CldUploadWidgetInstanceMethods>(
+		method: TMethod,
+		options: Parameters<CldUploadWidgetInstanceMethods[TMethod]> = [] as Parameters<
+			CldUploadWidgetInstanceMethods[TMethod]
+		>
+	) {
+		if (!widget) {
+			widget = createWidget();
+		}
+
+		if (typeof widget?.[method] === 'function') {
+			return widget?.[method](...options);
+		}
+	}
+
+	function close(options?: CldUploadWidgetCloseInstanceMethodOptions) {
+		invokeInstanceMethod('close', [options]);
+	}
+
+	function destroy(options?: CldUploadWidgetDetsroyInstanceMethodOptions) {
+		return invokeInstanceMethod('destroy', [options]);
+	}
+
+	function hide() {
+		invokeInstanceMethod('hide');
+	}
+
+	function isDestroyed() {
+		return invokeInstanceMethod('isDestroyed');
+	}
+
+	function isMinimized() {
+		return invokeInstanceMethod('isMinimized');
+	}
+
+	function isShowing() {
+		return invokeInstanceMethod('isShowing');
+	}
+
+	function minimize() {
+		invokeInstanceMethod('minimize');
+	}
+
+	/**
+	 * open
+	 * @description When triggered, uses the current widget instance to open the upload modal
+	*/
+	function open(
+		widgetSource?: CldUploadWidgetOpenWidgetSources,
+		options?: CldUploadWidgetOpenInstanceMethodOptions
+	) {
+		invokeInstanceMethod('open', [widgetSource, options]);
+
+		if (typeof onOpen === 'function') {
+			onOpen(widget);
+		}
+	}
+
+
+	function show() {
+		invokeInstanceMethod('show');
+	}
+
+	function update() {
+		invokeInstanceMethod('update');
+	}
+
+	const instanceMethods: CldUploadWidgetInstanceMethods = {
+		close,
+		destroy,
+		hide,
+		isDestroyed,
+		isMinimized,
+		isShowing,
+		minimize,
+		open,
+		show,
+		update
+	};
 </script>
 
-
-<slot {open} {widget} {cloudinary} {isLoading} data-testid="slot"/>
-
+<slot {widget} {cloudinary} {isLoading} {...instanceMethods} data-testid="slot" />

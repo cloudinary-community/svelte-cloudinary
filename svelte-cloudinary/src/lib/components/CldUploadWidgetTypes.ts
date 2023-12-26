@@ -1,26 +1,125 @@
+// TODO: widget needs to be typed
+
+export type CldUploadWidgetCloudinaryInstance = any;
+export type CldUploadWidgetWidgetInstance = any;
+
+type CustomURL = `https://${string}.${string}`;
+
+export interface CldUploadWidgetResults {
+  event?: string;
+  info?: string | object;
+}
+
+export type CldUploadWidgetDetsroyInstanceMethodOptions = {
+  removeThumbnails: boolean;
+}
+
+export type CldUploadWidgetCloseInstanceMethodOptions = {
+  quiet: boolean;
+}
+
+export type CldUploadWidgetOpenInstanceMethodOptions = {
+  files: CustomURL[];
+}
+
+export type CldUploadWidgetOpenWidgetSources =
+  | 'local'
+  | 'url'
+  | 'camera'
+  | 'image_search'
+  | 'google_drive'
+  | 'dropbox'
+  | 'facebook'
+  | 'instagram'
+  | 'shutterstock'
+  | 'getty'
+  | 'istock'
+  | 'unsplash'
+  | null;
+
+type CldUploadWidgetUpdateInstanceMethodOptions = Omit<
+  CldUploadWidgetPropsOptions,
+  "secure" | "uploadSignature" | "getTags" | "preBatch" | "inlineContainer" | "fieldName"
+> & {
+  cloudName: string;
+  uploadPreset: string;
+}
+
+export interface CldUploadWidgetInstanceMethods {
+  close: (options?: CldUploadWidgetCloseInstanceMethodOptions) => void;
+  destroy: (options?: CldUploadWidgetDetsroyInstanceMethodOptions) => Promise<void>;
+  hide: () => void;
+  isDestroyed: () => boolean;
+  isMinimized: () => boolean;
+  isShowing: () => boolean;
+  minimize: () => void;
+  open: (widgetSource?: CldUploadWidgetOpenWidgetSources, options?: CldUploadWidgetOpenInstanceMethodOptions) => void;
+  show: () => void;
+  update: (options: CldUploadWidgetUpdateInstanceMethodOptions) => void;
+}
+
+export type CldUploadWidgetError = {
+  status: string;
+  statusText: string;
+} | string | null;
+
+export interface CldUploadWidgetProps {
+  onError?: CldUploadEventCallbackError;
+  onOpen?: CldUploadEventCallbackWidgetOnly;
+  onUpload?: CldUploadEventCallbackNoOptions;
+  onAbort?: CldUploadEventCallback;
+  onBatchCancelled?: CldUploadEventCallback;
+  onClose?: CldUploadEventCallbackWidgetOnly;
+  onDisplayChanged?: CldUploadEventCallback;
+  onPublicId?: CldUploadEventCallback;
+  onQueuesEnd?: CldUploadEventCallback;
+  onQueuesStart?: CldUploadEventCallback;
+  onRetry?: CldUploadEventCallback;
+  onShowCompleted?: CldUploadEventCallback;
+  onSourceChanged?: CldUploadEventCallback;
+  onSuccess?: CldUploadEventCallback;
+  onTags?: CldUploadEventCallback;
+  onUploadAdded?: CldUploadEventCallback;
+  options?: CldUploadWidgetPropsOptions;
+  signatureEndpoint?: URL | RequestInfo;
+  uploadPreset?: string;
+}
+
+export type CldUploadWidgetPropsChildren = {
+  cloudinary: CldUploadWidgetCloudinaryInstance;
+  widget: CldUploadWidgetWidgetInstance;
+
+  error?: CldUploadWidgetError;
+  isLoading?: boolean;
+  results?: CldUploadWidgetResults;
+} & CldUploadWidgetInstanceMethods;
+
+// Parameters sourced from:
+// https://cloudinary.com/documentation/upload_widget_reference#parameters
+
 export interface CldUploadWidgetPropsOptions {
   // Widget
 
   encryption?: {
     key: string;
     iv: string;
-  };
+  }
   defaultSource?: string;
   maxFiles?: number;
   multiple?: boolean;
   sources?: Array<
-    | 'camera'
-    | 'dropbox'
-    | 'facebook'
-    | 'gettyimages'
-    | 'google_drive'
-    | 'image_search'
-    | 'instagram'
-    | 'istock'
-    | 'local'
-    | 'shutterstock'
-    | 'unsplash'
-    | 'url'
+    "camera"
+    | "dropbox"
+    | "facebook"
+    | "gettyimages"
+    | "google_drive"
+    | "image_search"
+    | "instagram"
+    | "istock"
+    | "local"
+    | "shutterstock"
+    | "unsplash"
+    | "url"
   >;
 
   // Cropping
@@ -100,100 +199,12 @@ export interface CldUploadWidgetPropsOptions {
   showUploadMoreButton?: boolean;
   singleUploadAutoClose?: boolean;
 }
-export type ResultsEvents =
-  | { event: 'abort'; info: { ids: string[]; all: boolean } }
-  | { event: 'batch-cancelled'; info: { reason: 'MAX_EXCEEDED' | 'INVALID_PUBLIC_ID' } }
-  | { event: 'close' }
-  | { event: 'display-changed'; info: 'show' | 'hidden' | 'minimized' | 'expanded' }
-  | { event: 'publicid'; info: { id: string } }
-  | { event: 'queues-end'; info: Record<string, unknown> }
-  | { event: 'queues-start' }
-  | {
-    event: 'retry';
-    info: {
-      ids: string[];
-      all: boolean;
-    };
-  }
-  | {
-    event: 'show-completed';
-    info: {
-      items: [
-        {
-          id: string;
-          name: string;
-          size: number;
-          type: string;
-          done: boolean;
-          progress: number;
-          file: Record<string, unknown>;
-          uploadInfo: Record<string, unknown>;
-        }
-      ];
-    };
-  }
-  | {
-    event: 'source-changed';
-    info: { source: string };
-  }
-  | {
-    event: 'success';
-    info: Record<string, unknown>;
-  }
-  | {
-    event: 'tags';
-    info: {
-      tags: string[];
-    }; //tags currently in the field
-  }
-  | {
-    event: 'upload-added';
-    info: {
-      file: {
-        lastModified: string;
-        lastModifiedDate: string;
-        name: string;
-        size: number;
-        type: string;
-      };
-      publicId: 'public-id';
-    };
-  };
-export interface UploadWidget {
-  open: (_?: any, { files }?: { files?: [URL] }) => void;
-  close: ({ quiet }: { quiet: boolean }) => void;
-  update: (options: CldUploadWidgetPropsOptions) => void;
-  hide: () => void;
-  show: () => void;
-  minimize: () => void;
-  destroy: ({ removeThumbnails }: { removeThumbnails: boolean }) => void;
-  isShowing: () => boolean;
-  isMinimized: () => boolean;
-  isDestroyed: () => boolean;
-}
 
-export type CldUploadWidgetProps = {
-  onError?: (error: UploadError, widget?: UploadWidget) => void;
-  onUpload?: (result: ResultsEvents, widget?: UploadWidget) => void;
-  options?: CldUploadWidgetPropsOptions;
-  onOpen?: (widget?: UploadWidget) => void;
-  onClose?: (widget?: UploadWidget) => void;
-  uploadPreset?: string;
-  signatureEndpoint?: string;
-}
+export type CldUploadEventCallback = (results: CldUploadWidgetResults, widget: CldUploadEventCallbackWidget) => void;
+export type CldUploadEventCallbackNoOptions = (results: CldUploadWidgetResults, widget: CldUploadWidgetWidgetInstance) => void;
+export type CldUploadEventCallbackWidgetOnly = (widget: CldUploadWidgetWidgetInstance) => void;
+export type CldUploadEventCallbackError = (error: CldUploadWidgetError, widget: CldUploadWidgetWidgetInstance) => void;
 
-/* From the docs:
-* The callback method has the following signature function(error, result) where error is either null if successful
-* or an error message if there was a failure,
-*/
-type UploadError = {
-  status: string;
-  statusText: string;
-} | null
-export type ResultCallback = (error: UploadError, result: ResultsEvents) => void;
-export type CreateUploadWidgetProps = {
-  cloudName: string;
-  uploadPreset?: string; // @TODO this should be optional if signature is present
-  apiKey?: string;
-} & CldUploadWidgetPropsOptions;
-
+export type CldUploadEventCallbackWidget = {
+  widget: CldUploadWidgetWidgetInstance;
+} & CldUploadWidgetInstanceMethods;
