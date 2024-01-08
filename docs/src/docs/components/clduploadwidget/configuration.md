@@ -34,6 +34,7 @@ order: 2
       prop: 'children',
       type: 'function',
       example: '<code>{(options) => {}}</code>',
+      more: '',
     },
     {
       prop: 'options',

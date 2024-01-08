@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { CldOgImage } from 'svelte-cloudinary';
+	import CopyCodeInjector from './CopyCodeInjector.svelte';
 	export let title;
 	const renderTitle = title.replace('/', ' ');
+
 </script>
 
 <svelte:head>
@@ -61,4 +63,6 @@
 	]}
 />
 
-<slot />
+<CopyCodeInjector>
+	<slot />
+</CopyCodeInjector>

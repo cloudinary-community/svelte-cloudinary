@@ -21,8 +21,6 @@ deter people from making unauthenticated uploads to your cloud.
 
 Setting up CldUploadWidget to sign uploads is as simple as passing an API endpoint as a prop:
 
-<CodeBlock>
-
 ```svelte
 
 <script>
@@ -35,7 +33,6 @@ Setting up CldUploadWidget to sign uploads is as simple as passing an API endpoi
     </button>
 </CldUploadWidget>
 ```
-</CodeBlock>
 
 However, that API endpoint needs to return a specific shape in order to properly communicate
 with the CldUpload Widget.
