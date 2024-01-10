@@ -6,9 +6,10 @@ order: 1
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-	import { env } from '$env/dynamic/public';
+    import { env } from '$env/dynamic/public';
+    import Video from '$lib/components/Video.svelte'
     let infoUpload
-	let infoUploadSecure
+    let infoUploadSecure
 
 </script>
 
@@ -130,7 +131,11 @@ See a full example of an API endpoint used with the Svelte Cloudinary docs: http
     <p>URL: { infoUploadSecure?.secure_url }</p>
 </div>
 
-
+## Watch & Learn
+<Video
+title=""
+url="https://www.youtube.com/watch?v=UqnLbIzRnnI"
+/>
 
 ## Learn More about CldUploadWidget
 * [Configuration](/clduploadwidget/configuration)
