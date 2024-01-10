@@ -179,7 +179,8 @@
 		}
 
 		if (typeof widget?.[method] === 'function') {
-			return widget?.[method](...options);
+			const validOptions = options.filter((option) => typeof option !== 'undefined').filter(option => !(option instanceof PointerEvent));
+			return widget?.[method](...validOptions);
 		}
 	}
 
