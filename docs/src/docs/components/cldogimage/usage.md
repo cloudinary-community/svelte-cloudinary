@@ -6,6 +6,7 @@ order: 1
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldOgImage, CldImage } from 'svelte-cloudinary'
+    import Video from '$lib/components/Video.svelte'
 </script>
 
 <CldOgImage
@@ -122,6 +123,12 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
   CldOgImage does not render an `&lt;img&gt;` tag, meaning it can't be visually embedded on a page. This example makes use of the `&lt;CldImage&gt` tag to showcase what's possible.
 </Callout>
 
+
+## Watch & Learn
+<Video
+title="Dynamic Social Cards in Svelte with Svelte Cloudinary - Dev Hints"
+url="https://www.youtube.com/watch?v=KsOtGDCocFs"
+/>
 
 ## Learn More about CldOgImage
 * [Configuration](/CldOgImage/configuration)
