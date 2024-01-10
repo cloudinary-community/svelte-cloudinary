@@ -72,10 +72,22 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@cloudinary-util/url-loader": "3.17.0",
-		"@cloudinary-util/util": "2.1.0",
+		"@cloudinary-util/url-loader": "3.24.0-beta.10",
+		"@cloudinary-util/util": "2.3.0",
 		"@unpic/core": "0.0.24",
 		"@unpic/svelte": "0.0.25",
 		"cloudinary": "^1.32.0"
+	},
+	"overrides":{
+		"@cloudinary-util/url-loader":{
+			"@cloudinary-util/util":"2.3.0"
+		}
+	},
+	"pnpm": {
+		"overrides":{
+			"@cloudinary-util/url-loader":{
+				"@cloudinary-util/util":"2.3.0"
+			}
+		}
 	}
 }
