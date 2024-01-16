@@ -51,7 +51,8 @@
           "children": [
             "usage",
             "configuration",
-            "examples"
+            "examples",
+            "signed-uploads"
           ]
         },
         {
