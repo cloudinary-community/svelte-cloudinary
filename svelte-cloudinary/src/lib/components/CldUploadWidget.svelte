@@ -179,8 +179,7 @@
 		}
 
 		if (typeof widget?.[method] === 'function') {
-			const validOptions = options.filter((option) => typeof option !== 'undefined').filter(option => !(option instanceof PointerEvent));
-			return widget?.[method](...validOptions);
+			return widget?.[method](...options);
 		}
 	}
 
@@ -216,11 +215,8 @@
 	 * open
 	 * @description When triggered, uses the current widget instance to open the upload modal
 	*/
-	function open(
-		widgetSource?: CldUploadWidgetOpenWidgetSources,
-		options?: CldUploadWidgetOpenInstanceMethodOptions
-	) {
-		invokeInstanceMethod('open', [widgetSource, options]);
+	function open() {
+		invokeInstanceMethod('open');
 
 		if (typeof onOpen === 'function') {
 			onOpen(widget);
