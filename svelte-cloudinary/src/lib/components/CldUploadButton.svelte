@@ -49,7 +49,6 @@
 		uploadPreset,
 		signatureEndpoint
 	};
-	// @ts-expect-error the $$slots and $$scope attributes inside the buttonsProps object
 	// appears because of the spread operator on line 39
 	// this attributes should not be passed to the button html elements since are not valid attributes
 	delete buttonProps['$$slots'];

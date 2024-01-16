@@ -214,12 +214,16 @@
 	/**
 	 * open
 	 * @description When triggered, uses the current widget instance to open the upload modal
+	 * user can pass custom parameters to customize the experience, check more
+	 * https://cloudinary.com/documentation/upload_widget_reference#open
+	 * widgetSource can only be string | null
+	 * options can be a Map or undefined
 	*/
 	function open(
 		widgetSource?: CldUploadWidgetOpenWidgetSources,
 		options?: CldUploadWidgetOpenInstanceMethodOptions
 	) {
-		invokeInstanceMethod('open', [widgetSource, options]);
+		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null , options]);
 
 		if (typeof onOpen === 'function') {
 			onOpen(widget);
