@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { triggerOnIdle, loadCloudinary } from '$lib/util.js';
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
+	import { env } from '$env/dynamic/public';
 	import type {
 		CldUploadWidgetProps,
 		CldUploadWidgetInstanceMethods,
@@ -45,14 +46,15 @@
 	};
 
 	// Validation
-	checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+        const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+	checkCloudinaryCloudName(cloudName);
 
 	// State
 	let isLoading = true;
 	const uploadOptions = {
-		cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
-		uploadPreset: uploadPreset || import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-		apiKey: import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
+		cloudName,
+		uploadPreset: uploadPreset || env.PUBLIC_CLOUDINARY_UPLOAD_PRESET || import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+		apiKey: env.PUBLIC_CLOUDINARY_API_KEY || import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
 		...options
 	};
 
