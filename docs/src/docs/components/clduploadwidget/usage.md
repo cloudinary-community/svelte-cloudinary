@@ -6,7 +6,7 @@ order: 1
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-    import { env } from '$env/dynamic/public';
+    import { PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET, PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
     import Video from '$lib/components/Video.svelte'
     let infoUpload
     let infoUploadSecure
@@ -57,7 +57,7 @@ Use the following to generate an unsigned upload widget:
     infoUpload = result?.info
     widget.close();
   }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+  uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 >
   <button on:click|preventDefault={open} class="cldbutton">
     Unsigned Upload
@@ -94,7 +94,7 @@ Here's an example of how you could process the signature in an API endpoint that
 ```ts
 import { v2 as cloudinary } from "cloudinary";
 import type { RequestHandler } from './$types';
-import { env } from '$env/dynamic/private';
+import { CLOUDINARY_API_SECRET } from '$env/static/private';
 import { error, json } from "@sveltejs/kit";
 
 export const POST = (async ({ request }) => {
@@ -104,7 +104,7 @@ export const POST = (async ({ request }) => {
 	try {
 		const signature = cloudinary.utils.api_sign_request(
 			paramsToSign,
-			env.CLOUDINARY_API_SECRET
+			CLOUDINARY_API_SECRET
 		);
 		return json({ signature })
 	} catch (e) {
@@ -118,7 +118,7 @@ To use the above, create a Node-based API route, add the snippet, and use that e
 See a full example of an API endpoint used with the Svelte Cloudinary docs: https://github.com/cloudinary-community/svelte-cloudinary/blob/main/docs/src/routes/api/sign-cloudinary-params/+server.ts
 
 <div class="mt-6">
-    <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
+    <CldUploadWidget uploadPreset={PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
         signatureEndpoint="/api/sign-cloudinary-params"
           onUpload={(result, widget) => {
               infoUploadSecure = result?.info

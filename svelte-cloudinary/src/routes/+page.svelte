@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { tick } from 'svelte';
-	import { env } from '$env/dynamic/public';
+	import { PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET, PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
 	import CldImage from '$lib/components/CldImage.svelte';
 	import CldUploadButton from '$lib/components/CldUploadButton.svelte';
 
@@ -164,7 +164,7 @@
 			  infoUpload = result?.info
 			  widget.close();
 			}}
-			uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+			uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 		>
 			Unsigned Upload
 		</CldUploadButton>
@@ -178,7 +178,7 @@
 			  infoUploadSecure = result?.info
 			  widget.close();
 			}}
-			uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
+			uploadPreset={PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
 			signatureEndpoint="/api"
 		>
 			Signed Upload
