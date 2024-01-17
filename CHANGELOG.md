@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.2...v1.2.0) (2024-01-17)
+
+
+### Features
+
+* Upload Widget Instance Methods, URL Loader, Width Logic, Docs ([bdfbf79](https://github.com/cloudinary-community/svelte-cloudinary/commit/bdfbf795fb215e7fd8221d92d579ab8dada39a49))
+
 ## [1.1.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.1...v1.1.2) (2023-12-19)
 
 
