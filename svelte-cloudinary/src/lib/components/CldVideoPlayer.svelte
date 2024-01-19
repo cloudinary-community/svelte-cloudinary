@@ -53,7 +53,7 @@
 	import { loadCloudinary } from '$lib/util.js';
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { onMount } from 'svelte';
-	import { getCldVideoUrl, type GetCldImageUrlOptions, type GetCldVideoUrlOptions, getCldImageUrl } from '$lib/index.ts';
+	import { getCldVideoUrl, type GetCldImageUrlOptions, type GetCldVideoUrlOptions, getCldImageUrl } from '$lib/index.js';
 	import { env } from '$env/dynamic/public';
 
 	const idRef = Math.ceil(Math.random() * 100000);
