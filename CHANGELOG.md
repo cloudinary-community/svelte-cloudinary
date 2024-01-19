@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.0...v1.2.1) (2024-01-19)
+
+
+### Bug Fixes
+
+* use the dynamic env sveltekit to load the public env variables ([#82](https://github.com/cloudinary-community/svelte-cloudinary/issues/82)) ([3732191](https://github.com/cloudinary-community/svelte-cloudinary/commit/37321915c7df4b230a680776c2e47e78a71d51a9)), closes [#81](https://github.com/cloudinary-community/svelte-cloudinary/issues/81)
+
 # [1.2.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.1.2...v1.2.0) (2024-01-17)
 
 
