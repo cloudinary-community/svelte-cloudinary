@@ -1,16 +1,15 @@
 import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '$lib/constants/sizes.js';
 
 import { getCldImageUrl } from './getCldImageUrl.js';
-import type { GetCldImageUrl, GetCldImageUrlOptions } from './getCldImageUrl.js';
+import type { GetCldImageUrlOptions } from './getCldImageUrl.js';
 
 /**
  * getCldImageUrl
  */
 
-// @deprecated GetCldOgImageUrl
-export interface GetCldOgImageUrl extends GetCldImageUrl {}
+export interface GetCldOgImageUrlOptions extends GetCldImageUrlOptions {};
 
-export function getCldOgImageUrl(options: GetCldImageUrlOptions) {
+export function getCldOgImageUrl(options: GetCldOgImageUrlOptions) {
   return getCldImageUrl({
     ...options,
     crop: options.crop || 'fill',

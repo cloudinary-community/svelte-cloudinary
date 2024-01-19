@@ -1,7 +1,7 @@
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
 import { checkCloudinaryCloudName } from '../cloudinary.js';
 import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
-	import { env } from '$env/dynamic/public';
+import { env } from '$env/dynamic/public';
 
 import {
   SVELTE_CLOUDINARY_ANALYTICS_ID,
@@ -15,13 +15,6 @@ import {
 export interface GetCldImageUrlOptions extends ImageOptions { }
 export interface GetCldImageUrlConfig extends ConfigOptions { }
 export interface GetCldImageUrlAnalytics extends AnalyticsOptions { }
-
-// @deprecated GetCldImageUrl
-export interface GetCldImageUrl {
-  options: GetCldImageUrlOptions;
-  config?: GetCldImageUrlConfig;
-  analytics?: GetCldImageUrlAnalytics;
-}
 
 /**
  * Generates the Cloudinary url for the assets

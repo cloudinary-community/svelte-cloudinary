@@ -16,10 +16,13 @@ import CldVideoPlayer from './components/CldVideoPlayer.svelte'
 export { CldVideoPlayer }
 
 export { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
-export type { GetCldImageUrl, GetCldImageUrlOptions, GetCldImageUrlConfig, GetCldImageUrlAnalytics } from '$lib/helpers/getCldImageUrl.ts';
+export type { GetCldImageUrlOptions, GetCldImageUrlConfig, GetCldImageUrlAnalytics } from '$lib/helpers/getCldImageUrl.ts';
 
 export { getCldOgImageUrl } from '$lib/helpers/getCldOgImageUrl.js';
-export type { GetCldOgImageUrl } from '$lib/helpers/getCldOgImageUrl.ts';
+export type { GetCldOgImageUrlOptions } from '$lib/helpers/getCldOgImageUrl.ts';
+
+export { getCldVideoUrl } from '$lib/helpers/getCldVideoUrl.js';
+export type { GetCldVideoUrlOptions, GetCldVideoUrlConfig, GetCldVideoUrlAnalytics } from '$lib/helpers/getCldVideoUrl.ts';
 
 // export type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions, CloudinaryVideoPlayerOptionsColors, CloudinaryVideoPlayerOptionsLogo } from '../types/player.ts';
 

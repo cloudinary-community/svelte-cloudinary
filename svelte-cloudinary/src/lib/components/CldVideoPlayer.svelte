@@ -5,13 +5,18 @@
 		CloudinaryVideoPlayerOptions,
 		CloudinaryVideoPlayerOptionsColors,
 		CloudinaryVideoPlayerOptionsLogo
-	} from '../../types/player';
+	} from '../../types/player.ts';
 
-	export type CldVideoPlayerProps = Pick<
+	export type CldVideoPlayerProps = Omit<
 		CloudinaryVideoPlayerOptions,
-		'colors' | 'controls' | 'fontFace' | 'loop' | 'muted' | 'transformation'
+		| 'cloud_name'
+		| 'autoplayMode'
+		| 'publicId'
+		| 'secure'
+		| 'showLogo'
+		| 'logoImageUrl'
+		| 'logoOnclickUrl'
 	> & {
-		autoPlay?: string;
 		height: string | number;
 		id?: string;
 		logo?: boolean | CldVideoPlayerPropsLogo;
@@ -22,8 +27,8 @@
 		onPlay?: Function;
 		onEnded?: Function;
 		playerRef?: CloudinaryVideoPlayer | null;
+		poster?: string | GetCldImageUrlOptions | GetCldVideoUrlOptions;
 		src: string;
-		version?: string;
 		videoRef?: HTMLVideoElement | null;
 		quality?: string | number;
 		width: string | number;
@@ -38,6 +43,9 @@
 		logo?: boolean;
 		onClickUrl?: CloudinaryVideoPlayerOptionsLogo['logoOnclickUrl'];
 	}
+	let playerInstances: string[] = [];
+
+	const PLAYER_VERSION = '1.10.4';
 </script>
 
 <script lang="ts">
@@ -45,16 +53,20 @@
 	import { loadCloudinary } from '$lib/util.js';
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { onMount } from 'svelte';
+	import { getCldVideoUrl, type GetCldImageUrlOptions, type GetCldVideoUrlOptions, getCldImageUrl } from '$lib/index.ts';
+	import { env } from '$env/dynamic/public';
 
 	const idRef = Math.ceil(Math.random() * 100000);
 	type $$Props = CldVideoPlayerProps;
 	const {
-		autoPlay = 'never',
+		autoplay = 'never',
 		colors,
 		controls = true,
 		fontFace,
 		height,
 		id,
+		language,
+		languages,
 		logo = true,
 		loop = false,
 		muted = false,
@@ -64,11 +76,13 @@
 		onPause,
 		onPlay,
 		onEnded,
+		poster,
 		src,
+		sourceTypes,
 		transformation,
-		version = '1.9.4',
 		quality = 'auto',
-		width
+		width,
+		...otherCldVideoPlayerOptions
 	} = $$props as CldVideoPlayerProps;
 
 	const playerTransformations = Array.isArray(transformation) ? transformation : [transformation];
@@ -99,6 +113,16 @@
 	let playerClassName = 'cld-video-player cld-fluid';
 	if ($$props.class) {
 		playerClassName = `${playerClassName} ${$$props.class}`;
+	}
+
+	// Check if the same id is being used for multiple video instances.
+	const checkForMultipleInstance = playerInstances.filter((id) => id === playerId).length > 1;
+	if (checkForMultipleInstance) {
+		console.warn(`Multiple instances of the same video detected on the
+     page which may cause some features to not work.
+    Try adding a unique id to each player.`);
+	} else {
+		playerInstances.push(playerId);
 	}
 
 	const events: Record<string, Function | undefined> = {
@@ -146,25 +170,76 @@
 			}
 
 			// Validation
-			checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
-			
+			const cloudName =
+				env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+			checkCloudinaryCloudName(cloudName);
+
+			// Parse the value passed to 'autoplay';
+			// if its a boolean or a boolean passed as string ("true") set it directly to browser standard prop autoplay else fallback to default;
+			// if its a string and not a boolean passed as string ("true") set it to cloudinary video player autoplayMode prop else fallback to undefined;
+
+			let autoPlayValue: boolean | 'true' | 'false' = false;
+			let autoplayModeValue: string | undefined = undefined;
+
+			if (typeof autoplay === 'boolean' || autoplay === 'true' || autoplay === 'false') {
+				autoPlayValue = autoplay;
+			}
+
+			if (typeof autoplay === 'string' && autoplay !== 'true' && autoplay !== 'false') {
+				autoplayModeValue = autoplay;
+			}
+
 			let playerOptions: CloudinaryVideoPlayerOptions = {
-				autoplayMode: autoPlay,
-				cloud_name: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
+				autoplayMode: autoplayModeValue,
+				autoplay: autoPlayValue,
+				cloud_name: cloudName,
 				controls,
 				fontFace: fontFace || '',
+				language,
+				languages,
 				loop,
 				muted,
 				publicId,
 				secure: true,
 				transformation: playerTransformations,
-				...logoOptions
+				...logoOptions,
+				...otherCldVideoPlayerOptions
 			};
+
+			if (Array.isArray(sourceTypes)) {
+				playerOptions.sourceTypes = sourceTypes;
+			}
 
 			if (typeof colors === 'object') {
 				playerOptions.colors = colors;
 			}
 
+			if (typeof poster === 'string') {
+				// If poster is a string, assume it's either a public ID
+				// or a remote URL, in either case pass to `publicId`
+				playerOptions.posterOptions = {
+					publicId: poster
+				};
+			} else if (typeof poster === 'object') {
+				// If poster is an object, we can either customize the
+				// automatically generated image from the video or generate
+				// a completely new image from a separate public ID, so look
+				// to see if the src is explicitly set to determine whether
+				// or not to use the video's ID or just pass things along
+				if (typeof poster.src !== 'string') {
+					playerOptions.posterOptions = {
+						publicId: getCldVideoUrl({
+							...poster,
+							src: publicId,
+							format: 'auto:image'
+						})
+					};
+				} else {
+					playerOptions.posterOptions = {
+						publicId: getCldImageUrl(poster)
+					};
+				}
+			}
 			playerRef = cloudinaryRef.videoPlayer(videoRef, playerOptions);
 
 			Object.keys(events).forEach((key) => {
@@ -192,8 +267,8 @@
 	}
 
 	onMount(() => {
-		if(!window.cloudinary?.videoPlayer){
-			return loadCloudinary({type: 'video', onLoad: handleOnLoad, onError: onLoadError })
+		if (!window.cloudinary?.videoPlayer) {
+			return loadCloudinary({ type: 'video', onLoad: handleOnLoad, onError: onLoadError });
 		}
 		return handleOnLoad();
 	});
@@ -201,7 +276,7 @@
 
 <svelte:head>
 	<link
-		href={`https://unpkg.com/cloudinary-video-player@${version}/dist/cld-video-player.min.css`}
+		href={`https://unpkg.com/cloudinary-video-player@${PLAYER_VERSION}/dist/cld-video-player.min.css`}
 		rel="stylesheet"
 	/>
 </svelte:head>
