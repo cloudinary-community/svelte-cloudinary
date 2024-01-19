@@ -1588,6 +1588,13 @@ organized ways of applying transformations and effects.
       example: '<code>{`[{ background: "blue" }]`}</code>'
     },
     {
+      prop: 'namedTransformations',
+      type: 'string | array',
+      default: '-',
+      example: '<code>{`['my-named-transformation']`}</code>',
+      more: '<a className="whitespace-nowrap" href="https://cloudinary.com/documentation/image_transformations#named_transformations">More Info</a>'
+    },
+    {
       prop: 'preserveTransformations',
       type: 'string',
       default: '<code>false</code>',
@@ -1609,7 +1616,7 @@ organized ways of applying transformations and effects.
       more: '<a class="whitespace-nowrap" href="https://cloudinary.com/documentation/control_access_to_media#strict_transformations">More Info</a>'
     },
     {
-      prop: 'transformations',
+      prop: 'transformations (deprecated)',
       type: 'string | array',
       default: '-',
       example: '<code>{`["my-named-transformation"]`}</code>',
@@ -1636,6 +1643,18 @@ effects={[
   }
 ]}
 ```
+
+#### `namedTransformations`
+
+Applies named transformations to the image.
+
+**Examples**
+
+```jsx copy
+namedTransformations={['my-transformation']}
+```
+
+[Learn more about Named Transformations](https://cloudinary.com/documentation/image_transformations#named_transformations) on the Cloudinary docs.
 
 #### `preserveTransformations`
 
@@ -1680,17 +1699,9 @@ transformations=["my-transformation"]
 
 [Learn more about Strict Transformations](https://cloudinary.com/documentation/control_access_to_media#strict_transformations) on the Cloudinary docs.
 
-#### `transformations`
+#### `transformations` (deprecated)
 
-Applies named transformations to the image.
-
-**Examples**
-
-```jsx copy
-transformations={['my-transformation']}
-```
-
-[Learn more about Named Transformations](https://cloudinary.com/documentation/image_transformations#named_transformations) on the Cloudinary docs.
+**Use namedTransformations instead**
 
 
 ### Optimization
