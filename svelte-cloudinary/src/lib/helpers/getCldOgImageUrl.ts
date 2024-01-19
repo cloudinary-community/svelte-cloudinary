@@ -7,6 +7,7 @@ import type { GetCldImageUrl, GetCldImageUrlOptions } from './getCldImageUrl.js'
  * getCldImageUrl
  */
 
+// @deprecated GetCldOgImageUrl
 export interface GetCldOgImageUrl extends GetCldImageUrl {}
 
 export function getCldOgImageUrl(options: GetCldImageUrlOptions) {

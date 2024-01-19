@@ -16,6 +16,7 @@ export interface GetCldImageUrlOptions extends ImageOptions { }
 export interface GetCldImageUrlConfig extends ConfigOptions { }
 export interface GetCldImageUrlAnalytics extends AnalyticsOptions { }
 
+// @deprecated GetCldImageUrl
 export interface GetCldImageUrl {
   options: GetCldImageUrlOptions;
   config?: GetCldImageUrlConfig;
