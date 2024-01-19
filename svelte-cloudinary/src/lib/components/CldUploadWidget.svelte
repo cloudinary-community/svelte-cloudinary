@@ -95,7 +95,10 @@
 			method: 'POST',
 			body: JSON.stringify({
 				paramsToSign
-			})
+			}),
+			headers: {
+				'Content-Type':'application/json',
+			},
 		})
 			.then((r) => r.json())
 			.then(({ signature }) => {
