@@ -4,18 +4,15 @@
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { env } from '$env/dynamic/public';
 	import type {
-		CldUploadWidgetProps,
-		CldUploadWidgetInstanceMethods,
-		CldUploadWidgetCloseInstanceMethodOptions,
-		CldUploadWidgetDetsroyInstanceMethodOptions,
-		CldUploadWidgetOpenWidgetSources,
-		CldUploadWidgetOpenInstanceMethodOptions,
-		CldUploadEventCallback,
-		CldUploadWidgetError,
-		CldUploadWidgetResults,
-		CldUploadWidgetWidgetInstance,
-		CldUploadWidgetCloudinaryInstance,
-	} from './CldUploadWidgetTypes.ts';
+		CloudinaryUploadWidgetResults,
+		CloudinaryUploadWidgetInstanceMethods,
+		CloudinaryUploadWidgetInstanceMethodCloseOptions,
+		CloudinaryUploadWidgetInstanceMethodDestroyOptions,
+		CloudinaryUploadWidgetInstanceMethodOpenOptions,
+		CloudinaryUploadWidgetSources,
+		CloudinaryUploadWidgetError
+	} from '@cloudinary-util/types';
+	import type { CldUploadEventCallback, CldUploadWidgetCloudinaryInstance, CldUploadWidgetProps, CldUploadWidgetWidgetInstance } from './CldUploadWidgetTypes.ts';
 
 	type $$Props = CldUploadWidgetProps;
 
@@ -46,14 +43,18 @@
 	};
 
 	// Validation
-        const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+	const cloudName =
+		env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
 	checkCloudinaryCloudName(cloudName);
 
 	// State
 	let isLoading = true;
 	const uploadOptions = {
 		cloudName,
-		uploadPreset: uploadPreset || env.PUBLIC_CLOUDINARY_UPLOAD_PRESET || import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+		uploadPreset:
+			uploadPreset ||
+			env.PUBLIC_CLOUDINARY_UPLOAD_PRESET ||
+			import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
 		apiKey: env.PUBLIC_CLOUDINARY_API_KEY || import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
 		...options
 	};
@@ -97,8 +98,8 @@
 				paramsToSign
 			}),
 			headers: {
-				'Content-Type':'application/json',
-			},
+				'Content-Type': 'application/json'
+			}
 		})
 			.then((r) => r.json())
 			.then(({ signature }) => {
@@ -112,36 +113,42 @@
 	 */
 
 	function createWidget() {
-		 return cloudinary?.createUploadWidget(uploadOptions, (uploadError: CldUploadWidgetError, uploadResult: CldUploadWidgetResults) => {
-      if ( uploadError && uploadError !== null ) {
-        handleError(uploadError);
-      }
+		return cloudinary?.createUploadWidget(
+			uploadOptions,
+			(uploadError: CloudinaryUploadWidgetError, uploadResult: CloudinaryUploadWidgetResults) => {
+				if (uploadError && uploadError !== null) {
+					handleError(uploadError);
+				}
 
-      if ( typeof uploadResult?.event === 'string' ) {
-        if ( WIDGET_WATCHED_EVENTS.includes(uploadResult?.event) ) {
-          handleResults(uploadResult);
-        }
+				if (typeof uploadResult?.event === 'string') {
+					if (WIDGET_WATCHED_EVENTS.includes(uploadResult?.event)) {
+						handleResults(uploadResult);
+					}
 
-        const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
+					const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
 
-        if ( typeof widgetEvent === 'string' && typeof $$props[widgetEvent] === 'function' && typeof $$props[widgetEvent] ) {
-          const callback = $$props[widgetEvent] as CldUploadEventCallback;
-          callback(uploadResult, {
-            widget,
-            ...instanceMethods
-          });
-        }
-      }
-    });
+					if (
+						typeof widgetEvent === 'string' &&
+						typeof $$props[widgetEvent] === 'function' &&
+						typeof $$props[widgetEvent]
+					) {
+						const callback = $$props[widgetEvent] as CldUploadEventCallback;
+						callback(uploadResult, {
+							widget,
+							...instanceMethods
+						});
+					}
+				}
+			}
+		);
 	}
-
 
 	function onLoadingError() {
 		console.error(`Failed to load Cloudinary Upload Widget`);
 	}
 	// Side effects
 
-	function handleResults(results: CldUploadWidgetResults) {
+	function handleResults(results: CloudinaryUploadWidgetResults) {
 		if (results != null) {
 			const isSuccess = results.event === 'success';
 			const isClosed = results.event === 'display-changed' && results.info === 'hidden';
@@ -173,10 +180,10 @@
 	 * https://cloudinary.com/documentation/upload_widget_reference#instance_methods
 	 */
 
-	function invokeInstanceMethod<TMethod extends keyof CldUploadWidgetInstanceMethods>(
+	function invokeInstanceMethod<TMethod extends keyof CloudinaryUploadWidgetInstanceMethods>(
 		method: TMethod,
-		options: Parameters<CldUploadWidgetInstanceMethods[TMethod]> = [] as Parameters<
-			CldUploadWidgetInstanceMethods[TMethod]
+		options: Parameters<CloudinaryUploadWidgetInstanceMethods[TMethod]> = [] as Parameters<
+			CloudinaryUploadWidgetInstanceMethods[TMethod]
 		>
 	) {
 		if (!widget) {
@@ -188,11 +195,11 @@
 		}
 	}
 
-	function close(options?: CldUploadWidgetCloseInstanceMethodOptions) {
+	function close(options?: CloudinaryUploadWidgetInstanceMethodCloseOptions) {
 		invokeInstanceMethod('close', [options]);
 	}
 
-	function destroy(options?: CldUploadWidgetDetsroyInstanceMethodOptions) {
+	function destroy(options?: CloudinaryUploadWidgetInstanceMethodDestroyOptions ) {
 		return invokeInstanceMethod('destroy', [options]);
 	}
 
@@ -223,18 +230,17 @@
 	 * https://cloudinary.com/documentation/upload_widget_reference#open
 	 * widgetSource can only be string | null
 	 * options can be a Map or undefined
-	*/
+	 */
 	function open(
-		widgetSource?: CldUploadWidgetOpenWidgetSources,
-		options?: CldUploadWidgetOpenInstanceMethodOptions
+		widgetSource?: CloudinaryUploadWidgetSources,
+		options?: CloudinaryUploadWidgetInstanceMethodOpenOptions
 	) {
-		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null , options]);
+		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null, options]);
 
 		if (typeof onOpen === 'function') {
 			onOpen(widget);
 		}
 	}
-
 
 	function show() {
 		invokeInstanceMethod('show');
@@ -244,7 +250,7 @@
 		invokeInstanceMethod('update');
 	}
 
-	const instanceMethods: CldUploadWidgetInstanceMethods = {
+	const instanceMethods: CloudinaryUploadWidgetInstanceMethods = {
 		close,
 		destroy,
 		hide,

@@ -1591,7 +1591,7 @@ organized ways of applying transformations and effects.
       prop: 'namedTransformations',
       type: 'string | array',
       default: '-',
-      example: '<code>{`['my-named-transformation']`}</code>',
+      example: '<code>{`["my-named-transformation"]`}</code>',
       more: '<a className="whitespace-nowrap" href="https://cloudinary.com/documentation/image_transformations#named_transformations">More Info</a>'
     },
     {

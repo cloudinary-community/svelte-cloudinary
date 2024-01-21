@@ -9,6 +9,8 @@ export { CldOgImage }
 import CldUploadWidget from './components/CldUploadWidget.svelte'
 export { CldUploadWidget}
 
+export type { CldUploadWidgetProps, CldUploadWidgetPropsChildren } from "./components/CldUploadWidgetTypes.ts";
+
 import CldUploadButton from './components/CldUploadButton.svelte'
 export { CldUploadButton}
 

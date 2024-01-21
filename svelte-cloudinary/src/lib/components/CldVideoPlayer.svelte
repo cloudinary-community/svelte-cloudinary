@@ -1,10 +1,8 @@
 <script context="module" lang="ts">
 	import type { HTMLVideoAttributes } from 'svelte/elements';
+	import type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptionsLogo, CloudinaryVideoPlayerOptions, } from '@cloudinary-util/types';
 	import type {
-		CloudinaryVideoPlayer,
-		CloudinaryVideoPlayerOptions,
 		CloudinaryVideoPlayerOptionsColors,
-		CloudinaryVideoPlayerOptionsLogo
 	} from '../../types/player.ts';
 
 	export type CldVideoPlayerProps = Omit<

@@ -21,7 +21,7 @@ export function invariant(condition: boolean,
 
 
 }
-export function loadCloudinary({ type = 'widget', onLoad, onError }: { type: 'video' | 'widget', onLoad: () => void, onError: (error: any) => void }) {
+export function loadCloudinary({ type = 'widget', onLoad, onError }: { type?: 'video' | 'widget', onLoad: () => void, onError: (error: any) => void }) {
   const script = document.createElement('script');
   if(type === 'widget') {
     script.src = "https://widget.cloudinary.com/v2.0/global/all.js";
