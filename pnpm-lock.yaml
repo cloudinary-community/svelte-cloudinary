@@ -172,6 +172,9 @@ importers:
         specifier: ^1.32.0
         version: 1.36.2
     devDependencies:
+      '@cloudinary-util/types':
+        specifier: 1.0.0-beta.3
+        version: 1.0.0-beta.3
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
         version: 3.1.0(@sveltejs/kit@2.4.0)
@@ -372,6 +375,10 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
     dev: false
+
+  /@cloudinary-util/types@1.0.0-beta.3:
+    resolution: {integrity: sha512-Gs+yDFjoriFL6GQxlpE6aFpgjlXy0/SPC7NBhlNai79suzblDaetYNIBeyg8JW5tJZnSy3j4Pajrt6V46l/E1g==}
+    dev: true
 
   /@cloudinary-util/url-loader@4.0.1(semantic-release@19.0.5):
     resolution: {integrity: sha512-JDTM1puQeGSJF6/eWjwSc8/MNORT7dKE4UIc7gXFdZMTMRgIgUa9XfROmqFxvpxC1xWSPoCuraDkQEUCQT5kRQ==}
@@ -2356,7 +2363,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
 
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
@@ -3440,13 +3447,6 @@ packages:
 
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
-
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    optional: true
 
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
