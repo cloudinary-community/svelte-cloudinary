@@ -1687,7 +1687,7 @@ By enabling Strict Transformations, you restrict the ability to generate transfo
 approval through the Cloudinary dashboard.
 
 > Note: This disables [optimization](#optimization) and [responsive sizing](/guides/responsive-images)
-only allowing [named transformations](#transformations-depreacted) to be applied. The width and height are not applied to the URL,
+only allowing [named transformations](#transformations-deprecated) to be applied. The width and height are not applied to the URL,
 but are still included on the image tag rendered to the DOM.
 
 **Examples**
