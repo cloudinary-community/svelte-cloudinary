@@ -49,7 +49,7 @@ This will apply a width and height of 500 as a transformation. It will set a cro
 </div>
 
 <Callout emoji={false}>
-  Depending on the transformation, you may need to wait for the video to process if applying the transformations on-the-fly. To help avoid wait times, you could [eagerly load transformations](https://cloudinary.com/documentation/transformations_on_upload#eager_transformations) on upload.
+  Depending on the transformation, you may need to wait for the video to process if applying the transformations on-the-fly. To help avoid wait times, you could <a href="https://cloudinary.com/documentation/transformations_on_upload#eager_transformations">eagerly load transformations</a> on upload.
 </Callout>
 
 If you instead wanted to add a watermark to the video, you could use overlays in the transformation:
@@ -77,7 +77,7 @@ When you play the video, you'll notice the Space Jelly logo on the bottom right 
   height="1080"
   src={`videos/mountain-stars`}
   transformation={{
-    overlay: `assets:space-jelly-cosmo-helmet`,
+    overlay: `videos:space-jelly-cosmo-helmet`,
     width: 150,
     gravity: "south_east",
     x: 50,
@@ -85,6 +85,5 @@ When you play the video, you'll notice the Space Jelly logo on the bottom right 
     opacity: 80
   }}
 />
-</div>
 
 For more information and examples of using the `transformation` prop, check out the [Cloudinary Video Player documentation](https://cloudinary.com/documentation/video_manipulation_and_delivery).

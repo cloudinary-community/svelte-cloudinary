@@ -54,7 +54,7 @@
 				</svg>
 			</button>
 			{#if showCopyToolTip}
-				<span class="absolute -top-10 -translate-x-1/2" transition:fly={{ y: 20, duration: 200 }}>
+				<span class="absolute -top-10 -translate-x-1/2" transition:fly|global={{ y: 20, duration: 200 }}>
 					Copied!
 				</span>
 			{/if}

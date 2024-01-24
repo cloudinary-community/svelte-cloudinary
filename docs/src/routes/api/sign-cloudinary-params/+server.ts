@@ -14,7 +14,7 @@ export const POST = (async ({ request }) => {
 		return json({ signature })
 	} catch (e) {
 		console.error(e)
-		throw error(500, (e as Error).message)
+		error(500, (e as Error).message);
 	}
 }) satisfies RequestHandler;
 

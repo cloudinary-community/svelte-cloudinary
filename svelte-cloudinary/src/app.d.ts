@@ -33,6 +33,7 @@ declare global {
 			});
 			setAPIKey: (key: string) => void;
 			setCloudName: (name: string) => void;
+			videoPlayer: (id: string, options: any) => any;
 		};
 	}
 }
