@@ -29,6 +29,6 @@ export async function pollForProcessingImage(options: PollForProcessingImageOpti
 
 export function checkCloudinaryCloudName(cloudName: string) {
   if (!cloudName) {
-    throw new Error("[Svelte-cloudinary] A Cloudinary Cloud name is required, please make sure VITE_PUBLIC_CLOUDINARY_CLOUD_NAME is set and configured in your environment");
+    throw new Error("[Svelte-cloudinary] A Cloudinary Cloud name is required, please make sure PUBLIC_CLOUDINARY_CLOUD_NAME is set and configured in your environment");
   }
 }

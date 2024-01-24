@@ -7,7 +7,7 @@ import {
   SVELTE_VERSION
 } from '$lib/constants/analytics.js';
 import { checkCloudinaryCloudName } from "../cloudinary.js";
-import { env } from '$env/dynamic/public';
+import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
 
 /**
  * getCldVideoUrl
@@ -18,7 +18,7 @@ export interface GetCldVideoUrlConfig extends ConfigOptions {};
 export interface GetCldVideoUrlAnalytics extends AnalyticsOptions {};
 
 export function getCldVideoUrl(options: GetCldVideoUrlOptions, config?: GetCldVideoUrlConfig, analytics?: GetCldVideoUrlAnalytics) {
-  const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const cloudName = PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
   checkCloudinaryCloudName(cloudName);
   return constructCloudinaryUrl({
     options: {

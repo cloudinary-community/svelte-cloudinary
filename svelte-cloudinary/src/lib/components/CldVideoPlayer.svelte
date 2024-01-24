@@ -52,7 +52,7 @@
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { onMount } from 'svelte';
 	import { getCldVideoUrl, type GetCldImageUrlOptions, type GetCldVideoUrlOptions, getCldImageUrl } from '$lib/index.js';
-	import { env } from '$env/dynamic/public';
+	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
 
 	const idRef = Math.ceil(Math.random() * 100000);
 	type $$Props = CldVideoPlayerProps;
@@ -169,7 +169,7 @@
 
 			// Validation
 			const cloudName =
-				env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+				PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
 			checkCloudinaryCloudName(cloudName);
 
 			// Parse the value passed to 'autoplay';

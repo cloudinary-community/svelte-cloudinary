@@ -1,7 +1,8 @@
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
 import { checkCloudinaryCloudName } from '../cloudinary.js';
 import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
-import { env } from '$env/dynamic/public';
+// import { env } from '$env/dynamic/public';
+import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
 
 import {
   SVELTE_CLOUDINARY_ANALYTICS_ID,
@@ -26,8 +27,7 @@ export function getCldImageUrl(
   config?: ConfigOptions,
   analytics?: AnalyticsOptions
 ) {
-
-  const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const cloudName = PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
   // Validation
   checkCloudinaryCloudName(cloudName);
 
