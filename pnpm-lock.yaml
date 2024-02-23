@@ -160,11 +160,11 @@ importers:
         specifier: 2.1.0
         version: 2.1.0
       '@unpic/core':
-        specifier: 0.0.24
-        version: 0.0.24
+        specifier: 0.0.47
+        version: 0.0.47
       '@unpic/svelte':
-        specifier: 0.0.25
-        version: 0.0.25(svelte@3.59.2)
+        specifier: 0.0.51
+        version: 0.0.51(svelte@3.59.2)
       cloudinary:
         specifier: ^1.32.0
         version: 1.36.2
@@ -1972,21 +1972,21 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@unpic/core@0.0.24:
-    resolution: {integrity: sha512-HFa7ry3iNYfIOkaWGb0N/w1sxt6MAyUfoXXOvjyz50vtomDUbxK4krcRcQWIca64bORQKncxeJbGETRQLF20WQ==}
+  /@unpic/core@0.0.47:
+    resolution: {integrity: sha512-h8Jage7Jh4PS7j77syB/qQR75eDzF0aTJc7mkDfWwqp5HKDfLb7L/3i7ta8Iasg6qZzfySWX/hzy+kLuOJS5XA==}
     dependencies:
-      unpic: 3.6.1
+      unpic: 3.17.0
     dev: false
 
-  /@unpic/svelte@0.0.25(svelte@3.59.2):
-    resolution: {integrity: sha512-jXyOl9BDfspJ03/kAeozy69eHjLtKIZjsZ4257mz8J/sn5Il3xsRD4vR701NjEC0fkkLQg9Xol+v92o0LGImtw==}
+  /@unpic/svelte@0.0.51(svelte@3.59.2):
+    resolution: {integrity: sha512-S8uuhNNM36xkgRtRYfY2fsvdxXj8VWfBSqj5glXTcgcdE1twTTw8HzARls1/mUTAedtoU29q17BjCdzbuQQaoQ==}
     peerDependencies:
       svelte: '*'
     dependencies:
-      '@unpic/core': 0.0.24
-      style-object-to-css-string: 1.0.1
+      '@unpic/core': 0.0.47
+      style-object-to-css-string: 1.1.3
       svelte: 3.59.2
-      unpic: 3.6.1
+      unpic: 3.17.0
     dev: false
 
   /@vercel/analytics@1.0.1:
@@ -6943,8 +6943,8 @@ packages:
       acorn: 8.9.0
     dev: true
 
-  /style-object-to-css-string@1.0.1:
-    resolution: {integrity: sha512-ci7tySCofUqq86WziXoEsIE/aGZ2rkw7mmz6Afklhbmk7i05Z1d8hSUaJMUWUOJPbsvK+7TW5ulklZm55/S44Q==}
+  /style-object-to-css-string@1.1.3:
+    resolution: {integrity: sha512-bISQoUsir/qGfo7vY8rw00ia9nnyE1jvYt3zZ2jhdkcXZ6dAEi74inMzQ6On57vFI+I4Fck6wOv5UI9BEwJDgw==}
     dev: false
 
   /sucrase@3.32.0:
@@ -7709,8 +7709,13 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
+  /unpic@3.17.0:
+    resolution: {integrity: sha512-1b0ACPDLWqDE4MJ+IW5e48pGVSA5zKU2nF05EDxl/vvHq610MnfHNczIm6RBNPKuAA+G1tQ2ef1mgxj5J7+plw==}
+    dev: false
+
   /unpic@3.6.1:
     resolution: {integrity: sha512-4/ZAW3vXkvU2tpyuuAaIrlg58rh55EfzCFDJCxaaua/Ru8Q5f3bABjh5KQtQqRULzV6OaT05PF2pB6h1by98sg==}
+    dev: true
 
   /unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
