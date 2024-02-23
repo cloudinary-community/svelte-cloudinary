@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.1...v1.2.2) (2024-02-23)
+
+
+### Bug Fixes
+
+* update unpic to get lazy loading to work ([1fd3c2d](https://github.com/cloudinary-community/svelte-cloudinary/commit/1fd3c2d585ba36c9ea7e3d2b401c0706a0cd5ccb))
+
 ## [1.2.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.0...v1.2.1) (2024-01-19)
 
 
