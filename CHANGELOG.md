@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.2...v1.2.3) (2024-02-29)
+
+
+### Bug Fixes
+
+* Fixes CldVideoPlayer not able to use PUBLIC_ env var ([#90](https://github.com/cloudinary-community/svelte-cloudinary/issues/90)) ([a006be5](https://github.com/cloudinary-community/svelte-cloudinary/commit/a006be5f261f146d4248690ef490d86da3e1ca90)), closes [#89](https://github.com/cloudinary-community/svelte-cloudinary/issues/89)
+
 ## [1.2.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.1...v1.2.2) (2024-02-23)
 
 
