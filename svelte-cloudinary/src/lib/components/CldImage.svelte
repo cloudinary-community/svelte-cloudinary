@@ -79,5 +79,7 @@
 		transformer={(loaderOptions) => {
 			return cloudinaryLoader( { loaderOptions, imageProps, cldOptions: {...cldOptions, width: imageProps.width }, cldConfig: config });
 		}}
+		on:load
+		on:error
 	/>
 {/if}
