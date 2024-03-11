@@ -34,7 +34,7 @@ To install Svelte Cloudinary, you can use your favorite package manager includin
 Next, you need to setup the environment variable. Insert the following variable into your `.env.local` or `.env` file:
 
 <Code>
-PUBLIC_CLOUDINARY_CLOUD_NAME="[Your Cloud Name]"
+VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="[Your Cloud Name]"
 </Code>
 
 <Callout>Don't have a Cloudinary account? <a href="https://cloudinary.com/users/register_free?utm_campaign=devx_sveltecloudinary&utm_medium=referral&utm_source=sveltecloudinary">Sign up for free</a> on cloudinary.com!</Callout>
