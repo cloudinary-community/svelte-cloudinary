@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.4...v1.3.0) (2024-03-11)
+
+
+### Features
+
+* add load and error events to cldimage ([#96](https://github.com/cloudinary-community/svelte-cloudinary/issues/96)) ([d6523a5](https://github.com/cloudinary-community/svelte-cloudinary/commit/d6523a55ded407e25a98290d81e17756aaa86317))
+
 ## [1.2.4](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.3...v1.2.4) (2024-03-11)
 
 
