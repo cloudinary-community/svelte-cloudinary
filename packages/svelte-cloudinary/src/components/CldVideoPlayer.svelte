@@ -147,7 +147,7 @@
 
 			// Validation
 			checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
-			
+
 			let playerOptions: CloudinaryVideoPlayerOptions = {
 				autoplayMode: autoPlay,
 				cloud_name: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -192,8 +192,8 @@
 	}
 
 	onMount(() => {
-		if(!window.cloudinary?.videoPlayer){
-			return loadCloudinary({type: 'video', onLoad: handleOnLoad, onError: onLoadError })
+		if (!window.cloudinary?.videoPlayer) {
+			return loadCloudinary({ type: 'video', onLoad: handleOnLoad, onError: onLoadError });
 		}
 		return handleOnLoad();
 	});

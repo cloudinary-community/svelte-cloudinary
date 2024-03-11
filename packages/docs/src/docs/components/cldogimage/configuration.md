@@ -8,7 +8,6 @@ order: 2
     import { CldOgImage, CldImage } from 'svelte-cloudinary'
 </script>
 
-
 # CldOgImage Configuration
 
 The CldOgImage component is built on top of the same APIs used for CldImage, giving you the ability to apply the same transformations to your social cards as you can any image.
@@ -17,12 +16,12 @@ See [CldImage](/cldimage/configuration) for all image transformations.
 
 ## General Props
 
-| Prop Name          | Type   | Example                      |
-|--------------------|--------|------------------------------|
-| alt                | string | `"Svelte Cloudinary"`          |
-| excludeTags        | array  | `['twitter:title']`          |
-| keys               | object | `{'og:image': 'my-og-image'}`|
-| twitterTitle       | string | `"Svelte Cloudinary"`          |
+| Prop Name    | Type   | Example                       |
+| ------------ | ------ | ----------------------------- |
+| alt          | string | `"Svelte Cloudinary"`         |
+| excludeTags  | array  | `['twitter:title']`           |
+| keys         | object | `{'og:image': 'my-og-image'}` |
+| twitterTitle | string | `"Svelte Cloudinary"`         |
 
 ## Image Size
 

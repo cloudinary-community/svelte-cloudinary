@@ -74,7 +74,6 @@
 		goto(searchIndex[detail.originalIndex].link);
 		dispatch('search', detail);
 	}
-
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -185,5 +184,4 @@
 	[data-svelte-typeahead][data-svelte-typeahead] .svelte-typeahead-list li:not(:last-of-type) {
 		border-bottom: none;
 	}
-
 </style>

@@ -20,23 +20,23 @@ The basic required options include `width`, `height`, and `src`:
 import { getCldImageUrl } from 'svelte-cloudinary';
 
 const url = getCldImageUrl({
-  width: 960,
-  height: 600,
-  src: '<Public ID>'
+	width: 960,
+	height: 600,
+	src: '<Public ID>'
 });
 ```
 
 <CldImage
-  src={getCldImageUrl({
-    src: `images/turtle`,
-    width: 960,
-    height: 600,
-  })}
-  width="960"
-  height="600"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  alt=""
-  preserveTransformations
+src={getCldImageUrl({
+src: `images/turtle`,
+width: 960,
+height: 600,
+})}
+width="960"
+height="600"
+sizes="(max-width: 480px) 100vw, 50vw"
+alt=""
+preserveTransformations
 />
 
 <Callout emoji={false}>
@@ -50,31 +50,32 @@ You can further take advantage of Cloudinary features like background removal an
 
 ```js
 const url = getCldImageUrl({
-  width: 600,
-  height: 600,
-  src: '<Public ID>',
-  crop: 'thumb',
-  tint: '100:blue:green:red',
-  blur: 1000,
+	width: 600,
+	height: 600,
+	src: '<Public ID>',
+	crop: 'thumb',
+	tint: '100:blue:green:red',
+	blur: 1000
 });
 ```
 
 <CldImage
-  src={getCldImageUrl({
-    src: `images/turtle`,
-    width: 600,
-    height: 600,
-    crop: 'thumb',
-    tint: '50:blue:green:red',
-    blur: 1000,
-  })}
-  width="600"
-  height="600"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  alt=""
-  preserveTransformations
+src={getCldImageUrl({
+src: `images/turtle`,
+width: 600,
+height: 600,
+crop: 'thumb',
+tint: '50:blue:green:red',
+blur: 1000,
+})}
+width="600"
+height="600"
+sizes="(max-width: 480px) 100vw, 50vw"
+alt=""
+preserveTransformations
 />
 
 ## Learn More about getCldImageUrl
-* [Configuration](/getCldImageUrl/configuration)
-* [Examples](/getCldImageUrl/examples)
+
+- [Configuration](/getCldImageUrl/configuration)
+- [Examples](/getCldImageUrl/examples)

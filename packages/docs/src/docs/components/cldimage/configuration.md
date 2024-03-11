@@ -2,18 +2,18 @@
 title: CldImage/Configuration
 order: 2
 ---
+
 <script>
     import Table from '$lib/components/Table.svelte'
     import Callout from '$lib/components/Callout.svelte'
 </script>
 
 <svelte:head>
+
   <title>CldImage Configuration - SvelteKit Cloudinary</title>
   <meta name="og:title" content="CldImage Configuration - SvelteKit Cloudinary" />
   <meta name="og:url" content={`https://svelte-cloudinary.vercel.app/components/cldimage/configuration`} />
 </svelte:head>
-
-
 
 # CldImage Configuration
 
@@ -85,7 +85,6 @@ The basic props required to use CldImage include:
 CldImage extends the Unpic Image component using Cloudinary tech. This means all props
 available on the Unpic Image component are available on CldImage. Learn more on the
 [Unpic Docs](https://unpic.pics/img/svelte/).
-
 
 ## Basic Transformations
 
@@ -202,7 +201,7 @@ Applies a background to empty or transparent areas.
 **Examples**
 
 ```jsx copy
-background="blue"
+background = 'blue';
 ```
 
 [Learn more about the background transformation](https://cloudinary.com/documentation/transformation_reference#b_background) on the Cloudinary docs.
@@ -214,7 +213,7 @@ Changes the size of the delivered asset according to the requested width & heigh
 **Examples**
 
 ```jsx copy
-crop="fill"
+crop = 'fill';
 ```
 
 [Learn more about the crop transformation](https://cloudinary.com/documentation/transformation_reference#c_crop_resize) on the Cloudinary docs.
@@ -269,7 +268,7 @@ a background, or an object, which can take the following options:
 Applying Generative Fill with defaults:
 
 ```jsx copy
-fillBackground
+fillBackground;
 ```
 
 Customizing options:
@@ -291,7 +290,7 @@ Determines which part of an asset to focus on, and thus which part of the asset 
 **Examples**
 
 ```jsx copy
-gravity="face"
+gravity = 'face';
 ```
 
 [Learn more about gravity](https://cloudinary.com/documentation/transformation_reference#g_gravity) on the Cloudinary docs.
@@ -415,7 +414,7 @@ The `remove` prop can either be a string, an array, or an object with the follow
 Removing an object by string:
 
 ```jsx copy
-remove="apple"
+remove = 'apple';
 ```
 
 Removing multiple objects by array:
@@ -463,15 +462,13 @@ Uses the [Cloudinary AI Background Removal add-on](https://cloudinary.com/docume
   The Cloudinary AI Background Removal add-on is required to use this feature.
 </Callout>
 
-
 **Examples**
 
 ```jsx copy
-removeBackground
+removeBackground;
 ```
 
 [Learn more about background removal transformation](https://cloudinary.com/documentation/transformation_reference#e_background_removal) on the Cloudinary docs.
-
 
 ### `replace`
 
@@ -551,11 +548,10 @@ The `restore` prop can be used as a boolean.
 **Examples**
 
 ```jsx copy
-restore
+restore;
 ```
 
 [Learn more about the Generative Restore transformation](https://cloudinary.com/documentation/transformation_reference#e_gen_restore) on the Cloudinary docs.
-
 
 ### `zoom`
 
@@ -564,7 +560,7 @@ Controls how close to crop to the detected coordinates when using face-detection
 **Examples**
 
 ```jsx copy
-zoom="0.75"
+zoom = '0.75';
 ```
 
 [Learn more about the zoom transformation](https://cloudinary.com/documentation/transformation_reference#z_zoom) on the Cloudinary docs.
@@ -615,13 +611,13 @@ As an object, you can use advanced configuration with the following options:
 With defaults:
 
 ```jsx copy
-zoompan
+zoompan;
 ```
 
 Add looping:
 
 ```jsx copy
-zoompan="loop"
+zoompan = 'loop';
 ```
 
 Customize options:
@@ -634,7 +630,6 @@ zoompan={{
 ```
 
 [Learn more about the zoompan transformation](https://cloudinary.com/documentation/transformation_reference#e_zoompan) on the Cloudinary docs.
-
 
 ## Filters & Effects
 
@@ -1001,13 +996,13 @@ to easily change the appearance of an image.
 Make an image black and white:
 
 ```jsx copy
-blackwhite
+blackwhite;
 ```
 
 Pixelate an image:
 
 ```jsx copy
-pixelate
+pixelate;
 ```
 
 Sharpen an image:
@@ -1151,7 +1146,8 @@ underlays={[{
     <code>effects</code>
   </strong>
 
-  Objects in the `effects` array can include everything in [Basic Transformations](#basic-transformations) and [Filters & Effects](#filters--effects) above as well as:
+Objects in the `effects` array can include everything in [Basic Transformations](#basic-transformations) and [Filters & Effects](#filters--effects) above as well as:
+
 </div>
 
 <Table
@@ -1211,7 +1207,8 @@ underlays={[{
     <code>position</code>
   </strong>
 
-  The `position` property can include:
+The `position` property can include:
+
 </div>
 
 <Table
@@ -1263,7 +1260,8 @@ underlays={[{
 <div class="-mb-4">
   <strong id="layer-text-props" class="block text-slate-500 text-lg mt-8 -mb-4">text</strong>
 
-  The `text` property can include:
+The `text` property can include:
+
 </div>
 
 <Table
@@ -1437,7 +1435,7 @@ Controls the delivery type of the image.
 **Examples**
 
 ```jsx copy
-deliveryType="fetch"
+deliveryType = 'fetch';
 ```
 
 [Learn more about Delivery Types](https://cloudinary.com/documentation/image_transformations#delivery_types) on the Cloudinary docs.
@@ -1453,7 +1451,7 @@ Configures the default image to use in case the given public ID is not available
 **Examples**
 
 ```jsx copy
-defaultImage="myimage.jpg"
+defaultImage = 'myimage.jpg';
 ```
 
 [Learn more about Default Images](https://cloudinary.com/documentation/transformation_reference#d_default_image) on the Cloudinary docs.
@@ -1482,7 +1480,7 @@ Adds a dynamic, descriptive suffix to the Public ID for greater SEO control of i
 **Examples**
 
 ```jsx copy
-seoSuffix="jellyfish-in-space"
+seoSuffix = 'jellyfish-in-space';
 ```
 
 [Learn more about Dynamic SEO Suffixes](https://cloudinary.com/documentation/advanced_url_delivery_options#dynamic_seo_suffixes) on the Cloudinary docs.
@@ -1494,11 +1492,10 @@ Controls the version defined in the delivery URL.
 **Examples**
 
 ```jsx copy
-version="1234"
+version = '1234';
 ```
 
 [Learn more about Asset Versions](https://cloudinary.com/documentation/advanced_url_delivery_options#asset_versions) on the Cloudinary docs.
-
 
 ### Events & Refs
 
@@ -1550,7 +1547,6 @@ onError={() => {
   alert('Image failed to load!')
 }}
 ```
-
 
 ### Managing Transformations
 
@@ -1645,7 +1641,7 @@ as the `src`.
 **Examples**
 
 ```jsx copy
-preserveTransformations
+preserveTransformations;
 ```
 
 #### `rawTransformations`
@@ -1668,14 +1664,14 @@ By enabling Strict Transformations, you restrict the ability to generate transfo
 approval through the Cloudinary dashboard.
 
 > Note: This disables [optimization](#optimization) and [responsive sizing](/guides/responsive-images)
-only allowing [named transformations](#transformations) to be applied. The width and height are not applied to the URL,
-but are still included on the image tag rendered to the DOM.
+> only allowing [named transformations](#transformations) to be applied. The width and height are not applied to the URL,
+> but are still included on the image tag rendered to the DOM.
 
 **Examples**
 
 ```jsx copy
-strictTransformations
-transformations=["my-transformation"]
+strictTransformations;
+transformations = ['my-transformation'];
 ```
 
 [Learn more about Strict Transformations](https://cloudinary.com/documentation/control_access_to_media#strict_transformations) on the Cloudinary docs.
@@ -1691,7 +1687,6 @@ transformations={['my-transformation']}
 ```
 
 [Learn more about Named Transformations](https://cloudinary.com/documentation/image_transformations#named_transformations) on the Cloudinary docs.
-
 
 ### Optimization
 
@@ -1755,11 +1750,10 @@ Sets the device pixel ratio (DPR) for the delivered image or video using a speci
 **Examples**
 
 ```jsx copy
-dpr="2.0"
+dpr = '2.0';
 ```
 
 [Learn more about configuring DPR](https://cloudinary.com/documentation/transformation_reference#dpr_dpr) on the Cloudinary docs.
-
 
 #### `format`
 
@@ -1768,11 +1762,10 @@ Converts (if necessary) and delivers an asset in the specified format regardless
 **Examples**
 
 ```jsx copy
-format="png"
+format = 'png';
 ```
 
 [Learn more about format](https://cloudinary.com/documentation/transformation_reference#f_format) on the Cloudinary docs.
-
 
 #### `quality`
 
@@ -1781,9 +1774,7 @@ Controls the quality of the delivered asset. Reducing the quality is a trade-off
 **Examples**
 
 ```jsx copy
-quality="10"
+quality = '10';
 ```
 
 [Learn more about quality](https://cloudinary.com/documentation/transformation_reference#q_quality) on the Cloudinary docs.
-
-

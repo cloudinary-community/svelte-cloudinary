@@ -2,6 +2,7 @@
 title: CldUploadWidget/Configuration
 order: 2
 ---
+
 <script>
     import Table from '$lib/components/Table.svelte'
     import Callout from '$lib/components/Callout.svelte'
@@ -62,14 +63,12 @@ order: 2
 A function that returns a React component that receives instance methods and options for the widget.
 
 ```svelte
-'<script>
-  import { CldUploadWidget } from 'svelte-cloudinary'
+<script>
+	import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
-<CldUploadWidget uploadPreset="<Upload Preset>" let:open>
-      <button class="button" on:click={open}>
-        Upload
-      </button>
+'<CldUploadWidget uploadPreset="<Upload Preset>" let:open>
+	<button class="button" on:click={open}> Upload </button>
 </CldUploadWidget>
 ```
 
@@ -93,7 +92,7 @@ options={{
 An API endpoint used to sign the parameters generated during upload.
 
 ```jsx copy showLineNumbers
-signatureEndpoint="/api/sign-cloudinary-params"
+signatureEndpoint = '/api/sign-cloudinary-params';
 ```
 
 [Learn more about generating signatures](https://cloudinary.com/documentation/upload_images#generating_authentication_signatures) on the Cloudinary docs.
@@ -101,11 +100,10 @@ signatureEndpoint="/api/sign-cloudinary-params"
 ### `uploadPreset`
 
 ```js
-uploadPreset="my-upload-preset"
+uploadPreset = 'my-upload-preset';
 ```
 
 [Learn more about upload presets](https://cloudinary.com/documentation/upload_presets) on the Cloudinary docs.
-
 
 ## Events
 
@@ -243,7 +241,6 @@ To learn more about the event callbacks and when they trigger, see: https://clou
 
 Most of the callbacks provide a set of options that give access to the results, options, and widget instance.
 
-
 <Table
   columns={[
     {
@@ -323,7 +320,6 @@ Future releases will work to create a more consistent interface between older me
     },
   ]}
 />
-
 
 #### `results`
 
@@ -430,9 +426,9 @@ By passing in a function as the child of the Upload Widget, you're able to gain 
 
 ```jsx copy showLineNumbers
 <CldUploadWidget>
-  {({ cloudinary, widget, open }) => {
-    // Return UI
-  }}
+	{({ cloudinary, widget, open }) => {
+		// Return UI
+	}}
 </CldUploadWidget>
 ```
 

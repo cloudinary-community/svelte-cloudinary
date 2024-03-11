@@ -2,6 +2,7 @@
 title: CldUploadWidget/Examples
 order: 3
 ---
+
 <script>
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
@@ -35,26 +36,30 @@ order: 3
 ### Unsigned
 
 ```jsx
-uploadPreset="svelte-cloudinary-unsigned"
+uploadPreset = 'svelte-cloudinary-unsigned';
 ```
+
 <li>
 
 <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
-    signatureEndpoint="/api/sign-cloudinary-params"
-      onUpload={(result, widget) => {
-          infoSecure = result?.info
-          widget.close()
-    }}>
-      <button on:click={open} class="cldbutton">
-        Signed Upload
-      </button>
+signatureEndpoint="/api/sign-cloudinary-params"
+onUpload={(result, widget) => {
+infoSecure = result?.info
+widget.close()
+}}>
+<button on:click={open} class="cldbutton">
+Signed Upload
+</button>
 </CldUploadWidget>
+
 <p>URL: { infoSecure?.secure_url }</p>
 
 ### Signed
+
 ```jsx
-signatureEndpoint="/api/sign-cloudinary-params"
+signatureEndpoint = '/api/sign-cloudinary-params';
 ```
+
 </li>
 <li>
 <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading options={{sources: ['local']}}
@@ -70,6 +75,7 @@ signatureEndpoint="/api/sign-cloudinary-params"
 <p>URL: { infoSecure2?.secure_url }</p>
 
 ### Custom Sources
+
 ```jsx
 options={{
   sources: ['local']
@@ -83,6 +89,3 @@ options={{
 <Callout emoji={false}>
   Note: all files will eventually be deleted after upload.
 </Callout>
-
-
-

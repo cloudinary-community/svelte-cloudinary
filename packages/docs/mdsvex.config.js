@@ -1,7 +1,7 @@
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeSlug from 'rehype-slug'
-import rehypeToc from '@microflash/rehype-toc'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+import rehypeToc from '@microflash/rehype-toc';
 
 const config = defineConfig({
 	extensions: ['.svelte.md', '.md', '.svx'],
@@ -11,12 +11,7 @@ const config = defineConfig({
 	},
 
 	remarkPlugins: [],
-	rehypePlugins: [
-		rehypeSlug,
-		rehypeAutolinkHeadings,
-		rehypeToc
-
-	],
+	rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeToc],
 	layout: './src/lib/components/Layout.svelte'
 });
 

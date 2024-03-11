@@ -34,11 +34,12 @@ order: 3
 
 ```js
 getCldImageUrl({
-  src: 'images/turtle',
-  width: 960,
-  height: 600,
-})
+	src: 'images/turtle',
+	width: 960,
+	height: 600
+});
 ```
+
 </li>
 <li>
     <CldImage
@@ -59,11 +60,11 @@ getCldImageUrl({
 
 ```js
 getCldImageUrl({
-  src: 'images/turtle',
-  width: 960,
-  height: 600,
-  removeBackground: true
-})
+	src: 'images/turtle',
+	width: 960,
+	height: 600,
+	removeBackground: true
+});
 ```
 
 <Callout emoji={false}>
@@ -85,12 +86,12 @@ getCldImageUrl({
 
 ```js
 getCldImageUrl({
-  src: 'images/woman-headphones',
-  width: 960,
-  height: 600, // Original 1440
-  crop: 'pad', // Returns the given size with padding
-  fillBackground: true // Uses AI to extend image
-})
+	src: 'images/woman-headphones',
+	width: 960,
+	height: 600, // Original 1440
+	crop: 'pad', // Returns the given size with padding
+	fillBackground: true // Uses AI to extend image
+});
 ```
 
 <Callout emoji={false}>

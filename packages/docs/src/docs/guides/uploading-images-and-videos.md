@@ -2,6 +2,7 @@
 title: Guides/Uploading Images and Videos
 order: 9
 ---
+
 <script>
 
 import Callout from '$lib/components/Callout.svelte'
@@ -22,37 +23,34 @@ The components utilize the [Cloudinary Upload Widget](https://cloudinary.com/doc
 
 <CldUploadButton
 class="cldbutton"
-  onUpload={(result, widget) => {
-    resource = result?.info;
-    widget.close();
-  }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+onUpload={(result, widget) => {
+resource = result?.info;
+widget.close();
+}}
+uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
 {#if resource?.resource_type === 'image'}
-  <CldImage width={resource.width} height={resource.height} src={resource?.public_id} alt="Uploaded Asset" />
+<CldImage width={resource.width} height={resource.height} src={resource?.public_id} alt="Uploaded Asset" />
 {/if}
 
 {#if resource?.resource_type === 'video'}
-  <video controls width={resource.width} height={resource.height} src={resource?.secure_url} alt="Uploaded Asset" />
+<video controls width={resource.width} height={resource.height} src={resource?.secure_url} alt="Uploaded Asset" />
 {/if}
-
-
 
 ```svelte
 <script>
-import { CldUploadButton } from 'svelte-cloudinary';
+	import { CldUploadButton } from 'svelte-cloudinary';
 </script>
 
-
 <CldUploadButton
-  onUpload={onUploadCallback}
-  signatureEndpoint="<Endpoint (ex: /api/sign-cloudinary-params)>"
-  uploadPreset="<Upload Preset>"
+	onUpload={onUploadCallback}
+	signatureEndpoint="<Endpoint (ex: /api/sign-cloudinary-params)>"
+	uploadPreset="<Upload Preset>"
 >
-  Upload to Cloudinary
+	Upload to Cloudinary
 </CldUploadButton>
-
 ```
 
 ## Learn More
-* [CldUploadButton](/clduploadbutton/usage)
+
+- [CldUploadButton](/clduploadbutton/usage)

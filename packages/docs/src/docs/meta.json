@@ -1,129 +1,96 @@
 {
-  "sections": [
-    {
-      "title": "Getting Started",
-      "link":"",
-      "tags": "getting started start how to"
-    },
-    {
-      "title": "Installation",
-      "link":"installation",
-      "tags": "how setup install npm pnpm installation"
-    },
-    {
-      "type": "separator",
-      "title": "Components",
-      "children":[
-        {
-          "title": "<CldImage />",
-          "link": "cldimage",
-          "tags":"image how img cloudName transformations ",
-          "children": [
-            "usage",
-            "configuration",
-            "examples"
-          ]
-        },
-       {
-          "title": "<CldOgImage />",
-          "link": "cldogimage",
-          "tags":"social image how og",
-          "children": [
-            "usage",
-            "configuration",
-            "examples"
-          ]
-        },
-        {
-          "title": "<CldUploadButton />",
-          "link": "clduploadbutton",
-          "tags":"button upload how",
-          "children": [
-            "usage",
-            "configuration",
-            "examples"
-          ]
-        },
-        {
-          "title": "<CldUploadWidget />",
-          "link": "clduploadwidget",
-          "tags":"widget upload how custom",
-          "children": [
-            "usage",
-            "configuration",
-            "examples",
-            "signed-uploads"
-          ]
-        },
-        {
-          "title": "<CldVideoPlayer />",
-          "link": "cldvideoplayer",
-          "tags":"video player how transformtions overlay",
-          "children": [
-            "usage",
-            "configuration",
-            "examples",
-            "transformations"
-          ]
-        }
-      ]
-
-    },
-    {
-      "type": "separator",
-      "title": "Helpers",
-      "children":[
-        {
-          "title": "getCldImageUrl",
-          "link":"getcldimageurl",
-          "tags":"image url composable",
-          "children": [
-            "usage",
-            "configuration",
-            "examples"
-          ]
-        },
-        {
-          "title": "getCldOgImageUrl",
-          "link":"getcldogimageurl",
-          "tags":"social image url composable",
-          "children": [
-            "usage",
-            "configuration",
-            "examples"
-          ]
-        }
-      ]
-    },
-    {
-     "type": "separator",
-      "title": "Resources",
-      "children": [
-        {
-          "title": "Guides",
-          "link": "guides",
-          "tags": "svelte cloudinary guides",
-          "children": [
-            "background-removal",
-            "image-optimization",
-            "image-overlays",
-            "image-underlays",
-            "placeholders",
-            "responsive-images",
-            "social-media-cards",
-            "text-overlays",
-            "uploading-images-and-videos"
-          ]
-        },
-        {
-          "title": "Templates",
-          "link": "templates",
-          "tags": "svelte cloudinary templates",
-          "children": [
-            "social-media-cards"
-          ]
-        }
-      ]
-    }
-  ]
+	"sections": [
+		{
+			"title": "Getting Started",
+			"link": "",
+			"tags": "getting started start how to"
+		},
+		{
+			"title": "Installation",
+			"link": "installation",
+			"tags": "how setup install npm pnpm installation"
+		},
+		{
+			"type": "separator",
+			"title": "Components",
+			"children": [
+				{
+					"title": "<CldImage />",
+					"link": "cldimage",
+					"tags": "image how img cloudName transformations ",
+					"children": ["usage", "configuration", "examples"]
+				},
+				{
+					"title": "<CldOgImage />",
+					"link": "cldogimage",
+					"tags": "social image how og",
+					"children": ["usage", "configuration", "examples"]
+				},
+				{
+					"title": "<CldUploadButton />",
+					"link": "clduploadbutton",
+					"tags": "button upload how",
+					"children": ["usage", "configuration", "examples"]
+				},
+				{
+					"title": "<CldUploadWidget />",
+					"link": "clduploadwidget",
+					"tags": "widget upload how custom",
+					"children": ["usage", "configuration", "examples", "signed-uploads"]
+				},
+				{
+					"title": "<CldVideoPlayer />",
+					"link": "cldvideoplayer",
+					"tags": "video player how transformtions overlay",
+					"children": ["usage", "configuration", "examples", "transformations"]
+				}
+			]
+		},
+		{
+			"type": "separator",
+			"title": "Helpers",
+			"children": [
+				{
+					"title": "getCldImageUrl",
+					"link": "getcldimageurl",
+					"tags": "image url composable",
+					"children": ["usage", "configuration", "examples"]
+				},
+				{
+					"title": "getCldOgImageUrl",
+					"link": "getcldogimageurl",
+					"tags": "social image url composable",
+					"children": ["usage", "configuration", "examples"]
+				}
+			]
+		},
+		{
+			"type": "separator",
+			"title": "Resources",
+			"children": [
+				{
+					"title": "Guides",
+					"link": "guides",
+					"tags": "svelte cloudinary guides",
+					"children": [
+						"background-removal",
+						"image-optimization",
+						"image-overlays",
+						"image-underlays",
+						"placeholders",
+						"responsive-images",
+						"social-media-cards",
+						"text-overlays",
+						"uploading-images-and-videos"
+					]
+				},
+				{
+					"title": "Templates",
+					"link": "templates",
+					"tags": "svelte cloudinary templates",
+					"children": ["social-media-cards"]
+				}
+			]
+		}
+	]
 }

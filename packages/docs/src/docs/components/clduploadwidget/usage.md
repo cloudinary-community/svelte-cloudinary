@@ -13,7 +13,6 @@ order: 1
 
 </script>
 
-
 # Getting Started with CldUploadWidget
 
 The CldUploadWidget creates a new instance of the [Cloudinary Upload Widget](https://cloudinary.com/documentation/upload_widget) giving you an easy way to add upload capabilities to your Svelte app.
@@ -40,32 +39,29 @@ Use the following to generate an unsigned upload widget:
 
 ```svelte
 <script>
-  import { CldUploadWidget } from 'svelte-cloudinary';
+	import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
 <CldUploadWidget uploadPreset="<Upload Preset>" let:open let:isLoading>
-      <button className="button" on:click={open} disabled={isLoading}>
-        Upload an Image
-      </button>
+	<button className="button" on:click={open} disabled={isLoading}> Upload an Image </button>
 </CldUploadWidget>
 ```
 
-
 <CldUploadWidget
-  let:open let:isLoading
-  onUpload={(result, widget) => {
-    infoUpload = result?.info
-    widget.close();
-  }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
->
-  <button on:click|preventDefault={open} class="cldbutton">
+let:open let:isLoading
+onUpload={(result, widget) => {
+infoUpload = result?.info
+widget.close();
+}}
+uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+
+> <button on:click|preventDefault={open} class="cldbutton">
+
     Unsigned Upload
+
   </button>
 </CldUploadWidget>
 <p><strong>URL:</strong> { infoUpload?.secure_url || 'Upload to see example result.' }</p>
-
-
 
 ### Signed
 
@@ -77,38 +73,36 @@ Use the following to generate an signed upload widget:
 
 ```svelte
 <script>
-  import { CldUploadWidget } from 'svelte-cloudinary';
+	import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
-<CldUploadWidget uploadPreset="<Upload Preset>" let:open let:isLoading
-  signatureEndpoint="<API Endpoint (ex: /api/sign-cloudinary-params)>"
+<CldUploadWidget
+	uploadPreset="<Upload Preset>"
+	let:open
+	let:isLoading
+	signatureEndpoint="<API Endpoint (ex: /api/sign-cloudinary-params)>"
 >
-      <button className="button" on:click={open} disabled={isLoading}>
-        Upload an Image
-      </button>
+	<button className="button" on:click={open} disabled={isLoading}> Upload an Image </button>
 </CldUploadWidget>
 ```
 
 Here's an example of how you could process the signature in an API endpoint that signs a request using SvelteKit:
 
 ```ts
-import { v2 as cloudinary } from "cloudinary";
+import { v2 as cloudinary } from 'cloudinary';
 import type { RequestHandler } from './$types';
 import { env } from '$env/dynamic/private';
-import { error, json } from "@sveltejs/kit";
+import { error, json } from '@sveltejs/kit';
 
 export const POST = (async ({ request }) => {
-	const body = await request.json()
+	const body = await request.json();
 	const { paramsToSign } = body;
 
 	try {
-		const signature = cloudinary.utils.api_sign_request(
-			paramsToSign,
-			env.CLOUDINARY_API_SECRET
-		);
-		return json({ signature })
+		const signature = cloudinary.utils.api_sign_request(paramsToSign, env.CLOUDINARY_API_SECRET);
+		return json({ signature });
 	} catch (e) {
-		return error(500, e.message)
+		return error(500, e.message);
 	}
 }) satisfies RequestHandler;
 ```
@@ -132,12 +126,13 @@ See a full example of an API endpoint used with the Svelte Cloudinary docs: http
 </div>
 
 ## Watch & Learn
+
 <Video
 title=""
 url="https://www.youtube.com/watch?v=UqnLbIzRnnI"
 />
 
 ## Learn More about CldUploadWidget
-* [Configuration](/clduploadwidget/configuration)
-* [Examples](/clduploadwidget/examples)
 
+- [Configuration](/clduploadwidget/configuration)
+- [Examples](/clduploadwidget/examples)

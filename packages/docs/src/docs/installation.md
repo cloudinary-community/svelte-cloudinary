@@ -18,15 +18,15 @@ To install Svelte Cloudinary, you can use your favorite package manager includin
 <!-- <Steps> -->
 
 <Tabs tabs={["npm","pnpm","yarn"]}>
-  <Tab type="shell" title="npm" open>
-    npm install svelte-cloudinary
-  </Tab>
-  <Tab type="shell" title="pnpm">
-    pnpm install svelte-cloudinary
-  </Tab>
-  <Tab type="shell" title="yarn">
-    yarn add svelte-cloudinary
-  </Tab>
+<Tab type="shell" title="npm" open>
+npm install svelte-cloudinary
+</Tab>
+<Tab type="shell" title="pnpm">
+pnpm install svelte-cloudinary
+</Tab>
+<Tab type="shell" title="yarn">
+yarn add svelte-cloudinary
+</Tab>
 </Tabs>
 
 ### Configuration
@@ -45,13 +45,15 @@ VITE_PUBLIC_CLOUDINARY_CLOUD_NAME="[Your Cloud Name]"
 
 Check out our comprehensive guides on how to use the Svelte Cloudinary library. Whether you're rendering images, generating social media cards, or looking to leverage our built-in upload UI, we've got you covered:
 
-* [CldImage](/CldImage/usage): Optimize and transform images including dynamic cropping and resizing and background removal.
-* [CldOgImage](/cldogimage/usage): Create and add dynamically generated, custom Social Media cards to your site.
-* [CldUploadButton](/clduploadbutton/usage): Drop in a button that allows your visitors to upload files.
-* [CldUploadWidget](/clduploadwidget/usage): Gain full control of how you build your UI for uploading files.
-* [CldVideoPlayer](/cldvideoplayer/usage): Add videos with optimization and transformations using the Cloudinary Video Player.
+- [CldImage](/CldImage/usage): Optimize and transform images including dynamic cropping and resizing and background removal.
+- [CldOgImage](/cldogimage/usage): Create and add dynamically generated, custom Social Media cards to your site.
+- [CldUploadButton](/clduploadbutton/usage): Drop in a button that allows your visitors to upload files.
+- [CldUploadWidget](/clduploadwidget/usage): Gain full control of how you build your UI for uploading files.
+- [CldVideoPlayer](/cldvideoplayer/usage): Add videos with optimization and transformations using the Cloudinary Video Player.
 
 Or use the helper methods to generate URLs:
+
 <!---->
-* [getCldImageUrl](/getcldimageurl/usage): Create an optimized Cloudinary URL with whatever trasnformations using the same API as CldImage.
-* [getCldOgImageUrl](/getcldogimageurl/usage): Generate a custom social media card URL with the same API as CldOgImage.
+
+- [getCldImageUrl](/getcldimageurl/usage): Create an optimized Cloudinary URL with whatever trasnformations using the same API as CldImage.
+- [getCldOgImageUrl](/getcldogimageurl/usage): Generate a custom social media card URL with the same API as CldOgImage.

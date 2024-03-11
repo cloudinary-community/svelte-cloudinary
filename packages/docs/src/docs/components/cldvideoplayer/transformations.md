@@ -10,6 +10,7 @@ order: 4
     import { CldVideoPlayer } from 'svelte-cloudinary'
 
 </script>
+
 # CldVideoPlayer Transformations
 
 ## Adding Video Transformations
@@ -20,15 +21,15 @@ For instance, if we wanted to crop and resize a video to a square, we could use:
 
 ```jsx
 <CldVideoPlayer
-  width="500"
-  height="500"
-  src={`${process.env.VIDEOS_DIRECTORY}/dog-running-snow`}
-  transformation={{
-    width: 500,
-    height: 500,
-    crop: 'fill',
-    gravity: 'auto'
-  }}
+	width="500"
+	height="500"
+	src={`${process.env.VIDEOS_DIRECTORY}/dog-running-snow`}
+	transformation={{
+		width: 500,
+		height: 500,
+		crop: 'fill',
+		gravity: 'auto'
+	}}
 />
 ```
 
@@ -56,21 +57,22 @@ If you instead wanted to add a watermark to the video, you could use overlays in
 
 ```jsx
 <CldVideoPlayer
-  width="1620"
-  height="1080"
-  src={`${process.env.VIDEOS_DIRECTORY}/mountain-stars`}
-  transformation={{
-    overlay: `${process.env.ASSETS_DIRECTORY}:space-jelly-cosmo-helmet`,
-    width: 150,
-    gravity: "south_east",
-    x: 50,
-    y: 50,
-    opacity: 80
-  }}
+	width="1620"
+	height="1080"
+	src={`${process.env.VIDEOS_DIRECTORY}/mountain-stars`}
+	transformation={{
+		overlay: `${process.env.ASSETS_DIRECTORY}:space-jelly-cosmo-helmet`,
+		width: 150,
+		gravity: 'south_east',
+		x: 50,
+		y: 50,
+		opacity: 80
+	}}
 />
 ```
 
 When you play the video, you'll notice the Space Jelly logo on the bottom right of the video!
+
 <div class="not-prose">
 <CldVideoPlayer
   width="1620"

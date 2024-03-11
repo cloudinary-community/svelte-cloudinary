@@ -58,7 +58,7 @@
 				class="bg-base-100 sticky top-0 z-20 hidden items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex"
 			>
 				<a href="/" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
-					<div class="font-title inline-flex text-lg ">
+					<div class="font-title inline-flex text-lg">
 						<div class="flex items-center flex-row justify-between">
 							<img src="/logo.svg" width="34" alt="svelte cloudinary" />
 							<span class="font-bold capitalize ml-2"

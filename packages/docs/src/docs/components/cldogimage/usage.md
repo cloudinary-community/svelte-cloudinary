@@ -10,9 +10,9 @@ order: 1
 </script>
 
 <CldOgImage
-  src={`images/turtle`}
-  title="CldOgImage"
-  twitterTitle="Getting Started with CldOgImage"
+src={`images/turtle`}
+title="CldOgImage"
+twitterTitle="Getting Started with CldOgImage"
 />
 
 # Getting Started with CldOgImage
@@ -24,29 +24,34 @@ The CldOgImage Component give you the ability to use the same CldImage API to ea
 The basic required prop is `src`:
 
 ```svelte
-
 <script>
-  import { CldOgImage } from 'svelte-cloudinary';
+	import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
-<CldOgImage
-  src="<Public ID>"
-/>
+<CldOgImage src="<Public ID>" />
 ```
 
 Place the CldOgImage component anywhere in your svelte component (like in a +page.svelte for SvelteKit users).
 
-
 The resulting HTML will be applied to the Head of the document:
 
 ```html
-<meta property="og:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_jpg/q_auto/v1/images/galaxy" />
-<meta property="og:image:secure_url" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_jpg/q_auto/v1/images/galaxy" />
+<meta
+	property="og:image"
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_jpg/q_auto/v1/images/galaxy"
+/>
+<meta
+	property="og:image:secure_url"
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_jpg/q_auto/v1/images/galaxy"
+/>
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="627" />
 <meta property="twitter:title" content=" " />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_webp/q_auto/v1/images/galaxy" />
+<meta
+	property="twitter:image"
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/c_fill,w_2400,h_1254,g_center/c_scale,w_1200/f_webp/q_auto/v1/images/galaxy"
+/>
 ```
 
 <p class="nx-mt-6">
@@ -72,26 +77,28 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
 
 ```svelte
 <script>
-  import { CldOgImage } from 'svelte-cloudinary';
+	import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
 <CldOgImage
-  src="<Public ID>"
-  tint="100:0762a0"
-  removeBackground
-  opacity="40"
-  overlays={[{
-    text: {
-      color: 'white',
-      fontFamily: 'Source Sans Pro',
-      fontSize: 200,
-      fontWeight: 'bold',
-      text: '<Text>'
-    }
-  }]}
-  underlay="<Public ID>"
-  alt="<Description>"
-  twitterTitle="<Title>"
+	src="<Public ID>"
+	tint="100:0762a0"
+	removeBackground
+	opacity="40"
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 200,
+				fontWeight: 'bold',
+				text: '<Text>'
+			}
+		}
+	]}
+	underlay="<Public ID>"
+	alt="<Description>"
+	twitterTitle="<Title>"
 />
 ```
 
@@ -123,13 +130,14 @@ The CldOgImage component uses the same API as [CldImage](/CldImage/configuration
   CldOgImage does not render an `&lt;img&gt;` tag, meaning it can't be visually embedded on a page. This example makes use of the `&lt;CldImage&gt` tag to showcase what's possible.
 </Callout>
 
-
 ## Watch & Learn
+
 <Video
 title="Dynamic Social Cards in Svelte with Svelte Cloudinary - Dev Hints"
 url="https://www.youtube.com/watch?v=KsOtGDCocFs"
 />
 
 ## Learn More about CldOgImage
-* [Configuration](/CldOgImage/configuration)
-* [Examples](/CldOgImage/examples)
+
+- [Configuration](/CldOgImage/configuration)
+- [Examples](/CldOgImage/examples)

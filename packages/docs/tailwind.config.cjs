@@ -7,8 +7,8 @@ const config = {
 
 	theme: {
 		fontFamily: {
-			'sans': ['Poppins', 'ui-sans-serif', 'system-ui',],
-			'serif': ['Poppins', 'ui-serif', 'Georgia']
+			sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+			serif: ['Poppins', 'ui-serif', 'Georgia']
 		},
 		extend: {
 			typography: (theme) => ({
@@ -32,7 +32,7 @@ const config = {
 
 	plugins: [typography, daisyui],
 	daisyui: {
-		themes: ["light", "night"]
+		themes: ['light', 'night']
 	}
 };
 

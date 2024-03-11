@@ -1,58 +1,61 @@
 name: Test & Release
+
 on: [push, pull_request]
+
 env:
-  CI: false
+    CI: false
+
 jobs:
-  tests:
-    name: Test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ['18' ]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'pnpm'
-      - run: pnpm install
-        working-directory: ./svelte-cloudinary
-      # - run: pnpm test
-      #   working-directory: ./svelte-cloudinary
+    tests:
+        name: Test
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: ['18']
+        steps:
+            - uses: actions/checkout@v2
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node }}
+                  cache: 'pnpm'
+            - run: pnpm install
+              working-directory: ./svelte-cloudinary
+            # - run: pnpm test
+            #   working-directory: ./svelte-cloudinary
 
-  release:
-    name: Release
-    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta') }}
-    needs: tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+    release:
+        name: Release
+        if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta') }}
+        needs: tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 7
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-          # https://github.com/pnpm/pnpm/issues/3141
-          registry-url: 'https://registry.npmjs.org'
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+                  cache: 'pnpm'
+                  # https://github.com/pnpm/pnpm/issues/3141
+                  registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: ./svelte-cloudinary
+            - name: Install dependencies
+              run: pnpm install
+              working-directory: ./svelte-cloudinary
 
-      - name: Build package
-        run: pnpm package
-        working-directory: ./svelte-cloudinary
+            - name: Build package
+              run: pnpm package
+              working-directory: ./svelte-cloudinary
 
-      - name: Release
-        run: npx semantic-release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Release
+              run: npx semantic-release
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

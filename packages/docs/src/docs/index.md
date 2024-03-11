@@ -8,19 +8,18 @@ order: 1
 	import ImageGrid from '$lib/components/ImageGrid.svelte';
 </script>
 
-
 # Svelte Cloudinary
 
 High-performance image and video delivery and uploading at scale in Svelte/SvelteKit powered by Cloudinary.
 
-* Automatically optimize images and videos and deliver in modern formats
-* Remove backgrounds from images
-* Dynamically add image and text overlays to images and videos
-* AI-based cropping and resizing
-* Transform images and videos using color and effects
-* Generate Open Graph Social Media cards on the fly
-* Drop-in Upload Widget
-* ...all at scale with Cloudinary
+- Automatically optimize images and videos and deliver in modern formats
+- Remove backgrounds from images
+- Dynamically add image and text overlays to images and videos
+- AI-based cropping and resizing
+- Transform images and videos using color and effects
+- Generate Open Graph Social Media cards on the fly
+- Drop-in Upload Widget
+- ...all at scale with Cloudinary
 
 <style>
 .grid {
@@ -43,7 +42,7 @@ High-performance image and video delivery and uploading at scale in Svelte/Svelt
 			alt="Original image of images/woman with headphones"
 		/>
 
-	  <CldImage
+      <CldImage
       width="987"
       height="987"
       src="images/woman-headphones"
@@ -95,51 +94,51 @@ High-performance image and video delivery and uploading at scale in Svelte/Svelt
 
 ```svelte
 <CldImage
-  width="987"
-  height="987"
-  src={`images/woman-headphones`}
-  sizes="50vw"
-  crop="thumb"
-  gravity="faces"
-  removeBackground
-  tint="40:253f8c"
-  underlay={`images/city-skyline`}
-  overlays={[
-    {
-      position: {
-        gravity: 'north',
-        y: 60
-      },
-      text: {
-        color: 'rgb:52a4ff80',
-        fontFamily: 'Source Sans Pro',
-        fontSize: 320,
-        fontWeight: 'black',
-        text: 'MUSIC',
-        letterSpacing: -10,
-        lineSpacing: -100,
-        stroke: true,
-        border: '20px_solid_rgb:2d0eff99',
-      }
-    },
-    {
-      position: {
-        gravity: 'south',
-        y: 60
-      },
-      text: {
-        color: 'rgb:52a4ff80',
-        fontFamily: 'Source Sans Pro',
-        fontSize: 320,
-        fontWeight: 'black',
-        text: 'IS LIFE',
-        letterSpacing: -10,
-        lineSpacing: -100,
-        stroke: true,
-        border: '20px_solid_rgb:2d0eff99',
-      }
-    }
-  ]}
-  alt="Image of woman with headphones transformed with Cloudinary"
+	width="987"
+	height="987"
+	src={`images/woman-headphones`}
+	sizes="50vw"
+	crop="thumb"
+	gravity="faces"
+	removeBackground
+	tint="40:253f8c"
+	underlay={`images/city-skyline`}
+	overlays={[
+		{
+			position: {
+				gravity: 'north',
+				y: 60
+			},
+			text: {
+				color: 'rgb:52a4ff80',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 320,
+				fontWeight: 'black',
+				text: 'MUSIC',
+				letterSpacing: -10,
+				lineSpacing: -100,
+				stroke: true,
+				border: '20px_solid_rgb:2d0eff99'
+			}
+		},
+		{
+			position: {
+				gravity: 'south',
+				y: 60
+			},
+			text: {
+				color: 'rgb:52a4ff80',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 320,
+				fontWeight: 'black',
+				text: 'IS LIFE',
+				letterSpacing: -10,
+				lineSpacing: -100,
+				stroke: true,
+				border: '20px_solid_rgb:2d0eff99'
+			}
+		}
+	]}
+	alt="Image of woman with headphones transformed with Cloudinary"
 />
 ```

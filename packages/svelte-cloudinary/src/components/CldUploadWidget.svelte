@@ -13,7 +13,7 @@
 		CldUploadWidgetError,
 		CldUploadWidgetResults,
 		CldUploadWidgetWidgetInstance,
-		CldUploadWidgetCloudinaryInstance,
+		CldUploadWidgetCloudinaryInstance
 	} from './CldUploadWidgetTypes.ts';
 
 	type $$Props = CldUploadWidgetProps;
@@ -107,29 +107,35 @@
 	 */
 
 	function createWidget() {
-		 return cloudinary?.createUploadWidget(uploadOptions, (uploadError: CldUploadWidgetError, uploadResult: CldUploadWidgetResults) => {
-      if ( uploadError && uploadError !== null ) {
-        handleError(uploadError);
-      }
+		return cloudinary?.createUploadWidget(
+			uploadOptions,
+			(uploadError: CldUploadWidgetError, uploadResult: CldUploadWidgetResults) => {
+				if (uploadError && uploadError !== null) {
+					handleError(uploadError);
+				}
 
-      if ( typeof uploadResult?.event === 'string' ) {
-        if ( WIDGET_WATCHED_EVENTS.includes(uploadResult?.event) ) {
-          handleResults(uploadResult);
-        }
+				if (typeof uploadResult?.event === 'string') {
+					if (WIDGET_WATCHED_EVENTS.includes(uploadResult?.event)) {
+						handleResults(uploadResult);
+					}
 
-        const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
+					const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
 
-        if ( typeof widgetEvent === 'string' && typeof $$props[widgetEvent] === 'function' && typeof $$props[widgetEvent] ) {
-          const callback = $$props[widgetEvent] as CldUploadEventCallback;
-          callback(uploadResult, {
-            widget,
-            ...instanceMethods
-          });
-        }
-      }
-    });
+					if (
+						typeof widgetEvent === 'string' &&
+						typeof $$props[widgetEvent] === 'function' &&
+						typeof $$props[widgetEvent]
+					) {
+						const callback = $$props[widgetEvent] as CldUploadEventCallback;
+						callback(uploadResult, {
+							widget,
+							...instanceMethods
+						});
+					}
+				}
+			}
+		);
 	}
-
 
 	function onLoadingError() {
 		console.error(`Failed to load Cloudinary Upload Widget`);
@@ -218,18 +224,17 @@
 	 * https://cloudinary.com/documentation/upload_widget_reference#open
 	 * widgetSource can only be string | null
 	 * options can be a Map or undefined
-	*/
+	 */
 	function open(
 		widgetSource?: CldUploadWidgetOpenWidgetSources,
 		options?: CldUploadWidgetOpenInstanceMethodOptions
 	) {
-		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null , options]);
+		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null, options]);
 
 		if (typeof onOpen === 'function') {
 			onOpen(widget);
 		}
 	}
-
 
 	function show() {
 		invokeInstanceMethod('show');

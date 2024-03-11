@@ -23,17 +23,17 @@
 
 		<script>
 			try {
-				let currentTheme = localStorage.getItem("theme");
+				let currentTheme = localStorage.getItem('theme');
 				if (currentTheme === null) {
-					if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-						currentTheme = "night";
+					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						currentTheme = 'night';
 					} else {
-						currentTheme = "light";
+						currentTheme = 'light';
 					}
 				}
-				document.documentElement.setAttribute("data-theme", currentTheme);
+				document.documentElement.setAttribute('data-theme', currentTheme);
 
-				localStorage.setItem("theme", currentTheme);
+				localStorage.setItem('theme', currentTheme);
 			} catch (e) {}
 		</script>
 		%sveltekit.head%

@@ -2,6 +2,7 @@
 title: Guides/Image Optimization
 order: 2
 ---
+
 <script>
 
 import Callout from '$lib/components/Callout.svelte'
@@ -29,22 +30,15 @@ You can further optimize delivery by using [responsive sizing](/guides/responsiv
   />
 </div>
 
-
 <Tabs tabs={['CldImage', 'getCldImageUrl']}>
-  <Tab type="code" open title="CldImage">
+<Tab type="code" open title="CldImage">
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary'
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="images/turtle"
-  sizes="100vw"
-  alt="Turtle"
-/>
+<CldImage width="960" height="600" src="images/turtle" sizes="100vw" alt="Turtle" />
 ```
 
   </Tab>
@@ -52,13 +46,13 @@ You can further optimize delivery by using [responsive sizing](/guides/responsiv
 
 ```svelte
 <script>
-  import { getCldImageUrl } from 'svelte-cloudinary'
+	import { getCldImageUrl } from 'svelte-cloudinary';
 
-  getCldImageUrl({
-    width: 960,
-    height: 600,
-    src: 'images/turtle'
-  })
+	getCldImageUrl({
+		width: 960,
+		height: 600,
+		src: 'images/turtle'
+	});
 </script>
 ```
 
@@ -73,6 +67,7 @@ You can further optimize delivery by using [responsive sizing](/guides/responsiv
 />
 
 ## Learn More
-* [Responsive Images](/guides/responsive-images)
-* [CldImage](/cldimage/usage)
-* [getCldImageUrl](/getcldimageurl/usage)
+
+- [Responsive Images](/guides/responsive-images)
+- [CldImage](/cldimage/usage)
+- [getCldImageUrl](/getcldimageurl/usage)

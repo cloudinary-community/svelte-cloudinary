@@ -2,6 +2,7 @@
 title: CldImage/Basic Usage
 order: 1
 ---
+
 <script>
     import HeaderImage from '$lib/components/HeaderImage.svelte'
     import CodeBlock from '$lib/components/CodeBlock.svelte'
@@ -35,19 +36,13 @@ The basic required props include `width`, `height`, `src`, and `alt`:
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Public ID>"
-  sizes="100vw"
-  alt="Description of my image"
-/>
+<CldImage width="960" height="600" src="<Public ID>" sizes="100vw" alt="Description of my image" />
 ```
+
 </CodeBlock>
 
 The `src` property takes in a Cloudinary Public ID which includes the folder path along with the ID of the image itself.
@@ -56,11 +51,9 @@ of the image.
 
 The `sizes` prop is optional, but recommended for [Responsive Sizing](/guides/responsive-images).
 
-
 ## Transformations
 
 You can further take advantage of Cloudinary features like background removal and overlays by adding additional props:
-
 
 <HeaderImage>
   <CldImage
@@ -79,23 +72,23 @@ You can further take advantage of Cloudinary features like background removal an
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="500"
-  height="500"
-  src="<Public ID>"
-  crop="fill"
-  removeBackground
-  tint="70:blue:green:purple"
-  underlay="<Public ID>"
-  sizes="100vw"
-  alt="Description of my image"
+	width="500"
+	height="500"
+	src="<Public ID>"
+	crop="fill"
+	removeBackground
+	tint="70:blue:green:purple"
+	underlay="<Public ID>"
+	sizes="100vw"
+	alt="Description of my image"
 />
 ```
+
 </CodeBlock>
 
 ## Using Cloudinary URLs
@@ -111,18 +104,18 @@ must include a version number (/v1234) in order to be correctly parsed.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="500"
-  height="500"
-  src="https://res.cloudinary.com/mycloud/image/upload/v1234/myimage"
-  alt="Description of my image"
+	width="500"
+	height="500"
+	src="https://res.cloudinary.com/mycloud/image/upload/v1234/myimage"
+	alt="Description of my image"
 />
 ```
+
 </CodeBlock>
 
 ### Preserving URL Transformations
@@ -132,17 +125,16 @@ If using a full Cloudinary URL, you might already have transformations applied t
 To preserve those transformations, you can apply the `preserveTransformations` property:
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="600"
-  height="600"
-  src="https://res.cloudinary.com/mycloud/image/upload/w_100,h_200,c_fill/v1234/myimage"
-  preserveTransformations
-  alt="Description of my image"
+	width="600"
+	height="600"
+	src="https://res.cloudinary.com/mycloud/image/upload/w_100,h_200,c_fill/v1234/myimage"
+	preserveTransformations
+	alt="Description of my image"
 />
 ```
 
@@ -154,50 +146,49 @@ In this working example you will see "Turtle has loaded" in the console.
 
 ```svelte
 <CldImage
-  width="960"
-  height="600"
-  src={`images/turtle`}
-  sizes="100vw"
-  alt="Turtle in the ocean"
-	on:load={() => console.log("Turtle has loaded.")}
-  on:error={()=>console.error("Turtle Error")}
+	width="960"
+	height="600"
+	src={`images/turtle`}
+	sizes="100vw"
+	alt="Turtle in the ocean"
+	on:load={() => console.log('Turtle has loaded.')}
+	on:error={() => console.error('Turtle Error')}
 />
 ```
 
 <CldImage
-  width="960"
-  height="600"
-  src={`images/turtle`}
-  sizes="100vw"
-  alt="Turtle in the ocean"
-	on:load={() => console.log("Turtle has loaded.")}
-  on:error={()=>console.error("Turtle Error")}
+width="960"
+height="600"
+src={`images/turtle`}
+sizes="100vw"
+alt="Turtle in the ocean"
+on:load={() => console.log("Turtle has loaded.")}
+on:error={()=>console.error("Turtle Error")}
 />
 
 In this broken example you will see "Turtle Error" in the console.
 
 ```svelte
 <CldImage
-  width="960"
-  height="600"
-  src={`images/turtle-broken`}
-  sizes="100vw"
-  alt="Broken Turtle Image"
-	on:load={() => console.log("Turtle has loaded.")}
-  on:error={()=>console.error("Turtle Error")}
+	width="960"
+	height="600"
+	src={`images/turtle-broken`}
+	sizes="100vw"
+	alt="Broken Turtle Image"
+	on:load={() => console.log('Turtle has loaded.')}
+	on:error={() => console.error('Turtle Error')}
 />
 ```
 
 <CldImage
-  width="960"
-  height="600"
-  src={`images/turtle-broken`}
-  sizes="100vw"
-  alt="Broken Turtle Image"
-	on:load={() => console.log("Turtle has loaded.")}
-  on:error={()=>console.error("Turtle Error")}
+width="960"
+height="600"
+src={`images/turtle-broken`}
+sizes="100vw"
+alt="Broken Turtle Image"
+on:load={() => console.log("Turtle has loaded.")}
+on:error={()=>console.error("Turtle Error")}
 />
-
 
 ## Watch & Learn
 
@@ -207,5 +198,6 @@ In this broken example you will see "Turtle Error" in the console.
 />
 
 ## Learn More about CldImage
-* [Configuration](/cldimage/configuration)
-* [Examples](/cldimage/examples)
+
+- [Configuration](/cldimage/configuration)
+- [Examples](/cldimage/examples)

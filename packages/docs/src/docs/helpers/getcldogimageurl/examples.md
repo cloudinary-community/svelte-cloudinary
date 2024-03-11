@@ -32,14 +32,14 @@ order: 3
     preserveTransformations
   />
 
-  ### Basic
+### Basic
 
-  ```js
+```js
+getCldOgImageUrl({
+	src: 'images/galaxy'
+});
+```
 
-  getCldOgImageUrl({
-    src: 'images/galaxy',
-  })
-  ```
 </li>
 <li>
   <CldImage
@@ -55,14 +55,15 @@ order: 3
     preserveTransformations
   />
 
-  ### Background Removal & Underlay
+### Background Removal & Underlay
 
-  ```js
-  getCldOgImageUrl({
-    src: 'images/turtle',
-    removeBackground: true,
-    underlay: 'images/galaxy'
-  })
-  ```
+```js
+getCldOgImageUrl({
+	src: 'images/turtle',
+	removeBackground: true,
+	underlay: 'images/galaxy'
+});
+```
+
 </li>
 </ImageGrid>

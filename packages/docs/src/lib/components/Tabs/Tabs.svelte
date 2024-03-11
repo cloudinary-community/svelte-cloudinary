@@ -28,9 +28,4 @@
 <ul class="flex flex-wrap rtl:space-x-reverse list-none">
 	<slot />
 </ul>
-<div
-	class="p-4 pt-0 rounded-lg "
-	role="tabpanel"
-	aria-labelledby="id-tab"
-	use:init
-/>
+<div class="p-4 pt-0 rounded-lg" role="tabpanel" aria-labelledby="id-tab" use:init />

@@ -1,6 +1,7 @@
 ---
 title: Guides/Placeholders
 ---
+
 <script>
 
 import Callout from '$lib/components/Callout.svelte'
@@ -21,9 +22,9 @@ This helps for providing a great user experience, rather than an empty space, to
 let the visitor know that image is loading.
 
 To do this, we have several options:
+
 - `placeholder="blur"` coupled with a `blurDataURL`
 - `placeholder="..."` with the contents being a data URL
-
 
 ## Blurred Images
 
@@ -44,7 +45,6 @@ then pass it in to our CldImage component.
 </HeaderImage>
 
     Inside of the SvelteKit app, we can utilize server side code to generate a data URL from our image.
-
 
 <CodeBlock>
 
@@ -67,28 +67,26 @@ export const load = () => {
   }
 }
 ```
+
 </CodeBlock>
 
     Then when rendering CldImage, utilize the `dataUrl` using `placeholder` and `blurDataURL`:
 
-
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
-  export let data
+	import { CldImage } from 'svelte-cloudinary';
+	export let data;
 </script>
 
 <CldImage
-  src="<Your Public ID>"
-  width="600"
-  height="400"
-  alt="Decriptive text"
-  placeholder="blur"
-  blurDataURL={data.dataUrl}
+	src="<Your Public ID>"
+	width="600"
+	height="400"
+	alt="Decriptive text"
+	placeholder="blur"
+	blurDataURL={data.dataUrl}
 />
 ```
-
 
 ## Shimmer
 
@@ -113,7 +111,7 @@ Inside of the SvelteKit app you can use a server side code `+page.server.js` to 
 
 ```js
 export const load = () => {
-  const shimmer = (w: number, h: number) => `
+	const shimmer = (w: number, h: number) => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <linearGradient id="g">
@@ -125,44 +123,38 @@ export const load = () => {
       <rect width="${w}" height="${h}" fill="#333" />
       <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
       <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-    </svg>`
+    </svg>`;
 
-  const toBase64 = (str: string) =>
-    typeof window === 'undefined'
-      ? Buffer.from(str).toString('base64')
-      : window.btoa(str)
+	const toBase64 = (str: string) =>
+		typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
 
-  const dataUrl = `data:image/svg+xml;base64,${toBase64(shimmer(600, 400))}`;
-  return {
-    dataUrl
-  }
-}
-
+	const dataUrl = `data:image/svg+xml;base64,${toBase64(shimmer(600, 400))}`;
+	return {
+		dataUrl
+	};
+};
 ```
-</CodeBlock>
 
+</CodeBlock>
 
     Then when rendering CldImage, utilize the `dataUrl` using `placeholder`:
 
-
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
-  export let data
+	import { CldImage } from 'svelte-cloudinary';
+	export let data;
 </script>
 
 <CldImage
-  src="<Your Public ID>"
-  width="600"
-  height="400"
-  alt="Decriptive text"
-  placeholder={data.dataUrl}
+	src="<Your Public ID>"
+	width="600"
+	height="400"
+	alt="Decriptive text"
+	placeholder={data.dataUrl}
 />
 ```
 
-
-
-
 ## Learn More
-* [CldImage](/cldimage/usage)
-* [getCldImageUrl](/getcldimageurl/usage)
+
+- [CldImage](/cldimage/usage)
+- [getCldImageUrl](/getcldimageurl/usage)

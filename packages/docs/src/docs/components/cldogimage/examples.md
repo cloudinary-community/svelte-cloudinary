@@ -36,7 +36,7 @@ order: 3
 ### Text over a white background
 
 ```jsx
-text="Svelte Cloudinary"
+text = 'Svelte Cloudinary';
 ```
 
 </li>
@@ -80,5 +80,6 @@ overlays={[{
 }]}
 underlay="images/galaxy"
 ```
+
 </li>
 </ImageGrid>

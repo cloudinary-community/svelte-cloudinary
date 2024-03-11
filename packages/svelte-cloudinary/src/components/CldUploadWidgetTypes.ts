@@ -6,205 +6,220 @@ export type CldUploadWidgetWidgetInstance = any;
 type CustomURL = `https://${string}.${string}`;
 
 export interface CldUploadWidgetResults {
-  event?: string;
-  info?: string | object;
+	event?: string;
+	info?: string | object;
 }
 
 export type CldUploadWidgetDetsroyInstanceMethodOptions = {
-  removeThumbnails: boolean;
-}
+	removeThumbnails: boolean;
+};
 
 export type CldUploadWidgetCloseInstanceMethodOptions = {
-  quiet: boolean;
-}
+	quiet: boolean;
+};
 
 export type CldUploadWidgetOpenInstanceMethodOptions = {
-  files: CustomURL[];
-}
+	files: CustomURL[];
+};
 
 export type CldUploadWidgetOpenWidgetSources =
-  | 'local'
-  | 'url'
-  | 'camera'
-  | 'image_search'
-  | 'google_drive'
-  | 'dropbox'
-  | 'facebook'
-  | 'instagram'
-  | 'shutterstock'
-  | 'getty'
-  | 'istock'
-  | 'unsplash'
-  | null;
+	| 'local'
+	| 'url'
+	| 'camera'
+	| 'image_search'
+	| 'google_drive'
+	| 'dropbox'
+	| 'facebook'
+	| 'instagram'
+	| 'shutterstock'
+	| 'getty'
+	| 'istock'
+	| 'unsplash'
+	| null;
 
 type CldUploadWidgetUpdateInstanceMethodOptions = Omit<
-  CldUploadWidgetPropsOptions,
-  "secure" | "uploadSignature" | "getTags" | "preBatch" | "inlineContainer" | "fieldName"
+	CldUploadWidgetPropsOptions,
+	'secure' | 'uploadSignature' | 'getTags' | 'preBatch' | 'inlineContainer' | 'fieldName'
 > & {
-  cloudName: string;
-  uploadPreset: string;
-}
+	cloudName: string;
+	uploadPreset: string;
+};
 
 export interface CldUploadWidgetInstanceMethods {
-  close: (options?: CldUploadWidgetCloseInstanceMethodOptions) => void;
-  destroy: (options?: CldUploadWidgetDetsroyInstanceMethodOptions) => Promise<void>;
-  hide: () => void;
-  isDestroyed: () => boolean;
-  isMinimized: () => boolean;
-  isShowing: () => boolean;
-  minimize: () => void;
-  open: (widgetSource?: CldUploadWidgetOpenWidgetSources, options?: CldUploadWidgetOpenInstanceMethodOptions) => void;
-  show: () => void;
-  update: (options: CldUploadWidgetUpdateInstanceMethodOptions) => void;
+	close: (options?: CldUploadWidgetCloseInstanceMethodOptions) => void;
+	destroy: (options?: CldUploadWidgetDetsroyInstanceMethodOptions) => Promise<void>;
+	hide: () => void;
+	isDestroyed: () => boolean;
+	isMinimized: () => boolean;
+	isShowing: () => boolean;
+	minimize: () => void;
+	open: (
+		widgetSource?: CldUploadWidgetOpenWidgetSources,
+		options?: CldUploadWidgetOpenInstanceMethodOptions
+	) => void;
+	show: () => void;
+	update: (options: CldUploadWidgetUpdateInstanceMethodOptions) => void;
 }
 
-export type CldUploadWidgetError = {
-  status: string;
-  statusText: string;
-} | string | null;
+export type CldUploadWidgetError =
+	| {
+			status: string;
+			statusText: string;
+	  }
+	| string
+	| null;
 
 export interface CldUploadWidgetProps {
-  onError?: CldUploadEventCallbackError;
-  onOpen?: CldUploadEventCallbackWidgetOnly;
-  onUpload?: CldUploadEventCallbackNoOptions;
-  onAbort?: CldUploadEventCallback;
-  onBatchCancelled?: CldUploadEventCallback;
-  onClose?: CldUploadEventCallbackWidgetOnly;
-  onDisplayChanged?: CldUploadEventCallback;
-  onPublicId?: CldUploadEventCallback;
-  onQueuesEnd?: CldUploadEventCallback;
-  onQueuesStart?: CldUploadEventCallback;
-  onRetry?: CldUploadEventCallback;
-  onShowCompleted?: CldUploadEventCallback;
-  onSourceChanged?: CldUploadEventCallback;
-  onSuccess?: CldUploadEventCallback;
-  onTags?: CldUploadEventCallback;
-  onUploadAdded?: CldUploadEventCallback;
-  options?: CldUploadWidgetPropsOptions;
-  signatureEndpoint?: URL | RequestInfo;
-  uploadPreset?: string;
+	onError?: CldUploadEventCallbackError;
+	onOpen?: CldUploadEventCallbackWidgetOnly;
+	onUpload?: CldUploadEventCallbackNoOptions;
+	onAbort?: CldUploadEventCallback;
+	onBatchCancelled?: CldUploadEventCallback;
+	onClose?: CldUploadEventCallbackWidgetOnly;
+	onDisplayChanged?: CldUploadEventCallback;
+	onPublicId?: CldUploadEventCallback;
+	onQueuesEnd?: CldUploadEventCallback;
+	onQueuesStart?: CldUploadEventCallback;
+	onRetry?: CldUploadEventCallback;
+	onShowCompleted?: CldUploadEventCallback;
+	onSourceChanged?: CldUploadEventCallback;
+	onSuccess?: CldUploadEventCallback;
+	onTags?: CldUploadEventCallback;
+	onUploadAdded?: CldUploadEventCallback;
+	options?: CldUploadWidgetPropsOptions;
+	signatureEndpoint?: URL | RequestInfo;
+	uploadPreset?: string;
 }
 
 export type CldUploadWidgetPropsChildren = {
-  cloudinary: CldUploadWidgetCloudinaryInstance;
-  widget: CldUploadWidgetWidgetInstance;
+	cloudinary: CldUploadWidgetCloudinaryInstance;
+	widget: CldUploadWidgetWidgetInstance;
 
-  error?: CldUploadWidgetError;
-  isLoading?: boolean;
-  results?: CldUploadWidgetResults;
+	error?: CldUploadWidgetError;
+	isLoading?: boolean;
+	results?: CldUploadWidgetResults;
 } & CldUploadWidgetInstanceMethods;
 
 // Parameters sourced from:
 // https://cloudinary.com/documentation/upload_widget_reference#parameters
 
 export interface CldUploadWidgetPropsOptions {
-  // Widget
+	// Widget
 
-  encryption?: {
-    key: string;
-    iv: string;
-  }
-  defaultSource?: string;
-  maxFiles?: number;
-  multiple?: boolean;
-  sources?: Array<
-    "camera"
-    | "dropbox"
-    | "facebook"
-    | "gettyimages"
-    | "google_drive"
-    | "image_search"
-    | "instagram"
-    | "istock"
-    | "local"
-    | "shutterstock"
-    | "unsplash"
-    | "url"
-  >;
+	encryption?: {
+		key: string;
+		iv: string;
+	};
+	defaultSource?: string;
+	maxFiles?: number;
+	multiple?: boolean;
+	sources?: Array<
+		| 'camera'
+		| 'dropbox'
+		| 'facebook'
+		| 'gettyimages'
+		| 'google_drive'
+		| 'image_search'
+		| 'instagram'
+		| 'istock'
+		| 'local'
+		| 'shutterstock'
+		| 'unsplash'
+		| 'url'
+	>;
 
-  // Cropping
+	// Cropping
 
-  cropping?: boolean;
-  croppingAspectRatio?: number;
-  croppingCoordinatesMode?: string;
-  croppingDefaultSelectionRatio?: number;
-  croppingShowBackButton?: boolean;
-  croppingShowDimensions?: boolean;
-  showSkipCropButton?: boolean;
+	cropping?: boolean;
+	croppingAspectRatio?: number;
+	croppingCoordinatesMode?: string;
+	croppingDefaultSelectionRatio?: number;
+	croppingShowBackButton?: boolean;
+	croppingShowDimensions?: boolean;
+	showSkipCropButton?: boolean;
 
-  // Sources
+	// Sources
 
-  dropboxAppKey?: string;
-  facebookAppId?: string;
-  googleApiKey?: string;
-  googleDriveClientId?: string;
-  instagramClientId?: string;
-  searchByRights?: boolean;
-  searchBySites?: Array<string>;
+	dropboxAppKey?: string;
+	facebookAppId?: string;
+	googleApiKey?: string;
+	googleDriveClientId?: string;
+	instagramClientId?: string;
+	searchByRights?: boolean;
+	searchBySites?: Array<string>;
 
-  // Upload
+	// Upload
 
-  context?: object;
-  folder?: string;
-  publicId?: string;
-  resourceType?: string;
-  tags?: Array<string>;
-  uploadSignature?: string | Function;
-  uploadSignatureTimestamp?: number;
+	context?: object;
+	folder?: string;
+	publicId?: string;
+	resourceType?: string;
+	tags?: Array<string>;
+	uploadSignature?: string | Function;
+	uploadSignatureTimestamp?: number;
 
-  // Client Side
+	// Client Side
 
-  clientAllowedFormats?: Array<string>;
-  croppingValidateDimensions?: boolean;
-  maxChunkSize?: number;
-  maxImageFileSize?: number;
-  maxImageHeight?: number;
-  maxImageWidth?: number;
-  maxFileSize?: number;
-  maxRawFileSize?: number;
-  maxVideoFileSize?: number;
-  minImageHeight?: number;
-  minImageWidth?: number;
-  validateMaxWidthHeight?: boolean;
+	clientAllowedFormats?: Array<string>;
+	croppingValidateDimensions?: boolean;
+	maxChunkSize?: number;
+	maxImageFileSize?: number;
+	maxImageHeight?: number;
+	maxImageWidth?: number;
+	maxFileSize?: number;
+	maxRawFileSize?: number;
+	maxVideoFileSize?: number;
+	minImageHeight?: number;
+	minImageWidth?: number;
+	validateMaxWidthHeight?: boolean;
 
-  // Containing Page
+	// Containing Page
 
-  fieldName?: string;
-  form?: string;
-  thumbnails?: string;
-  thumbnailTransformation?: string | Array<object>;
+	fieldName?: string;
+	form?: string;
+	thumbnails?: string;
+	thumbnailTransformation?: string | Array<object>;
 
-  // Customization
+	// Customization
 
-  buttonCaption?: string;
-  buttonClass?: string;
-  text?: object;
-  theme?: string;
-  styles?: object;
+	buttonCaption?: string;
+	buttonClass?: string;
+	text?: object;
+	theme?: string;
+	styles?: object;
 
-  // Advanced
+	// Advanced
 
-  autoMinimize?: boolean;
-  getTags?: Function;
-  getUploadPresets?: Function;
-  inlineContainer?: any; // string or DOM element
-  language?: string;
-  preBatch?: Function;
-  prepareUploadParams?: Function;
-  queueViewPosition?: string;
-  showAdvancedOptions?: boolean;
-  showCompletedButton?: boolean;
-  showInsecurePreview?: boolean;
-  showPoweredBy?: boolean;
-  showUploadMoreButton?: boolean;
-  singleUploadAutoClose?: boolean;
+	autoMinimize?: boolean;
+	getTags?: Function;
+	getUploadPresets?: Function;
+	inlineContainer?: any; // string or DOM element
+	language?: string;
+	preBatch?: Function;
+	prepareUploadParams?: Function;
+	queueViewPosition?: string;
+	showAdvancedOptions?: boolean;
+	showCompletedButton?: boolean;
+	showInsecurePreview?: boolean;
+	showPoweredBy?: boolean;
+	showUploadMoreButton?: boolean;
+	singleUploadAutoClose?: boolean;
 }
 
-export type CldUploadEventCallback = (results: CldUploadWidgetResults, widget: CldUploadEventCallbackWidget) => void;
-export type CldUploadEventCallbackNoOptions = (results: CldUploadWidgetResults, widget: CldUploadWidgetWidgetInstance) => void;
+export type CldUploadEventCallback = (
+	results: CldUploadWidgetResults,
+	widget: CldUploadEventCallbackWidget
+) => void;
+export type CldUploadEventCallbackNoOptions = (
+	results: CldUploadWidgetResults,
+	widget: CldUploadWidgetWidgetInstance
+) => void;
 export type CldUploadEventCallbackWidgetOnly = (widget: CldUploadWidgetWidgetInstance) => void;
-export type CldUploadEventCallbackError = (error: CldUploadWidgetError, widget: CldUploadWidgetWidgetInstance) => void;
+export type CldUploadEventCallbackError = (
+	error: CldUploadWidgetError,
+	widget: CldUploadWidgetWidgetInstance
+) => void;
 
 export type CldUploadEventCallbackWidget = {
-  widget: CldUploadWidgetWidgetInstance;
+	widget: CldUploadWidgetWidgetInstance;
 } & CldUploadWidgetInstanceMethods;

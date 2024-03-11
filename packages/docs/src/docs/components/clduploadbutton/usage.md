@@ -20,26 +20,24 @@ The CldUploadButton component wraps the [CldUploadWidget](/CldUploadWidget/usage
 
 ```svelte
 <script>
-  import { CldUploadButton } from 'svelte-cloudinary';
+	import { CldUploadButton } from 'svelte-cloudinary';
 </script>
 
 <CldUploadButton uploadPreset="<Upload Preset>" />
 ```
 
-
 <CldUploadButton
 class="cldbutton"
-  onUpload={(result, widget) => {
-    info = result?.info
-    widget.close();
-  }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+onUpload={(result, widget) => {
+info = result?.info
+widget.close();
+}}
+uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
+
 <p>URL: { info?.secure_url }</p>
 
 ## Learn More about CldUploadButton
-* [Configuration](/clduploadbutton/configuration)
-* [Examples](/clduploadbutton/examples)
 
-
-
+- [Configuration](/clduploadbutton/configuration)
+- [Examples](/clduploadbutton/examples)

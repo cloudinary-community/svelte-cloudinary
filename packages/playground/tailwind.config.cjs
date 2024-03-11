@@ -6,10 +6,10 @@ const config = {
 			sm: '640px',
 			md: '768px',
 			lg: '1024px',
-			xl: '1280px',
+			xl: '1280px'
 		},
 		fontFamily: {
-			display: ['inter', 'sans-serif'],
+			display: ['inter', 'sans-serif']
 		},
 		letterSpacing: {
 			tight: '-0.015em'
@@ -24,10 +24,7 @@ const config = {
 		darkModeVariant: true
 	},
 	dark: 'class',
-	plugins: [
-		 require('@tailwindcss/typography'),
-
-	]
+	plugins: [require('@tailwindcss/typography')]
 };
 
 module.exports = config;

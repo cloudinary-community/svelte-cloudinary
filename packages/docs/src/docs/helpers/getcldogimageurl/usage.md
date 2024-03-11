@@ -22,7 +22,7 @@ The only required prop is `src`:
 import { getCldOgImageUrl } from 'svelte-cloudinary';
 
 const url = getCldOgImageUrl({
-  src: '<Public ID>'
+	src: '<Public ID>'
 });
 ```
 
@@ -80,5 +80,6 @@ const twitterImageUrl = getCldImageUrl({
 Find out how else you can customize your Cloudinary image over on [getCldImageUrl configuration](/getcldimageurl/configuration).
 
 ## Learn More about getCldOgImageUrl
-* [Configuration](/getcldogimageurl/configuration)
-* [Examples](/getcldogimageurl/examples)
+
+- [Configuration](/getcldogimageurl/configuration)
+- [Examples](/getcldogimageurl/examples)

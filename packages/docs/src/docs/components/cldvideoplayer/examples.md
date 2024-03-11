@@ -23,15 +23,16 @@ order: 3
     src={`videos/mountain-stars`}
   />
 
-  ### Default
+### Default
 
-  Basic settings to display a video.
+Basic settings to display a video.
 
-  ```jsx
-  width="1620"
-  height="1080"
-  src="videos/mountain-stars"
-  ```
+```jsx
+width = '1620';
+height = '1080';
+src = 'videos/mountain-stars';
+```
+
 </li>
 <li>
   <div style={{ maxWidth: 500, margin: '0 auto' }}>
@@ -48,15 +49,16 @@ order: 3
     />
   </div>
 
-  ### Crop & Resize
+### Crop & Resize
 
-  Basic settings to display a video.
+Basic settings to display a video.
 
-  ```jsx
-  width="1620"
-  height="1080"
-  src="videos/dog-running-snow"
-  ```
+```jsx
+width = '1620';
+height = '1080';
+src = 'videos/dog-running-snow';
+```
+
 </li>
 <li>
   <CldVideoPlayer
@@ -73,21 +75,22 @@ order: 3
     }}
   />
 
-  ### Transformation: overlay
+### Transformation: overlay
 
-  Adding a watermark to a video.
+Adding a watermark to a video.
 
-  ```jsx
-  src="videos/mountain-stars"
-  transformation={{
-    overlay: "assets:space-jelly-cosmo-helmet",
-    width: 150,
-    gravity: "south_east",
-    x: 50,
-    y: 50,
-    opacity: 40
-  }}
-  ```
+```jsx
+src="videos/mountain-stars"
+transformation={{
+  overlay: "assets:space-jelly-cosmo-helmet",
+  width: 150,
+  gravity: "south_east",
+  x: 50,
+  y: 50,
+  opacity: 40
+}}
+```
+
 </li>
 <li>
   <CldVideoPlayer
@@ -102,18 +105,19 @@ order: 3
     fontFace="Source Serif Pro"
   />
 
-  ### Custom Player Colors & Font
+### Custom Player Colors & Font
 
-  Changing the player theme using colors and fonts
+Changing the player theme using colors and fonts
 
-  ```jsx
-  colors={{
-    accent: '#ff0000',
-    base: '#00ff00',
-    text: '#0000ff'
-  }}
-  fontFace="Source Serif Pro"
-  ```
+```jsx
+colors={{
+  accent: '#ff0000',
+  base: '#00ff00',
+  text: '#0000ff'
+}}
+fontFace="Source Serif Pro"
+```
+
 </li>
 <li>
   <CldVideoPlayer
@@ -126,15 +130,16 @@ order: 3
     }}
   />
 
-  ### Custom Logo
+### Custom Logo
 
-  Adding a custom logo to the player chrome
+Adding a custom logo to the player chrome
 
-  ```jsx
-  logo={{
-    imageUrl: 'https://svelte.cloudinary.dev/logo.svg',
-    onClickUrl: 'https://svelte.cloudinary.dev'
-  }}
-  ```
+```jsx
+logo={{
+  imageUrl: 'https://svelte.cloudinary.dev/logo.svg',
+  onClickUrl: 'https://svelte.cloudinary.dev'
+}}
+```
+
 </li>
 </ImageGrid>

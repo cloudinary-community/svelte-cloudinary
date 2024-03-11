@@ -11,6 +11,6 @@
 		"strict": true,
 		"moduleResolution": "NodeNext",
 		"allowImportingTsExtensions": true,
-		"types":["vitest/globals"]
+		"types": ["vitest/globals"]
 	}
 }

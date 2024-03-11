@@ -12,6 +12,7 @@ order: 4
 	let infoUploadSecure
 
 </script>
+
 # Signing CldUploadWidget Uploads
 
 Signing requests is an easy way to provide enhanced security for your file uploads. This helps
@@ -22,15 +23,12 @@ deter people from making unauthenticated uploads to your cloud.
 Setting up CldUploadWidget to sign uploads is as simple as passing an API endpoint as a prop:
 
 ```svelte
-
 <script>
-  import { CldUploadWidget } from 'svelte-cloudinary';
+	import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
 <CldUploadWidget signatureEndpoint="<API Endpoint (ex: /api/sign-cloudinary-params)>" let:open>
-    <button on:click={open}>
-      Upload an Image
-    </button>
+	<button on:click={open}> Upload an Image </button>
 </CldUploadWidget>
 ```
 
@@ -62,7 +60,6 @@ CLOUDINARY_API_SECRET="<Your API Secret>"
 
 Then, we want to create a new API endpoint, using a `+server.js` file.
 
-
 <CodeBlock>
 
 ```js
@@ -87,4 +84,5 @@ export const POST = (async ({ request }) => {
 });
 
 ```
+
 </CodeBlock>

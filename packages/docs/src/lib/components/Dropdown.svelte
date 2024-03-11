@@ -2,8 +2,8 @@
 	export let title: string;
 	export let link: string;
 	export let items: Array<string> = [];
-	import { page } from '$app/stores'
-	const href=(item: string) => `/${link}/${item.split(' ').join('-')}/`
+	import { page } from '$app/stores';
+	const href = (item: string) => `/${link}/${item.split(' ').join('-')}/`;
 </script>
 
 <div tabIndex="0" class="collapse collapse-arrow" style="padding: 0 0 0 10px!important">
@@ -20,7 +20,7 @@
 					<a
 						href={href(item)}
 						class="capitalize text-xs"
-						class:active={$page.url.pathname === href(item)}>{item.replaceAll('-',' ')}</a
+						class:active={$page.url.pathname === href(item)}>{item.replaceAll('-', ' ')}</a
 					>
 				</li>
 			{/each}

@@ -2,6 +2,7 @@
 title: Guides/Background Removal
 order: 1
 ---
+
 <script>
 
 import Callout from '$lib/components/Callout.svelte'
@@ -9,7 +10,6 @@ import { Tabs, Tab} from '$lib/components/Tabs'
 import { CldOgImage, CldImage } from 'svelte-cloudinary'
 
 </script>
-
 
 # Removing a Background from an Image
 
@@ -37,16 +37,16 @@ The CldImage component allows you to easily remove backgrounds from images using
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary'
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="images/turtle"
-  sizes="100vw"
-  removeBackground
-  alt="Turtle"
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	removeBackground
+	alt="Turtle"
 />
 ```
 
@@ -55,21 +55,21 @@ The CldImage component allows you to easily remove backgrounds from images using
 
 ```html
 <script>
-  import { getCldImageUrl } from 'svelte-cloudinary'
+	import { getCldImageUrl } from 'svelte-cloudinary';
 
-  const cldUrl = getCldImageUrl({
-    width: 960,
-    height: 600,
-    src: 'images/turtle',
-    removeBackground: true
-  })
+	const cldUrl = getCldImageUrl({
+		width: 960,
+		height: 600,
+		src: 'images/turtle',
+		removeBackground: true
+	});
 </script>
 ```
 
   </Tab>
 </Tabs>
 
-
 ## Learn More
-* [CldImage](/cldimage/usage)
-* [getCldImageUrl](/getcldimageurl/usage)
+
+- [CldImage](/cldimage/usage)
+- [getCldImageUrl](/getcldimageurl/usage)

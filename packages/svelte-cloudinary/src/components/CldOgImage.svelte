@@ -6,14 +6,14 @@
 
 	const TWITTER_CARD = 'summary_large_image';
 
-	type CldOgImageProps = Omit<CldImageProps,'heigth' | 'heigth' | 'layout' > & {
+	type CldOgImageProps = Omit<CldImageProps, 'heigth' | 'heigth' | 'layout'> & {
 		excludeTags?: Array<string>;
 		keys?: object;
 		twitterTitle?: string;
 		width?: string | number;
 		height?: string | number;
 	};
-	type $$Props = CldOgImageProps
+	type $$Props = CldOgImageProps;
 
 	const options: ImageOptions = {
 		...$$props,
@@ -22,7 +22,7 @@
 		height: $$props.height || OG_IMAGE_HEIGHT,
 		src: $$props.src,
 		width: $$props.width || OG_IMAGE_WIDTH,
-		widthResize: $$props.width || OG_IMAGE_WIDTH_RESIZE,
+		widthResize: $$props.width || OG_IMAGE_WIDTH_RESIZE
 	};
 
 	let width = typeof options.width === 'string' ? parseInt(options.width) : options.width;

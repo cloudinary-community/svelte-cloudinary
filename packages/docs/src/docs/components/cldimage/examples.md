@@ -11,7 +11,6 @@ order: 3
   import { CldImage } from 'svelte-cloudinary'
 </script>
 
-
 # CldImage Examples
 
 ## Basic Transformations
@@ -39,20 +38,13 @@ not only deliver, but easily edit and build new images on the fly.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  removeBackground
-  alt=""
-/>
+<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" removeBackground alt="" />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false} type="info">
@@ -78,22 +70,21 @@ not only deliver, but easily edit and build new images on the fly.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  removeBackground
-  background="blueviolet"
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	removeBackground
+	background="blueviolet"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 #### Image Background
@@ -115,21 +106,21 @@ not only deliver, but easily edit and build new images on the fly.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  removeBackground
-  underlay="<Your Public ID>"
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	removeBackground
+	underlay="<Your Public ID>"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Cropping & Resizing
@@ -139,7 +130,7 @@ not only deliver, but easily edit and build new images on the fly.
 `crop`: Specifies the mode to use when cropping an image based on the given dimensions.
 
 > Note: By default, CldImage uses a gravity of auto, meaning the crop will automatically
-position the subject in the center of the resulting image.
+> position the subject in the center of the resulting image.
 
 <HeaderImage>
   <CldImage
@@ -155,21 +146,13 @@ position the subject in the center of the resulting image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-
-<CldImage
-  width="300"
-  height="300"
-  src="<Your Public ID>"
-  sizes="100vw"
-  crop="thumb"
-  alt=""
-/>
+<CldImage width="300" height="300" src="<Your Public ID>" sizes="100vw" crop="thumb" alt="" />
 ```
+
 </CodeBlock>
 
 ### Generative Fill
@@ -206,6 +189,7 @@ position the subject in the center of the resulting image.
   sizes="100vw"
 />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false}>
@@ -231,22 +215,21 @@ position the subject in the center of the resulting image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-
 <CldImage
-  src="<Your Public ID>"
-  width="960"
-  height="600"
-  crop="fill"
-  recolor={['shoelaces', 'purple']}
-  alt=""
-  sizes="100vw"
+	src="<Your Public ID>"
+	width="960"
+	height="600"
+	crop="fill"
+	recolor={['shoelaces', 'purple']}
+	alt=""
+	sizes="100vw"
 />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false}>
@@ -272,21 +255,21 @@ position the subject in the center of the resulting image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  src="<Your Public ID>"
-  width="960"
-  height="600"
-  crop="fill"
-  remove="mountain"
-  alt=""
-  sizes="100vw"
+	src="<Your Public ID>"
+	width="960"
+	height="600"
+	crop="fill"
+	remove="mountain"
+	alt=""
+	sizes="100vw"
 />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false}>
@@ -312,21 +295,21 @@ position the subject in the center of the resulting image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  crop="fill"
-  src="<Your Public ID>"
-  replace={['turtle', 'shark']}
-  alt=""
-  sizes="100vw"
+	width="960"
+	height="600"
+	crop="fill"
+	src="<Your Public ID>"
+	replace={['turtle', 'shark']}
+	alt=""
+	sizes="100vw"
 />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false}>
@@ -360,27 +343,26 @@ position the subject in the center of the resulting image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  src="<Your Public ID>"
-  width="960"
-  height="600"
-  crop="fill"
-  restore
-  sizes="100vw"
-  alt=""
+	src="<Your Public ID>"
+	width="960"
+	height="600"
+	crop="fill"
+	restore
+	sizes="100vw"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 <Callout emoji={false}>
   The generative restore transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_restore">Learn more</a>.
 </Callout>
-
 
 ## Filters & Effects
 
@@ -405,20 +387,13 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  blur="1200"
-  alt=""
-/>
+<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" blur="1200" alt="" />
 ```
+
 </CodeBlock>
 
 ### Grayscale
@@ -439,20 +414,13 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  grayscale
-  alt=""
-/>
+<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" grayscale alt="" />
 ```
+
 </CodeBlock>
 
 ### Opacity
@@ -473,20 +441,13 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  opacity="50"
-  alt=""
-/>
+<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" opacity="50" alt="" />
 ```
+
 </CodeBlock>
 
 ### Pixelate
@@ -507,20 +468,13 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  pixelate
-  alt=""
-/>
+<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" pixelate alt="" />
 ```
+
 </CodeBlock>
 
 ### Tint
@@ -541,20 +495,20 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  tint="equalize:80:blue:blueviolet"
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	tint="equalize:80:blue:blueviolet"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Chaining Multiple Effects
@@ -584,29 +538,29 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  effects={[
-    {
-      background: 'green'
-    },
-    {
-      gradientFade: true
-    },
-    {
-      gradientFade: 'symetric,x_0.5'
-    }
-  ]}
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	effects={[
+		{
+			background: 'green'
+		},
+		{
+			gradientFade: true
+		},
+		{
+			gradientFade: 'symetric,x_0.5'
+		}
+	]}
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### More Filters & Effects
@@ -650,35 +604,37 @@ Image overlays allow you to place one or multiple images on top of another image
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  overlays={[{
-    publicId: '<Your Public ID>',
-    position: {
-      x: 50,
-      y: 50,
-      gravity: 'north_west',
-    },
-    effects: [
-      {
-        crop: 'fill',
-        gravity: 'auto',
-        width: 500,
-        height: 500
-      }
-    ]
-  }]}
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	overlays={[
+		{
+			publicId: '<Your Public ID>',
+			position: {
+				x: 50,
+				y: 50,
+				gravity: 'north_west'
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: 500,
+					height: 500
+				}
+			]
+		}
+	]}
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Overlay Image with Blend Mode
@@ -715,35 +671,37 @@ that applies a blend mode, such as "multiply"
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  crop="fill"
-  src="<Your Public ID>"
-  overlays={[{
-    publicId: '<Your Public ID>',
-    effects: [
-      {
-        crop: 'fill',
-        gravity: 'auto',
-        width: 960,
-        height: 600
-      }
-    ],
-    appliedEffects: [
-      {
-        multiply: true
-      }
-    ]
-  }]}
-  alt=""
+	width="960"
+	height="600"
+	crop="fill"
+	src="<Your Public ID>"
+	overlays={[
+		{
+			publicId: '<Your Public ID>',
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: 960,
+					height: 600
+				}
+			],
+			appliedEffects: [
+				{
+					multiply: true
+				}
+			]
+		}
+	]}
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ## Image Underlays
@@ -769,21 +727,21 @@ Image underlays allow you to place one or multiple images behind a base image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  removeBackground
-  underlay="<Your Public ID>"
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	removeBackground
+	underlay="<Your Public ID>"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Replace Background with Multiple Images
@@ -824,42 +782,41 @@ Image underlays allow you to place one or multiple images behind a base image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="960"
-  height="600"
-  src="<Your Public ID>"
-  sizes="100vw"
-  removeBackground
-  underlays={[
-    {
-      publicId: '<Your Public ID>',
-      width: 480,
-      height: 600,
-      crop: 'fill',
-      position: {
-        gravity: 'north_west'
-      }
-    },
-    {
-      publicId: '<Your Public ID>',
-      width: 480,
-      height: 600,
-      crop: 'fill',
-      position: {
-        gravity: 'south_east'
-      }
-    },
-  ]}
-  alt=""
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	removeBackground
+	underlays={[
+		{
+			publicId: '<Your Public ID>',
+			width: 480,
+			height: 600,
+			crop: 'fill',
+			position: {
+				gravity: 'north_west'
+			}
+		},
+		{
+			publicId: '<Your Public ID>',
+			width: 480,
+			height: 600,
+			crop: 'fill',
+			position: {
+				gravity: 'south_east'
+			}
+		}
+	]}
+	alt=""
 />
 ```
-</CodeBlock>
 
+</CodeBlock>
 
 ## Text Overlays
 
@@ -885,22 +842,22 @@ Text overlays allow you to place text on top of an image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="1335"
-  height="891"
-  src="<Your Public ID>"
-  sizes="100vw"
-  blur="2000"
-  brightness="300"
-  text="Cool Beans"
-  alt=""
+	width="1335"
+	height="891"
+	src="<Your Public ID>"
+	sizes="100vw"
+	blur="2000"
+	brightness="300"
+	text="Cool Beans"
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Adding Custom Text
@@ -939,38 +896,40 @@ Text overlays allow you to place text on top of an image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="1335"
-  height="891"
-  src="<Your Public ID>"
-  sizes="100vw"
-  overlays={[{
-    width: 2670 - 20,
-    crop: 'fit',
-    position: {
-      x: 140,
-      y: 140,
-      angle: -20,
-      gravity: 'south_east',
-    },
-    text: {
-      color: 'blueviolet',
-      fontFamily: 'Source Sans Pro',
-      fontSize: 160,
-      fontWeight: 'bold',
-      textDecoration: 'underline',
-      letterSpacing: 14,
-      text: 'Cool Beans'
-    }
-  }]}
-  alt=""
+	width="1335"
+	height="891"
+	src="<Your Public ID>"
+	sizes="100vw"
+	overlays={[
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east'
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 160,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Cool Beans'
+			}
+		}
+	]}
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ### Adding Text with Effects
@@ -1005,37 +964,38 @@ Text overlays allow you to place text on top of an image.
 <CodeBlock>
 
 ```svelte
-
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width="1335"
-  height="891"
-  src="<Your Public ID>"
-  sizes="100vw"
-  overlays={[{
-    text: {
-      color: 'white',
-      fontFamily: 'Source Sans Pro',
-      fontSize: 160,
-      fontWeight: 'bold',
-      text: 'Cool Beans'
-    },
-    effects: [
-      {
-        shear: '40:0',
-        opacity: 50
-      }
-    ]
-  }]}
-  alt=""
+	width="1335"
+	height="891"
+	src="<Your Public ID>"
+	sizes="100vw"
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 160,
+				fontWeight: 'bold',
+				text: 'Cool Beans'
+			},
+			effects: [
+				{
+					shear: '40:0',
+					opacity: 50
+				}
+			]
+		}
+	]}
+	alt=""
 />
 ```
+
 </CodeBlock>
 
 ## More Examples
 
 Find more examples on [Social Card Templates](/templates/social-media-cards).
-

@@ -17,7 +17,7 @@ const config = {
 		preprocess({
 			postcss: true,
 			style: sass()
-		}),
+		})
 	],
 
 	kit: {

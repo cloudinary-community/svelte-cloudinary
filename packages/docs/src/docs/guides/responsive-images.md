@@ -1,6 +1,7 @@
 ---
 title: Guides/Responsive Images
 ---
+
 <script>
 
 import Callout from '$lib/components/Callout.svelte'
@@ -17,7 +18,6 @@ import { CldOgImage, CldImage } from 'svelte-cloudinary'
 The [CldImage](/cldimage/usage) component takes advantage of responsive images generated using the [Unpic component](https://unpic.pics/img/svelte/).
 
 Using the `sizes` prop, you can configure exactly the sizes you need for your application:
-
 
 ```svelte
 <script>
@@ -43,16 +43,16 @@ In an example such as:
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  ...
-  width="600"
-  height="600"
-  sizes="(max-width: 480px) 100vw, 50vw"
-  crop="thumb"
-  gravity="faces"
+	...
+	width="600"
+	height="600"
+	sizes="(max-width: 480px) 100vw, 50vw"
+	crop="thumb"
+	gravity="faces"
 />
 ```
 
