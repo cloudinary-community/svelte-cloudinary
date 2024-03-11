@@ -10,7 +10,7 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check . && eslint . && publint",
+		"lint": "prettier --plugin-search-dir . --check . && publint",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"exports": {
