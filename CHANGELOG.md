@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.3...v1.2.4) (2024-03-11)
+
+
+### Bug Fixes
+
+* revert breaking change preventing use in non-kit projects ([#97](https://github.com/cloudinary-community/svelte-cloudinary/issues/97)) ([f629a03](https://github.com/cloudinary-community/svelte-cloudinary/commit/f629a035d349b430d6a022bf657a2bccf29487af))
+
 ## [1.2.3](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.2...v1.2.3) (2024-02-29)
 
 

@@ -1,7 +1,7 @@
 {
 	"name": "svelte-cloudinary",
 	"author": "Matias Hernandez <hola@matiashernandez.dev>",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"license": "MIT",
 	"scripts": {
 		"dev": "node scripts/gen-metadata.js && vite dev",
