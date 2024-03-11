@@ -33,6 +33,9 @@ jobs:
             - name: Lint
               run: pnpm lint
 
+            # - name: Svelte Check
+            #   run: pnpm check
+
             - name: Test
               run: pnpm test
 
