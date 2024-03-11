@@ -146,6 +146,59 @@ To preserve those transformations, you can apply the `preserveTransformations` p
 />
 ```
 
+## Events
+
+You can capture both the `on:load` and `on:error` events to take actions when your image loads.
+
+In this working example you will see "Turtle has loaded" in the console.
+
+```svelte
+<CldImage
+  width="960"
+  height="600"
+  src={`images/turtle`}
+  sizes="100vw"
+  alt="Turtle in the ocean"
+	on:load={() => console.log("Turtle has loaded.")}
+  on:error={()=>console.error("Turtle Error")}
+/>
+```
+
+<CldImage
+  width="960"
+  height="600"
+  src={`images/turtle`}
+  sizes="100vw"
+  alt="Turtle in the ocean"
+	on:load={() => console.log("Turtle has loaded.")}
+  on:error={()=>console.error("Turtle Error")}
+/>
+
+In this broken example you will see "Turtle Error" in the console.
+
+```svelte
+<CldImage
+  width="960"
+  height="600"
+  src={`images/turtle-broken`}
+  sizes="100vw"
+  alt="Broken Turtle Image"
+	on:load={() => console.log("Turtle has loaded.")}
+  on:error={()=>console.error("Turtle Error")}
+/>
+```
+
+<CldImage
+  width="960"
+  height="600"
+  src={`images/turtle-broken`}
+  sizes="100vw"
+  alt="Broken Turtle Image"
+	on:load={() => console.log("Turtle has loaded.")}
+  on:error={()=>console.error("Turtle Error")}
+/>
+
+
 ## Watch & Learn
 
 <Video
