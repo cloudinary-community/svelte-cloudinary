@@ -7,7 +7,9 @@
   "scripts": {
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
-    "format": "pnpm --parallel -r format"
+    "format": "pnpm --parallel -r format",
+    "test": "pnpm --filter svelte-cloudinary -r test",
+    "dev": "pnpm --filter playground -r dev"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",

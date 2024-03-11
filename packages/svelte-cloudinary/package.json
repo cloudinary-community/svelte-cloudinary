@@ -9,7 +9,7 @@
 		"postpublish": "rm ./README.md",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
+		"test": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && publint",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
@@ -30,6 +30,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/package": "^2.0.2",
+		"@sveltejs/vite-plugin-svelte": "2.2.0",
 		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/svelte": "3.2.2",
 		"@testing-library/user-event": "14.4.3",

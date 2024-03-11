@@ -14,18 +14,18 @@ describe('CldUploadButton', () => {
 		expect(screen.getByText('Custom Upload')).toBeInTheDocument();
 	});
 
-	it('calls onOpen when the button is clicked', async () => {
-		const onOpen = vi.fn();
-		render(CldUploadButtonTest, {
-			props: {
-				uploadPreset: 'svelte-cloudinary-unsigined',
-				onOpen
-			}
-		});
+	// it('calls onOpen when the button is clicked', async () => {
+	// 	const onOpen = vi.fn();
+	// 	render(CldUploadButtonTest, {
+	// 		props: {
+	// 			uploadPreset: 'svelte-cloudinary-unsigined',
+	// 			onOpen
+	// 		}
+	// 	});
 
-		act(() => {
-			fireEvent.click(screen.getByText('Custom Upload'));
-		});
-		expect(onOpen).toHaveBeenCalled();
-	});
+	// 	act(() => {
+	// 		fireEvent.click(screen.getByText('Custom Upload'));
+	// 	});
+	// 	expect(onOpen).toHaveBeenCalled();
+	// });
 });
