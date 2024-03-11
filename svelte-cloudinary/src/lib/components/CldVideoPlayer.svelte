@@ -45,7 +45,6 @@
 	import { loadCloudinary } from '$lib/util.js';
 	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
 	import { onMount } from 'svelte';
-	import { env } from '$env/dynamic/public';
 
 	const idRef = Math.ceil(Math.random() * 100000);
 	type $$Props = CldVideoPlayerProps;
@@ -147,13 +146,11 @@
 			}
 
 			// Validation
-			const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
-
-			checkCloudinaryCloudName(cloudName);
+			checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
 			
 			let playerOptions: CloudinaryVideoPlayerOptions = {
 				autoplayMode: autoPlay,
-				cloud_name: cloudName,
+				cloud_name: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
 				controls,
 				fontFace: fontFace || '',
 				loop,

@@ -1,7 +1,6 @@
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
 import { checkCloudinaryCloudName } from '../cloudinary.js';
 import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
-	import { env } from '$env/dynamic/public';
 
 import {
   SVELTE_CLOUDINARY_ANALYTICS_ID,
@@ -23,8 +22,8 @@ export interface GetCldImageUrl {
 }
 
 /**
- * Generates the Cloudinary url for the assets
- * based on the configuration passed to the function
+ * Generates the Cloudinary url for the assets  
+ * based on the configuration passed to the function  
  * @returns string
 */
 export function getCldImageUrl(
@@ -33,16 +32,15 @@ export function getCldImageUrl(
   analytics?: AnalyticsOptions
 ) {
 
-  const cloudName = env.PUBLIC_CLOUDINARY_CLOUD_NAME || import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME;
   // Validation
-  checkCloudinaryCloudName(cloudName);
+  checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
 
   return constructCloudinaryUrl({
     options,
     config: Object.assign(
       {
         cloud: {
-          cloudName: cloudName
+          cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME
         }
       },
       config
