@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { tick } from 'svelte';
 	import { env } from '$env/dynamic/public';
-	import CldImage from '$lib/components/CldImage.svelte';
-	import CldUploadButton from '$lib/components/CldUploadButton.svelte';
+	import { CldImage, CldUploadButton } from 'svelte-cloudinary';
 
 	import CodeBlock from './_components/CodeBlock.svelte';
 	import Toggle from './_components/Toggle.svelte';
@@ -78,10 +77,8 @@
 		rawTransformations: [{ label: 'Blur', value: 'e_blur:2000' }]
 	};
 
-
-	let infoUpload
-	let infoUploadSecure
-
+	let infoUpload;
+	let infoUploadSecure;
 </script>
 
 <!-- TODO: mobile styling - doesn't seem urgent since users will only see this page if they're actively coding, but could be a good exercise for someone -->
@@ -161,30 +158,27 @@
 		<CldUploadButton
 			class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
 			onUpload={(result, widget) => {
-			  infoUpload = result?.info
-			  widget.close();
+				infoUpload = result?.info;
+				widget.close();
 			}}
 			uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 		>
 			Unsigned Upload
 		</CldUploadButton>
-		<p><strong>URL:</strong> { infoUpload?.secure_url || 'Upload to see example result.' }</p>
-
+		<p><strong>URL:</strong> {infoUpload?.secure_url || 'Upload to see example result.'}</p>
 	</div>
 	<div class="w-full py-8">
 		<CldUploadButton
 			class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
 			onUpload={(result, widget) => {
-			  infoUploadSecure = result?.info
-			  widget.close();
+				infoUploadSecure = result?.info;
+				widget.close();
 			}}
 			uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
 			signatureEndpoint="/api"
 		>
 			Signed Upload
 		</CldUploadButton>
-		<p><strong>URL:</strong> { infoUploadSecure?.secure_url || 'Upload to see example result.' }</p>
-
-
+		<p><strong>URL:</strong> {infoUploadSecure?.secure_url || 'Upload to see example result.'}</p>
 	</div>
 </div>

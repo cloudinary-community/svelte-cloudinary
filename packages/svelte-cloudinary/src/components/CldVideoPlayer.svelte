@@ -5,7 +5,7 @@
 		CloudinaryVideoPlayerOptions,
 		CloudinaryVideoPlayerOptionsColors,
 		CloudinaryVideoPlayerOptionsLogo
-	} from '../../types/player';
+	} from '../types/player';
 
 	export type CldVideoPlayerProps = Pick<
 		CloudinaryVideoPlayerOptions,
@@ -42,8 +42,8 @@
 
 <script lang="ts">
 	import { parseUrl } from '@cloudinary-util/util';
-	import { loadCloudinary } from '$lib/util.js';
-	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
+	import { loadCloudinary } from '../util.js';
+	import { checkCloudinaryCloudName } from '../cloudinary.js';
 	import { onMount } from 'svelte';
 
 	const idRef = Math.ceil(Math.random() * 100000);

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { triggerOnIdle, loadCloudinary } from '$lib/util.js';
-	import { checkCloudinaryCloudName } from '$lib/cloudinary.js';
+	import { triggerOnIdle, loadCloudinary } from '../util.js';
+	import { checkCloudinaryCloudName } from '../cloudinary.js';
 	import type {
 		CldUploadWidgetProps,
 		CldUploadWidgetInstanceMethods,

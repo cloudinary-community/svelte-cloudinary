@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
+	import { getCldImageUrl } from '../helpers/getCldImageUrl.js';
 	import type { ImageOptions } from '@cloudinary-util/url-loader';
 	import type { CldImageProps } from './CldImageTypes.ts';
-	import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '$lib/constants/sizes.js';
+	import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '../constants/sizes.js';
 
 	const TWITTER_CARD = 'summary_large_image';
 

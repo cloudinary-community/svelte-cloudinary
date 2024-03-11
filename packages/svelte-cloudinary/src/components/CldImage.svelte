@@ -6,8 +6,8 @@
 	import { getTransformations } from '@cloudinary-util/util';
 	import { transformationPlugins } from '@cloudinary-util/url-loader';
 	import { Image } from '@unpic/svelte';
-	import { getCldImageUrl } from '$lib/helpers/getCldImageUrl.js';
-	import { cloudinaryLoader } from '$lib/loaders/cloudinary-loader.js';
+	import { getCldImageUrl } from '../helpers/getCldImageUrl.js';
+	import { cloudinaryLoader } from '../loaders/cloudinary-loader.js';
 
 	/**
 	 * set the compomnent $$props to be of type CldImageProps

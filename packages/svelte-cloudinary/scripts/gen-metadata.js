@@ -5,6 +5,6 @@ import pkg from '../package.json' assert { type: 'json'}
 const metadata = {
 	version: pkg.version
 }
-fs.writeFile('./src/lib/metadata.json', JSON.stringify(metadata), 'utf8', function(err) {
+fs.writeFile('./src/metadata.json', JSON.stringify(metadata), 'utf8', function(err) {
 	if (err) return console.log(err);
 })
