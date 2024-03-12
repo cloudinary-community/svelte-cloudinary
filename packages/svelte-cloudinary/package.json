@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "node scripts/gen-metadata.js && svelte-package --watch --input src",
 		"build": "node scripts/gen-metadata.js && svelte-package --input src",
-		"prepublishOnly": "cp ../README.md . && pnpm run package",
+		"prepublishOnly": "cp ../../README.md . && pnpm run package",
 		"postpublish": "rm ./README.md",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
