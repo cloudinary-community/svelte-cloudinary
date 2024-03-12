@@ -30,6 +30,9 @@ jobs:
             - name: Install deps
               run: pnpm install
 
+            - name: Build package
+              run: pnpm package
+
             - name: Lint
               run: pnpm lint
 
@@ -63,8 +66,7 @@ jobs:
               run: pnpm install
 
             - name: Build package
-              run: pnpm build
-              working-directory: ./packages/svelte-cloudinary
+              run: pnpm package
 
             - name: Release
               run: pnpm exec semantic-release
