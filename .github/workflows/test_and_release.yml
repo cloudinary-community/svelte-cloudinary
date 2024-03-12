@@ -28,7 +28,7 @@ jobs:
                   version: 8.12.1
 
             - name: Install deps
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Build package
               run: pnpm package
@@ -65,7 +65,7 @@ jobs:
                   version: 8.12.1
 
             - name: Install deps
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Build package
               run: pnpm package
