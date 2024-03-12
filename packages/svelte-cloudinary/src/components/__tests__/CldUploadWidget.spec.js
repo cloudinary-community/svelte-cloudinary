@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/svelte';
 import { describe, expect, vi, it, beforeAll } from 'vitest';
 import CldUploadWidgetTest from './CldUploadWidgetTest.svelte';
 
-describe.only('CldUploadWidget', () => {
+describe('CldUploadWidget', () => {
 	beforeAll(() => {
 		// Mock the window object
 		Object.defineProperty(globalThis, 'window', {
