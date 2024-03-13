@@ -19,6 +19,7 @@
 		"@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
 		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.14",
+		"cloudinary": "^1.32.0",
 		"highlight.js": "^11.8.0",
 		"postcss": "^8.4.24",
 		"postcss-load-config": "^4.0.1",
