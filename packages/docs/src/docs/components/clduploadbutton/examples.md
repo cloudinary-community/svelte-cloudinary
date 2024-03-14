@@ -4,11 +4,12 @@ order: 3
 ---
 
 <script>
-    import Callout from '$lib/components/Callout.svelte'
-    import { CldUploadButton } from 'svelte-cloudinary'
-	import { env } from '$env/dynamic/public';
-    let info
-    let infoSecure
+  import { PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET, PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET } from '$env/static/public';
+  import Callout from '$lib/components/Callout.svelte'
+  import { CldUploadButton } from 'svelte-cloudinary'
+
+  let info
+  let infoSecure
 </script>
 
 # CldUploadButton Examples
@@ -22,12 +23,9 @@ order: 3
 ### Unsigned
 
 <CldUploadButton
-class="cldbutton"
-onUpload={(result, widget) => {
-info = result?.info;
-widget.close();
-}}
-uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+  class="cldbutton"
+  onUpload={(result, widget) => { info = result?.info; widget.close(); }}
+  uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
 
 <p><strong>URL:</strong> { info?.secure_url || 'Upload to see example result.' }</p>
@@ -43,18 +41,15 @@ uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 ### Signed
 
 <CldUploadButton
-class="cldbutton"
-signatureEndpoint="/api/sign-cloudinary-params"
-onUpload={(result, widget) => {
-infoSecure = result?.info;
-widget.close();
-}}
-uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
+  class="cldbutton"
+  signatureEndpoint="/api/sign-cloudinary-params"
+  onUpload={(result, widget) => { infoSecure = result?.info; widget.close(); }}
+  uploadPreset={PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET}
 />
 
 <p><strong>URL:</strong> { infoSecure?.secure_url || 'Upload to see example result.' }</p>
 
-```
+```html
 <CldUploadButton
   signatureEndpoint="<Endpoint (ex: /api/sign-cloudinary-params)>"
   uploadPreset="<Upload Preset>"

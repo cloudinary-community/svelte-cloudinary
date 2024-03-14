@@ -7,7 +7,6 @@ order: 4
     import CodeBlock from '$lib/components/CodeBlock.svelte'
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-	import { env } from '$env/dynamic/public';
     let infoUpload
 	let infoUploadSecure
 

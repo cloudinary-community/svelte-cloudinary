@@ -4,10 +4,11 @@ order: 1
 ---
 
 <script>
+    import { PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET, PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-    import { env } from '$env/dynamic/public';
     import Video from '$lib/components/Video.svelte'
+
     let infoUpload
     let infoUploadSecure
 
@@ -50,7 +51,7 @@ Use the following to generate an unsigned upload widget:
 <CldUploadWidget
   let:open let:isLoading
   onUpload={(result, widget) => { infoUpload = result?.info; widget.close(); }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}>
+  uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}>
   <button on:click|preventDefault={open} class="cldbutton">
     Unsigned Upload
   </button>
@@ -107,7 +108,7 @@ To use the above, create a Node-based API route, add the snippet, and use that e
 See a full example of an API endpoint used with the Svelte Cloudinary docs: https://github.com/cloudinary-community/svelte-cloudinary/blob/main/docs/src/routes/api/sign-cloudinary-params/+server.ts
 
 <div class="mt-6">
-    <CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
+    <CldUploadWidget uploadPreset={PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
         signatureEndpoint="/api/sign-cloudinary-params"
           onUpload={(result, widget) => {
               infoUploadSecure = result?.info

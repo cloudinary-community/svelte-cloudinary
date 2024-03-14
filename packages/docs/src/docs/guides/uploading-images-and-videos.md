@@ -4,13 +4,11 @@ order: 9
 ---
 
 <script>
+	import { PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
+	import { CldUploadButton, CldImage } from 'svelte-cloudinary'
+	import Callout from '$lib/components/Callout.svelte'
 
-import Callout from '$lib/components/Callout.svelte'
-import { CldUploadButton, CldImage } from 'svelte-cloudinary'
-import { env } from '$env/dynamic/public';
-
-let resource
-
+	let resource
 </script>
 
 # Uploading Images & Videos
@@ -27,7 +25,7 @@ onUpload={(result, widget) => {
 resource = result?.info;
 widget.close();
 }}
-uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
 {#if resource?.resource_type === 'image'}
 <CldImage width={resource.width} height={resource.height} src={resource?.public_id} alt="Uploaded Asset" />

@@ -4,9 +4,10 @@ order: 1
 ---
 
 <script>
+	import { PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadButton } from 'svelte-cloudinary'
-	import { env } from '$env/dynamic/public';
+
     let info
 </script>
 
@@ -32,7 +33,7 @@ onUpload={(result, widget) => {
 info = result?.info
 widget.close();
 }}
-uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 />
 
 <p>URL: { info?.secure_url }</p>

@@ -4,10 +4,11 @@ order: 3
 ---
 
 <script>
+  import { PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET } from '$env/static/public';
+	  import ImageGrid from '$lib/components/ImageGrid.svelte';
     import Callout from '$lib/components/Callout.svelte'
     import { CldUploadWidget } from 'svelte-cloudinary'
-	import ImageGrid from '$lib/components/ImageGrid.svelte';
-	import { env } from '$env/dynamic/public';
+
     let info
     let infoSecure
     let infoSecure2
@@ -25,7 +26,7 @@ order: 3
     info = result?.info
     widget.close();
   }}
-  uploadPreset={env.PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
+  uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}
 >
   <button on:click|preventDefault={open} class="cldbutton">
     Unsigned Upload
@@ -41,7 +42,7 @@ uploadPreset = 'svelte-cloudinary-unsigned';
 
 <li>
 
-<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading
+<CldUploadWidget uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET} let:open let:isLoading
 signatureEndpoint="/api/sign-cloudinary-params"
 onUpload={(result, widget) => {
 infoSecure = result?.info
@@ -62,7 +63,7 @@ signatureEndpoint = '/api/sign-cloudinary-params';
 
 </li>
 <li>
-<CldUploadWidget uploadPreset={env.PUBLIC_CLOUDINARY_SIGNED_UPLOAD_PRESET} let:open let:isLoading options={{sources: ['local']}}
+<CldUploadWidget uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET} let:open let:isLoading options={{sources: ['local']}}
     signatureEndpoint="/api/sign-cloudinary-params"
       onUpload={(result, widget) => {
           infoSecure2 = result?.info
