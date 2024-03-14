@@ -4,11 +4,20 @@
   "author": "Matias Hernandez <hola@matiashernandez.dev>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "check": "pnpm -r check",
+    "format": "pnpm --parallel -r format",
+    "test": "pnpm --filter svelte-cloudinary -r test",
+    "dev": "pnpm --parallel --filter playground --filter svelte-cloudinary -r dev",
+    "package": "pnpm --filter svelte-cloudinary -r build"
+  },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^10.0.3",
+    "@semantic-release/npm": "^11.0.3",
     "gh-release": "7.0.2",
-    "semantic-release": "^19.0.5"
+    "semantic-release": "^23.0.2"
   }
 }

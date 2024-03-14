@@ -42,14 +42,14 @@
     [
       "@semantic-release/npm",
       {
-        "pkgRoot": "svelte-cloudinary"
+        "pkgRoot": "./packages/svelte-cloudinary"
       }
     ],
     [
       "@semantic-release/git",
       {
         "assets": [
-          "svelte-cloudinary/package.json",
+          "./packages/svelte-cloudinary/package.json",
           "CHANGELOG.md",
           "README.md"
         ]
