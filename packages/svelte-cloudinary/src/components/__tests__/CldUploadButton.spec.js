@@ -10,7 +10,6 @@ describe('CldUploadButton', () => {
 	});
 	it('renders the props button', () => {
 		render(CldUploadButtonTest, { props: { uploadPreset: 'svelte-cloudinary-unsigined' } });
-		screen.debug();
 		expect(screen.getByText('Custom Upload')).toBeInTheDocument();
 	});
 
