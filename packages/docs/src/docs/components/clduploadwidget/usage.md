@@ -49,12 +49,12 @@ Use the following to generate an unsigned upload widget:
 ```
 
 <CldUploadWidget
-  let:open let:isLoading
-  onUpload={(result, widget) => { infoUpload = result?.info; widget.close(); }}
-  uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}>
-  <button on:click|preventDefault={open} class="cldbutton">
-    Unsigned Upload
-  </button>
+let:open let:isLoading
+onUpload={(result, widget) => { infoUpload = result?.info; widget.close(); }}
+uploadPreset={PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET}>
+<button on:click|preventDefault={open} class="cldbutton">
+Unsigned Upload
+</button>
 </CldUploadWidget>
 
 <p><strong>URL:</strong> { infoUpload?.secure_url || 'Upload to see example result.' }</p>
