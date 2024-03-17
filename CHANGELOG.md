@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.3.0...v1.3.1) (2024-03-17)
+
+
+### Bug Fixes
+
+* package.json export typo ([e45d2aa](https://github.com/cloudinary-community/svelte-cloudinary/commit/e45d2aa4d93a69b6251f8687f4ba9f721fa003b7))
+
 # [1.3.0](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.2.4...v1.3.0) (2024-03-11)
 
 
