@@ -12,6 +12,7 @@ export interface CloudinaryVideoPlayerOptions {
 	muted?: boolean;
 	publicId: string;
 	secure?: boolean;
+	aspectRatio?: string;
 	transformation?: Array<object> | object;
 }
 
