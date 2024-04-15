@@ -157,6 +157,7 @@
 				muted,
 				publicId,
 				secure: true,
+				aspectRatio: `${width}:${height}`,
 				transformation: playerTransformations,
 				...logoOptions
 			};
