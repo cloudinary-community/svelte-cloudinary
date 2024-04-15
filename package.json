@@ -14,10 +14,10 @@
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^11.0.3",
+    "@semantic-release/npm": "^12.0.0",
     "gh-release": "7.0.2",
-    "semantic-release": "^23.0.2"
+    "semantic-release": "^23.0.8"
   }
 }
