@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.3.1...v1.3.2) (2024-04-15)
+
+
+### Bug Fixes
+
+* video player aspect ratio ([#109](https://github.com/cloudinary-community/svelte-cloudinary/issues/109)) ([88b13b5](https://github.com/cloudinary-community/svelte-cloudinary/commit/88b13b5c963b3a108256332f52b2d447c83dbf09))
+
 ## [1.3.1](https://github.com/cloudinary-community/svelte-cloudinary/compare/v1.3.0...v1.3.1) (2024-03-17)
 
 
