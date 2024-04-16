@@ -1,4 +1,3 @@
-// Reexport your entry components here
 import CldImage from './components/CldImage.svelte';
 export { CldImage };
 export type { CldImageProps } from './components/CldImageTypes.ts';
@@ -26,4 +25,4 @@ export type {
 export { getCldOgImageUrl } from './helpers/getCldOgImageUrl.js';
 export type { GetCldOgImageUrl } from './helpers/getCldOgImageUrl.ts';
 
-// export type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions, CloudinaryVideoPlayerOptionsColors, CloudinaryVideoPlayerOptionsLogo } from '../types/player.ts';
+export { configureCloudinary } from './configure.js';
