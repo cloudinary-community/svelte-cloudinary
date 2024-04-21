@@ -59,7 +59,9 @@
 		config: toConfig(config || $globalConfig),
 		options: {
 			...props,
-			rawTransformations: safelyGetTransformations(src, props.rawTransformations),
+			rawTransformations: preserveTransformations
+				? safelyGetTransformations(src, props.rawTransformations)
+				: [],
 			src
 		}
 	});
