@@ -7,6 +7,7 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		globals: true,
 		environment: 'happy-dom',
-		alias: [{ find: /^svelte$/, replacement: 'svelte/internal' }]
+		alias: [{ find: /^svelte$/, replacement: 'svelte/internal' }],
+		clearMocks: true
 	}
 });
