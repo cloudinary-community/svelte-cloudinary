@@ -1,7 +1,3 @@
-import CldImage from './components/CldImage.svelte';
-export { CldImage };
-export type { CldImageProps } from './components/CldImageTypes.ts';
-
 import CldOgImage from './components/CldOgImage.svelte';
 export { CldOgImage };
 
@@ -24,5 +20,9 @@ export type {
 
 export { getCldOgImageUrl } from './helpers/getCldOgImageUrl.js';
 export type { GetCldOgImageUrl } from './helpers/getCldOgImageUrl.ts';
+
+//
+
+export { default as CldImage, type CldImageProps } from './components/CldImage.svelte';
 
 export { configureCloudinary } from './configure.js';
