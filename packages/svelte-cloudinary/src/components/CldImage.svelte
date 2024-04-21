@@ -22,6 +22,8 @@
 -->
 
 <script context="module" lang="ts">
+	import type { ConfigOptions } from '@cloudinary-util/url-loader';
+
 	/**
 	 * CldImage component props. Supports all
 	 */
@@ -32,6 +34,12 @@
 			 * This will only work if you have a version number in your URL.
 			 */
 			preserveTransformations?: boolean;
+
+			/**
+			 * The config passed to {@link configureCloudinary}, can either be your cloud name
+			 * or a full config options object. Will only apply to this component if used as a prop.
+			 */
+			config?: string | ConfigOptions;
 		};
 </script>
 
@@ -39,21 +47,21 @@
 	import { constructCloudinaryUrl, type ImageOptions } from '@cloudinary-util/url-loader';
 	import { safelyGetTransformations } from '../helpers/transforms';
 	import { Image, ImageProps } from '@unpic/svelte';
-	import { getConfigStore } from '../configure';
+	import { getConfigStore, toConfig } from '../configure';
 
-	const config = getConfigStore();
+	const globalConfig = getConfigStore();
 
 	type $$Props = CldImageProps;
 
-	$: ({ src, preserveTransformations, ...props } = $$props as CldImageProps);
+	$: ({ src, preserveTransformations, config, ...props } = $$props as CldImageProps);
 
 	$: url = constructCloudinaryUrl({
+		config: toConfig(config || $globalConfig),
 		options: {
 			...props,
 			rawTransformations: safelyGetTransformations(src, props.rawTransformations),
 			src
-		},
-		config: $config
+		}
 	});
 </script>
 

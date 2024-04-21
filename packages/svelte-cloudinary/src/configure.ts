@@ -2,18 +2,24 @@ import { type ConfigOptions } from '@cloudinary-util/url-loader';
 import { writable, type Writable } from 'svelte/store';
 import { setContext, getContext } from 'svelte';
 
-export function configureCloudinary(configOrName: string | ConfigOptions) {
-	const config: ConfigOptions =
-		typeof configOrName == 'string' ? { cloud: { cloudName: configOrName } } : configOrName;
+const STORE_KEY = 'svelte-cloudinary-v2-config';
 
-	setContext('svelte-cloudinary-v2-config', writable(config));
+export function toConfig(configOrName: string | ConfigOptions): ConfigOptions {
+	return typeof configOrName == 'string' ? { cloud: { cloudName: configOrName } } : configOrName;
 }
 
-export function getConfigStore() {
+export function configureCloudinary(configOrName: string | ConfigOptions) {
+	setContext(STORE_KEY, writable(toConfig(configOrName)));
+}
+
+export function getConfigStore(): Writable<ConfigOptions> {
 	try {
-		const store = getContext<Writable<ConfigOptions>>('svelte-cloudinary-v2-config');
-		if (!store) throw new Error('cloudinary config store is undefined');
-		return store;
+		const currentStore = getContext<Writable<ConfigOptions>>(STORE_KEY);
+		if (currentStore) return currentStore;
+
+		console.warn('[svelte-cloudinary] Config store is empty, did ');
+		configureCloudinary({});
+		return getContext<Writable<ConfigOptions>>(STORE_KEY);
 	} catch (error) {
 		throw new Error(
 			'[svelte-cloudinary] Unable to get config store, did you call configureCloudinary?',
