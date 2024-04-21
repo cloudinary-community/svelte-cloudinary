@@ -56,9 +56,9 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
+		"@cloudinary-util/types": "^1.0.2",
 		"@cloudinary-util/url-loader": "5.2.2",
 		"@cloudinary-util/util": "3.0.0",
-		"@unpic/core": "0.0.47",
 		"@unpic/svelte": "0.0.51",
 		"cloudinary": "^2.1.0"
 	}

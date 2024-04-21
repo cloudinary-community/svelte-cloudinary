@@ -192,15 +192,15 @@ importers:
 
   packages/svelte-cloudinary:
     dependencies:
+      '@cloudinary-util/types':
+        specifier: ^1.0.2
+        version: 1.0.2
       '@cloudinary-util/url-loader':
         specifier: 5.2.2
         version: 5.2.2
       '@cloudinary-util/util':
         specifier: 3.0.0
         version: 3.0.0
-      '@unpic/core':
-        specifier: 0.0.47
-        version: 0.0.47
       '@unpic/svelte':
         specifier: 0.0.51
         version: 0.0.51(svelte@4.2.14)
@@ -243,10 +243,10 @@ importers:
         version: 4.2.14
       svelte-check:
         specifier: ^3.6.9
-        version: 3.6.9(postcss-load-config@5.0.3)(postcss@8.4.38)(sass@1.75.0)(svelte@4.2.14)
+        version: 3.6.9(svelte@4.2.14)
       svelte-preprocess:
         specifier: ^5.1.3
-        version: 5.1.3(postcss-load-config@5.0.3)(postcss@8.4.38)(sass@1.75.0)(svelte@4.2.14)(typescript@5.4.5)
+        version: 5.1.3(svelte@4.2.14)(typescript@5.4.5)
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -306,6 +306,10 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+
+  /@cloudinary-util/types@1.0.2:
+    resolution: {integrity: sha512-j3xUfN4uMFDMSvoQeOMxqKYsGZovlRFr8niOQXfcqoHp7NVBiJm8oy6y2HDGQhxH63irmFt8VtzJEnYwGYsGXg==}
+    dev: false
 
   /@cloudinary-util/url-loader@5.2.2:
     resolution: {integrity: sha512-gwoBuyoJBriUvmX3jk6Q1k5NdziloEhIp/4InLB6yBNe88K7bVbR/V8dJRhba0ZvlYDOOPjIiJLAa5J7xAnUlw==}
@@ -1296,7 +1300,7 @@ packages:
       '@sveltejs/vite-plugin-svelte': 3.1.0(svelte@4.2.14)(vite@5.2.8)
       debug: 4.3.4
       svelte: 4.2.14
-      vite: 5.2.8(sass@1.75.0)
+      vite: 5.2.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1315,7 +1319,7 @@ packages:
       magic-string: 0.30.9
       svelte: 4.2.14
       svelte-hmr: 0.16.0(svelte@4.2.14)
-      vite: 5.2.8(sass@1.75.0)
+      vite: 5.2.8
       vitefu: 0.2.5(vite@5.2.8)
     transitivePeerDependencies:
       - supports-color
@@ -6059,6 +6063,33 @@ packages:
       - sugarss
     dev: true
 
+  /svelte-check@3.6.9(svelte@4.2.14):
+    resolution: {integrity: sha512-hDQrk3L0osX07djQyMiXocKysTLfusqi8AriNcCiQxhQR49/LonYolcUGMtZ0fbUR8HTR198Prrgf52WWU9wEg==}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      chokidar: 3.6.0
+      fast-glob: 3.3.2
+      import-fresh: 3.3.0
+      picocolors: 1.0.0
+      sade: 1.8.1
+      svelte: 4.2.14
+      svelte-preprocess: 5.1.3(svelte@4.2.14)(typescript@5.4.5)
+      typescript: 5.4.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - coffeescript
+      - less
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+    dev: true
+
   /svelte-hamburgers@4.2.0(svelte@4.2.14):
     resolution: {integrity: sha512-6Iq0uHXHeQZMvsn6Ft84qdSpf+PfmhwdyuSVoJeGHG6UfazB5ffJoMmahs9y9THAtvnBl+Hzus5BOy80PzWy0w==}
     peerDependencies:
@@ -6126,6 +6157,53 @@ packages:
       postcss: 8.4.38
       postcss-load-config: 5.0.3(postcss@8.4.38)
       sass: 1.75.0
+      sorcery: 0.11.0
+      strip-indent: 3.0.0
+      svelte: 4.2.14
+      typescript: 5.4.5
+    dev: true
+
+  /svelte-preprocess@5.1.3(svelte@4.2.14)(typescript@5.4.5):
+    resolution: {integrity: sha512-xxAkmxGHT+J/GourS5mVJeOXZzne1FR5ljeOUAMXUkfEhkLEllRreXpbl3dIYJlcJRfL1LO1uIAPpBpBfiqGPw==}
+    engines: {node: '>= 16.0.0', pnpm: ^8.0.0}
+    requiresBuild: true
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3 || ^4.0.0
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.55.0
+      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
+      svelte: ^3.23.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
+      typescript: '>=3.9.5 || ^4.0.0 || ^5.0.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@types/pug': 2.0.10
+      detect-indent: 6.1.0
+      magic-string: 0.30.9
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.14
@@ -6758,7 +6836,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.2.8(sass@1.75.0)
+      vite: 5.2.8
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6768,6 +6846,41 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
+
+  /vite@5.2.8:
+    resolution: {integrity: sha512-OyZR+c1CE8yeHw5V5t59aXsUPPVTHMDjEZz8MgguLL/Q7NblxhZUlTu9xSPqlsUO/y+X7dlU05jdhvyycD55DA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.20.2
+      postcss: 8.4.38
+      rollup: 4.14.2
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: true
 
   /vite@5.2.8(sass@1.75.0):
@@ -6814,7 +6927,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.8(sass@1.75.0)
+      vite: 5.2.8
     dev: true
 
   /vitest@1.5.0(happy-dom@14.7.1)(jsdom@24.0.0):
@@ -6861,7 +6974,7 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.7.0
       tinypool: 0.8.3
-      vite: 5.2.8(sass@1.75.0)
+      vite: 5.2.8
       vite-node: 1.5.0
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
