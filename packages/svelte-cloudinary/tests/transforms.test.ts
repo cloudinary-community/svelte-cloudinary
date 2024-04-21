@@ -1,4 +1,4 @@
-import { safelyGetTransformations } from '../helpers/transforms';
+import { safelyGetTransformations } from '$src/helpers/transforms';
 import { describe, expect, it, vi } from 'vitest';
 
 const WORKING_URL =
