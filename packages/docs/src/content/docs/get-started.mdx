@@ -2,4 +2,71 @@
 title: Get Started
 ---
 
-init
+Svelte Cloudinary works with both Svelte and SvelteKit, you can get started by installing the package:
+
+```bash title="Install dependencies..."
+npm install svelte-cloudinary -D
+```
+
+## Configuring
+
+You need to set your Cloudinary cloud name in order to load images, you should do this in your root Svelte component. For example in SvelteKit this would be in `src/routes/+layout.svelte`. We are using the [`context api`](https://learn.svelte.dev/tutorial/context-api) under the hood.
+
+```svelte
+<script>
+    import { configureCloudinary } from 'svelte-cloudinary';
+
+    configureCloudinary('cloudName');
+</script>
+```
+
+### Using environment variables
+
+#### Vite
+
+```env
+// .env
+VITE_CLOUDINARY_CLOUD_NAME="cloudName"
+```
+
+```svelte
+<script>
+    import { configureCloudinary } from 'svelte-cloudinary';
+
+    configureCloudinary(import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+</script>
+```
+
+#### SvelteKit
+
+```bash
+# .env
+PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
+```
+
+```svelte
+<!-- src/routes/+layout.svelte -->
+<script>
+    import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+    import { configureCloudinary } from 'svelte-cloudinary';
+
+    configureCloudinary(import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME);
+</script>
+```
+
+### Advanced Configuration
+
+There are more options available than just the cloud name, you can use the same function but pass in an object.
+
+```svelte
+<script>
+    import { configureCloudinary } from 'svelte-cloudinary';
+
+    configureCloudinary({
+        cloud: {
+            cloudName: 'cloudName'
+        }
+    });
+</script>
+```
+
