@@ -5,23 +5,11 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Svelte Cloudinary',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
 			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
+			sidebar: [{ label: 'Get Started', link: '/get-started' }],
 		}),
 	],
 });
