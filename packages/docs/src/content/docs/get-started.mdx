@@ -34,8 +34,8 @@ You can also configure it on a component level with any component provided using
 
 #### Vite
 
-```env
-// .env
+```bash
+# .env
 VITE_CLOUDINARY_CLOUD_NAME="cloudName"
 ```
 
@@ -60,7 +60,7 @@ PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
     import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
     import { configureCloudinary } from 'svelte-cloudinary';
 
-    configureCloudinary(import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME);
+    configureCloudinary(PUBLIC_CLOUDINARY_CLOUD_NAME);
 </script>
 ```
 
