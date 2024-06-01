@@ -20,6 +20,16 @@ You need to set your Cloudinary cloud name in order to load images, you should d
 </script>
 ```
 
+You can also configure it on a component level with any component provided using the `config` prop. This prop takes the same arguments as the `configureCloudinary` function.
+
+```svelte
+<script>
+    import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage config="cloudName" />
+```
+
 ### Using environment variables
 
 #### Vite
