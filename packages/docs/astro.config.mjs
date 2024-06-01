@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+import svelte from '@astrojs/svelte';
+
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
@@ -9,7 +11,22 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
 			},
-			sidebar: [{ label: 'Get Started', link: '/get-started' }],
+			sidebar: [
+				{
+					label: 'Get Started',
+					link: '/get-started',
+				},
+				{
+					label: 'Components',
+					items: [
+						{
+							label: '<CldImage />',
+							link: '/components/image',
+						},
+					],
+				},
+			],
 		}),
+		svelte(),
 	],
 });
