@@ -46,8 +46,8 @@
 <script lang="ts">
 	import { constructCloudinaryUrl, type ImageOptions } from '@cloudinary-util/url-loader';
 	import { safelyGetTransformations } from '../helpers/transforms';
-	import { Image, ImageProps } from '@unpic/svelte';
 	import { getConfigStore, toConfig } from '../configure';
+	import { Image, ImageProps } from '@unpic/svelte';
 
 	const globalConfig = getConfigStore();
 
