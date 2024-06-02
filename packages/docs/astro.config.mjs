@@ -23,6 +23,10 @@ export default defineConfig({
 							label: '<CldImage />',
 							link: '/components/image',
 						},
+						{
+							label: '<CldOgImage />',
+							link: '/components/og-image',
+						},
 					],
 				},
 			],

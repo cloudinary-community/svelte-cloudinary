@@ -1,0 +1,59 @@
+---
+title: <CldOgImage />
+---
+
+The `CldOgImage` component provides a simple way to use Cloudinary for your open graph image. It supports all the same transforms/effects as `<CldImage />`.
+
+## Basic Usage
+
+The only required props are `src` and `alt`:
+
+```svelte
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+    src="images/turtle"
+    alt="Turtle"
+/>
+```
+
+This will generate the following meta tags:
+
+```html
+<meta property="og:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Turtle">
+<meta property="twitter:title" content="">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0">
+```
+
+:::note
+Twitter requires a [title](#title) to be set for the embed to work
+:::
+
+## Title
+
+You can also set the `title` prop and we'll generate the title tags for you, it'll default to the `document.title`.
+
+```svelte
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+    title="Turtles!"
+    src="images/turtle"
+    alt="Turtle"
+/>
+```
+
+Which will generate the following meta tags:
+
+```html
+<meta property="twitter:title" content="Turtles!">
+```
