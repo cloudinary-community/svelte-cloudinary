@@ -2,7 +2,7 @@
 title: <CldImage />
 ---
 
-import { CldImage } from 'svelte-cloudinary'
+import { CldImage } from 'svelte-cloudinary';
 
 The `CldImage` component is the main way of displaying a Cloudinary image in your Svelte app.
 
@@ -11,11 +11,12 @@ The `CldImage` component is the main way of displaying a Cloudinary image in you
 The required props are `width`, `height`, `src`, and `alt`:
 
 <CldImage
-    src="images/turtle"
-    alt="Turtle"
-    width={960}
-    height={600}
-    config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME} />
+	src="images/turtle"
+	alt="Turtle"
+	width={960}
+	height={600}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
 
 ```svelte
 <script>
@@ -26,7 +27,8 @@ The required props are `width`, `height`, `src`, and `alt`:
     src="images/turtle"
     alt="Turtle"
     width={960}
-    height={600} />
+    height={600}
+/>
 ```
 
 ### Transformations
@@ -34,12 +36,13 @@ The required props are `width`, `height`, `src`, and `alt`:
 You can use Cloudinary transformations with simple props which are fully typed:
 
 <CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  alt="Blue Turtle"
-  tint="70:blue:purple"
-  config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME} />
+	width={960}
+	height={600}
+	src="images/turtle"
+	alt="Blue Turtle"
+	tint="70:blue:purple"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
 
 ```svelte
 <script>
@@ -51,7 +54,8 @@ You can use Cloudinary transformations with simple props which are fully typed:
   height={600}
   src="images/turtle"
   alt="Blue Turtle"
-  tint="70:blue:purple" />
+  tint="70:blue:purple"
+/>
 ```
 
 ### Using Cloudinary URLs
@@ -67,7 +71,8 @@ We support passing a Cloudinary URL as the `src` as long as it contains a versio
   width={960}
   height={600}
   src="https://res.cloudinary.com/svelte-cloudinary/image/upload/v1/images/turtle"
-  alt="Turtle" />
+  alt="Turtle"
+/>
 ```
 
 #### Preserve Transformations
