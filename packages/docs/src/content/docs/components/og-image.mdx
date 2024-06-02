@@ -2,7 +2,7 @@
 title: <CldOgImage />
 ---
 
-The `CldOgImage` component provides a simple way to use Cloudinary for your open graph image. It supports all the same transforms/effects as `<CldImage />`.
+The `CldOgImage` component provides a simple way to use Cloudinary for your open graph image. It supports all of the same transforms/effects as `<CldImage />`.
 
 ## Basic Usage
 
@@ -32,10 +32,6 @@ This will generate the following meta tags:
 <meta property="twitter:image" content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0">
 ```
 
-:::note
-Twitter requires a [title](#title) to be set for the embed to work
-:::
-
 ## Title
 
 You can also set the `title` prop and we'll generate the title tags for you, it'll default to the `document.title`.
@@ -57,3 +53,7 @@ Which will generate the following meta tags:
 ```html
 <meta property="twitter:title" content="Turtles!">
 ```
+
+:::note
+The `title` prop is required for Twitter embeds if `document.title` is empty.
+:::
