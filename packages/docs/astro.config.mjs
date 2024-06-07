@@ -33,6 +33,15 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					label: 'Helpers',
+					items: [
+						{
+							label: 'getCldImageUrl',
+							link: '/helpers/get-image-url',
+						},
+					],
+				},
 			],
 		}),
 		svelte(),
