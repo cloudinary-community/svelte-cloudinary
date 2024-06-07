@@ -27,6 +27,10 @@ export default defineConfig({
 							label: '<CldOgImage />',
 							link: '/components/og-image',
 						},
+						{
+							label: '<CldVideoPlayer />',
+							link: '/components/video-player',
+						},
 					],
 				},
 			],

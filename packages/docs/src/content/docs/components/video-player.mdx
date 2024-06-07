@@ -1,0 +1,27 @@
+---
+title: <CldVideoPlayer />
+---
+
+import { CldVideoPlayer } from 'svelte-cloudinary';
+
+The `CldVideoPlayer` can be used to embed Cloudinary videos using the [Cloudinary Video Player](https://cloudinary.com/documentation/cloudinary_video_player).
+
+## Basic Usage
+
+The only required props are `width`, `height`, and `src`:
+
+<CldVideoPlayer
+	width="1920"
+	height="1080"
+	src="videos/mountain-stars"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+    client:load
+/>
+
+```svelte
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer width="1920" height="1080" src="videos/mountain-stars" />
+```

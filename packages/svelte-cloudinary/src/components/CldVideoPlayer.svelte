@@ -1,214 +1,90 @@
 <script context="module" lang="ts">
-	import type { HTMLVideoAttributes } from 'svelte/elements';
-	import type {
-		CloudinaryVideoPlayer,
-		CloudinaryVideoPlayerOptions,
-		CloudinaryVideoPlayerOptionsColors,
-		CloudinaryVideoPlayerOptionsLogo
-	} from '../types/player';
+	import { ConfigOptions, type GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
+	import type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions } from '@cloudinary-util/types';
 
-	export type CldVideoPlayerProps = Pick<
-		CloudinaryVideoPlayerOptions,
-		'colors' | 'controls' | 'fontFace' | 'loop' | 'muted' | 'transformation'
-	> & {
-		autoPlay?: string;
-		height: string | number;
+	type CldVideoPlayerProps = GetVideoPlayerOptions & {
+		/**
+		 * The config passed to {@link configureCloudinary}, can either be your cloud name
+		 * or a full config options object. Will only apply to this component if used as a prop.
+		 */
+		config?: string | ConfigOptions;
+
+		/**
+		 * Custom id to use
+		 */
 		id?: string;
-		logo?: boolean | CldVideoPlayerPropsLogo;
-		onDataLoad?: Function;
-		onError?: Function;
-		onMetadataLoad?: Function;
-		onPause?: Function;
-		onPlay?: Function;
-		onEnded?: Function;
-		playerRef?: CloudinaryVideoPlayer | null;
-		src: string;
-		version?: string;
-		videoRef?: HTMLVideoElement | null;
-		quality?: string | number;
-		width: string | number;
-	} & Pick<HTMLVideoAttributes, 'class'>;
+	};
 
-	// Maintain for backwards compatibility
-
-	export interface CldVideoPlayerPropsColors extends CloudinaryVideoPlayerOptionsColors {}
-
-	export interface CldVideoPlayerPropsLogo {
-		imageUrl?: CloudinaryVideoPlayerOptionsLogo['logoImageUrl'];
-		logo?: boolean;
-		onClickUrl?: CloudinaryVideoPlayerOptionsLogo['logoOnclickUrl'];
+	declare global {
+		interface Window {
+			cloudinary: {
+				videoPlayer: (
+					element: HTMLVideoElement,
+					options: CloudinaryVideoPlayerOptions
+				) => CloudinaryVideoPlayer;
+			};
+		}
 	}
 </script>
 
 <script lang="ts">
-	import { parseUrl } from '@cloudinary-util/util';
-	import { loadCloudinary } from '../util.js';
-	import { checkCloudinaryCloudName } from '../cloudinary.js';
-	import { onMount } from 'svelte';
+	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
+	import { getConfigStore, toConfig } from '../configure.js';
+	import { createEventDispatcher } from 'svelte';
 
-	const idRef = Math.ceil(Math.random() * 100000);
+	const PLAYER_VERSION = '1.11.1';
+
+	const globalConfig = getConfigStore();
+
 	type $$Props = CldVideoPlayerProps;
-	const {
-		autoPlay = 'never',
-		colors,
-		controls = true,
-		fontFace,
-		height,
-		id,
-		logo = true,
-		loop = false,
-		muted = false,
-		onDataLoad,
-		onError,
-		onMetadataLoad,
-		onPause,
-		onPlay,
-		onEnded,
-		src,
-		transformation,
-		version = '1.9.4',
-		quality = 'auto',
-		width
-	} = $$props as CldVideoPlayerProps;
+	$: ({ config, id, ...videoPlayerOptions } = $$props as CldVideoPlayerProps);
+	$: options = getVideoPlayerOptions(videoPlayerOptions, toConfig(config || $globalConfig));
 
-	const playerTransformations = Array.isArray(transformation) ? transformation : [transformation];
-	let publicId = src;
-	// If the publicId/src is a URL, attempt to parse it as a Cloudinary URL
-	// to get the public ID alone
+	let loaded = typeof window != 'undefined' && 'cloudinary' in window;
+	let videoElement: HTMLVideoElement;
+	let player: CloudinaryVideoPlayer;
 
-	if (publicId.startsWith('http')) {
-		try {
-			const parts = parseUrl(src);
-			if (typeof parts?.publicId === 'string') {
-				publicId = parts?.publicId;
-			}
-		} catch (e) {}
+	const dispatcher = createEventDispatcher<{
+		error: {};
+		dataLoad: {};
+		metadataLoad: {};
+		pause: {};
+		play: {};
+		ended: {};
+	}>();
+
+	$: if (videoElement && loaded && !player) {
+		player = window.cloudinary.videoPlayer(videoElement, options);
+
+		player.on('error', (event: CustomEvent<{}>) => dispatcher('error', event));
+		player.on('loadeddata', (event: CustomEvent<{}>) => dispatcher('dataLoad', event));
+		player.on('loadedmetadata', (event: CustomEvent<{}>) => dispatcher('metadataLoad', event));
+		player.on('pause', (event: CustomEvent<{}>) => dispatcher('pause', event));
+		player.on('play', (event: CustomEvent<{}>) => dispatcher('play', event));
+		player.on('ended', (event: CustomEvent<{}>) => dispatcher('ended', event));
 	}
-
-	// Set default transformations for the player
-
-	playerTransformations.unshift({
-		quality
-	});
-
-	let cloudinaryRef: typeof window.cloudinary;
-	let videoRef: HTMLVideoElement;
-	let playerRef: CloudinaryVideoPlayer;
-
-	const playerId = id || `player-${publicId.replace('/', '-')}-${idRef}`;
-	let playerClassName = 'cld-video-player cld-fluid';
-	if ($$props.class) {
-		playerClassName = `${playerClassName} ${$$props.class}`;
-	}
-
-	const events: Record<string, Function | undefined> = {
-		error: onError,
-		loadeddata: onDataLoad,
-		loadedmetadata: onMetadataLoad,
-		pause: onPause,
-		play: onPlay,
-		ended: onEnded
-	};
-
-	/**
-	 * handleEvent
-	 * @description Event handler for all player events
-	 */
-
-	function handleEvent(event: { type: string }) {
-		const activeEvent = events[event.type];
-
-		if (typeof activeEvent === 'function') {
-			activeEvent(getPlayerRefs());
-		}
-	}
-
-	/**
-	 * handleOnLoad
-	 * @description Stores the Cloudinary window instance to a ref when the widget script loads
-	 */
-
-	function handleOnLoad() {
-		if ('cloudinary' in window) {
-			cloudinaryRef = window.cloudinary;
-
-			let logoOptions: CloudinaryVideoPlayerOptionsLogo = {};
-
-			if (typeof logo === 'boolean') {
-				logoOptions.showLogo = logo;
-			} else if (typeof logo === 'object') {
-				logoOptions = {
-					...logoOptions,
-					showLogo: true,
-					logoImageUrl: logo.imageUrl,
-					logoOnclickUrl: logo.onClickUrl
-				};
-			}
-
-			// Validation
-			checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
-
-			let playerOptions: CloudinaryVideoPlayerOptions = {
-				autoplayMode: autoPlay,
-				cloud_name: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
-				controls,
-				fontFace: fontFace || '',
-				loop,
-				muted,
-				publicId,
-				secure: true,
-				aspectRatio: `${width}:${height}`,
-				transformation: playerTransformations,
-				...logoOptions
-			};
-
-			if (typeof colors === 'object') {
-				playerOptions.colors = colors;
-			}
-
-			playerRef = cloudinaryRef.videoPlayer(videoRef, playerOptions);
-
-			Object.keys(events).forEach((key) => {
-				if (typeof events[key] === 'function') {
-					playerRef?.on(key, handleEvent);
-				}
-			});
-		}
-	}
-
-	/**
-	 *getPlayerRefs
-	 */
-
-	function getPlayerRefs() {
-		return {
-			player: playerRef,
-			video: videoRef
-		};
-	}
-
-	//@ts-ignore
-	function onLoadError(e) {
-		console.error(`Failed to load Cloudinary Video Player: ${e.message}`);
-	}
-
-	onMount(() => {
-		if (!window.cloudinary?.videoPlayer) {
-			return loadCloudinary({ type: 'video', onLoad: handleOnLoad, onError: onLoadError });
-		}
-		return handleOnLoad();
-	});
 </script>
 
 <svelte:head>
 	<link
-		href={`https://unpkg.com/cloudinary-video-player@${version}/dist/cld-video-player.min.css`}
+		href="https://unpkg.com/cloudinary-video-player@{PLAYER_VERSION}/dist/cld-video-player.min.css"
 		rel="stylesheet"
 	/>
+
+	<script
+		on:load={() => (loaded = true)}
+		src="https://unpkg.com/cloudinary-video-player@{PLAYER_VERSION}/dist/cld-video-player.min.js"
+	></script>
 </svelte:head>
 
-<div style="width:100%;aspect-ratio:{$$props.width} / {$$props.height}">
-	<video bind:this={videoRef} id={playerId} class={playerClassName} {width} {height}>
+<div style="width: 100%;" style:aspect-ratio="{options.width} / {options.height}">
+	<video
+		id={id || options.publicId}
+		width={options.width}
+		height={options.height}
+		bind:this={videoElement}
+		class="cld-video-player cld-fluid"
+	>
 		<track kind="captions" />
 	</video>
 </div>
