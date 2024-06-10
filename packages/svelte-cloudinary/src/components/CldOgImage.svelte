@@ -19,9 +19,13 @@
 
 		/**
 		 * The title to use on twitter
-		 * @default document.title
 		 */
-		title?: string;
+		twitterTitle?: string;
+
+		/**
+		 * The image alt text
+		 */
+		alt: string;
 
 		/**
 		 * The width of your og image
@@ -73,7 +77,7 @@
 	<meta property="og:image:width" content={width.toString()} />
 	<meta property="og:image:height" content={height.toString()} />
 	<meta property="og:image:alt" content={props.alt} />
-	<meta property="twitter:title" content={props.title || document.title} />
+	<meta property="twitter:title" content={props.twitterTitle || ' '} />
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:image" content={url} />
 </svelte:head>
