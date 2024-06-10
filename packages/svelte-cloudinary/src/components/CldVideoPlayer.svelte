@@ -2,7 +2,7 @@
 	import { ConfigOptions, type GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions } from '@cloudinary-util/types';
 
-	type CldVideoPlayerProps = GetVideoPlayerOptions & {
+	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
 		/**
 		 * The config passed to {@link configureCloudinary}, can either be your cloud name
 		 * or a full config options object. Will only apply to this component if used as a prop.
