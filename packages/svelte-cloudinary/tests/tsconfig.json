@@ -1,10 +1,10 @@
 {
-    "extends": "../tsconfig.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "$src/*": ["../src/*"],
-            "$src": ["../src"],
-        }
-    }
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"$src/*": ["../src/*"],
+			"$src": ["../src"]
+		}
+	}
 }
