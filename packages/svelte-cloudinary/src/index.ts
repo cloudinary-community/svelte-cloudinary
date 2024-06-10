@@ -35,3 +35,5 @@ export {
 } from './components/CldVideoPlayer.svelte';
 
 export { configureCloudinary } from './configure.js';
+
+export { VERSION } from './version';

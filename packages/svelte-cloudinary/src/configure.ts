@@ -1,7 +1,8 @@
 import type { ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
+import { VERSION as SVELTE_CLOUDINARY_VERSION } from './version';
 import { get, writable, type Writable } from 'svelte/store';
+import { VERSION as SVELTE_VERSION } from 'svelte/compiler';
 import { setContext, getContext } from 'svelte';
-import sveltePkg from 'svelte/package.json';
 
 const STORE_KEY = 'svelte-cloudinary-v2-config';
 
@@ -12,8 +13,8 @@ interface SvelteCloudinaryConfig extends ConfigOptions {
 export type ConfigOrName = string | SvelteCloudinaryConfig;
 
 const DEFAULT_ANALYTICS: AnalyticsOptions = Object.freeze({
-	techVersion: sveltePkg.version,
-	sdkSemver: 'TODO',
+	techVersion: SVELTE_VERSION,
+	sdkSemver: SVELTE_CLOUDINARY_VERSION,
 	sdkCode: 'E',
 	product: 'B',
 	feature: ''

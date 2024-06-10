@@ -9,10 +9,11 @@
 	],
 	"license": "MIT",
 	"scripts": {
-		"dev": "node scripts/gen-metadata.js && svelte-package --watch --input src",
-		"build": "node scripts/gen-metadata.js && svelte-package --input src",
+		"dev": "svelte-package --watch --input src",
+		"build": "svelte-package --input src",
 		"prepublishOnly": "cp ../../README.md .",
 		"postpublish": "rm ./README.md",
+		"postinstall": "node scripts/version.js",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
