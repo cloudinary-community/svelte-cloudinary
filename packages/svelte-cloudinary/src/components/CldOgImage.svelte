@@ -65,7 +65,7 @@
 			...props,
 			rawTransformations: preserveTransformations
 				? safelyGetTransformations(src, props.rawTransformations)
-				: [],
+				: props.rawTransformations,
 			src
 		}
 	});

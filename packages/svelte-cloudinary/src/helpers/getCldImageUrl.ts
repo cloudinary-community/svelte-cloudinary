@@ -26,7 +26,7 @@ export function getCldImageUrl(options: GetCldImageUrlOptions) {
 			...options,
 			rawTransformations: options.preserveTransformations
 				? safelyGetTransformations(options.src, options.rawTransformations)
-				: []
+				: options.rawTransformations
 		}
 	});
 }
