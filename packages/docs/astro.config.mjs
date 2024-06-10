@@ -40,6 +40,10 @@ export default defineConfig({
 							label: 'getCldImageUrl',
 							link: '/helpers/get-image-url',
 						},
+						{
+							label: 'getCldOgImageUrl',
+							link: '/helpers/get-og-image-url',
+						},
 					],
 				},
 			],

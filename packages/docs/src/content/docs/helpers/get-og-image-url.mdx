@@ -1,0 +1,17 @@
+---
+title: getCldImageUrl
+---
+
+You can use the `getCldOgImageUrl` helper to get a Cloudinary image URL outside the component. It uses the exact same API under the hood.
+
+## Basic Usage
+
+The only required option is `src`:
+
+```ts
+import { getCldOgImageUrl } from 'svelte-cloudinary';
+
+const url = getCldOgImageUrl({
+    src: 'images/turtle',
+})
+```

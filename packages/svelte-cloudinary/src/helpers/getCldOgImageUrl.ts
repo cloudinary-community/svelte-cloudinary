@@ -1,22 +1,26 @@
-import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '../constants/sizes.js';
+import { ImageOptions } from '@cloudinary-util/url-loader';
+import { ConfigOrName } from '../configure';
+import { getCldImageUrl } from './getCldImageUrl';
 
-import { getCldImageUrl } from './getCldImageUrl.js';
-import type { GetCldImageUrl, GetCldImageUrlOptions } from './getCldImageUrl.js';
+export interface GetCldOgImageUrlOptions extends ImageOptions {
+	/**
+	 * Preserve transformations in your Cloudinary URL.
+	 * This will only work if you have a version number in your URL.
+	 */
+	preserveTransformations?: boolean;
 
-/**
- * getCldImageUrl
- */
+	/**
+	 * The config passed to {@link configureCloudinary}, can either be your cloud name
+	 * or a full config options object. Will only apply to this component if used as a prop.
+	 */
+	config?: ConfigOrName;
+}
 
-export interface GetCldOgImageUrl extends GetCldImageUrl {}
-
-export function getCldOgImageUrl(options: GetCldImageUrlOptions) {
+export function getCldOgImageUrl(options: GetCldOgImageUrlOptions) {
 	return getCldImageUrl({
 		...options,
-		crop: options.crop || 'fill',
 		format: options.format || 'jpg',
-		gravity: options.gravity || 'center',
-		height: options.height || OG_IMAGE_HEIGHT,
-		width: options.width || OG_IMAGE_WIDTH,
-		widthResize: options.width || OG_IMAGE_WIDTH_RESIZE
+		width: options.width || 1200,
+		height: options.height || 627
 	});
 }
