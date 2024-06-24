@@ -1,11 +1,10 @@
 {
 	"name": "svelte-cloudinary",
 	"version": "1.3.2",
-	"author": "Matias Hernandez <hola@matiashernandez.dev>",
 	"contributors": [
-		"Matias Hernandez <hola@matiashernandez.dev>",
 		"Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
-		"Colby Fayock <hello@colbyfayock.com>"
+		"Colby Fayock <hello@colbyfayock.com>",
+		"Matias Hernandez <hola@matiashernandez.dev>"
 	],
 	"license": "MIT",
 	"scripts": {

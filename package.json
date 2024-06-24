@@ -1,9 +1,13 @@
 {
   "name": "svelte-cloudinary",
-  "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
-  "author": "Matias Hernandez <hola@matiashernandez.dev>",
   "license": "MIT",
   "private": true,
+  "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
+  "contributors": [
+    "Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+    "Colby Fayock <hello@colbyfayock.com>",
+    "Matias Hernandez <hola@matiashernandez.dev>"
+  ],
   "scripts": {
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
@@ -14,10 +18,7 @@
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^12.0.0",
-    "gh-release": "7.0.2",
-    "semantic-release": "^23.0.8"
+    "@changesets/cli": "^2.27.5",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0"
   }
 }
