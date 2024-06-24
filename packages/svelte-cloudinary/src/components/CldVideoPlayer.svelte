@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import { ConfigOptions, type GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
-	import type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions } from '@cloudinary-util/types';
+	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
 
 	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
 		/**
@@ -14,23 +14,13 @@
 		 */
 		id?: string;
 	};
-
-	declare global {
-		interface Window {
-			cloudinary: {
-				videoPlayer: (
-					element: HTMLVideoElement,
-					options: CloudinaryVideoPlayerOptions
-				) => CloudinaryVideoPlayer;
-			};
-		}
-	}
 </script>
 
 <script lang="ts">
 	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import { getConfigStore, toConfig } from '../configure.js';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
+	import { loadScript } from '../helpers/scripts.js';
 
 	const PLAYER_VERSION = '1.11.1';
 
@@ -40,7 +30,7 @@
 	$: ({ config, id, ...videoPlayerOptions } = $$props as CldVideoPlayerProps);
 	$: options = getVideoPlayerOptions(videoPlayerOptions, toConfig(config || $globalConfig));
 
-	let loaded = typeof window != 'undefined' && 'cloudinary' in window;
+	let loaded = typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
 	let videoElement: HTMLVideoElement;
 	let player: CloudinaryVideoPlayer;
 
@@ -54,7 +44,7 @@
 	}>();
 
 	$: if (videoElement && loaded && !player) {
-		player = window.cloudinary.videoPlayer(videoElement, options);
+		player = window.cloudinary?.videoPlayer?.(videoElement, options);
 
 		player.on('error', (event: CustomEvent<{}>) => dispatcher('error', event));
 		player.on('loadeddata', (event: CustomEvent<{}>) => dispatcher('dataLoad', event));
@@ -63,6 +53,13 @@
 		player.on('play', (event: CustomEvent<{}>) => dispatcher('play', event));
 		player.on('ended', (event: CustomEvent<{}>) => dispatcher('ended', event));
 	}
+
+	onMount(() => {
+		loadScript(
+			`https://unpkg.com/cloudinary-video-player@${PLAYER_VERSION}/dist/cld-video-player.min.js`,
+			() => (loaded = true)
+		);
+	});
 </script>
 
 <svelte:head>
@@ -70,11 +67,6 @@
 		href="https://unpkg.com/cloudinary-video-player@{PLAYER_VERSION}/dist/cld-video-player.min.css"
 		rel="stylesheet"
 	/>
-
-	<script
-		on:load={() => (loaded = true)}
-		src="https://unpkg.com/cloudinary-video-player@{PLAYER_VERSION}/dist/cld-video-player.min.js"
-	></script>
 </svelte:head>
 
 <div style="width: 100%;" style:aspect-ratio="{options.width} / {options.height}">

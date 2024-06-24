@@ -5,6 +5,7 @@ import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://svelte.cloudinary.dev',
 	integrations: [
 		starlight({
 			title: 'Svelte Cloudinary',
@@ -30,6 +31,10 @@ export default defineConfig({
 						{
 							label: '<CldVideoPlayer />',
 							link: '/components/video-player',
+						},
+						{
+							label: '<CldUploadWidget />',
+							link: '/components/upload-widget',
 						},
 					],
 				},

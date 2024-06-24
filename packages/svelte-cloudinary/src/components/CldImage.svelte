@@ -22,7 +22,7 @@
 -->
 
 <script context="module" lang="ts">
-	import { type GetCldImageUrlOptions } from '../helpers/getCldImageUrl';
+	import type { GetCldImageUrlOptions } from '../helpers/getCldImageUrl';
 	import type { ImageProps } from '@unpic/svelte';
 
 	export type CldImageProps = ImageProps & GetCldImageUrlOptions;

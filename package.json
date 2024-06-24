@@ -10,7 +10,7 @@
     "check": "pnpm -r check",
     "format": "pnpm --parallel -r format",
     "test": "pnpm --filter svelte-cloudinary -r test",
-    "dev": "pnpm --parallel --filter playground --filter svelte-cloudinary -r dev",
+    "dev": "pnpm --parallel -r dev",
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
