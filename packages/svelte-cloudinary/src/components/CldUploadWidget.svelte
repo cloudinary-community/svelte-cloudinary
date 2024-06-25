@@ -1,3 +1,27 @@
+<!--
+	@component
+	
+	This component provides an API for rendering the Cloudinary Upload Widget.
+	It won't render anything on it's own so must have a button nested
+	which calls `open()`.
+
+	@see https://svelte.cloudinary.dev/components/upload-widget
+
+	@example Upload Widget
+
+	```svelte
+	<script>
+		import { CldUploadWidget } from 'svelte-cloudinary';
+	</script>
+
+	<CldUploadWidget uploadPreset="<your upload preset>" let:open>
+		<button on:click={open}>
+			Open the widget
+		</button>
+	</CldUploadWidget>
+	```
+-->
+
 <script lang="ts" context="module">
 	import type { CloudinaryUploadWidgetOptions } from '@cloudinary-util/types';
 	import type { ConfigOrName } from '../configure';

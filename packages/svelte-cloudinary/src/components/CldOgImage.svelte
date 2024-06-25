@@ -1,3 +1,26 @@
+<!--
+	@component
+	
+	This component will use Cloudinary to power your open graph images (and twitter).
+	It'll automatically generate your meta tags and place them in the head of your
+	page.
+
+	@see https://svelte.cloudinary.dev/components/og-image
+
+	@example Simple OG Image
+
+	```svelte
+	<script>
+		import { CldOgImage } from 'svelte-cloudinary';
+	</script>
+
+	<CldOgImage
+		src="images/turtle"
+		alt="Turtle"
+	/>
+	```
+-->
+
 <script context="module" lang="ts">
 	import type { GetCldOgImageUrlOptions } from '../helpers/getCldOgImageUrl';
 	import { type ImageOptions } from '@cloudinary-util/url-loader';

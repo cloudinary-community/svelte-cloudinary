@@ -1,3 +1,21 @@
+<!--
+	@component
+	
+	This component can embed a Cloudinary video the Cloudinary Video Player.
+
+	@see https://svelte.cloudinary.dev/components/video-player
+
+	@example Simple Video Example
+
+	```svelte
+	<script>
+		import { CldVideoPlayer } from 'svelte-cloudinary';
+	</script>
+
+	<CldVideoPlayer width="1920" height="1080" src="videos/mountain-stars" />
+	```
+-->
+
 <script context="module" lang="ts">
 	import type { ConfigOptions, GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';

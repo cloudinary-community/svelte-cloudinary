@@ -5,6 +5,8 @@
 	props, Cloudinary specific options, and options from unpic. This component
 	wraps `@unpic/svelte` which brings high performance and responsive images.  
 	
+	@see https://svelte.cloudinary.dev/components/image
+
 	@example Simple Image
 
 	```svelte
