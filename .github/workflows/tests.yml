@@ -40,7 +40,7 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      # - name: Svelte Check
+      # - name: Astro & Svelte Check
       #   run: pnpm check
 
       - name: Test

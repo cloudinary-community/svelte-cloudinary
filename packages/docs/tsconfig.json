@@ -6,5 +6,6 @@
       "$assets/*": ["./src/assets/*"],
       "$examples/*": ["./src/examples/*"]
     }
-  }
+  },
+  "exclude": ["node_modules/**"]
 }

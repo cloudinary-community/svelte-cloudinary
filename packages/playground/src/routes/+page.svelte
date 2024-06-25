@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { tick } from 'svelte';
 	import { env } from '$env/dynamic/public';
-	import { CldImage, CldUploadButton } from 'svelte-cloudinary';
+	// import { CldImage, CldUploadButton } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 
 	import CodeBlock from './_components/CodeBlock.svelte';
 	import Toggle from './_components/Toggle.svelte';
@@ -154,7 +155,7 @@
 			bind:rawTransformations={cldProps.rawTransformations}
 		/>
 	</main>
-	<div class="w-full py-8 px-8">
+	<!-- <div class="w-full py-8 px-8">
 		<CldUploadButton
 			class="text-white text-bold uppercase bg-[#ff5050] px-2 py-4 rounded-md"
 			onUpload={(result, widget) => {
@@ -180,5 +181,5 @@
 			Signed Upload
 		</CldUploadButton>
 		<p><strong>URL:</strong> {infoUploadSecure?.secure_url || 'Upload to see example result.'}</p>
-	</div>
+	</div> -->
 </div>

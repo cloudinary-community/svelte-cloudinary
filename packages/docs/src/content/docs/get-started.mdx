@@ -14,9 +14,9 @@ You need to set your Cloudinary cloud name in order to load images, you should d
 
 ```svelte
 <script>
-    import { configureCloudinary } from 'svelte-cloudinary';
+	import { configureCloudinary } from 'svelte-cloudinary';
 
-    configureCloudinary('cloudName');
+	configureCloudinary('cloudName');
 </script>
 ```
 
@@ -24,7 +24,7 @@ You can also configure it on a component level with any component provided using
 
 ```svelte
 <script>
-    import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage config="cloudName" />
@@ -41,9 +41,9 @@ VITE_CLOUDINARY_CLOUD_NAME="cloudName"
 
 ```svelte
 <script>
-    import { configureCloudinary } from 'svelte-cloudinary';
+	import { configureCloudinary } from 'svelte-cloudinary';
 
-    configureCloudinary(import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+	configureCloudinary(import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
 </script>
 ```
 
@@ -57,10 +57,10 @@ PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
 ```svelte
 <!-- src/routes/+layout.svelte -->
 <script>
-    import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
-    import { configureCloudinary } from 'svelte-cloudinary';
+	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+	import { configureCloudinary } from 'svelte-cloudinary';
 
-    configureCloudinary(PUBLIC_CLOUDINARY_CLOUD_NAME);
+	configureCloudinary(PUBLIC_CLOUDINARY_CLOUD_NAME);
 </script>
 ```
 
@@ -70,13 +70,13 @@ There are more options available than just the cloud name, you can use the same 
 
 ```svelte
 <script>
-    import { configureCloudinary } from 'svelte-cloudinary';
+	import { configureCloudinary } from 'svelte-cloudinary';
 
-    configureCloudinary({
-        cloud: {
-            cloudName: 'cloudName'
-        }
-    });
+	configureCloudinary({
+		cloud: {
+			cloudName: 'cloudName'
+		}
+	});
 </script>
 ```
 
