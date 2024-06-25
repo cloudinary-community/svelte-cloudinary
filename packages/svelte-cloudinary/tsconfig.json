@@ -12,6 +12,7 @@
 		"allowImportingTsExtensions": true,
 		"moduleResolution": "Bundler",
 		"module": "esnext",
-		"target": "esnext"
+		"target": "esnext",
+		"verbatimModuleSyntax": true
 	}
 }

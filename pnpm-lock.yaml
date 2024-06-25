@@ -120,10 +120,10 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
       '@cloudinary-util/url-loader':
-        specifier: 5.3.1
+        specifier: ^5.3.1
         version: 5.3.1
       '@cloudinary-util/util':
-        specifier: 3.0.2
+        specifier: ^3.0.2
         version: 3.0.2
       '@unpic/svelte':
         specifier: 0.0.53
