@@ -1,5 +1,5 @@
 import { constructCloudinaryUrl, type ImageOptions } from '@cloudinary-util/url-loader';
-import { ConfigOrName, getConfig, toConfig } from '../configure';
+import { type ConfigOrName, getConfig, toConfig } from '../configure';
 import { safelyGetTransformations } from './transforms';
 
 export interface GetCldImageUrlOptions extends ImageOptions {

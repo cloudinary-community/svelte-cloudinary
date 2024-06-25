@@ -28,8 +28,8 @@
 </script>
 
 <script lang="ts">
+	import { type EventDispatcher, createEventDispatcher, onMount } from 'svelte';
 	import { getConfigStore, toConfig } from '../configure';
-	import { EventDispatcher, createEventDispatcher, onMount } from 'svelte';
 	import { loadScript } from '../helpers/scripts';
 	import type {
 		CloudinaryUploadWidgetError,

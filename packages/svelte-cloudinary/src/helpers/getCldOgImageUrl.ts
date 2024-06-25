@@ -1,6 +1,6 @@
-import { ImageOptions } from '@cloudinary-util/url-loader';
-import { ConfigOrName } from '../configure';
+import type { ImageOptions } from '@cloudinary-util/url-loader';
 import { getCldImageUrl } from './getCldImageUrl';
+import type { ConfigOrName } from '../configure';
 
 export interface GetCldOgImageUrlOptions extends ImageOptions {
 	/**

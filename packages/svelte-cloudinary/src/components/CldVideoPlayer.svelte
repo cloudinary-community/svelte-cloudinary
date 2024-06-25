@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { ConfigOptions, type GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
+	import type { ConfigOptions, GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
 
 	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
