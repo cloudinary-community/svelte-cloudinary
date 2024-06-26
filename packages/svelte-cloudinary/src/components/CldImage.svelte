@@ -31,13 +31,13 @@
 </script>
 
 <script lang="ts">
-	import { getCldImageUrl } from '../helpers/getCldImageUrl';
+	import { createTransformer } from '../helpers/transformer';
 	import { Image } from '@unpic/svelte';
 
 	type $$Props = CldImageProps;
 
 	$: props = $$props as CldImageProps;
-	$: url = getCldImageUrl(props);
 </script>
 
-<Image {...props} src={url} on:load on:error></Image>
+<!-- todo validate reactivity -->
+<Image {...props} cdn="cloudinary" transformer={createTransformer(props)} on:load on:error></Image>
