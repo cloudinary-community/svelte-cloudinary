@@ -15,6 +15,7 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
 			},
+			customCss: ['./src/theme.css'],
 			sidebar: [
 				{
 					label: 'Get Started',
