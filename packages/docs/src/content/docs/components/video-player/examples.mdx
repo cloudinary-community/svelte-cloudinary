@@ -1,0 +1,241 @@
+---
+title: <CldVideoPlayer /> Examples
+---
+
+import { CldVideoPlayer, getCldImageUrl } from 'svelte-cloudinary';
+
+## Basic Usage
+
+Standard Cloudinary Video Player with playback.
+
+<CldVideoPlayer
+	client:load
+	width="1620"
+	height="1080"
+	src="videos/mountain-stars"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+```svelte
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer width="1920" height="1080" src="videos/mountain-stars" />
+```
+
+## Playback
+
+### Adaptive Bitrate Streaming (ABR)
+
+<CldVideoPlayer
+	client:load
+	id="adaptive-bitrate-streaming"
+	width="1620"
+	height="1080"
+	src="videos/mountain-stars"
+	transformation={{
+		streaming_profile: 'hd',
+	}}
+	sourceTypes={['hls']}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+### Picture-in-Picture
+
+Utilizes the browser's Picture-in-Picture API to create a floating video on top of other windows.
+
+<CldVideoPlayer
+	client:load
+	id="picture-in-picture"
+	width="1620"
+	height="1080"
+	src="videos/mountain-stars"
+	pictureInPictureToggle
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+## Player Customization
+
+### Chapters & Selector
+
+Adding a button to select chapters.
+
+<CldVideoPlayer
+	client:load
+	id="chapters-selector"
+	width="4096"
+	height="2160"
+	src="videos/mountain-stars"
+	chapters={{
+		0: 'Chapter 1',
+		6: 'Chapter 2',
+		9: 'Chapter 3',
+	}}
+	chaptersButton
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+### Colors & Font
+
+Changing the player theme using colors and fonts.
+
+<CldVideoPlayer
+	client:load
+	id="custom-colors-font"
+	width="4096"
+	height="2160"
+	src="videos/mountain-stars"
+	colors={{
+		accent: '#ff0000',
+		base: '#00ff00',
+		text: '#0000ff',
+	}}
+	fontFace="Source Serif Pro"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+### Logo
+
+Adding a custom logo to the player chrome.
+
+<CldVideoPlayer
+	client:load
+	id="custom-logo"
+	width="4096"
+	height="2160"
+	src="videos/mountain-stars"
+	logo={{
+		imageUrl: '/svelte.png',
+		onClickUrl: 'https://svelte.dev',
+	}}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+/>
+
+### Poster URL
+
+Allows you to change the poster used for the player.
+
+todo add import and change images/tyle
+
+<CldVideoPlayer
+	id="poster-custom-url"
+	width="4096"
+	height="2160"
+	src="videos/mountain-stars"
+	poster={getCldImageUrl({
+		src: 'images/turtle',
+		config: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
+	})}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	client:load
+/>
+
+### Poster Transformations
+
+Adding effects to the video's auto-generated thumb.
+
+<CldVideoPlayer
+	id="poster-transformations"
+	width="4096"
+	height="2160"
+	src="videos/mountain-stars"
+	poster={{
+		tint: 'equalize:80:blue:blueviolet',
+	}}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	client:load
+/>
+
+## Transformations
+
+### Cropping & Resizing
+
+<CldVideoPlayer
+	id="cropping-resizing"
+	width="500"
+	height="500"
+	src="videos/dog-running-snow"
+	transformation={{
+		width: 500,
+		height: 500,
+		crop: 'fill',
+		gravity: 'auto',
+	}}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	client:load
+/>
+
+### Image Overlays
+
+Place an image over the video (e.g. watermarks).
+
+<CldVideoPlayer
+	id="image-overlays"
+	width="1620"
+	height="1080"
+	src="videos/mountain-stars"
+	transformation={{
+		overlay: 'images/earth',
+		width: 150,
+		gravity: 'north_east',
+		x: 50,
+		y: 50,
+		opacity: 80,
+	}}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	client:load
+/>
+
+## Advanced
+
+### Localization
+
+Provides localization options for player labels. Uses [Video.js JSON format](https://videojs.com/guides/languages/#json-format) to provide labels.
+
+<CldVideoPlayer
+	id="localization"
+	width="4096"
+	height="2160"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	client:load
+	src="videos/mountain-stars"
+	language="es"
+	languages={{
+		es: {
+			Play: 'Reproducción',
+			'Play Video': 'Reproduce el Video',
+			Pause: 'Pausa',
+			'Current Time': 'Tiempo reproducido',
+			Duration: 'Duración total',
+			'Remaining Time': 'Tiempo restante',
+			'Stream Type': 'Tipo de secuencia',
+			LIVE: 'DIRECTO',
+			Loaded: 'Cargado',
+			Progress: 'Progreso',
+			Fullscreen: 'Pantalla completa',
+			'Non-Fullscreen': 'Pantalla no completa',
+			Mute: 'Silenciar',
+			Unmute: 'No silenciado',
+			'Playback Rate': 'Velocidad de reproducción',
+			Subtitles: 'Subtítulos',
+			'subtitles off': 'Subtítulos desactivados',
+			Captions: 'Subtítulos especiales',
+			'captions off': 'Subtítulos especiales desactivados',
+			Chapters: 'Capítulos',
+			'Close Modal Dialog': 'Cerca de diálogo modal',
+			'You aborted the video playback':
+				'Ha interrumpido la reproducción del vídeo.',
+			'A network error caused the video download to fail part-way.':
+				'Un error de red ha interrumpido la descarga del vídeo.',
+			'The video could not be loaded, either because the server or network failed or because the format is not supported.':
+				'No se ha podido cargar el vídeo debido a un fallo de red o del servidor o porque el formato es incompatible.',
+			'The video playback was aborted due to a corruption problem or because the video used features your browser did not support.':
+				'La reproducción de vídeo se ha interrumpido por un problema de corrupción de datos o porque el vídeo precisa funciones que su navegador no ofrece.',
+			'No compatible source was found for this video.':
+				'No se ha encontrado ninguna fuente compatible con este vídeo.',
+		},
+	}}
+/>
+
+{/* todo add player events example */}

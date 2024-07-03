@@ -1,0 +1,64 @@
+---
+title: <CldUploadWidget />
+---
+
+The `CldUploadWidget` creates a new instance of the [Cloudinary upload widget](https://cloudinary.com/documentation/upload_widget).
+
+![upload widget screenshot]($assets/upload-widget-preview.png)
+
+The widget will not render any UI by default, instead needing to have the `open` function called. The simplest way to do this is to nest a button inside a slot and use the `open` slot prop. There are two options when using the CldUploadWidget: signed and unsigned. These options allow you to control the amount of security and restrictions you place on uploads.
+
+## Unsigned
+
+Providing that unsigned uploads are allowed for your `uploadPreset` you can simply do:
+
+```svelte
+<script>
+	import { CldUploadWidget } from 'svelte-cloudinary';
+</script>
+
+<CldUploadWidget uploadPreset="<your upload preset>" let:open>
+	<button on:click={() => open()}>
+		Open the widget
+	</button>
+</CldUploadWidget>
+```
+
+## Signed
+
+Signing upload requests require passing in a signature endpoint which uses your Cloudinary secret key to sign the upload request. The following example uses SvelteKit but you can use any server framework to write this:
+
+```svelte
+<script>
+	import { CldUploadWidget } from 'svelte-cloudinary';
+</script>
+
+<CldUploadWidget
+	uploadPreset="<your upload preset>"
+	signatureEndpoint="/api/sign-cloudinary-params"
+	let:open
+>
+	<button on:click={() => open()}>
+		Open the widget
+	</button>
+</CldUploadWidget>
+```
+
+```ts
+// src/routes/api/sign-cloudinary-params/+server.ts
+import { CLOUDINARY_API_SECRET } from '$env/static/private';
+import { v2 as cloudinary } from 'cloudinary';
+import { error, json } from '@sveltejs/kit';
+
+export const POST = async ({ request }) => {
+	const body = await request.json();
+	const { paramsToSign } = body;
+
+	try {
+		const signature = cloudinary.utils.api_sign_request(paramsToSign, CLOUDINARY_API_SECRET);
+		return json({ signature });
+	} catch (e) {
+		return error(500, `${error}`);
+	}
+};
+```

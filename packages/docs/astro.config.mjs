@@ -26,19 +26,55 @@ export default defineConfig({
 					items: [
 						{
 							label: '<CldImage />',
-							link: '/components/image',
+							items: [
+								{
+									label: 'Usage & Configuration',
+									link: '/components/image',
+								},
+								{
+									label: 'Examples',
+									link: '/components/image/examples',
+								},
+							],
 						},
 						{
 							label: '<CldOgImage />',
-							link: '/components/og-image',
+							items: [
+								{
+									label: 'Usage & Configuration',
+									link: '/components/og-image',
+								},
+								{
+									label: 'Examples',
+									link: '/components/og-image/examples',
+								},
+							],
 						},
 						{
 							label: '<CldVideoPlayer />',
-							link: '/components/video-player',
+							items: [
+								{
+									label: 'Usage & Configuration',
+									link: '/components/video-player',
+								},
+								{
+									label: 'Examples',
+									link: '/components/video-player/examples',
+								},
+							],
 						},
 						{
 							label: '<CldUploadWidget />',
-							link: '/components/upload-widget',
+							items: [
+								{
+									label: 'Usage & Configuration',
+									link: '/components/upload-widget',
+								},
+								// {
+								// 	label: 'Examples',
+								// 	link: '/components/upload-widget/examples',
+								// },
+							],
 						},
 					],
 				},

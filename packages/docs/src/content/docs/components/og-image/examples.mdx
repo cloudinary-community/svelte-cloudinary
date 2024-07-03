@@ -1,0 +1,99 @@
+---
+title: <CldOgImage /> Examples
+---
+
+import { CldImage } from 'svelte-cloudinary';
+
+:::note
+CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded on a page. The following examples make use of the `<CldImage>` tag to showcase what's possible.
+:::
+
+## Text Overlays
+
+<CldImage
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	src="images/turtle"
+	width={960}
+	height={600}
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Next Cloudinary',
+			},
+		},
+	]}
+/>
+
+```svelte
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+	src="images/turtle"
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Next Cloudinary',
+			},
+		},
+	]}
+/>
+```
+
+## Background Removal
+
+`underlay`: Specifies a public ID to use as an underlaying image.
+
+<CldImage
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	src="images/turtle"
+	tint="100:0000FF:0p:FF1493:100p"
+	blur="2000"
+	removeBackground
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+	underlay="images/galaxy"
+/>
+
+```svelte
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+	src="images/turtle"
+	tint="100:0000FF:0p:FF1493:100p"
+	blur="2000"
+	removeBackground
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+	underlay="images/galaxy"
+/>
+```
