@@ -112,7 +112,7 @@ importers:
         version: 5.5.2
       vite:
         specifier: ^5.3.1
-        version: 5.3.1
+        version: 5.3.1(@types/node@20.14.9)
 
   packages/svelte-cloudinary:
     dependencies:
@@ -138,6 +138,9 @@ importers:
       '@testing-library/svelte':
         specifier: 5.1.0
         version: 5.1.0(svelte@4.2.18)(vite@5.3.1)(vitest@1.6.0)
+      '@types/node':
+        specifier: ^20.14.9
+        version: 20.14.9
       desm:
         specifier: ^1.3.1
         version: 1.3.1
@@ -173,7 +176,7 @@ importers:
         version: 3.18.0
       vitest:
         specifier: ^1.6.0
-        version: 1.6.0(happy-dom@14.12.3)
+        version: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)
 
 packages:
 
@@ -1694,7 +1697,7 @@ packages:
       sirv: 2.0.4
       svelte: 4.2.18
       tiny-glob: 0.2.9
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
     dev: true
 
   /@sveltejs/package@2.3.2(svelte@4.2.18)(typescript@5.5.2):
@@ -1725,7 +1728,7 @@ packages:
       '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.18)(vite@5.3.1)
       debug: 4.3.5
       svelte: 4.2.18
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1744,7 +1747,7 @@ packages:
       magic-string: 0.30.10
       svelte: 4.2.18
       svelte-hmr: 0.16.0(svelte@4.2.18)
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
       vitefu: 0.2.5(vite@5.3.1)
     transitivePeerDependencies:
       - supports-color
@@ -1810,8 +1813,8 @@ packages:
     dependencies:
       '@testing-library/dom': 9.3.4
       svelte: 4.2.18
-      vite: 5.3.1
-      vitest: 1.6.0(happy-dom@14.12.3)
+      vite: 5.3.1(@types/node@20.14.9)
+      vitest: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)
     dev: true
 
   /@types/acorn@4.0.6:
@@ -1904,6 +1907,12 @@ packages:
 
   /@types/node@17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+    dev: true
+
+  /@types/node@20.14.9:
+    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/pug@2.0.10:
@@ -2269,7 +2278,7 @@ packages:
       tsconfck: 3.1.0(typescript@5.5.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
       vitefu: 0.2.5(vite@5.3.1)
       which-pm: 2.2.0
       yargs-parser: 21.1.1
@@ -6353,6 +6362,10 @@ packages:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
     dependencies:
@@ -6476,7 +6489,7 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite-node@1.6.0:
+  /vite-node@1.6.0(@types/node@20.14.9):
     resolution: {integrity: sha512-de6HJgzC+TFzOu0NTC4RAIsyf/DY/ibWDYQUcuEA84EMHhcefTUGkjFHKKEJhQN4A+6I0u++kr3l36ZF2d7XRw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -6485,7 +6498,7 @@ packages:
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6497,7 +6510,7 @@ packages:
       - terser
     dev: true
 
-  /vite@5.3.1:
+  /vite@5.3.1(@types/node@20.14.9):
     resolution: {integrity: sha512-XBmSKRLXLxiaPYamLv3/hnP/KXDai1NDexN0FpkTaZXTfycHvkRHoenpgl/fvuK/kPbB6xAgoyiryAhQNxYmAQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -6525,6 +6538,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.14.9
       esbuild: 0.21.5
       postcss: 8.4.38
       rollup: 4.18.0
@@ -6540,10 +6554,10 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.3.1
+      vite: 5.3.1(@types/node@20.14.9)
     dev: true
 
-  /vitest@1.6.0(happy-dom@14.12.3):
+  /vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -6568,6 +6582,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
+      '@types/node': 20.14.9
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
       '@vitest/snapshot': 1.6.0
@@ -6586,8 +6601,8 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.3.1
-      vite-node: 1.6.0
+      vite: 5.3.1(@types/node@20.14.9)
+      vite-node: 1.6.0(@types/node@20.14.9)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

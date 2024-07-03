@@ -13,6 +13,15 @@
 		"moduleResolution": "Bundler",
 		"module": "esnext",
 		"target": "esnext",
-		"verbatimModuleSyntax": true
-	}
+		"verbatimModuleSyntax": true,
+		"baseUrl": ".",
+		"paths": {
+			"$src/*": ["./src/*"],
+			"$src": ["./src"]
+		}
+	},
+	"exclude": [
+		"node_modules/**",
+		"dist/**"
+	]
 }

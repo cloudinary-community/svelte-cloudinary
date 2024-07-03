@@ -1,6 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/svelte';
 import { afterEach, describe, expect, it } from 'vitest';
-import { CldImage } from '$src';
+import { CldImage } from '$src/index';
 import { tick } from 'svelte';
 
 describe('CldImage', () => {
