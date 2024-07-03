@@ -65,16 +65,11 @@ export default defineConfig({
 						},
 						{
 							label: '<CldUploadWidget />',
-							items: [
-								{
-									label: 'Usage & Configuration',
-									link: '/components/upload-widget',
-								},
-								// {
-								// 	label: 'Examples',
-								// 	link: '/components/upload-widget/examples',
-								// },
-							],
+							link: '/components/upload-widget',
+						},
+						{
+							label: '<CldUploadButton />',
+							link: '/components/upload-button',
 						},
 					],
 				},

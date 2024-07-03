@@ -2,7 +2,7 @@
 title: <CldUploadWidget />
 ---
 
-The `CldUploadWidget` creates a new instance of the [Cloudinary upload widget](https://cloudinary.com/documentation/upload_widget).
+The `CldUploadWidget` creates a new instance of the [Cloudinary upload widget](https://cloudinary.com/documentation/upload_widget) giving you an easy way to add upload capabilities to your Svelte app.
 
 ![upload widget screenshot]($assets/upload-widget-preview.png)
 
@@ -17,8 +17,8 @@ Providing that unsigned uploads are allowed for your `uploadPreset` you can simp
 	import { CldUploadWidget } from 'svelte-cloudinary';
 </script>
 
-<CldUploadWidget uploadPreset="<your upload preset>" let:open>
-	<button on:click={() => open()}>
+<CldUploadWidget uploadPreset="<your upload preset>" let:open let:isLoading>
+	<button on:click={() => open()} disabled={isLoading}>
 		Open the widget
 	</button>
 </CldUploadWidget>
@@ -37,8 +37,9 @@ Signing upload requests require passing in a signature endpoint which uses your 
 	uploadPreset="<your upload preset>"
 	signatureEndpoint="/api/sign-cloudinary-params"
 	let:open
+	let:isLoading
 >
-	<button on:click={() => open()}>
+	<button on:click={() => open()} disabled={isLoading}>
 		Open the widget
 	</button>
 </CldUploadWidget>
@@ -55,10 +56,58 @@ export const POST = async ({ request }) => {
 	const { paramsToSign } = body;
 
 	try {
-		const signature = cloudinary.utils.api_sign_request(paramsToSign, CLOUDINARY_API_SECRET);
+		const signature = cloudinary.utils.api_sign_request(
+			paramsToSign,
+			CLOUDINARY_API_SECRET,
+		);
+
 		return json({ signature });
 	} catch (e) {
 		return error(500, `${error}`);
 	}
 };
 ```
+
+## Events
+
+| Prop              | Type                         |                                                                                           |
+| ----------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `abort`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#abort)           |
+| `batch-cancelled` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled) |
+| `close`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#close_event)     |
+| `display-changed` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#display_changed) |
+| `error`           | `(error, options) => void`   |                                                                                           |
+| `open`            | `(widget) => void`           |                                                                                           |
+| `public-id`       | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#publicid)        |
+| `queues-end`      | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_end)      |
+| `queues-start`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_start)    |
+| `retry`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#retry)           |
+| `show-completed`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#show_completed)  |
+| `source-changed`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#source_changed)  |
+| `success`         | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#success)         |
+| `tags`            | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#tags)            |
+| `upload-added`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#upload_added)    |
+
+## Slot Props
+
+| Prop               | Type         | Description                                                            |
+| ------------------ | ------------ | ---------------------------------------------------------------------- |
+| `isLoading`        | `boolean`    | Designates whether the upload widget is loading and initializing.      |
+| `cloudinary`       | `Cloudinary` | The Cloudinary instance which creates and manages the Widget instance. |
+| `widget`           | `Widget`     | The widget instance attached to the current component.                 |
+| [Instance Methods] | n/a          | See [Instance Methods](#instance-methods) below                        |
+
+## Instance Methods
+
+| Prop          | Type       | Description                                                                                                        |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| `close`       | `function` | Closes and resets the widget to its initial state without removing it from memory.                                 |
+| `show`        | `function` | Renders a previously hidden widget.                                                                                |
+| `open`        | `function` | Renders an existing widget currently in memory, but that is not currently displayed.                               |
+| `destroy`     | `function` | Hides a previously rendered widget while retaining its current state in memory.                                    |
+| `hide`        | `function` | Closes the widget and completely removes it from the DOM. Returns a promise that resolves upon cleanup completion. |
+| `minimize`    | `function` | Minimizes the widget.                                                                                              |
+| `update`      | `function` | Updates a widget currently in memory with new options.                                                             |
+| `isDestroyed` | `function` | Returns whether the destroy method was called on this instance.                                                    |
+| `isMinimized` | `function` | Returns whether the widget is currently minimized.                                                                 |
+| `isShowing`   | `function` | Returns whether the widget is currently visible.                                                                   |
