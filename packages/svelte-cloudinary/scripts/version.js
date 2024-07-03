@@ -1,7 +1,9 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'desm';
 
-const pkg = JSON.parse(await readFile(join(import.meta.url, '../package.json'), 'utf-8'));
+const pkg = JSON.parse(
+	await readFile(join(import.meta.url, '../package.json'), 'utf-8'),
+);
 
 const tpl = `// THIS FILE IS GENERATED
 export const VERSION = '${pkg.version}';

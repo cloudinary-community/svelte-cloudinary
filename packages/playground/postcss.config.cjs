@@ -7,8 +7,8 @@ const config = {
 		'tailwindcss/nesting': 'postcss-nesting',
 		tailwindcss: {},
 		//But others, like autoprefixer, need to run after,
-		autoprefixer: {}
-	}
+		autoprefixer: {},
+	},
 };
 
 module.exports = config;

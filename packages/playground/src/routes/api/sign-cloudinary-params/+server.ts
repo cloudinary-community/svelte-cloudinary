@@ -7,7 +7,10 @@ export const POST = async ({ request }) => {
 	const { paramsToSign } = body;
 
 	try {
-		const signature = cloudinary.utils.api_sign_request(paramsToSign, CLOUDINARY_API_SECRET);
+		const signature = cloudinary.utils.api_sign_request(
+			paramsToSign,
+			CLOUDINARY_API_SECRET,
+		);
 		return json({ signature });
 	} catch (e) {
 		return error(500, `${error}`);

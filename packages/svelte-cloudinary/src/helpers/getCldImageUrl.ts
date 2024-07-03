@@ -1,4 +1,7 @@
-import { constructCloudinaryUrl, type ImageOptions } from '@cloudinary-util/url-loader';
+import {
+	constructCloudinaryUrl,
+	type ImageOptions,
+} from '@cloudinary-util/url-loader';
 import { type ConfigOrName, getConfig, toConfig } from '../configure';
 import { safelyGetTransformations } from './transforms';
 
@@ -25,8 +28,11 @@ export function getCldImageUrl(options: GetCldImageUrlOptions) {
 		options: {
 			...options,
 			rawTransformations: options.preserveTransformations
-				? safelyGetTransformations(options.src, options.rawTransformations)
-				: options.rawTransformations
-		}
+				? safelyGetTransformations(
+						options.src,
+						options.rawTransformations,
+					)
+				: options.rawTransformations,
+		},
 	});
 }

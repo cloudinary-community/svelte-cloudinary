@@ -40,4 +40,9 @@
 </script>
 
 <!-- todo validate reactivity -->
-<Image {...props} cdn="cloudinary" transformer={createTransformer(props)} on:load on:error></Image>
+<Image
+	{...props}
+	cdn="cloudinary"
+	transformer={createTransformer(props)}
+	on:load
+	on:error></Image>

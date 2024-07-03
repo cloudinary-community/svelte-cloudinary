@@ -1,4 +1,7 @@
-import type { ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
+import type {
+	ConfigOptions,
+	AnalyticsOptions,
+} from '@cloudinary-util/url-loader';
 import { VERSION as SVELTE_CLOUDINARY_VERSION } from './version';
 import { get, writable, type Writable } from 'svelte/store';
 import { VERSION as SVELTE_VERSION } from 'svelte/compiler';
@@ -17,7 +20,7 @@ const DEFAULT_ANALYTICS: AnalyticsOptions = Object.freeze({
 	sdkSemver: SVELTE_CLOUDINARY_VERSION,
 	sdkCode: 'E',
 	product: 'B',
-	feature: ''
+	feature: '',
 });
 
 export function toConfig(configOrName: ConfigOrName): SvelteCloudinaryConfig {
@@ -41,13 +44,15 @@ export function getConfigStore(): ConfigStore {
 		const currentStore = getContext<ConfigStore>(STORE_KEY);
 		if (currentStore) return currentStore;
 
-		console.warn('[svelte-cloudinary] Config store is empty, did you call configureCloudinary?');
+		console.warn(
+			'[svelte-cloudinary] Config store is empty, did you call configureCloudinary?',
+		);
 		configureCloudinary({});
 		return getContext<ConfigStore>(STORE_KEY);
 	} catch (error) {
 		throw new Error(
 			'[svelte-cloudinary] Unable to get config store, did you call configureCloudinary?',
-			{ cause: error }
+			{ cause: error },
 		);
 	}
 }

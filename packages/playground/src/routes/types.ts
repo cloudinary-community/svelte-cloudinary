@@ -1,4 +1,9 @@
-type BooleanStringEffect = 'pixelate' | 'blur' | 'cartoonify' | 'gradientFade' | 'sharpen';
+type BooleanStringEffect =
+	| 'pixelate'
+	| 'blur'
+	| 'cartoonify'
+	| 'gradientFade'
+	| 'sharpen';
 type BooleanEffect = 'multiply' | 'negate' | 'grayscale';
 type StringEffect = 'background' | 'border';
 

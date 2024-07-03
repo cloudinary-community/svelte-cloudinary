@@ -10,7 +10,7 @@ export default defineConfig({
 		clearMocks: true,
 		unstubEnvs: true,
 		alias: {
-			$src: join(import.meta.url, './src')
-		}
-	}
+			$src: join(import.meta.url, './src'),
+		},
+	},
 });

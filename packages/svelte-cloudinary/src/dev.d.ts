@@ -3,7 +3,7 @@ declare global {
 		cloudinary?: {
 			videoPlayer?: (
 				element: HTMLVideoElement,
-				options: CloudinaryVideoPlayerOptions
+				options: CloudinaryVideoPlayerOptions,
 			) => CloudinaryVideoPlayer;
 
 			createUploadWidget?: (...args: any[]) => unknown;

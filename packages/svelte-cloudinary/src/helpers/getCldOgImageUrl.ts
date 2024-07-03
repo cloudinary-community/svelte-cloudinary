@@ -21,6 +21,6 @@ export function getCldOgImageUrl(options: GetCldOgImageUrlOptions) {
 		...options,
 		format: options.format || 'jpg',
 		width: options.width || 1200,
-		height: options.height || 627
+		height: options.height || 627,
 	});
 }

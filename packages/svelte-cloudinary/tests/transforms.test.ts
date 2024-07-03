@@ -4,7 +4,8 @@ import { describe, expect, it, vi } from 'vitest';
 const WORKING_URL =
 	'https://res.cloudinary.com/svelte-cloudinary/image/upload/e_pixelate,w_800,h_800,c_lfill,f_auto/c_limit,w_800/f_auto/q_auto/v1/images/turtle?_a=BATAXdAA0';
 
-const FAILING_URL = 'https://res.cloudinary.com/svelte-cloudinary/image/upload/images/turtle';
+const FAILING_URL =
+	'https://res.cloudinary.com/svelte-cloudinary/image/upload/images/turtle';
 
 describe('parses transforms', () => {
 	it('should log on invalid url', () => {
@@ -20,7 +21,7 @@ describe('parses transforms', () => {
 			'e_pixelate,w_800,h_800,c_lfill,f_auto',
 			'c_limit,w_800',
 			'f_auto',
-			'q_auto'
+			'q_auto',
 		]);
 	});
 
@@ -32,7 +33,7 @@ describe('parses transforms', () => {
 			'c_limit,w_800',
 			'f_auto',
 			'q_auto',
-			'test'
+			'test',
 		]);
 	});
 
@@ -44,7 +45,7 @@ describe('parses transforms', () => {
 			'c_limit,w_800',
 			'f_auto',
 			'q_auto',
-			'test'
+			'test',
 		]);
 	});
 });

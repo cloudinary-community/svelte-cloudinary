@@ -52,13 +52,17 @@
 </script>
 
 <script lang="ts">
-	import { type EventDispatcher, createEventDispatcher, onMount } from 'svelte';
+	import {
+		type EventDispatcher,
+		createEventDispatcher,
+		onMount,
+	} from 'svelte';
 	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
 	import type {
 		CloudinaryUploadWidgetError,
 		CloudinaryUploadWidgetResults,
-		CloudinaryUploadWidgetInstanceMethods
+		CloudinaryUploadWidgetInstanceMethods,
 	} from '@cloudinary-util/types';
 
 	const globalConfig = getConfigStore();
@@ -86,7 +90,9 @@
 		uploadAdded: EventData;
 	}>();
 
-	type DispatcherEventKeys<T> = T extends EventDispatcher<infer T> ? keyof T : never;
+	type DispatcherEventKeys<T> =
+		T extends EventDispatcher<infer T> ? keyof T : never;
+
 	const EVENT_MAP: Record<string, DispatcherEventKeys<typeof dispatcher>> = {
 		abort: 'abort',
 		'batch-cancelled': 'batchCancelled',
@@ -100,13 +106,21 @@
 		'source-changed': 'sourceChanged',
 		success: 'success',
 		tags: 'tags',
-		'upload-added': 'uploadAdded'
+		'upload-added': 'uploadAdded',
 	};
 
 	type $$Props = CldUploadWidgetProps;
-	$: ({ uploadPreset, signatureEndpoint, config, options = {} } = $$props as $$Props);
 
-	let loaded = typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
+	$: ({
+		uploadPreset,
+		signatureEndpoint,
+		config,
+		options = {},
+	} = $$props as $$Props);
+
+	let loaded =
+		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
+
 	let widget: any;
 
 	const instanceMethods: CloudinaryUploadWidgetInstanceMethods = {
@@ -122,7 +136,7 @@
 		open: (...args) => {
 			dispatcher('open', { widget, ...instanceMethods });
 			widget?.open(...args);
-		}
+		},
 	};
 
 	$: if (loaded) {
@@ -134,39 +148,45 @@
 			...options,
 			cloudName: cfg.cloud?.cloudName,
 			uploadPreset: uploadPreset, // todo global upload preset
-			apiKey: cfg.cloud?.apiKey
+			apiKey: cfg.cloud?.apiKey,
 		};
 
 		if (signatureEndpoint) {
 			widgetOptions.uploadSignature = async (
 				callback: (...args: any[]) => any,
-				paramsToSign: unknown
+				paramsToSign: unknown,
 			) => {
 				const response = await fetch(signatureEndpoint, {
 					method: 'POST',
 					headers: {
-						'Content-Type': 'application/json'
+						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						paramsToSign
-					})
+						paramsToSign,
+					}),
 				});
 
 				callback(await response.json());
 			};
 
 			if (!widgetOptions.apiKey) {
-				console.warn('Missing dependency: Signed Upload requires an API key');
+				console.warn(
+					'Missing dependency: Signed Upload requires an API key',
+				);
 			}
 		}
 
 		widget = window.cloudinary?.createUploadWidget?.(
 			widgetOptions,
-			(error: CloudinaryUploadWidgetError, results: CloudinaryUploadWidgetResults) => {
+			(
+				error: CloudinaryUploadWidgetError,
+				results: CloudinaryUploadWidgetResults,
+			) => {
 				if (error) {
 					dispatcher('error', {
-						error: typeof error == 'string' ? error : error.statusText,
-						...instanceMethods
+						error:
+							typeof error == 'string' ? error : error.statusText,
+						...instanceMethods,
 					});
 					return;
 				}
@@ -174,18 +194,28 @@
 				const event = results.event ? EVENT_MAP[results.event] : null;
 
 				if (event) {
-					if (results.event === 'display-changed' && results.info === 'hidden') {
-						dispatcher('close', { widget, results, ...instanceMethods });
+					if (
+						results.event === 'display-changed' &&
+						results.info === 'hidden'
+					) {
+						dispatcher('close', {
+							widget,
+							results,
+							...instanceMethods,
+						});
 					}
 
 					dispatcher(event, { widget, results, ...instanceMethods });
 				}
-			}
+			},
 		);
 	}
 
 	onMount(() => {
-		loadScript('https://upload-widget.cloudinary.com/global/all.js', () => (loaded = true));
+		loadScript(
+			'https://upload-widget.cloudinary.com/global/all.js',
+			() => (loaded = true),
+		);
 	});
 </script>
 
