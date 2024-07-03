@@ -52,13 +52,10 @@
 </script>
 
 <script lang="ts">
-	import {
-		type EventDispatcher,
-		createEventDispatcher,
-		onMount,
-	} from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
+	import type { EventDispatcher } from 'svelte';
 	import type {
 		CloudinaryUploadWidgetError,
 		CloudinaryUploadWidgetResults,
@@ -76,18 +73,18 @@
 		error: { error: string } & CloudinaryUploadWidgetInstanceMethods;
 		open: { widget: any } & CloudinaryUploadWidgetInstanceMethods;
 		abort: EventData;
-		batchCancelled: EventData;
+		'batch-cancelled': EventData;
 		close: EventData;
-		displayChanged: EventData;
-		publicId: EventData;
-		queuesEnd: EventData;
-		queuesStart: EventData;
+		'display-changed': EventData;
+		'public-id': EventData;
+		'queues-end': EventData;
+		'queues-start': EventData;
 		retry: EventData;
-		showCompleted: EventData;
-		sourceChanged: EventData;
+		'show-completed': EventData;
+		'source-changed': EventData;
 		success: EventData;
 		tags: EventData;
-		uploadAdded: EventData;
+		'upload-added': EventData;
 	}>();
 
 	type DispatcherEventKeys<T> =
@@ -95,18 +92,18 @@
 
 	const EVENT_MAP: Record<string, DispatcherEventKeys<typeof dispatcher>> = {
 		abort: 'abort',
-		'batch-cancelled': 'batchCancelled',
+		'batch-cancelled': 'batch-cancelled',
 		close: 'close',
-		'display-changed': 'displayChanged',
-		publicid: 'publicId',
-		'queues-end': 'queuesEnd',
-		'queues-start': 'queuesStart',
+		'display-changed': 'display-changed',
+		publicid: 'public-id',
+		'queues-end': 'queues-end',
+		'queues-start': 'queues-start',
 		retry: 'retry',
-		'show-completed': 'showCompleted',
-		'source-changed': 'sourceChanged',
+		'show-completed': 'show-completed',
+		'source-changed': 'source-changed',
 		success: 'success',
 		tags: 'tags',
-		'upload-added': 'uploadAdded',
+		'upload-added': 'upload-added',
 	};
 
 	type $$Props = CldUploadWidgetProps;
@@ -217,6 +214,9 @@
 			() => (loaded = true),
 		);
 	});
+
+	let cloudinary: typeof window.cloudinary | null = null;
+	$: cloudinary = (loaded && window.cloudinary) || null;
 </script>
 
-<slot {widget} isLoading={!loaded} {...instanceMethods} />
+<slot {widget} {cloudinary} isLoading={!loaded} {...instanceMethods} />
