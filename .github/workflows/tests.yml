@@ -6,9 +6,6 @@ on:
       - main
   pull_request:
 
-env:
-  CI: false
-
 jobs:
   tests:
     name: Test
@@ -40,8 +37,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      # - name: Astro & Svelte Check
-      #   run: pnpm check
+      - name: Astro & Svelte Check
+        run: pnpm check
 
       - name: Test
         run: pnpm test
