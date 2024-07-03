@@ -16,6 +16,11 @@ export default defineConfig({
 				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
 			},
 			customCss: ['./src/theme.css'],
+			editLink: {
+				baseUrl:
+					'https://github.com/cloudinary-community/svelte-cloudinary/edit/main/packages/docs/',
+			},
+			lastUpdated: true,
 			sidebar: [
 				{
 					label: 'Get Started',

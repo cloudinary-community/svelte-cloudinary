@@ -2,11 +2,42 @@
 title: Svelte Cloudinary
 description: High-performance image and video delivery and uploading at scale in Svelte powered by Cloudinary.
 template: splash
+editUrl: false
+lastUpdated: false
 hero:
-  tagline: High-performance image and video delivery and uploading at scale in Svelte powered by Cloudinary.
-  actions:
-    - text: Get Started
-      link: /get-started
-      icon: right-arrow
-      variant: primary
+    tagline: High-performance image and video delivery and uploading at scale in Svelte powered by Cloudinary.
+    actions:
+        - text: Get Started
+          link: /get-started
+          icon: right-arrow
+          variant: primary
 ---
+
+import { CardGrid, Card } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+	<Card title="Optimization" icon="rocket">
+		Automatically optimize images and videos with responsive sizes and
+		modern formats.
+	</Card>
+	<Card title="Transformations" icon="random">
+		Transform assets using dynamic Cropping and Resizing, Background
+		Removal, Generative AI, and more.
+	</Card>
+	<Card title="Uploading" icon="external">
+		Drop-in widget for easily uploading assets into the cloud.
+	</Card>
+	<Card title="Social Cards" icon="comment">
+		Easiest way to create beautiful social cards in Svelte.
+	</Card>
+  <Card title="And More..." icon="list-format">
+    - Adaptive Bitrate Streaming
+    - Generative AI
+    - Text & Image Overlays
+    - ...
+  </Card>
+</CardGrid>
+
+<center>
+### Transform & Deliver at Scale with Cloudinary
+</center>
