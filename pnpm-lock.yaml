@@ -89,9 +89,6 @@ importers:
       svelte:
         specifier: ^4.2.18
         version: 4.2.18
-      svelte-check:
-        specifier: ^3.8.2
-        version: 3.8.2(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18)
       svelte-cloudinary:
         specifier: workspace:^
         version: link:../svelte-cloudinary
@@ -161,7 +158,7 @@ importers:
         version: 4.2.18
       svelte-check:
         specifier: ^3.8.2
-        version: 3.8.2(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18)
+        version: 3.8.2(svelte@4.2.18)
       svelte-preprocess:
         specifier: ^6.0.1
         version: 6.0.1(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18)(typescript@5.5.2)
@@ -6039,7 +6036,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.8.2(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18):
+  /svelte-check@3.8.2(svelte@4.2.18):
     resolution: {integrity: sha512-n6bVsE71RPuMXZz1CalD2fXO0RIyEDHn1YdGhcFEwZrwc/HoS5wWoEvEe+mcL9tivCTRtQIdbxLLStfIHFOX+Q==}
     hasBin: true
     peerDependencies:
@@ -6050,7 +6047,7 @@ packages:
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 4.2.18
-      svelte-preprocess: 5.1.4(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18)(typescript@5.5.2)
+      svelte-preprocess: 5.1.4(svelte@4.2.18)(typescript@5.5.2)
       typescript: 5.5.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -6079,7 +6076,7 @@ packages:
       svelte: 4.2.18
     dev: true
 
-  /svelte-preprocess@5.1.4(postcss-load-config@6.0.1)(postcss@8.4.38)(svelte@4.2.18)(typescript@5.5.2):
+  /svelte-preprocess@5.1.4(svelte@4.2.18)(typescript@5.5.2):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}
     engines: {node: '>= 16.0.0'}
     requiresBuild: true
@@ -6120,8 +6117,6 @@ packages:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
       magic-string: 0.30.10
-      postcss: 8.4.38
-      postcss-load-config: 6.0.1(postcss@8.4.38)
       sorcery: 0.11.1
       strip-indent: 3.0.0
       svelte: 4.2.18
