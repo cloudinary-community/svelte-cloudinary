@@ -1,10 +1,20 @@
 <script>
 	import { CldUploadWidget } from 'svelte-cloudinary';
+	import {
+		PUBLIC_CLOUDINARY_CLOUD_NAME,
+		PUBLIC_CLOUDINARY_API_KEY,
+	} from '$env/static/public';
 </script>
 
 <CldUploadWidget
 	uploadPreset="svelte-cloudinary-signed"
 	signatureEndpoint="/api/sign-cloudinary-params"
+	config={{
+		cloud: {
+			cloudName: PUBLIC_CLOUDINARY_CLOUD_NAME,
+			apiKey: PUBLIC_CLOUDINARY_API_KEY,
+		},
+	}}
 	let:open
 	let:isLoading>
 	<button
