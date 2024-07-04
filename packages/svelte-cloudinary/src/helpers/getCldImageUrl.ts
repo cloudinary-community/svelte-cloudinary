@@ -33,6 +33,11 @@ export function getCldImageUrl(options: GetCldImageUrlOptions) {
 						options.rawTransformations,
 					)
 				: options.rawTransformations,
+			crop: options.crop || {
+				type: 'fill',
+				gravity: 'center',
+				source: true,
+			},
 		},
 	});
 }
