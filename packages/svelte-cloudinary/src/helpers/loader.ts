@@ -4,7 +4,7 @@ import type { ImageProps } from '@unpic/svelte';
 
 type URLTransformer = Exclude<ImageProps['transformer'], undefined>;
 
-export function createTransformer(props: CldImageProps): URLTransformer {
+export function createLoader(props: CldImageProps): URLTransformer {
 	return (loaderOptions) => {
 		const options = Object.assign({}, props);
 

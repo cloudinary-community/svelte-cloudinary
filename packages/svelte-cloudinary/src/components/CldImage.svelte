@@ -31,7 +31,7 @@
 </script>
 
 <script lang="ts">
-	import { createTransformer } from '../helpers/transformer';
+	import { createLoader } from '../helpers/loader';
 	import { Image } from '@unpic/svelte';
 
 	type $$Props = CldImageProps;
@@ -43,6 +43,6 @@
 <Image
 	{...props}
 	cdn="cloudinary"
-	transformer={createTransformer(props)}
+	transformer={createLoader(props)}
 	on:load
 	on:error></Image>
