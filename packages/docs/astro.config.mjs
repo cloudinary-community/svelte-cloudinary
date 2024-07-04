@@ -15,6 +15,7 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
 			},
+			favicon: '/favicon.ico',
 			customCss: ['./src/theme.css'],
 			editLink: {
 				baseUrl:
