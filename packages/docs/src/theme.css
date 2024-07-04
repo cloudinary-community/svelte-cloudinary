@@ -18,8 +18,7 @@
 }
 
 :root[data-has-hero] {
-	/* --sl-color-black: #121827; */
-	--sl-color-accent-high: #d57346;
+	--sl-color-accent-high: #ff3e03;
 }
 
 /* Light mode colors. */
@@ -39,7 +38,6 @@
 }
 
 [data-has-hero] a.primary {
-	background: #d57346;
 	color: var(--sl-color-white);
 	font-weight: 600;
     font-size: 1.1rem;
@@ -52,9 +50,9 @@
 
 [data-has-hero] .page {
 	background:
-		linear-gradient(215deg, #ff3e0033, transparent 40%),
-		radial-gradient(#ff3e0033, transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
-		radial-gradient(#ff3e0033, transparent 65%) no-repeat 50% calc(100% + 20rem) /
+		linear-gradient(215deg, #ff3e0020, transparent 40%),
+		radial-gradient(#ff3e0020, transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
+		radial-gradient(#ff3e0020, transparent 65%) no-repeat 50% calc(100% + 20rem) /
 			60rem 30rem;
 }
 
