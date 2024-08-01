@@ -273,7 +273,7 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 
 <CldImage
 	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
-	src={`images/galaxy-poor`}
+	src="images/galaxy-poor"
 	width="960"
 	height="600"
 	crop="fill"
@@ -283,7 +283,7 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 
 <CldImage
 	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
-	src={`images/galaxy-poor`}
+	src="images/galaxy-poor"
 	width="960"
 	height="600"
 	crop="fill"
@@ -501,7 +501,7 @@ Image overlays allow you to place one or multiple images on top of another image
 	sizes="100vw"
 	overlays={[
 		{
-			publicId: `images/earth`,
+			publicId: 'images/earth',
 			position: {
 				x: 50,
 				y: 50,
@@ -565,15 +565,16 @@ that applies a blend mode, such as "multiply"
 	src="images/galaxy"
 	overlays={[
 		{
-			publicId: `images/earth`,
+			publicId: 'images/earth',
 			effects: [
 				{
 					crop: 'fill',
 					gravity: 'auto',
-					width: 960,
-					height: 600,
+					width: '1.0',
+					height: '1.0',
 				},
 			],
+			flags: ['relative'],
 			appliedEffects: [
 				{
 					multiply: true,
@@ -601,10 +602,11 @@ that applies a blend mode, such as "multiply"
 				{
 					crop: 'fill',
 					gravity: 'auto',
-					width: 960,
-					height: 600
+					width: '1.0',
+					height: '1.0',
 				}
 			],
+			flags: ['relative'],
 			appliedEffects: [
 				{
 					multiply: true
@@ -665,21 +667,23 @@ Image underlays allow you to place one or multiple images behind a base image.
 	underlays={[
 		{
 			publicId: 'images/galaxy',
-			width: 480,
-			height: 600,
+			width: '0.5',
+			height: '1.0',
 			crop: 'fill',
 			position: {
 				gravity: 'north_west',
 			},
+			flags: ['relative'],
 		},
 		{
 			publicId: 'images/mountain',
-			width: 480,
-			height: 600,
+			width: '0.5',
+			height: '1.0',
 			crop: 'fill',
 			position: {
 				gravity: 'south_east',
 			},
+			flags: ['relative'],
 		},
 	]}
 	alt=""
@@ -697,24 +701,26 @@ Image underlays allow you to place one or multiple images behind a base image.
 	sizes="100vw"
 	removeBackground
 	underlays={[
-		{
-			publicId: '<Your Public ID>',
-			width: 480,
-			height: 600,
+	    {
+			publicId: 'images/galaxy',
+			width: '0.5',
+			height: '1.0',
 			crop: 'fill',
 			position: {
 				gravity: 'north_west'
-			}
+			},
+			flags: ['relative']
 		},
 		{
-			publicId: '<Your Public ID>',
-			width: 480,
-			height: 600,
+			publicId: 'images/mountain',
+			width: '0.5',
+			height: '1.0',
 			crop: 'fill',
 			position: {
 				gravity: 'south_east'
-			}
-		}
+			},
+			flags: ['relative']
+		},
 	]}
 	alt=""
 />
