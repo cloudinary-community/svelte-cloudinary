@@ -17,8 +17,13 @@
 -->
 
 <script context="module" lang="ts">
-	import type { ConfigOptions, GetVideoPlayerOptions } from '@cloudinary-util/url-loader';
+	import type {
+		ConfigOptions,
+		GetVideoPlayerOptions,
+	} from '@cloudinary-util/url-loader';
 	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
+
+	type CldVideoPlayerEvent = (event: CustomEvent<{}>) => unknown;
 
 	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
 		/**
@@ -31,14 +36,44 @@
 		 * Custom id to use
 		 */
 		id?: string;
+
+		/**
+		 * Fires when an error in video playback occurs
+		 */
+		onError: CldVideoPlayerEvent;
+
+		/**
+		 * Fires when video data is loaded
+		 */
+		onDataLoad: CldVideoPlayerEvent;
+
+		/**
+		 * Fires when video metadata is loaded
+		 */
+		onMetadataLoad: CldVideoPlayerEvent;
+
+		/**
+		 * Fires when the video is paused
+		 */
+		onPause: CldVideoPlayerEvent;
+
+		/**
+		 * Fires when the video is played
+		 */
+		onPlay: CldVideoPlayerEvent;
+
+		/**
+		 * Fires when the video ends
+		 */
+		onEnded: CldVideoPlayerEvent;
 	};
 </script>
 
 <script lang="ts">
 	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import { getConfigStore, toConfig } from '../configure.js';
-	import { createEventDispatcher, onMount } from 'svelte';
 	import { loadScript } from '../helpers/scripts.js';
+	import { onMount } from 'svelte';
 
 	const PLAYER_VERSION = '1.11.1';
 
@@ -46,36 +81,48 @@
 
 	type $$Props = CldVideoPlayerProps;
 	$: ({ config, id, ...videoPlayerOptions } = $$props as CldVideoPlayerProps);
-	$: options = getVideoPlayerOptions(videoPlayerOptions, toConfig(config || $globalConfig));
+	$: options = getVideoPlayerOptions(
+		videoPlayerOptions,
+		toConfig(config || $globalConfig),
+	);
 
-	let loaded = typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
+	let loaded =
+		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
 	let videoElement: HTMLVideoElement;
 	let player: CloudinaryVideoPlayer;
-
-	const dispatcher = createEventDispatcher<{
-		error: {};
-		dataLoad: {};
-		metadataLoad: {};
-		pause: {};
-		play: {};
-		ended: {};
-	}>();
 
 	$: if (videoElement && loaded && !player) {
 		player = window.cloudinary?.videoPlayer?.(videoElement, options);
 
-		player.on('error', (event: CustomEvent<{}>) => dispatcher('error', event));
-		player.on('loadeddata', (event: CustomEvent<{}>) => dispatcher('dataLoad', event));
-		player.on('loadedmetadata', (event: CustomEvent<{}>) => dispatcher('metadataLoad', event));
-		player.on('pause', (event: CustomEvent<{}>) => dispatcher('pause', event));
-		player.on('play', (event: CustomEvent<{}>) => dispatcher('play', event));
-		player.on('ended', (event: CustomEvent<{}>) => dispatcher('ended', event));
+		player.on('error', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onError?.(event),
+		);
+
+		player.on('loadeddata', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onDataLoad?.(event),
+		);
+
+		player.on('loadedmetadata', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onMetadataLoad?.(event),
+		);
+
+		player.on('pause', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onPause?.(event),
+		);
+
+		player.on('play', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onPlay?.(event),
+		);
+
+		player.on('ended', (event: CustomEvent<{}>) =>
+			videoPlayerOptions.onEnded?.(event),
+		);
 	}
 
 	onMount(() => {
 		loadScript(
 			`https://unpkg.com/cloudinary-video-player@${PLAYER_VERSION}/dist/cld-video-player.min.js`,
-			() => (loaded = true)
+			() => (loaded = true),
 		);
 	});
 </script>
@@ -83,18 +130,18 @@
 <svelte:head>
 	<link
 		href="https://unpkg.com/cloudinary-video-player@{PLAYER_VERSION}/dist/cld-video-player.min.css"
-		rel="stylesheet"
-	/>
+		rel="stylesheet" />
 </svelte:head>
 
-<div style="width: 100%;" style:aspect-ratio="{options.width} / {options.height}">
+<div
+	style="width: 100%;"
+	style:aspect-ratio="{options.width} / {options.height}">
 	<video
 		id={id || options.publicId}
 		width={options.width}
 		height={options.height}
 		bind:this={videoElement}
-		class="cld-video-player cld-fluid"
-	>
+		class="cld-video-player cld-fluid">
 		<track kind="captions" />
 	</video>
 </div>

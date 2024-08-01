@@ -26,6 +26,13 @@
 	import type { CloudinaryUploadWidgetOptions } from '@cloudinary-util/types';
 	import type { ConfigOrName } from '../configure';
 
+	type EventData = {
+		widget: any;
+		results: CloudinaryUploadWidgetResults;
+	} & CloudinaryUploadWidgetInstanceMethods;
+
+	type CldUploadWidgetEvent<T = EventData> = (data: T) => unknown;
+
 	export interface CldUploadWidgetProps {
 		/**
 		 * The config passed to {@link configureCloudinary}, can either be your cloud name
@@ -48,14 +55,112 @@
 		 * Options to customise and configure the upload widget.
 		 */
 		options?: CloudinaryUploadWidgetOptions;
+
+		/**
+		 * Fires when an error occurs uploading.
+		 */
+		onError?: CldUploadWidgetEvent<
+			{ error: string } & CloudinaryUploadWidgetInstanceMethods
+		>;
+
+		/**
+		 * Fires when the widget is opened.
+		 */
+		onOpen?: CldUploadWidgetEvent<
+			{ widget: any } & CloudinaryUploadWidgetInstanceMethods
+		>;
+
+		/**
+		 * Fires when the user aborted the upload.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#abort
+		 */
+		onAbort?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the uploading was cancelled.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled
+		 */
+		onBatchCancelled?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the user closes the widget.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#close_event
+		 */
+		onClose?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the widget display type changes.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#display_changed
+		 */
+		onDisplayChanged?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the public id input field changes.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#publicid
+		 */
+		onPublicId?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when all files have finished uploading.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_end
+		 */
+		onQueuesEnd?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the files are about to begin uploading.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_start
+		 */
+		onQueuesStart?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the user retried after uploads failed.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#retry
+		 */
+		onRetry?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the user clicks the "Show Completed" button.
+		 * Requires the showCompletedButton option be set to true.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#show_completed
+		 */
+		onShowCompleted?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the user selects a different upload source.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#source_changed
+		 */
+		onSourceChanged?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the upload has successfully completed.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#success
+		 */
+		onSuccess?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when the contents of the tags input field change.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#tags
+		 */
+		onTags?: CldUploadWidgetEvent;
+
+		/**
+		 * Fires when a new file was selected to be uploaded.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#upload_added
+		 */
+		onUploadAdded?: CldUploadWidgetEvent;
+
+		/**
+		 * Use onSuccess instead. This will be removed in the next major release.
+		 * @deprecated
+		 */
+		onUpload?: CldUploadWidgetEvent;
 	}
 </script>
 
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
 	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
-	import type { EventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 	import type {
 		CloudinaryUploadWidgetError,
 		CloudinaryUploadWidgetResults,
@@ -64,48 +169,6 @@
 
 	const globalConfig = getConfigStore();
 
-	type EventData = {
-		widget: any;
-		results: CloudinaryUploadWidgetResults;
-	} & CloudinaryUploadWidgetInstanceMethods;
-
-	const dispatcher = createEventDispatcher<{
-		error: { error: string } & CloudinaryUploadWidgetInstanceMethods;
-		open: { widget: any } & CloudinaryUploadWidgetInstanceMethods;
-		abort: EventData;
-		'batch-cancelled': EventData;
-		close: EventData;
-		'display-changed': EventData;
-		'public-id': EventData;
-		'queues-end': EventData;
-		'queues-start': EventData;
-		retry: EventData;
-		'show-completed': EventData;
-		'source-changed': EventData;
-		success: EventData;
-		tags: EventData;
-		'upload-added': EventData;
-	}>();
-
-	type DispatcherEventKeys<T> =
-		T extends EventDispatcher<infer T> ? keyof T : never;
-
-	const EVENT_MAP: Record<string, DispatcherEventKeys<typeof dispatcher>> = {
-		abort: 'abort',
-		'batch-cancelled': 'batch-cancelled',
-		close: 'close',
-		'display-changed': 'display-changed',
-		publicid: 'public-id',
-		'queues-end': 'queues-end',
-		'queues-start': 'queues-start',
-		retry: 'retry',
-		'show-completed': 'show-completed',
-		'source-changed': 'source-changed',
-		success: 'success',
-		tags: 'tags',
-		'upload-added': 'upload-added',
-	};
-
 	type $$Props = CldUploadWidgetProps;
 
 	$: ({
@@ -113,6 +176,7 @@
 		signatureEndpoint,
 		config,
 		options = {},
+		...events
 	} = $$props as $$Props);
 
 	let loaded =
@@ -131,7 +195,7 @@
 		show: () => widget?.show(),
 		update: (...args) => widget?.update(...args),
 		open: (...args) => {
-			dispatcher('open', { widget, ...instanceMethods });
+			events.onOpen?.({ widget, ...instanceMethods });
 			widget?.open(...args);
 		},
 	};
@@ -180,7 +244,7 @@
 				results: CloudinaryUploadWidgetResults,
 			) => {
 				if (error) {
-					dispatcher('error', {
+					events.onError?.({
 						error:
 							typeof error == 'string' ? error : error.statusText,
 						...instanceMethods,
@@ -188,21 +252,69 @@
 					return;
 				}
 
-				const event = results.event ? EVENT_MAP[results.event] : null;
+				const payload: EventData = {
+					widget,
+					results,
+					...instanceMethods,
+				};
 
-				if (event) {
-					if (
-						results.event === 'display-changed' &&
-						results.info === 'hidden'
-					) {
-						dispatcher('close', {
-							widget,
-							results,
-							...instanceMethods,
-						});
-					}
+				switch (results.event) {
+					case 'abort':
+						events.onAbort?.(payload);
+						break;
 
-					dispatcher(event, { widget, results, ...instanceMethods });
+					case 'batch-cancelled':
+						events.onBatchCancelled?.(payload);
+						break;
+
+					case 'close':
+						events.onClose?.(payload);
+						break;
+
+					case 'display-changed':
+						events.onDisplayChanged?.(payload);
+
+						if (results.info === 'hidden') {
+							events.onClose?.(payload);
+						}
+						break;
+
+					case 'publicid':
+						events.onPublicId?.(payload);
+						break;
+
+					case 'queues-end':
+						events.onQueuesEnd?.(payload);
+						break;
+
+					case 'queues-start':
+						events.onQueuesStart?.(payload);
+						break;
+
+					case 'retry':
+						events.onRetry?.(payload);
+						break;
+
+					case 'show-completed':
+						events.onShowCompleted?.(payload);
+						break;
+
+					case 'source-changed':
+						events.onSourceChanged?.(payload);
+						break;
+
+					case 'success':
+						events.onSuccess?.(payload);
+						events.onUpload?.(payload);
+						break;
+
+					case 'tags':
+						events.onTags?.(payload);
+						break;
+
+					case 'upload-added':
+						events.onUploadAdded?.(payload);
+						break;
 				}
 			},
 		);

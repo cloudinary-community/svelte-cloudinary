@@ -82,23 +82,25 @@ export const POST = async ({ request }) => {
 
 ## Events
 
-| Prop              | Type                         |                                                                                           |
-| ----------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
-| `abort`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#abort)           |
-| `batch-cancelled` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled) |
-| `close`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#close_event)     |
-| `display-changed` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#display_changed) |
-| `error`           | `(error, options) => void`   |                                                                                           |
-| `open`            | `(widget) => void`           |                                                                                           |
-| `public-id`       | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#publicid)        |
-| `queues-end`      | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_end)      |
-| `queues-start`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_start)    |
-| `retry`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#retry)           |
-| `show-completed`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#show_completed)  |
-| `source-changed`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#source_changed)  |
-| `success`         | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#success)         |
-| `tags`            | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#tags)            |
-| `upload-added`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#upload_added)    |
+Events are passed in as props rather than using the `on:event` syntax:
+
+| Event              | Type                         |                                                                                           |
+| ------------------ | ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `onAbort`          | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#abort)           |
+| `onBatchCancelled` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled) |
+| `onClose`          | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#close_event)     |
+| `onDisplayChanged` | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#display_changed) |
+| `onError`          | `(error, options) => void`   |                                                                                           |
+| `onOpen`           | `(widget) => void`           |                                                                                           |
+| `onPublicId`       | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#publicid)        |
+| `onQueuesEnd`      | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_end)      |
+| `onQueuesStart`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#queues_start)    |
+| `onRetry`          | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#retry)           |
+| `onShowCompleted`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#show_completed)  |
+| `onSourceChanged`  | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#source_changed)  |
+| `onSuccess`        | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#success)         |
+| `onTags`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#tags)            |
+| `onUploadAdded`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#upload_added)    |
 
 ## Slot Props
 
