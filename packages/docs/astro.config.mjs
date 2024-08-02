@@ -92,6 +92,15 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					label: 'Migrate',
+					items: [
+						{
+							label: 'v2',
+							link: '/migrate/v2',
+						},
+					],
+				},
 			],
 		}),
 		svelte(),
