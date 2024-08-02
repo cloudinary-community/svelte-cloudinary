@@ -38,6 +38,20 @@
 		id?: string;
 
 		/**
+		 * You can bind to this prop if you need to access the Cloudinary
+		 * Video Player directly.
+		 * @readonly
+		 */
+		player?: CloudinaryVideoPlayer | undefined;
+
+		/**
+		 * You can bind to this prop if you need to access the <video />
+		 * element directly.
+		 * @readonly
+		 */
+		videoElement?: HTMLVideoElement | undefined;
+
+		/**
 		 * Fires when an error in video playback occurs
 		 */
 		onError?: CldVideoPlayerEvent;
@@ -81,6 +95,7 @@
 
 	type $$Props = CldVideoPlayerProps;
 	$: ({ config, id, ...videoPlayerOptions } = $$props as CldVideoPlayerProps);
+
 	$: options = getVideoPlayerOptions(
 		videoPlayerOptions,
 		toConfig(config || $globalConfig),
@@ -88,33 +103,34 @@
 
 	let loaded =
 		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
-	let videoElement: HTMLVideoElement;
-	let player: CloudinaryVideoPlayer;
+
+	export let videoElement: HTMLVideoElement | undefined = undefined;
+	export let player: CloudinaryVideoPlayer | undefined = undefined;
 
 	$: if (videoElement && loaded && !player) {
 		player = window.cloudinary?.videoPlayer?.(videoElement, options);
 
-		player.on('error', (event: CustomEvent<{}>) =>
+		player?.on('error', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onError?.(event),
 		);
 
-		player.on('loadeddata', (event: CustomEvent<{}>) =>
+		player?.on('loadeddata', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onDataLoad?.(event),
 		);
 
-		player.on('loadedmetadata', (event: CustomEvent<{}>) =>
+		player?.on('loadedmetadata', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onMetadataLoad?.(event),
 		);
 
-		player.on('pause', (event: CustomEvent<{}>) =>
+		player?.on('pause', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onPause?.(event),
 		);
 
-		player.on('play', (event: CustomEvent<{}>) =>
+		player?.on('play', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onPlay?.(event),
 		);
 
-		player.on('ended', (event: CustomEvent<{}>) =>
+		player?.on('ended', (event: CustomEvent<{}>) =>
 			videoPlayerOptions.onEnded?.(event),
 		);
 	}
