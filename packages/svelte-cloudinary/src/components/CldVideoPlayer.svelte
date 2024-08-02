@@ -40,32 +40,32 @@
 		/**
 		 * Fires when an error in video playback occurs
 		 */
-		onError: CldVideoPlayerEvent;
+		onError?: CldVideoPlayerEvent;
 
 		/**
 		 * Fires when video data is loaded
 		 */
-		onDataLoad: CldVideoPlayerEvent;
+		onDataLoad?: CldVideoPlayerEvent;
 
 		/**
 		 * Fires when video metadata is loaded
 		 */
-		onMetadataLoad: CldVideoPlayerEvent;
+		onMetadataLoad?: CldVideoPlayerEvent;
 
 		/**
 		 * Fires when the video is paused
 		 */
-		onPause: CldVideoPlayerEvent;
+		onPause?: CldVideoPlayerEvent;
 
 		/**
 		 * Fires when the video is played
 		 */
-		onPlay: CldVideoPlayerEvent;
+		onPlay?: CldVideoPlayerEvent;
 
 		/**
 		 * Fires when the video ends
 		 */
-		onEnded: CldVideoPlayerEvent;
+		onEnded?: CldVideoPlayerEvent;
 	};
 </script>
 
