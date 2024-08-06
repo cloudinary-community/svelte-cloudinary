@@ -136,10 +136,15 @@
 	}
 
 	onMount(() => {
-		loadScript(
-			`https://unpkg.com/cloudinary-video-player@${PLAYER_VERSION}/dist/cld-video-player.min.js`,
-			() => (loaded = true),
-		);
+		loadScript({
+			src: `https://unpkg.com/cloudinary-video-player@${PLAYER_VERSION}/dist/cld-video-player.min.js`,
+			onLoad() {
+				loaded = true;
+			},
+			onError() {
+				// todo
+			},
+		});
 	});
 </script>
 
