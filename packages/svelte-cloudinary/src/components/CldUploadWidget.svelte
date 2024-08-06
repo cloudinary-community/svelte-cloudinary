@@ -26,12 +26,14 @@
 	import type { CloudinaryUploadWidgetOptions } from '@cloudinary-util/types';
 	import type { ConfigOrName } from '../configure';
 
-	type EventData = {
+	type EventOptions = {
 		widget: any;
-		results: CloudinaryUploadWidgetResults;
 	} & CloudinaryUploadWidgetInstanceMethods;
 
-	type CldUploadWidgetEvent<T = EventData> = (data: T) => unknown;
+	type CldUploadWidgetEvent = (
+		results: CloudinaryUploadWidgetResults,
+		options: EventOptions,
+	) => unknown;
 
 	export interface CldUploadWidgetProps {
 		/**
@@ -59,17 +61,15 @@
 		/**
 		 * Fires when an error occurs uploading.
 		 */
-		onError?: CldUploadWidgetEvent<
-			{ error: string } & CloudinaryUploadWidgetInstanceMethods
-		>;
+		onError?: (
+			error: string,
+			options: CloudinaryUploadWidgetInstanceMethods,
+		) => unknown;
 
 		/**
 		 * Fires when the widget is opened.
 		 */
-		onOpen?: CldUploadWidgetEvent<
-			{ widget: any } & CloudinaryUploadWidgetInstanceMethods
-		>;
-
+		onOpen?: (widget: any) => void;
 		/**
 		 * Fires when the user aborted the upload.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#abort
@@ -153,7 +153,10 @@
 		 * Use onSuccess instead. This will be removed in the next major release.
 		 * @deprecated
 		 */
-		onUpload?: CldUploadWidgetEvent;
+		onUpload?: (
+			results: CloudinaryUploadWidgetResults,
+			widget: any,
+		) => void;
 	}
 </script>
 
@@ -195,9 +198,31 @@
 		show: () => widget?.show(),
 		update: (...args) => widget?.update(...args),
 		open: (...args) => {
-			events.onOpen?.({ widget, ...instanceMethods });
+			events.onOpen?.(widget);
 			widget?.open(...args);
 		},
+	};
+
+	const WIDGET_EVENTS: Record<
+		string,
+		Exclude<
+			Extract<keyof CldUploadWidgetProps, `on${string}`>,
+			'onOpen' | 'onError' | 'onUpload'
+		>
+	> = {
+		abort: 'onAbort',
+		'batch-cancelled': 'onBatchCancelled',
+		close: 'onClose',
+		'display-changed': 'onDisplayChanged',
+		publicid: 'onPublicId',
+		'queues-end': 'onQueuesEnd',
+		'queues-start': 'onQueuesStart',
+		retry: 'onRetry',
+		'show-completed': 'onShowCompleted',
+		'source-changed': 'onSourceChanged',
+		success: 'onSuccess',
+		tags: 'onTags',
+		'upload-added': 'onUploadAdded',
 	};
 
 	$: if (loaded) {
@@ -243,78 +268,40 @@
 				error: CloudinaryUploadWidgetError,
 				results: CloudinaryUploadWidgetResults,
 			) => {
+				const options: EventOptions = {
+					...instanceMethods,
+					widget,
+				};
+
 				if (error) {
-					events.onError?.({
-						error:
-							typeof error == 'string' ? error : error.statusText,
-						...instanceMethods,
-					});
+					events.onError?.(
+						typeof error == 'string' ? error : error.statusText,
+						options,
+					);
 					return;
 				}
 
-				const payload: EventData = {
-					widget,
-					results,
-					...instanceMethods,
-				};
+				const handlerName = WIDGET_EVENTS[`${results.event}`];
 
-				switch (results.event) {
-					case 'abort':
-						events.onAbort?.(payload);
-						break;
-
-					case 'batch-cancelled':
-						events.onBatchCancelled?.(payload);
-						break;
-
-					case 'close':
-						events.onClose?.(payload);
-						break;
-
-					case 'display-changed':
-						events.onDisplayChanged?.(payload);
+				switch (handlerName) {
+					case 'onDisplayChanged':
+						events.onDisplayChanged?.(results, options);
 
 						if (results.info === 'hidden') {
-							events.onClose?.(payload);
+							events.onClose?.(results, options);
 						}
 						break;
 
-					case 'publicid':
-						events.onPublicId?.(payload);
+					case 'onSuccess':
+						events.onSuccess?.(results, options);
+						events.onUpload?.(results, options);
 						break;
 
-					case 'queues-end':
-						events.onQueuesEnd?.(payload);
+					default: {
+						const handler = events[handlerName];
+						handler?.(results, options);
 						break;
-
-					case 'queues-start':
-						events.onQueuesStart?.(payload);
-						break;
-
-					case 'retry':
-						events.onRetry?.(payload);
-						break;
-
-					case 'show-completed':
-						events.onShowCompleted?.(payload);
-						break;
-
-					case 'source-changed':
-						events.onSourceChanged?.(payload);
-						break;
-
-					case 'success':
-						events.onSuccess?.(payload);
-						events.onUpload?.(payload);
-						break;
-
-					case 'tags':
-						events.onTags?.(payload);
-						break;
-
-					case 'upload-added':
-						events.onUploadAdded?.(payload);
-						break;
+					}
 				}
 			},
 		);

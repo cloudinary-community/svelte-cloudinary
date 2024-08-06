@@ -101,6 +101,9 @@ Events are passed in as props rather than using the `on:event` syntax:
 | `onSuccess`        | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#success)         |
 | `onTags`           | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#tags)            |
 | `onUploadAdded`    | `(results, options) => void` | [More Info](https://cloudinary.com/documentation/upload_widget_reference#upload_added)    |
+| `onUpload`         | `(results, widget) => void`  | Deprecated, use `onSuccess`                                                               |
+
+The `options` object contains the widget and all [instance methods](#instance-methods).
 
 ## Slot Props
 
