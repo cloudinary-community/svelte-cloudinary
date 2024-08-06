@@ -26,7 +26,7 @@ const DEFAULT_ANALYTICS: AnalyticsOptions = Object.freeze({
 export function toConfig(configOrName: ConfigOrName): SvelteCloudinaryConfig {
 	return typeof configOrName == 'string'
 		? { cloud: { cloudName: configOrName }, analytics: DEFAULT_ANALYTICS }
-		: Object.assign({ analytics: DEFAULT_ANALYTICS }, configOrName);
+		: Object.assign({ analytics: { ...DEFAULT_ANALYTICS } }, configOrName);
 }
 
 type ConfigStore = Writable<SvelteCloudinaryConfig>;
