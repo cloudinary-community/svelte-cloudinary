@@ -23,7 +23,10 @@
 	} from '@cloudinary-util/url-loader';
 	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
 
-	type CldVideoPlayerEvent = (event: CustomEvent<{}>) => unknown;
+	type CldVideoPlayerEvent = (options: {
+		player: CloudinaryVideoPlayer;
+		video: HTMLVideoElement;
+	}) => unknown;
 
 	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
 		/**
@@ -110,28 +113,46 @@
 	$: if (videoElement && loaded && !player) {
 		player = window.cloudinary?.videoPlayer?.(videoElement, options);
 
-		player?.on('error', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onError?.(event),
+		player?.on('error', () =>
+			videoPlayerOptions.onError?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 
-		player?.on('loadeddata', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onDataLoad?.(event),
+		player?.on('loadeddata', () =>
+			videoPlayerOptions.onDataLoad?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 
-		player?.on('loadedmetadata', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onMetadataLoad?.(event),
+		player?.on('loadedmetadata', () =>
+			videoPlayerOptions.onMetadataLoad?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 
-		player?.on('pause', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onPause?.(event),
+		player?.on('pause', () =>
+			videoPlayerOptions.onPause?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 
-		player?.on('play', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onPlay?.(event),
+		player?.on('play', () =>
+			videoPlayerOptions.onPlay?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 
-		player?.on('ended', (event: CustomEvent<{}>) =>
-			videoPlayerOptions.onEnded?.(event),
+		player?.on('ended', () =>
+			videoPlayerOptions.onEnded?.({
+				player: player!,
+				video: videoElement!,
+			}),
 		);
 	}
 
