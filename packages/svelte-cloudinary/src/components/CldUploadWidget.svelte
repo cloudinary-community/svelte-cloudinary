@@ -61,10 +61,7 @@
 		/**
 		 * Fires when an error occurs uploading.
 		 */
-		onError?: (
-			error: string,
-			options: CloudinaryUploadWidgetInstanceMethods,
-		) => unknown;
+		onError?: (error: string, options: EventOptions) => unknown;
 
 		/**
 		 * Fires when the widget is opened.
@@ -308,10 +305,18 @@
 	}
 
 	onMount(() => {
-		loadScript(
-			'https://upload-widget.cloudinary.com/global/all.js',
-			() => (loaded = true),
-		);
+		loadScript({
+			src: 'https://upload-widget.cloudinary.com/global/all.js',
+			onLoad() {
+				loaded = true;
+			},
+			onError() {
+				events.onError?.('Unable to load script', {
+					...instanceMethods,
+					widget,
+				});
+			},
+		});
 	});
 
 	let cloudinary: typeof window.cloudinary | null = null;
