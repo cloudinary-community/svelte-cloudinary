@@ -23,8 +23,12 @@
 -->
 
 <script lang="ts" context="module">
-	import type { CloudinaryUploadWidgetOptions } from '@cloudinary-util/types';
 	import type { ConfigOrName } from '../configure';
+	import type {
+		CloudinaryUploadWidgetOptions,
+		CloudinaryUploadWidgetResults,
+		CloudinaryUploadWidgetInstanceMethods,
+	} from '@cloudinary-util/types';
 
 	type EventOptions = {
 		widget: any;
@@ -158,19 +162,15 @@
 </script>
 
 <script lang="ts">
-	import {
-		generateSignatureCallback,
-		generateUploadWidgetResultCallback,
-		getUploadWidgetOptions,
-	} from '@cloudinary-util/url-loader';
 	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
 	import { onDestroy, onMount } from 'svelte';
-	import type {
-		CloudinaryUploadWidgetError,
-		CloudinaryUploadWidgetResults,
-		CloudinaryUploadWidgetInstanceMethods,
-	} from '@cloudinary-util/types';
+	import {
+		UPLOAD_WIDGET_EVENTS as _WIDGET_EVENTS,
+		generateUploadWidgetResultCallback,
+		generateSignatureCallback,
+		getUploadWidgetOptions,
+	} from '@cloudinary-util/url-loader';
 
 	const globalConfig = getConfigStore();
 
@@ -205,27 +205,13 @@
 		},
 	};
 
-	const WIDGET_EVENTS: Record<
+	const WIDGET_EVENTS = _WIDGET_EVENTS as Record<
 		string,
 		Exclude<
 			Extract<keyof CldUploadWidgetProps, `on${string}`>,
 			'onOpen' | 'onError' | 'onUpload'
 		>
-	> = {
-		abort: 'onAbort',
-		'batch-cancelled': 'onBatchCancelled',
-		close: 'onClose',
-		'display-changed': 'onDisplayChanged',
-		publicid: 'onPublicId',
-		'queues-end': 'onQueuesEnd',
-		'queues-start': 'onQueuesStart',
-		retry: 'onRetry',
-		'show-completed': 'onShowCompleted',
-		'source-changed': 'onSourceChanged',
-		success: 'onSuccess',
-		tags: 'onTags',
-		'upload-added': 'onUploadAdded',
-	};
+	>;
 
 	$: if (loaded) {
 		instanceMethods.destroy();
