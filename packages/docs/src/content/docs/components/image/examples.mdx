@@ -114,7 +114,7 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="300"
 	src="images/woman-headphones"
 	sizes="100vw"
-	crop="thumb"
+	crop="fill"
 	alt=""
 />
 
@@ -123,7 +123,53 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="300" height="300" src="<Your Public ID>" sizes="100vw" crop="thumb" alt="" />
+<CldImage
+	width="300"
+	height="300"
+	src="<Your Public ID>"
+	sizes="100vw"
+	crop="fill"
+	alt=""
+/>
+```
+
+Cloudinary additionally supports dynamic crop modes like thumb that may provide a different result based on the given width and height. To help provide more options for controlling cropping images, you can specify and object or array of objects.
+
+For instance, to crop the original source image, which will then later resize it to the initial width and height, you can use:
+
+<CldImage
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	width="300"
+	height="300"
+	src="images/woman-headphones"
+	sizes="100vw"
+	crop={{
+		width: 600,
+		height: 600,
+		type: 'thumb',
+		source: true,
+	}}
+	alt=""
+/>
+
+```svelte
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	width="300"
+	height="300"
+	src="<Your Public ID>"
+	sizes="100vw"
+	crop={{
+		width: 600,
+		height: 600,
+		type: 'thumb',
+		source: true,
+	}}
+	alt=""
+/>
 ```
 
 ### Generative Fill
@@ -378,8 +424,8 @@ You can also pass in a seed to the prompt:
 
 <CldImage
 	replaceBackground={{
-		prompt: "fish tank",
-		seed: 3
+		prompt: 'fish tank',
+		seed: 3,
 	}}
 	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
 	src="images/turtle"

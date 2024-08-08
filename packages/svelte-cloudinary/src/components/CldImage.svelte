@@ -39,7 +39,6 @@
 	$: props = $$props as CldImageProps;
 </script>
 
-<!-- todo validate reactivity -->
 <Image
 	{...props}
 	cdn="cloudinary"
