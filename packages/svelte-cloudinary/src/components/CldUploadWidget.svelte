@@ -158,9 +158,14 @@
 </script>
 
 <script lang="ts">
+	import {
+		generateSignatureCallback,
+		generateUploadWidgetResultCallback,
+		getUploadWidgetOptions,
+	} from '@cloudinary-util/url-loader';
 	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import type {
 		CloudinaryUploadWidgetError,
 		CloudinaryUploadWidgetResults,
@@ -227,56 +232,38 @@
 
 		const cfg = toConfig(config || $globalConfig);
 
-		const widgetOptions = {
-			...options,
-			cloudName: cfg.cloud?.cloudName,
-			uploadPreset: uploadPreset, // todo global upload preset
-			apiKey: cfg.cloud?.apiKey,
-		};
+		// todo upload preset global option
 
-		if (signatureEndpoint) {
-			widgetOptions.uploadSignature = async (
-				callback: (...args: any[]) => any,
-				paramsToSign: unknown,
-			) => {
-				const response = await fetch(signatureEndpoint, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						paramsToSign,
+		const uploadOptions = getUploadWidgetOptions(
+			{
+				...options,
+				uploadSignature:
+					signatureEndpoint &&
+					generateSignatureCallback({
+						signatureEndpoint,
+						fetch,
 					}),
-				});
+			},
+			cfg,
+		);
 
-				callback(await response.json());
-			};
+		const callback = generateUploadWidgetResultCallback({
+			onError: (error) => {
+				const message = error
+					? typeof error == 'string'
+						? error
+						: error?.statusText
+					: 'Unknown Error';
 
-			if (!widgetOptions.apiKey) {
-				console.warn(
-					'Missing dependency: Signed Upload requires an API key',
-				);
-			}
-		}
+				events.onError?.(message, { ...instanceMethods, widget });
+			},
+			onResult: (results) => {
+				if (typeof results?.event !== 'string') return;
 
-		widget = window.cloudinary?.createUploadWidget?.(
-			widgetOptions,
-			(
-				error: CloudinaryUploadWidgetError,
-				results: CloudinaryUploadWidgetResults,
-			) => {
 				const options: EventOptions = {
 					...instanceMethods,
 					widget,
 				};
-
-				if (error) {
-					events.onError?.(
-						typeof error == 'string' ? error : error.statusText,
-						options,
-					);
-					return;
-				}
 
 				const handlerName = WIDGET_EVENTS[`${results.event}`];
 
@@ -301,6 +288,11 @@
 					}
 				}
 			},
+		});
+
+		widget = window.cloudinary?.createUploadWidget?.(
+			uploadOptions,
+			callback,
 		);
 	}
 
@@ -317,6 +309,10 @@
 				});
 			},
 		});
+	});
+
+	onDestroy(() => {
+		instanceMethods.destroy();
 	});
 
 	let cloudinary: typeof window.cloudinary | null = null;

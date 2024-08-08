@@ -167,6 +167,8 @@
 			},
 		});
 	});
+
+	// todo onDestroy
 </script>
 
 <svelte:head>
