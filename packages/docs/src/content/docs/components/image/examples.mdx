@@ -312,6 +312,107 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 The generative restore transformation is currently in Beta. <a href="https://cloudinary.com/documentation/transformation_reference#e_gen_restore">Learn more</a>.
 :::
 
+### Generative Replace Background
+
+Uses generative AI to replace the background of your image. It can either generate a background for you based on context, or take in a prompt.
+
+#### Contextual Replace
+
+<CldImage
+	replaceBackground
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+
+```svelte {6}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	replaceBackground
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+```
+
+#### Prompt
+
+<CldImage
+	replaceBackground="fish tank"
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+
+```svelte {6}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	replaceBackground="fish tank"
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+```
+
+You can also pass in a seed to the prompt:
+
+<CldImage
+	replaceBackground={{
+		prompt: "fish tank",
+		seed: 3
+	}}
+	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+
+```svelte {6-9}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	replaceBackground={{
+		prompt: "fish tank",
+		seed: 3
+	}}
+	src="images/turtle"
+	width="960"
+	height="600"
+	crop="fill"
+	sizes="100vw"
+	alt=""
+/>
+```
+
+:::note
+The generative replace background transformation is currently in Beta. [Learn more](https://cloudinary.com/documentation/transformation_reference#e_gen_background_replace).
+:::
+
 ## Filters & Effects
 
 Included in the Cloudinary transformations library are different filters and effects
