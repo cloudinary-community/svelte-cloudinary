@@ -11,14 +11,14 @@
     "check": "astro check"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/starlight": "^0.24.4",
-    "@astrojs/svelte": "^5.6.0",
-    "astro": "^4.11.1",
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/starlight": "^0.25.4",
+    "@astrojs/svelte": "^5.7.0",
+    "astro": "^4.13.1",
     "css-tree": "^2.3.1",
     "sharp": "^0.33.4",
     "svelte": "^4.2.18",
     "svelte-cloudinary": "workspace:^",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   }
 }

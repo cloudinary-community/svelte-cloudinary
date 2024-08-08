@@ -18,7 +18,7 @@
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.6",
+    "@changesets/cli": "^2.27.7",
     "@svitejs/changesets-changelog-github-compact": "^1.1.0"
   }
 }
