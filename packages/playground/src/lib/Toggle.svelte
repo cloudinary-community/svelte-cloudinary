@@ -6,9 +6,11 @@
 
 <div class="flex items-center justify-between">
 	<span class="flex flex-grow flex-col">
-		<span class="text-sm font-medium leading-6 text-gray-900" id="{label.toLowerCase()}-label"
-			>{label}</span
-		>
+		<span
+			class="text-sm font-medium leading-6 text-gray-900"
+			id="{label.toLowerCase()}-label">
+			{label}
+		</span>
 	</span>
 	<button
 		on:click={onClick}
@@ -18,13 +20,11 @@
 		}`}
 		role="switch"
 		aria-checked={isEnabled}
-		aria-labelledby="{label.toLowerCase()}-label"
-	>
+		aria-labelledby="{label.toLowerCase()}-label">
 		<span
 			aria-hidden="true"
 			class={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
 				isEnabled ? 'translate-x-5' : 'translate-x-0'
-			}`}
-		/>
+			}`}></span>
 	</button>
 </div>
