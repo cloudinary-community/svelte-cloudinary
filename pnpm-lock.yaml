@@ -46,6 +46,10 @@ importers:
         version: 5.5.4
 
   packages/playground:
+    dependencies:
+      shiki:
+        specifier: ^1.12.1
+        version: 1.12.1
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.2.2
@@ -68,6 +72,9 @@ importers:
       cloudinary:
         specifier: ^2.4.0
         version: 2.4.0
+      gooey:
+        specifier: ^0.2.12
+        version: 0.2.12
       highlight.js:
         specifier: ^11.10.0
         version: 11.10.0
@@ -1614,7 +1621,6 @@ packages:
     resolution: {integrity: sha512-biCz/mnkMktImI6hMfMX3H9kOeqsInxWEyCHbSlL8C/2TR1FqfmGxTLRNwYCKsyCyxWLbB8rEqXRVZuyxuLFmA==}
     dependencies:
       '@types/hast': 3.0.4
-    dev: true
 
   /@sveltejs/adapter-auto@3.2.2(@sveltejs/kit@2.5.20):
     resolution: {integrity: sha512-Mso5xPCA8zgcKrv+QioVlqMZkyUQ5MjDJiEPuG/Z7cV/5tmwV7LmcVWk5tZ+H0NCOV1x12AsoSpt/CwFwuVXMA==}
@@ -1831,7 +1837,6 @@ packages:
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
     dependencies:
       '@types/unist': 3.0.2
-    dev: true
 
   /@types/mdast@4.0.4:
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -1887,7 +1892,6 @@ packages:
 
   /@types/unist@3.0.2:
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
-    dev: true
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
@@ -3102,6 +3106,10 @@ packages:
 
   /globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+    dev: true
+
+  /gooey@0.2.12:
+    resolution: {integrity: sha512-qJ1LVhGV2LoQ0rGCw1+bixejTfwEXchc/hIRp6FVzS+RGazN31b/M441GznwApoKMdspP20vIu9F+KY1P9P4Hw==}
     dev: true
 
   /graceful-fs@4.2.11:
@@ -5364,7 +5372,6 @@ packages:
     dependencies:
       '@shikijs/core': 1.12.1
       '@types/hast': 3.0.4
-    dev: true
 
   /siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}

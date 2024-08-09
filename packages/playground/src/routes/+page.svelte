@@ -1,60 +1,263 @@
 <script lang="ts">
-	import { CldImage } from 'svelte-cloudinary';
-	import Toggle from '$lib/Toggle.svelte';
+	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+	import { titleCase } from '$lib/utils';
+	import { onMount } from 'svelte';
+	import { Gooey } from 'gooey';
+	import {
+		type CldImageProps,
+		getCldImageUrl,
+		CldImage,
+	} from 'svelte-cloudinary';
+	import Code from '$lib/code/Code.svelte';
 
-	const IMAGES = ['turtle', 'woman-headphones', 'sneakers', 'earth'];
+	const IMAGES = ['turtle', 'woman-headphones', 'sneakers', 'earth'] as const;
 
-	const effects: Record<string, boolean> = {
-		pixelate: false,
-		grayscale: false,
-		sharpen: false,
+	const EFFECTS = [
+		'pixelate',
+		'grayscale',
+		'sharpen',
+		'cartoonify',
+		'contrast',
+		'gradientFade',
+		'improve',
+		'oilPaint',
+		'negate',
+		'redeye',
+		'sepia',
+		'shadow',
+		'vibrance',
+		'saturation',
+		'vignette',
+	] as const;
+
+	let props: CldImageProps = {
+		src: 'images/turtle',
+		width: 400,
+		height: 400,
+		alt: '',
 	};
 
-	let selectedImage: string = 'turtle';
+	let loadingImage = true;
+	$: if (props) loadingImage = true;
+
+	$: svelteCode = generateSvelteCode(props);
+
+	onMount(() => {
+		const gui = new Gooey({
+			title: '&lt;CldImage/&gt;',
+			container: document.documentElement,
+		});
+
+		const unsub = gui.presetManager.activePreset.subscribe((preset) => {
+			switch (preset.title) {
+				case 'city shoes':
+					props.src = 'images/sneakers';
+					break;
+
+				default:
+					props.src == 'images/turtle';
+					break;
+			}
+		});
+
+		gui.addButton('log props', () => {
+			console.log(props);
+		});
+
+		const imageFolder = gui.addFolder('Image');
+
+		imageFolder.addButtonGrid('Image', [
+			IMAGES.map((image) => {
+				const imageURL = getCldImageUrl({
+					config: PUBLIC_CLOUDINARY_CLOUD_NAME,
+					src: `images/${image}`,
+					width: 200,
+					height: 64,
+				});
+
+				return {
+					text: `<img class="gui-image-button" src="${imageURL}" />`,
+					style: {
+						height: '32px',
+					},
+					onClick() {
+						props.src = `images/${image}`;
+					},
+				};
+			}),
+		]);
+
+		imageFolder.addNumber('Width', 600, {
+			min: 300,
+			max: 1000,
+			onChange(width) {
+				props.width = width;
+			},
+		});
+
+		imageFolder.addNumber('Height', 600, {
+			min: 300,
+			max: 1000,
+			onChange(height) {
+				props.height = height;
+			},
+		});
+
+		const effectsFolder = gui.addFolder('Effects');
+
+		for (const effect of EFFECTS) {
+			effectsFolder.addSwitch(titleCase(effect), false, {
+				value: false,
+				onChange(enabled) {
+					props[effect] = enabled;
+				},
+			});
+		}
+
+		const backgroundFolder = gui.addFolder('Backgrounds');
+
+		backgroundFolder.addSwitch('Remove', false, {
+			value: false,
+			onChange(enabled) {
+				props.removeBackground = enabled;
+			},
+		});
+
+		backgroundFolder.addSwitch('Replace', false, {
+			value: false,
+			onChange(enabled) {
+				props.replaceBackground = enabled;
+			},
+		});
+
+		backgroundFolder.addText('Colour', '', {
+			value: '',
+			onChange(colour) {
+				colour = colour.trim();
+				props.background = colour.length ? colour : undefined;
+			},
+		});
+
+		backgroundFolder.addSelect('Underlay', ['none', 'galaxy'], {
+			onChange(underlay) {
+				props.underlay =
+					underlay.value == 'none'
+						? undefined
+						: `images/${underlay.value}`;
+			},
+		});
+
+		props.crop = {
+			type: 'fill',
+			gravity: 'center',
+		};
+
+		const cropFolder = gui.addFolder('Crop');
+
+		cropFolder.addSelect(
+			'Type',
+			[
+				'auto',
+				'fill',
+				'lfill',
+				'fill_pad',
+				'crop',
+				'thumb',
+				'scale',
+				'fit',
+				'limit',
+				'mfit',
+				'pad',
+				'lpad',
+				'mpad',
+				'imagga_scale',
+				'imagga_crop',
+				'adv_eyes',
+				'adv_face',
+				'adv_faces',
+				'cld-decompose_tile',
+				'face',
+				'face:center',
+				'faces',
+				'faces:center',
+				'liquid',
+				'ocr_text',
+				'xy_center',
+			] as const,
+			{
+				value: 'fill',
+				onChange(type) {
+					// @ts-expect-error needs narrowing to obj
+					props.crop!.type = type.value;
+				},
+			},
+		);
+
+		cropFolder.addSelect(
+			'Gravity',
+			[
+				'center',
+				'north_east',
+				'north',
+				'north_west',
+				'west',
+				'south_west',
+				'south',
+				'south_east',
+				'east',
+			],
+			{
+				value: 'center',
+				onChange(gravity) {
+					// @ts-expect-error needs narrowing to obj
+					props.crop!.gravity = gravity.value;
+				},
+			},
+		);
+
+		return () => {
+			gui.dispose();
+			unsub();
+		};
+	});
+
+	function generateSvelteCode(props: CldImageProps) {
+		const propsStr = Object.entries(props)
+			.filter(([name, value]) => ![false, undefined].includes(value))
+			.map(([name, value]) => {
+				const valueStr =
+					typeof value == 'string'
+						? `"${value}"`
+						: `{${JSON.stringify(value, null, 2)}}`.replace(
+								/\n/g,
+								'\n  ',
+							);
+
+				return `${name}${value === true ? '' : `=${valueStr}`}`;
+			});
+
+		return `<CldImage\n  ${propsStr.join('\n  ')}\n/>`;
+	}
 </script>
 
-<div class="grid grid-cols-12 min-h-screen">
-	<aside class="col-span-2 border-r px-2 py-10">
-		<h2 class="text-xl mb-2">Select Image</h2>
-		<div class="flex gap-2 items-center">
-			{#each IMAGES as image}
-				<button on:click={() => (selectedImage = image)}>
-					<CldImage
-						height={150}
-						width={150}
-						src="images/{image}"
-						alt={image} />
-				</button>
-			{/each}
-		</div>
+<main class="flex flex-col gap-12 mt-16 items-center">
+	<h1 class="text-3xl text-center font-display font-extrabold">
+		&lt;CldImage/&gt;
+	</h1>
 
-		<div class="py-10">
-			<h2 class="text-xl mb-2">Effects</h2>
+	<CldImage
+		on:load={() => (loadingImage = false)}
+		class={loadingImage ? 'opacity-50 blur-lg transition-all' : ''}
+		{...props} />
 
-			<div class="flex flex-col gap-4">
-				{#each Object.keys(effects) as effect}
-					<Toggle
-						label={effect}
-						isEnabled={effects[effect]}
-						onClick={() => {
-							effects[effect] = !effects[effect];
-						}} />
-				{/each}
-			</div>
-		</div>
-	</aside>
+	<Code code={svelteCode} />
+</main>
 
-	<main class="col-span-10 py-10">
-		<h1 class="text-5xl text-center mb-10 font-display font-extrabold">
-			Svelte Cloudinary Playground
-		</h1>
-		<div class="flex flex-col items-center justify-center mb-10">
-			<CldImage
-				{...effects}
-				height={400}
-				width={400}
-				src="images/{selectedImage}"
-				alt={selectedImage} />
-		</div>
-	</main>
-</div>
+<style>
+	:global(.gui-image-button) {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: 100%;
+	}
+</style>

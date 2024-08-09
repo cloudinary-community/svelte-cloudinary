@@ -1,4 +1,6 @@
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	darkMode: 'selector',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
@@ -20,11 +22,6 @@ const config = {
 			},
 		},
 	},
-	experimental: {
-		darkModeVariant: true,
-	},
-	dark: 'class',
+
 	plugins: [require('@tailwindcss/typography')],
 };
-
-module.exports = config;
