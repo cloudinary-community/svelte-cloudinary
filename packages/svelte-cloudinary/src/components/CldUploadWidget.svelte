@@ -23,7 +23,6 @@
 -->
 
 <script lang="ts" context="module">
-	import type { ConfigOrName } from '../configure';
 	import type {
 		CloudinaryUploadWidgetOptions,
 		CloudinaryUploadWidgetResults,
@@ -41,10 +40,10 @@
 
 	export interface CldUploadWidgetProps {
 		/**
-		 * The config passed to {@link configureCloudinary}, can either be your cloud name
-		 * or a full config options object. Will only apply to this component if used as a prop.
+		 * Overrides for the global Cloudinary config.
+		 * @see https://svelte.cloudinary.dev/config
 		 */
-		config?: ConfigOrName;
+		config: ConfigOptions;
 
 		/**
 		 * Upload Presets are configured on Cloudinary and provide a way to centrally define a set of upload options.
@@ -162,17 +161,16 @@
 </script>
 
 <script lang="ts">
-	import { getConfigStore, toConfig } from '../configure';
 	import { loadScript } from '../helpers/scripts';
+	import { mergeGlobalConfig } from '../config';
 	import { onDestroy, onMount } from 'svelte';
 	import {
 		UPLOAD_WIDGET_EVENTS as _WIDGET_EVENTS,
 		generateUploadWidgetResultCallback,
 		generateSignatureCallback,
 		getUploadWidgetOptions,
+		type ConfigOptions,
 	} from '@cloudinary-util/url-loader';
-
-	const globalConfig = getConfigStore();
 
 	type $$Props = CldUploadWidgetProps;
 
@@ -216,13 +214,12 @@
 	$: if (loaded) {
 		instanceMethods.destroy();
 
-		const cfg = toConfig(config || $globalConfig);
-
-		// todo upload preset global option
+		const cfg = mergeGlobalConfig(config);
 
 		const uploadOptions = getUploadWidgetOptions(
 			{
 				...options,
+				uploadPreset: uploadPreset || cfg.extra.uploadPreset,
 				uploadSignature:
 					signatureEndpoint &&
 					generateSignatureCallback({
@@ -230,7 +227,7 @@
 						fetch,
 					}),
 			},
-			cfg,
+			cfg.config,
 		);
 
 		const callback = generateUploadWidgetResultCallback({

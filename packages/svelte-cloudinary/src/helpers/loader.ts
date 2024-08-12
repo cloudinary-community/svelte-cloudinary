@@ -45,6 +45,6 @@ export function createLoader(props: CldImageProps): URLTransformer {
 			options.width = loaderOptions?.width;
 		}
 
-		return getCldImageUrl(options);
+		return getCldImageUrl(options, options.config);
 	};
 }

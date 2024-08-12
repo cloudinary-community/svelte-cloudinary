@@ -23,7 +23,10 @@
 
 <script context="module" lang="ts">
 	import type { GetCldOgImageUrlOptions } from '../helpers/getCldOgImageUrl';
-	import { type ImageOptions } from '@cloudinary-util/url-loader';
+	import type {
+		ConfigOptions,
+		ImageOptions,
+	} from '@cloudinary-util/url-loader';
 
 	export type CldOgImageProps = ImageOptions &
 		GetCldOgImageUrlOptions & {
@@ -48,6 +51,12 @@
 			 * @default 627
 			 */
 			height?: number;
+
+			/**
+			 * Overrides for the global Cloudinary config.
+			 * @see https://svelte.cloudinary.dev/config
+			 */
+			config: ConfigOptions;
 		};
 </script>
 
@@ -56,8 +65,16 @@
 
 	type $$Props = CldOgImageProps;
 
-	$: ({ alt, width = 1200, height = 627, twitterTitle, ...options } = $$props as CldOgImageProps);
-	$: url = getCldOgImageUrl(options);
+	$: ({
+		alt,
+		width = 1200,
+		height = 627,
+		twitterTitle,
+		config,
+		...options
+	} = $$props as CldOgImageProps);
+
+	$: url = getCldOgImageUrl(options, config);
 </script>
 
 <svelte:head>

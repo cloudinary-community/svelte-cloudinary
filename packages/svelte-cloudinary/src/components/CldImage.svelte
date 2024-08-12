@@ -25,9 +25,17 @@
 
 <script context="module" lang="ts">
 	import type { GetCldImageUrlOptions } from '../helpers/getCldImageUrl';
+	import type { ConfigOptions } from '@cloudinary-util/url-loader';
 	import type { ImageProps } from '@unpic/svelte';
 
-	export type CldImageProps = ImageProps & GetCldImageUrlOptions;
+	export type CldImageProps = ImageProps &
+		GetCldImageUrlOptions & {
+			/**
+			 * Overrides for the global Cloudinary config.
+			 * @see https://svelte.cloudinary.dev/config
+			 */
+			config: ConfigOptions;
+		};
 </script>
 
 <script lang="ts">

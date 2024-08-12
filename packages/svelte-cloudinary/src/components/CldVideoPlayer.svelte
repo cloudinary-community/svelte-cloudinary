@@ -17,11 +17,11 @@
 -->
 
 <script context="module" lang="ts">
+	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
 	import type {
 		ConfigOptions,
 		GetVideoPlayerOptions,
 	} from '@cloudinary-util/url-loader';
-	import type { CloudinaryVideoPlayer } from '@cloudinary-util/types';
 
 	type CldVideoPlayerEvent = (options: {
 		player: CloudinaryVideoPlayer;
@@ -30,10 +30,10 @@
 
 	export type CldVideoPlayerProps = GetVideoPlayerOptions & {
 		/**
-		 * The config passed to {@link configureCloudinary}, can either be your cloud name
-		 * or a full config options object. Will only apply to this component if used as a prop.
+		 * Overrides for the global Cloudinary config.
+		 * @see https://svelte.cloudinary.dev/config
 		 */
-		config?: string | ConfigOptions;
+		config: ConfigOptions;
 
 		/**
 		 * Custom id to use
@@ -88,20 +88,18 @@
 
 <script lang="ts">
 	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
-	import { getConfigStore, toConfig } from '../configure.js';
-	import { loadScript } from '../helpers/scripts.js';
+	import { loadScript } from '../helpers/scripts';
+	import { mergeGlobalConfig } from '../config';
 	import { onMount } from 'svelte';
 
 	const PLAYER_VERSION = '1.11.1';
-
-	const globalConfig = getConfigStore();
 
 	type $$Props = CldVideoPlayerProps;
 	$: ({ config, id, ...videoPlayerOptions } = $$props as CldVideoPlayerProps);
 
 	$: options = getVideoPlayerOptions(
 		videoPlayerOptions,
-		toConfig(config || $globalConfig),
+		mergeGlobalConfig(config).config,
 	);
 
 	let loaded =

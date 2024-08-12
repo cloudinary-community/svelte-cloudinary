@@ -1,0 +1,87 @@
+---
+title: Configuring Svelte Cloudinary
+---
+
+## Global Config
+
+The global config option works at runtime by using the [`context api`](https://learn.svelte.dev/tutorial/context-api) to set the config for all components. It has a few shortcuts for common options such as `cloudName` and `apiKey`. You'll likely want to run this in your root component, for example in SvelteKit this would be in `src/routes/+layout.svelte`.
+
+```svelte
+<script>
+	import { configureCloudinary } from 'svelte-cloudinary';
+
+	configureCloudinary({
+		cloudName: 'cloudName',
+	});
+</script>
+```
+
+The following options are available:
+
+```ts
+// These options are available on every helper/component
+// (see #config-overrides below)
+interface ConfigOptions {
+	cloud?: {}
+	url?: {}
+}
+
+interface GlobalCloudinaryConfig extends ConfigOptions {
+	analytics?: AnalyticsOptions;
+	uploadPreset?: string;
+	cloudName?: string;
+	apiKey?: string;
+}
+```
+
+## Config Overrides
+
+You can overwrite the config on individual components/helpers. All components have a `config` prop which accepts the Cloudinary config object. This doesn't include the shortcuts such as the top level `cloudName`, and `apiKey` that the global config does.
+
+```svelte
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage config={{ cloud: { cloudName: 'cloudName' }}} />
+```
+
+## Using environment variables
+
+We don't currently load these for you, so you'll need to import/reference them and pass it into the runtime config.
+
+### Vite
+
+```bash
+# .env
+VITE_CLOUDINARY_CLOUD_NAME="cloudName"
+```
+
+```svelte
+<script>
+	import { configureCloudinary } from 'svelte-cloudinary';
+
+	configureCloudinary({
+        cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+    });
+</script>
+```
+
+### SvelteKit
+
+```bash
+# .env
+PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
+```
+
+```svelte
+<!-- src/routes/+layout.svelte -->
+<script>
+	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+	import { configureCloudinary } from 'svelte-cloudinary';
+
+	configureCloudinary({
+        cloudName: PUBLIC_CLOUDINARY_CLOUD_NAME
+    });
+</script>
+```

@@ -13,7 +13,7 @@ Standard Cloudinary Video Player with playback.
 	width="1620"
 	height="1080"
 	src="videos/mountain-stars"
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -38,7 +38,7 @@ Standard Cloudinary Video Player with playback.
 		streaming_profile: 'hd',
 	}}
 	sourceTypes={['hls']}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -65,7 +65,7 @@ Utilizes the browser's Picture-in-Picture API to create a floating video on top 
 	height="1080"
 	src="videos/mountain-stars"
 	pictureInPictureToggle
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -96,7 +96,7 @@ Adding a button to select chapters.
 		9: 'Chapter 3',
 	}}
 	chaptersButton
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -130,7 +130,7 @@ Changing the player theme using colors and fonts.
 		text: '#0000ff',
 	}}
 	fontFace="Source Serif Pro"
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -162,7 +162,7 @@ Adding a custom logo to the player chrome.
 		imageUrl: '/svelte.png',
 		onClickUrl: 'https://svelte.dev',
 	}}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 />
 
 ```svelte
@@ -193,7 +193,7 @@ todo add import and change images/tyle
 		src: 'images/turtle',
 		config: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
 	})}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	client:load
 />
 
@@ -219,7 +219,7 @@ Adding effects to the video's auto-generated thumb.
 	poster={{
 		tint: 'equalize:80:blue:blueviolet',
 	}}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	client:load
 />
 
@@ -250,7 +250,7 @@ Adding effects to the video's auto-generated thumb.
 		crop: 'fill',
 		gravity: 'auto',
 	}}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	client:load
 />
 
@@ -286,7 +286,7 @@ Place an image over the video (e.g. watermarks).
 		y: 50,
 		opacity: 80,
 	}}
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	client:load
 />
 
@@ -317,7 +317,7 @@ Provides localization options for player labels. Uses [Video.js JSON format](htt
 	id="localization"
 	width="4096"
 	height="2160"
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	client:load
 	src="videos/mountain-stars"
 	language="es"

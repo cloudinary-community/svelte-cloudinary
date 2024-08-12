@@ -18,7 +18,7 @@ describe('CldImage', () => {
 				layout: 'constrained',
 				priority: true,
 				background: '#123456',
-				config: 'testing',
+				config: { cloud: { cloudName: 'testing' } },
 			},
 		});
 
@@ -43,7 +43,7 @@ describe('CldImage', () => {
 				alt: 'sample image',
 				width: 300,
 				height: 200,
-				config: 'testing',
+				config: { cloud: { cloudName: 'testing' } },
 			},
 		});
 
@@ -56,7 +56,7 @@ describe('CldImage', () => {
 			width: 500,
 			alt: 'test2',
 			src: 'sample',
-			config: 'testing',
+			config: { cloud: { cloudName: 'testing' } },
 		});
 
 		await tick();

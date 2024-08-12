@@ -2,7 +2,9 @@
 	import { configureCloudinary } from 'svelte-cloudinary';
 	import '../app.postcss';
 
-	configureCloudinary(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+	configureCloudinary({
+		cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
+	});
 </script>
 
 <slot />

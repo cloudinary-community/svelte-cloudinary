@@ -11,7 +11,7 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 ## Text Overlays
 
 <CldImage
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	src="images/turtle"
 	width={960}
 	height={600}
@@ -54,7 +54,7 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 `underlay`: Specifies a public ID to use as an underlaying image.
 
 <CldImage
-	config={import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME}
+	config={{ cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME }}
 	src="images/turtle"
 	tint="100:0000FF:0p:FF1493:100p"
 	blur="2000"

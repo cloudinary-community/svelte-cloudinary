@@ -1,6 +1,9 @@
-import type { ImageOptions } from '@cloudinary-util/url-loader';
 import { getCldImageUrl } from './getCldImageUrl';
-import type { ConfigOrName } from '../configure';
+import type {
+	AnalyticsOptions,
+	ConfigOptions,
+	ImageOptions,
+} from '@cloudinary-util/url-loader';
 
 export interface GetCldOgImageUrlOptions extends ImageOptions {
 	/**
@@ -8,19 +11,21 @@ export interface GetCldOgImageUrlOptions extends ImageOptions {
 	 * This will only work if you have a version number in your URL.
 	 */
 	preserveTransformations?: boolean;
-
-	/**
-	 * The config passed to {@link configureCloudinary}, can either be your cloud name
-	 * or a full config options object. Will only apply to this component if used as a prop.
-	 */
-	config?: ConfigOrName;
 }
 
-export function getCldOgImageUrl(options: GetCldOgImageUrlOptions) {
-	return getCldImageUrl({
-		...options,
-		format: options.format || 'jpg',
-		width: options.width || 1200,
-		height: options.height || 627,
-	});
+export function getCldOgImageUrl(
+	options: GetCldOgImageUrlOptions,
+	configOverride?: ConfigOptions,
+	analyticsOverride?: AnalyticsOptions,
+) {
+	return getCldImageUrl(
+		{
+			...options,
+			format: options.format || 'jpg',
+			width: options.width || 1200,
+			height: options.height || 627,
+		},
+		configOverride,
+		analyticsOverride,
+	);
 }

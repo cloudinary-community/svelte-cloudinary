@@ -26,6 +26,6 @@ export {
 	type CldUploadWidgetProps,
 } from './components/CldUploadWidget.svelte';
 
-export { configureCloudinary } from './configure.js';
+export { configureCloudinary } from './config.js';
 
 export { VERSION } from './version';

@@ -10,73 +10,16 @@ npm install svelte-cloudinary -D
 
 ## Configuring
 
-You need to set your Cloudinary cloud name in order to load images, you should do this in your root Svelte component. For example in SvelteKit this would be in `src/routes/+layout.svelte`. We are using the [`context api`](https://learn.svelte.dev/tutorial/context-api) under the hood.
-
-```svelte
-<script>
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary('cloudName');
-</script>
-```
-
-You can also configure it on a component level with any component provided using the `config` prop. This prop takes the same arguments as the `configureCloudinary` function.
-
-```svelte
-<script>
-	import { CldImage } from 'svelte-cloudinary';
-</script>
-
-<CldImage config="cloudName" />
-```
-
-### Using environment variables
-
-#### Vite
-
-```bash
-# .env
-VITE_CLOUDINARY_CLOUD_NAME="cloudName"
-```
-
-```svelte
-<script>
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary(import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
-</script>
-```
-
-#### SvelteKit
-
-```bash
-# .env
-PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
-```
-
-```svelte
-<!-- src/routes/+layout.svelte -->
-<script>
-	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary(PUBLIC_CLOUDINARY_CLOUD_NAME);
-</script>
-```
-
-### Advanced Configuration
-
-There are more options available than just the cloud name, you can use the same function but pass in an object.
+You'll need to set your Global Cloudinary config in your root Svelte component. For example in SvelteKit this would be in `src/routes/+layout.svelte`. We are using the [`context api`](https://learn.svelte.dev/tutorial/context-api) under the hood.
 
 ```svelte
 <script>
 	import { configureCloudinary } from 'svelte-cloudinary';
 
 	configureCloudinary({
-		cloud: {
-			cloudName: 'cloudName'
-		}
+		cloudName: 'cloudName',
 	});
 </script>
 ```
 
+Read more, including how to configure environment variables, [here](/config).
