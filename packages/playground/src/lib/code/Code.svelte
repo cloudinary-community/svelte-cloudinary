@@ -1,10 +1,10 @@
 <script lang="ts">
 	import CopyButton from './CopyButton.svelte';
-	import { highlighter } from './highlight';
+	import { page } from '$app/stores';
 
 	export let code: string;
 
-	$: html = highlighter.codeToHtml(code, {
+	$: html = $page.data.highlighter.codeToHtml(code, {
 		theme: 'serendipity',
 		lang: 'svelte',
 	});
