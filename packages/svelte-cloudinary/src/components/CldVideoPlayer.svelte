@@ -33,7 +33,7 @@
 		 * Overrides for the global Cloudinary config.
 		 * @see https://svelte.cloudinary.dev/config
 		 */
-		config: ConfigOptions;
+		config?: ConfigOptions;
 
 		/**
 		 * Custom id to use

@@ -43,7 +43,7 @@
 		 * Overrides for the global Cloudinary config.
 		 * @see https://svelte.cloudinary.dev/config
 		 */
-		config: ConfigOptions;
+		config?: ConfigOptions;
 
 		/**
 		 * Upload Presets are configured on Cloudinary and provide a way to centrally define a set of upload options.
