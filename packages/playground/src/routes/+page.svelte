@@ -68,12 +68,14 @@
 
 		imageFolder.addButtonGrid('Image', [
 			IMAGES.map((image) => {
-				const imageURL = getCldImageUrl({
-					config: PUBLIC_CLOUDINARY_CLOUD_NAME,
-					src: `images/${image}`,
-					width: 200,
-					height: 64,
-				});
+				const imageURL = getCldImageUrl(
+					{
+						src: `images/${image}`,
+						width: 200,
+						height: 64,
+					},
+					{ cloud: { cloudName: PUBLIC_CLOUDINARY_CLOUD_NAME } },
+				);
 
 				return {
 					text: `<img class="gui-image-button" src="${imageURL}" />`,
