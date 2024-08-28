@@ -6,7 +6,7 @@ type URLTransformer = Exclude<ImageProps['transformer'], undefined>;
 
 export function createLoader(props: CldImageProps): URLTransformer {
 	return (loaderOptions) => {
-		const options = Object.assign({}, props);
+		const options = structuredClone(props);
 
 		options.width = parseInt(`${options.width}`);
 		options.height = parseInt(`${options.height}`);
