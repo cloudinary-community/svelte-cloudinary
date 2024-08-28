@@ -59,5 +59,14 @@
 		"@cloudinary-util/util": "^3.2.0",
 		"@unpic/svelte": "0.0.53",
 		"defu": "^6.1.4"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cloudinary-community/svelte-cloudinary.git"
+	},
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/cloudinary-community/svelte-cloudinary/issues"
+	},
+	"homepage": "https://github.com/cloudinary-community/svelte-cloudinary"
 }
