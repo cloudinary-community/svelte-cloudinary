@@ -1,4 +1,3 @@
-import { safelyGetTransformations } from './transforms';
 import { mergeGlobalConfig } from '../config';
 import {
 	constructCloudinaryUrl,
@@ -7,16 +6,8 @@ import {
 	type ImageOptions,
 } from '@cloudinary-util/url-loader';
 
-export interface GetCldImageUrlOptions extends ImageOptions {
-	/**
-	 * Preserve transformations in your Cloudinary URL.
-	 * This will only work if you have a version number in your URL.
-	 */
-	preserveTransformations?: boolean;
-}
-
 export function getCldImageUrl(
-	options: GetCldImageUrlOptions,
+	options: ImageOptions,
 	configOverride?: ConfigOptions,
 	analyticsOverride?: AnalyticsOptions,
 ) {
@@ -30,12 +21,6 @@ export function getCldImageUrl(
 		config,
 		options: {
 			...options,
-			rawTransformations: options.preserveTransformations
-				? safelyGetTransformations(
-						options.src,
-						options.rawTransformations,
-					)
-				: options.rawTransformations,
 			crop: options.crop || {
 				type: 'fill',
 				gravity: 'center',

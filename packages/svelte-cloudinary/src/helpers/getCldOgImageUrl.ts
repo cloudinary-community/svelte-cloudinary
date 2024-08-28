@@ -5,16 +5,8 @@ import type {
 	ImageOptions,
 } from '@cloudinary-util/url-loader';
 
-export interface GetCldOgImageUrlOptions extends ImageOptions {
-	/**
-	 * Preserve transformations in your Cloudinary URL.
-	 * This will only work if you have a version number in your URL.
-	 */
-	preserveTransformations?: boolean;
-}
-
 export function getCldOgImageUrl(
-	options: GetCldOgImageUrlOptions,
+	options: ImageOptions,
 	configOverride?: ConfigOptions,
 	analyticsOverride?: AnalyticsOptions,
 ) {

@@ -2,19 +2,13 @@ export {
 	default as CldImage,
 	type CldImageProps,
 } from './components/CldImage.svelte';
-export {
-	getCldImageUrl,
-	type GetCldImageUrlOptions,
-} from './helpers/getCldImageUrl.js';
+export { getCldImageUrl } from './helpers/getCldImageUrl.js';
 
 export {
 	default as CldOgImage,
 	type CldOgImageProps,
 } from './components/CldOgImage.svelte';
-export {
-	getCldOgImageUrl,
-	type GetCldOgImageUrlOptions,
-} from './helpers/getCldOgImageUrl.js';
+export { getCldOgImageUrl } from './helpers/getCldOgImageUrl.js';
 
 export {
 	default as CldVideoPlayer,

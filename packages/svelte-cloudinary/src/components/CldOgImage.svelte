@@ -22,42 +22,40 @@
 -->
 
 <script context="module" lang="ts">
-	import type { GetCldOgImageUrlOptions } from '../helpers/getCldOgImageUrl';
 	import type {
 		ConfigOptions,
 		ImageOptions,
 	} from '@cloudinary-util/url-loader';
 
-	export type CldOgImageProps = ImageOptions &
-		GetCldOgImageUrlOptions & {
-			/**
-			 * The title to use on twitter
-			 */
-			twitterTitle?: string;
+	export type CldOgImageProps = ImageOptions & {
+		/**
+		 * The title to use on twitter
+		 */
+		twitterTitle?: string;
 
-			/**
-			 * The image alt text
-			 */
-			alt: string;
+		/**
+		 * The image alt text
+		 */
+		alt: string;
 
-			/**
-			 * The width of your og image
-			 * @default 1200
-			 */
-			width?: number;
+		/**
+		 * The width of your og image
+		 * @default 1200
+		 */
+		width?: number;
 
-			/**
-			 * The height of your og image
-			 * @default 627
-			 */
-			height?: number;
+		/**
+		 * The height of your og image
+		 * @default 627
+		 */
+		height?: number;
 
-			/**
-			 * Overrides for the global Cloudinary config.
-			 * @see https://svelte.cloudinary.dev/config
-			 */
-			config?: ConfigOptions;
-		};
+		/**
+		 * Overrides for the global Cloudinary config.
+		 * @see https://svelte.cloudinary.dev/config
+		 */
+		config?: ConfigOptions;
+	};
 </script>
 
 <script lang="ts">
