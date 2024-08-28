@@ -41,17 +41,47 @@
 </script>
 
 <script lang="ts">
+	import { pollForProcessingImage } from '@cloudinary-util/util';
 	import { createLoader } from '../helpers/loader';
 	import { Image } from '@unpic/svelte';
 
 	type $$Props = CldImageProps;
 
 	$: props = $$props as CldImageProps;
+
+	let key = 0;
+	async function handleError(event: Event) {
+		console.warn(
+			'[svelte-cloudinary]',
+			'image failed to load, polling for updates',
+		);
+
+		const src = (event.target as HTMLImageElement | null)?.src;
+
+		if (!src) {
+			console.warn('[svelte-cloudinary]', 'unable to find the image src');
+			return;
+		}
+
+		const result = await pollForProcessingImage({ src });
+
+		console.warn(
+			'[svelte-cloudinary]',
+			result ? 'successfully loaded' : 'failed to load',
+			'image',
+		);
+
+		// Force image to update
+		key++;
+	}
 </script>
 
-<Image
-	{...props}
-	cdn="cloudinary"
-	transformer={createLoader(props)}
-	on:load
-	on:error></Image>
+{#key key}
+	<Image
+		transformer={createLoader(props)}
+		cdn="cloudinary"
+		on:load
+		on:error={handleError}
+		on:error
+		{...props}></Image>
+{/key}
