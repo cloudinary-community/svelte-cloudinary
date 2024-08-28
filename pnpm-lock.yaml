@@ -127,8 +127,8 @@ importers:
         specifier: ^5.8.0
         version: 5.8.0
       '@cloudinary-util/util':
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^3.3.1
+        version: 3.3.1
       '@unpic/svelte':
         specifier: 0.0.53
         version: 0.0.53(svelte@4.2.18)
@@ -821,8 +821,8 @@ packages:
     resolution: {integrity: sha512-VJBqAT3W0HQ9kyMagv+EzXkM/VYR9Ks01ewGxsS8T8b2N0NZFPAhYKeU2H9fOXSl6BVrD6aVYjJZAoT8pfQIyA==}
     dev: false
 
-  /@cloudinary-util/util@3.3.0:
-    resolution: {integrity: sha512-+KwUG/Scbx4vPu0hHK2Q3iMDpBpkK0JfUxMn4TesCsURUDcoLgRQsBHkBAQdDgyZRqdp8OcpmujA6X85i19CXw==}
+  /@cloudinary-util/util@3.3.1:
+    resolution: {integrity: sha512-RaD18gv/+H/qtycNJp/8BQwLAub5vxRYeAG0wNAg8ub/0QZfZR83VQe18F+NmQHgX+jAiDsx/yOeZgyVcngiwQ==}
     dev: false
 
   /@cloudinary/transformation-builder-sdk@1.14.1:

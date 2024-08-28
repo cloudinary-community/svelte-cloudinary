@@ -63,16 +63,18 @@
 			return;
 		}
 
-		const result = await pollForProcessingImage({ src });
+		const success = await pollForProcessingImage({ src });
 
 		console.warn(
 			'[svelte-cloudinary]',
-			result ? 'successfully loaded' : 'failed to load',
+			success ? 'successfully loaded' : 'failed to load',
 			'image',
 		);
 
-		// Force image to update
-		key++;
+		if (success) {
+			// Force image to update
+			key++;
+		}
 	}
 </script>
 
