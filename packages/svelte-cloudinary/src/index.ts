@@ -18,6 +18,11 @@ export {
 export {
 	default as CldUploadWidget,
 	type CldUploadWidgetProps,
+	type CldUploadWidgetErrorEvent,
+	type CldUploadWidgetOpenEvent,
+	type CldUploadWidgetGenericEvent,
+	type CldUploadWidgetGenericEventOptions,
+	type CldUploadWidgetEvent,
 } from './components/CldUploadWidget.svelte';
 
 export { configureCloudinary } from './config.js';

@@ -29,14 +29,53 @@
 		CloudinaryUploadWidgetInstanceMethods,
 	} from '@cloudinary-util/types';
 
-	type EventOptions = {
-		widget: any;
+	type CloudinaryUploadWidget = CloudinaryUploadWidgetInstanceMethods;
+
+	/**
+	 * The event that fires when there is a widget related error
+	 * @param error The error message
+	 * @param options The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetErrorEvent = (
+		error: string,
+		options: CloudinaryUploadWidgetInstanceMethods & {
+			widget?: CloudinaryUploadWidget;
+		},
+	) => unknown;
+
+	/**
+	 * The event which fires on widget open
+	 * @param widget The widget that opened
+	 */
+	export type CldUploadWidgetOpenEvent = (
+		widget: CloudinaryUploadWidget,
+	) => void;
+
+	/**
+	 * Generic Cloudinary upload widget event
+	 * @param results The event results
+	 * @param options The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetGenericEvent = (
+		results: CloudinaryUploadWidgetResults,
+		options: CldUploadWidgetGenericEventOptions,
+	) => unknown;
+
+	/**
+	 * The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetGenericEventOptions = {
+		widget: CloudinaryUploadWidget;
 	} & CloudinaryUploadWidgetInstanceMethods;
 
-	type CldUploadWidgetEvent = (
-		results: CloudinaryUploadWidgetResults,
-		options: EventOptions,
-	) => unknown;
+	/**
+	 * Any upload widget event.
+	 * @see https://svelte.cloudinary.dev/components/upload-widget#events
+	 */
+	export type CldUploadWidgetEvent =
+		| CldUploadWidgetErrorEvent
+		| CldUploadWidgetOpenEvent
+		| CldUploadWidgetGenericEvent;
 
 	export interface CldUploadWidgetProps {
 		/**
@@ -64,90 +103,91 @@
 		/**
 		 * Fires when an error occurs uploading.
 		 */
-		onError?: (error: string, options: EventOptions) => unknown;
+		onError?: CldUploadWidgetErrorEvent;
 
 		/**
 		 * Fires when the widget is opened.
 		 */
-		onOpen?: (widget: any) => void;
+		onOpen?: CldUploadWidgetOpenEvent;
+
 		/**
 		 * Fires when the user aborted the upload.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#abort
 		 */
-		onAbort?: CldUploadWidgetEvent;
+		onAbort?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the uploading was cancelled.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled
 		 */
-		onBatchCancelled?: CldUploadWidgetEvent;
+		onBatchCancelled?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the user closes the widget.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#close_event
 		 */
-		onClose?: CldUploadWidgetEvent;
+		onClose?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the widget display type changes.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#display_changed
 		 */
-		onDisplayChanged?: CldUploadWidgetEvent;
+		onDisplayChanged?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the public id input field changes.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#publicid
 		 */
-		onPublicId?: CldUploadWidgetEvent;
+		onPublicId?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when all files have finished uploading.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_end
 		 */
-		onQueuesEnd?: CldUploadWidgetEvent;
+		onQueuesEnd?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the files are about to begin uploading.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_start
 		 */
-		onQueuesStart?: CldUploadWidgetEvent;
+		onQueuesStart?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the user retried after uploads failed.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#retry
 		 */
-		onRetry?: CldUploadWidgetEvent;
+		onRetry?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the user clicks the "Show Completed" button.
 		 * Requires the showCompletedButton option be set to true.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#show_completed
 		 */
-		onShowCompleted?: CldUploadWidgetEvent;
+		onShowCompleted?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the user selects a different upload source.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#source_changed
 		 */
-		onSourceChanged?: CldUploadWidgetEvent;
+		onSourceChanged?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the upload has successfully completed.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#success
 		 */
-		onSuccess?: CldUploadWidgetEvent;
+		onSuccess?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when the contents of the tags input field change.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#tags
 		 */
-		onTags?: CldUploadWidgetEvent;
+		onTags?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Fires when a new file was selected to be uploaded.
 		 * @see https://cloudinary.com/documentation/upload_widget_reference#upload_added
 		 */
-		onUploadAdded?: CldUploadWidgetEvent;
+		onUploadAdded?: CldUploadWidgetGenericEvent;
 
 		/**
 		 * Use onSuccess instead. This will be removed in the next major release.
@@ -155,7 +195,7 @@
 		 */
 		onUpload?: (
 			results: CloudinaryUploadWidgetResults,
-			widget: any,
+			widget: CloudinaryUploadWidget,
 		) => void;
 	}
 </script>
@@ -185,21 +225,22 @@
 	let loaded =
 		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
 
-	let widget: any;
+	let widget: CloudinaryUploadWidget | undefined;
 
 	const instanceMethods: CloudinaryUploadWidgetInstanceMethods = {
 		close: (...args) => widget?.close(...args),
-		destroy: (...args) => widget?.destroy(...args),
+		destroy: async (...args) => await widget?.destroy(...args),
 		hide: () => widget?.hide(),
-		isDestroyed: () => widget?.isDestroyed(),
-		isMinimized: () => widget?.isMinimized(),
-		isShowing: () => widget?.isShowing(),
+		isDestroyed: () => widget?.isDestroyed() ?? true,
+		isMinimized: () => widget?.isMinimized() ?? false,
+		isShowing: () => widget?.isShowing() ?? false,
 		minimize: () => widget?.minimize(),
 		show: () => widget?.show(),
 		update: (...args) => widget?.update(...args),
 		open: (...args) => {
-			events.onOpen?.(widget);
+			if (!widget) createWidget(config);
 			widget?.open(...args);
+			events.onOpen?.(widget!);
 		},
 	};
 
@@ -211,8 +252,8 @@
 		>
 	>;
 
-	$: if (loaded) {
-		instanceMethods.destroy();
+	function createWidget(config: $$Props['config']) {
+		if (widget) return;
 
 		const cfg = mergeGlobalConfig(config);
 
@@ -238,14 +279,17 @@
 						: error?.statusText
 					: 'Unknown Error';
 
-				events.onError?.(message, { ...instanceMethods, widget });
+				events.onError?.(message, {
+					...instanceMethods,
+					widget: widget!,
+				});
 			},
 			onResult: (results) => {
 				if (typeof results?.event !== 'string') return;
 
-				const options: EventOptions = {
+				const options: CldUploadWidgetGenericEventOptions = {
 					...instanceMethods,
-					widget,
+					widget: widget!,
 				};
 
 				const handlerName = WIDGET_EVENTS[`${results.event}`];
@@ -277,6 +321,11 @@
 			uploadOptions,
 			callback,
 		);
+	}
+
+	$: if (loaded) {
+		instanceMethods.destroy();
+		createWidget(config);
 	}
 
 	onMount(() => {
