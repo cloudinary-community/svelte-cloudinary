@@ -23,6 +23,7 @@ export {
 	type CldUploadWidgetGenericEvent,
 	type CldUploadWidgetGenericEventOptions,
 	type CldUploadWidgetEvent,
+	type CldUploadWidgetUploadEvent,
 } from './components/CldUploadWidget.svelte';
 
 export { configureCloudinary } from './config.js';

@@ -69,13 +69,23 @@
 	} & CloudinaryUploadWidgetInstanceMethods;
 
 	/**
+	 * Use onSuccess instead. This will be removed in the next major release.
+	 * @deprecated
+	 */
+	export type CldUploadWidgetUploadEvent = (
+		results: CloudinaryUploadWidgetResults,
+		widget: CloudinaryUploadWidget,
+	) => void;
+
+	/**
 	 * Any upload widget event.
 	 * @see https://svelte.cloudinary.dev/components/upload-widget#events
 	 */
 	export type CldUploadWidgetEvent =
 		| CldUploadWidgetErrorEvent
 		| CldUploadWidgetOpenEvent
-		| CldUploadWidgetGenericEvent;
+		| CldUploadWidgetGenericEvent
+		| CldUploadWidgetUploadEvent;
 
 	export interface CldUploadWidgetProps {
 		/**
@@ -193,10 +203,7 @@
 		 * Use onSuccess instead. This will be removed in the next major release.
 		 * @deprecated
 		 */
-		onUpload?: (
-			results: CloudinaryUploadWidgetResults,
-			widget: CloudinaryUploadWidget,
-		) => void;
+		onUpload?: CldUploadWidgetUploadEvent;
 	}
 </script>
 
