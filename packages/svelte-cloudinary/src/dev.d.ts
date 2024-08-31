@@ -1,3 +1,19 @@
+import type {
+	CloudinaryUploadWidgetOptions,
+	CloudinaryUploadWidgetErrorCallback,
+	CloudinaryUploadWidgetError,
+	CloudinaryUploadWidgetResults,
+	CloudinaryUploadWidgetInstanceMethods,
+} from '@cloudinary-util/types';
+
+type CreateUploadWidget = (
+	options: CloudinaryUploadWidgetOptions,
+	callback: (
+		error: CloudinaryUploadWidgetError | null,
+		results: CloudinaryUploadWidgetResults,
+	) => void,
+) => CloudinaryUploadWidgetInstanceMethods;
+
 declare global {
 	interface Window {
 		cloudinary?: {
@@ -6,7 +22,7 @@ declare global {
 				options: CloudinaryVideoPlayerOptions,
 			) => CloudinaryVideoPlayer;
 
-			createUploadWidget?: (...args: any[]) => unknown;
+			createUploadWidget?: CreateUploadWidget;
 		};
 	}
 }
