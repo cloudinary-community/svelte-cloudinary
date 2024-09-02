@@ -4,19 +4,19 @@ title: Configuring Svelte Cloudinary
 
 ## Using Environment Variables
 
-If you're using Vite/SvelteKit the following environment variables are supported:
+The following environment variables are available in Vite/Sveltekit projects:
 
 | Environment Variable                  | Description                                                                                                            |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `VITE_CLOUDINARY_CLOUD_NAME`          | The cloud name of your product environment (required)                                                                  |
-| `VITE_CLOUDINARY_API_KEY`             | Used to sign image upload requests                                                                                     |
+| `VITE_CLOUDINARY_API_KEY`             | Used to authenticate image upload requests                                                                             |
 | `VITE_CLOUDINARY_PRIVATE_CDN`         | Set to `true` if you're an [Advanced Plan](https://cloudinary.com/pricing) user with a private CDN distribution        |
 | `VITE_CLOUDINARY_SECURE_DISTRIBUTION` | The custom delivery hostname for [Advanced Plan](https://cloudinary.com/pricing) users with a private CDN distribution |
 | `VITE_CLOUDINARY_UPLOAD_PRESET`       | A global [upload preset](https://cloudinary.com/documentation/upload_presets) for use with image uploading             |
 
 ## Config Helper
 
-If you're unable to use [environment variables](#using-environment-variables), or there isn't one for a config option you want to set _globally_, you can use the `configureCloudinary` function. It uses the Svelte [`context api`](https://learn.svelte.dev/tutorial/context-api), so it needs to be called in your root Svelte component (or root layout in SvelteKit). Since context flows down in Svelte, any children of this root component will automatically be able to detect the Svelte Cloudinary config.
+The `configureCloudinary` function can be used to set options _globally_. This is useful when [environment variables](#using-environment-variables) or certain options are unavailable. It uses the Svelte [`context api`](https://learn.svelte.dev/tutorial/context-api), so it needs to be called in your root Svelte component (or root layout in SvelteKit). Since context flows downwards in Svelte, a component that uses any components/helpers _must be_ a child of this root component in order to detect the config set by the `configureCloudinary` function.
 
 ```svelte
 <script>
@@ -28,16 +28,14 @@ If you're unable to use [environment variables](#using-environment-variables), o
 </script>
 ```
 
-The following options are available:
-
 ```ts
-// These options are available on every helper/component
-// (see Config Overrides below)
+// Component-level config options
 interface ConfigOptions {
 	cloud?: {};
 	url?: {};
 }
 
+// Global config options
 interface GlobalCloudinaryConfig extends ConfigOptions {
 	analytics?: AnalyticsOptions;
 	uploadPreset?: string;
@@ -48,7 +46,7 @@ interface GlobalCloudinaryConfig extends ConfigOptions {
 
 ## Config Overrides
 
-You can overwrite the config on individual components/helpers. All components have a `config` prop which accepts the Cloudinary `ConfigOptions` object. This doesn't include the shortcuts such as the top level `cloudName`, and `apiKey` that the global config does.
+All components accept a `config` prop for setting / overriding individual Cloudinary `ConfigOptions` options. However, this _doesn't_ include shortcuts (like the global config's top level `cloudName` and `apiKey` options, for example).
 
 ```svelte
 <script>
