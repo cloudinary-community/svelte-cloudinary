@@ -25,62 +25,21 @@ export interface GlobalCloudinaryConfig extends ConfigOptions {
 	apiKey?: string;
 }
 
-const { env } = await import('$env/dynamic/public').catch(() => ({
-	env: null,
-}));
-
 function getEnvConfig() {
-	if (env) {
-		return {
-			cloud: {
-				cloudName: env?.PUBLIC_CLOUDINARY_CLOUD_NAME,
-				apiKey: env?.PUBLIC_CLOUDINARY_API_KEY,
-			},
-			url: {
-				privateCdn: !!env?.PUBLIC_CLOUDINARY_PRIVATE_CDN,
-				secureDistribution: env?.PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION,
-			},
-			extra: {
-				uploadPreset: env?.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-			},
-		};
-	}
-
-	try {
-		return {
-			cloud: {
-				cloudName: import.meta.env?.VITE_CLOUDINARY_CLOUD_NAME,
-				apiKey: import.meta.env?.VITE_CLOUDINARY_API_KEY,
-			},
-			url: {
-				privateCdn: !!import.meta.env?.VITE_CLOUDINARY_PRIVATE_CDN,
-				secureDistribution: import.meta.env
-					?.VITE_CLOUDINARY_SECURE_DISTRIBUTION,
-			},
-			extra: {
-				uploadPreset: import.meta.env?.VITE_CLOUDINARY_UPLOAD_PRESET,
-			},
-		};
-	} catch {}
-
-	try {
-		return {
-			cloud: {
-				cloudName: process.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
-				apiKey: process.env.PUBLIC_CLOUDINARY_API_KEY,
-			},
-			url: {
-				privateCdn: !!process.env.PUBLIC_CLOUDINARY_PRIVATE_CDN,
-				secureDistribution:
-					process.env.PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION,
-			},
-			extra: {
-				uploadPreset: process.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-			},
-		};
-	} catch {}
-
-	return {};
+	return {
+		cloud: {
+			cloudName: import.meta.env?.VITE_CLOUDINARY_CLOUD_NAME,
+			apiKey: import.meta.env?.VITE_CLOUDINARY_API_KEY,
+		},
+		url: {
+			privateCdn: !!import.meta.env?.VITE_CLOUDINARY_PRIVATE_CDN,
+			secureDistribution: import.meta.env
+				?.VITE_CLOUDINARY_SECURE_DISTRIBUTION,
+		},
+		extra: {
+			uploadPreset: import.meta.env?.VITE_CLOUDINARY_UPLOAD_PRESET,
+		},
+	};
 }
 
 export function mergeGlobalConfig(

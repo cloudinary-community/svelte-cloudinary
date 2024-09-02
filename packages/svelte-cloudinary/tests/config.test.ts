@@ -156,7 +156,7 @@ describe('mergeGlobalConfig()', () => {
 	});
 
 	it('should correctly merge passed config', () => {
-		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', crypto.randomUUID());
+		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', crypto.randomUUID());
 
 		configureCloudinary({
 			cloudName: crypto.randomUUID(),
@@ -221,44 +221,44 @@ describe('mergeGlobalConfig()', () => {
 		});
 	});
 
-	it('should correctly merge PUBLIC_CLOUDINARY_CLOUD_NAME env var', () => {
+	it('should correctly merge VITE_CLOUDINARY_CLOUD_NAME env var', () => {
 		const cloudName = crypto.randomUUID();
-		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', cloudName);
+		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', cloudName);
 
 		const { config } = mergeGlobalConfig();
 
 		expect(config.cloud?.cloudName).toBe(cloudName);
 	});
 
-	it('should correctly merge PUBLIC_CLOUDINARY_API_KEY env var', () => {
+	it('should correctly merge VITE_CLOUDINARY_API_KEY env var', () => {
 		const apiKey = crypto.randomUUID();
-		vi.stubEnv('PUBLIC_CLOUDINARY_API_KEY', apiKey);
+		vi.stubEnv('VITE_CLOUDINARY_API_KEY', apiKey);
 
 		const { config } = mergeGlobalConfig();
 
 		expect(config.cloud?.apiKey).toBe(apiKey);
 	});
 
-	it('should correctly merge PUBLIC_CLOUDINARY_UPLOAD_PRESET env var', () => {
+	it('should correctly merge VITE_CLOUDINARY_UPLOAD_PRESET env var', () => {
 		const uploadPreset = crypto.randomUUID();
-		vi.stubEnv('PUBLIC_CLOUDINARY_UPLOAD_PRESET', uploadPreset);
+		vi.stubEnv('VITE_CLOUDINARY_UPLOAD_PRESET', uploadPreset);
 
 		const { extra } = mergeGlobalConfig();
 
 		expect(extra.uploadPreset).toBe(uploadPreset);
 	});
 
-	it('should correctly merge PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION env var', () => {
+	it('should correctly merge VITE_CLOUDINARY_SECURE_DISTRIBUTION env var', () => {
 		const secureDistribution = crypto.randomUUID();
-		vi.stubEnv('PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION', secureDistribution);
+		vi.stubEnv('VITE_CLOUDINARY_SECURE_DISTRIBUTION', secureDistribution);
 
 		const { config } = mergeGlobalConfig();
 
 		expect(config.url?.secureDistribution).toBe(secureDistribution);
 	});
 
-	it('should correctly merge PUBLIC_CLOUDINARY_PRIVATE_CDN env var', () => {
-		vi.stubEnv('PUBLIC_CLOUDINARY_PRIVATE_CDN', 'true');
+	it('should correctly merge VITE_CLOUDINARY_PRIVATE_CDN env var', () => {
+		vi.stubEnv('VITE_CLOUDINARY_PRIVATE_CDN', 'true');
 
 		const { config } = mergeGlobalConfig();
 

@@ -96,7 +96,7 @@ describe('CldImage', () => {
 
 	it('should work with a global config passed', () => {
 		const cloudName = crypto.randomUUID();
-		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', cloudName);
+		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', cloudName);
 
 		render(CldImage, {
 			// @ts-expect-error todo

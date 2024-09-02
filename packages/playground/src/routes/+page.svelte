@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
 	import { titleCase } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import { Gooey } from 'gooey';
@@ -68,14 +67,11 @@
 
 		imageFolder.addButtonGrid('Image', [
 			IMAGES.map((image) => {
-				const imageURL = getCldImageUrl(
-					{
-						src: `images/${image}`,
-						width: 200,
-						height: 64,
-					},
-					{ cloud: { cloudName: PUBLIC_CLOUDINARY_CLOUD_NAME } },
-				);
+				const imageURL = getCldImageUrl({
+					src: `images/${image}`,
+					width: 200,
+					height: 64,
+				});
 
 				return {
 					text: `<img class="gui-image-button" src="${imageURL}" />`,
