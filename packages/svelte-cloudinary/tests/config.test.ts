@@ -6,7 +6,7 @@ import {
 	DEFAULT_ANALYTICS,
 	mergeGlobalConfig,
 	type ConfigStore,
-	getConfig,
+	getGlobalConfig,
 } from '$src/config';
 
 vi.mock('svelte', () => {
@@ -42,7 +42,7 @@ describe('configureCloudinary()', () => {
 		const cloudName = crypto.randomUUID();
 		configureCloudinary({ cloudName });
 
-		const config = getConfig();
+		const config = getGlobalConfig();
 
 		expect(config).toBeTruthy();
 		expect(config).toEqual({ cloudName });
@@ -52,7 +52,7 @@ describe('configureCloudinary()', () => {
 		const uploadPreset = crypto.randomUUID();
 		configureCloudinary({ uploadPreset });
 
-		const config = getConfig();
+		const config = getGlobalConfig();
 
 		expect(config?.uploadPreset).toBe(uploadPreset);
 	});

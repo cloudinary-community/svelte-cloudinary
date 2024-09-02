@@ -25,16 +25,6 @@ export interface GlobalCloudinaryConfig extends ConfigOptions {
 	apiKey?: string;
 }
 
-// overrides
-// configureCloudinary
-// 		.cloudName, .apiKey
-//		.cloud
-// env vars
-//
-
-// todo getConfig -> getGlobalConfig
-// todo getConfigStore -> ??
-
 function getEnvConfig() {
 	try {
 		return {
@@ -65,7 +55,7 @@ export function mergeGlobalConfig(
 	configOverride?: ConfigOptions,
 	analyticsOverride?: AnalyticsOptions,
 ) {
-	const globalConfig = getConfig();
+	const globalConfig = getGlobalConfig();
 	const envConfig = getEnvConfig();
 
 	const config = defu(
@@ -112,7 +102,7 @@ export function configureCloudinary(globalConfig: GlobalCloudinaryConfig) {
 	setContext<ConfigStore>(STORE_KEY, writable(structuredClone(globalConfig)));
 }
 
-function getConfigStore(): ConfigStore | null {
+function getGlobalConfigStore(): ConfigStore | null {
 	try {
 		const currentStore = getContext<ConfigStore>(STORE_KEY);
 		if (currentStore) return currentStore;
@@ -132,7 +122,7 @@ function getConfigStore(): ConfigStore | null {
 	}
 }
 
-export function getConfig(): GlobalCloudinaryConfig | null {
-	const store = getConfigStore();
+export function getGlobalConfig(): GlobalCloudinaryConfig | null {
+	const store = getGlobalConfigStore();
 	return store ? get(store) : null;
 }

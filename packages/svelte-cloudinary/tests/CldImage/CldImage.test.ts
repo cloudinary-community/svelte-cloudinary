@@ -1,5 +1,5 @@
 import { render, screen, cleanup } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CldImage } from '$src/index';
 import { tick } from 'svelte';
 
@@ -63,5 +63,51 @@ describe('CldImage', () => {
 
 		expect(img.src).toContain('w_500');
 		expect(img.src).toContain('h_500');
+	});
+
+	it('should fail to render with no config passed', () => {
+		expect(() => {
+			render(CldImage, {
+				// @ts-expect-error todo
+				props: {
+					src: 'sample',
+					alt: 'sample image',
+				},
+			});
+		}).toThrow();
+	});
+
+	it('should work with a config prop passed', () => {
+		const cloudName = crypto.randomUUID();
+
+		render(CldImage, {
+			// @ts-expect-error todo
+			props: {
+				src: 'sample',
+				alt: 'sample image',
+				config: { cloud: { cloudName } },
+			},
+		});
+
+		const img: HTMLImageElement = screen.getByRole('img');
+
+		expect(img.src).toContain(cloudName);
+	});
+
+	it('should work with a global config passed', () => {
+		const cloudName = crypto.randomUUID();
+		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', cloudName);
+
+		render(CldImage, {
+			// @ts-expect-error todo
+			props: {
+				src: 'sample',
+				alt: 'sample image',
+			},
+		});
+
+		const img: HTMLImageElement = screen.getByRole('img');
+
+		expect(img.src).toContain(cloudName);
 	});
 });
