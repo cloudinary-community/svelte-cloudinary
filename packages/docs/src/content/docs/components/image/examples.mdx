@@ -16,9 +16,6 @@ not only deliver, but easily edit and build new images on the fly.
 `removeBackground`: Removes the background of the image using AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -44,9 +41,6 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 `background`: Specifies a color to use as a background.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -77,9 +71,6 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 `underlay`: Specifies a public ID to use as an underlaying image.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -115,9 +106,6 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 > position the subject in the center of the resulting image.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="300"
 	height="300"
 	src="images/woman-headphones"
@@ -146,9 +134,6 @@ Cloudinary additionally supports dynamic crop modes like thumb that may provide 
 For instance, to crop the original source image, which will then later resize it to the initial width and height, you can use:
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="300"
 	height="300"
 	src="images/woman-headphones"
@@ -187,9 +172,6 @@ For instance, to crop the original source image, which will then later resize it
 `fillBackground`: Fills the background of an image using Generative AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/woman-headphones"
 	width="960"
 	height="600"
@@ -225,9 +207,6 @@ The generative fill transformation is currently in Beta. <a href="https://cloudi
 `recolor`: Recolors an object in an image using Generative AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/sneakers"
 	width="960"
 	height="600"
@@ -262,9 +241,6 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 `remove`: Removes an object in an image using Generative AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/mountain"
 	width="960"
 	height="600"
@@ -299,9 +275,6 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 `replace`: Replaces an object in an image using Generative AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/turtle"
 	width="960"
 	height="600"
@@ -336,9 +309,6 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 `restore`: Restores an image using Generative AI
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/galaxy-poor"
 	width="960"
 	height="600"
@@ -348,9 +318,6 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 />
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/galaxy-poor"
 	width="960"
 	height="600"
@@ -388,9 +355,6 @@ Uses generative AI to replace the background of your image. It can either genera
 
 <CldImage
 	replaceBackground
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/turtle"
 	width="960"
 	height="600"
@@ -419,9 +383,6 @@ Uses generative AI to replace the background of your image. It can either genera
 
 <CldImage
 	replaceBackground="fish tank"
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	src="images/turtle"
 	width="960"
 	height="600"
@@ -452,9 +413,6 @@ You can also pass in a seed to the prompt:
 	replaceBackground={{
 		prompt: 'fish tank',
 		seed: 3,
-	}}
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
 	}}
 	src="images/turtle"
 	width="960"
@@ -497,9 +455,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `blur`: Applies a blurring filter to an asset.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -521,9 +476,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `grayscale`: Converts an image to grayscale (multiple shades of gray).
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -545,9 +497,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `opacity`: Controls the opacity level of an image.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -569,9 +518,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `pixelate`: Applies a pixelation effect.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -593,9 +539,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `tint`: Blends an image with one or more tint colors.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -624,9 +567,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 `effects`: An array of objects the configure the effects to apply to an image.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -681,9 +621,6 @@ Image overlays allow you to place one or multiple images on top of another image
 `overlays`: Any array of overlay objects
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -747,9 +684,6 @@ Image overlays allow you to place one or multiple images on top of another image
 that applies a blend mode, such as "multiply"
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	crop="fill"
@@ -818,9 +752,6 @@ Image underlays allow you to place one or multiple images behind a base image.
 `underlay`: Public ID of image to use under base image
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -851,9 +782,6 @@ Image underlays allow you to place one or multiple images behind a base image.
 `underlays`: Array of underlay objects
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="960"
 	height="600"
 	src="images/turtle"
@@ -930,9 +858,6 @@ Text overlays allow you to place text on top of an image.
 `text`: Adds text to an image with default settings
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="1335"
 	height="891"
 	src="images/galaxy"
@@ -965,9 +890,6 @@ Text overlays allow you to place text on top of an image.
 `overlays`: Uses overlay objects to add text on top of an image.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="1335"
 	height="891"
 	src="images/sneakers"
@@ -1036,9 +958,6 @@ Text overlays allow you to place text on top of an image.
 `effects`: Applies effects to the overlaid text.
 
 <CldImage
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 	width="1335"
 	height="891"
 	src="images/galaxy"

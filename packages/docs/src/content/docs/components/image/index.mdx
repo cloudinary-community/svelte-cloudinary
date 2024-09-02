@@ -15,9 +15,6 @@ The required props are `width`, `height`, `src`, and `alt`:
 	alt="Turtle"
 	width={960}
 	height={600}
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 />
 
 ```svelte
@@ -43,9 +40,6 @@ You can use Cloudinary transformations with simple props which are fully typed:
 	src="images/turtle"
 	alt="Blue Turtle"
 	tint="70:blue:purple"
-	config={{
-		cloud: { cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME },
-	}}
 />
 
 ```svelte

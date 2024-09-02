@@ -25,6 +25,14 @@ declare global {
 			createUploadWidget?: CreateUploadWidget;
 		};
 	}
+
+	interface ImportMetaEnv {
+		[key: string]: any;
+	}
+
+	interface ImportMeta {
+		env?: ImportMetaEnv;
+	}
 }
 
 export {};
