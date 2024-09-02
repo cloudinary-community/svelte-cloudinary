@@ -2,16 +2,19 @@
 title: Configuring Svelte Cloudinary
 ---
 
-Config options are used in the following order:
+## Using Environment Variables
 
-- Options provided by component/helper props
-- `configureCloudinary`: `.cloudName` and `.apiKey`
-- `configureCloudinary`: `.cloud` and `.url`
-- Environment variables
+If you're using Vite/SvelteKit the following environment variables are supported:
 
-## Global Config
+- `VITE_CLOUDINARY_CLOUD_NAME`
+- `VITE_CLOUDINARY_API_KEY`
+- `VITE_CLOUDINARY_PRIVATE_CDN`
+- `VITE_CLOUDINARY_SECURE_DISTRIBUTION`
+- `VITE_CLOUDINARY_UPLOAD_PRESET`
 
-The global config option works at runtime by using the [`context api`](https://learn.svelte.dev/tutorial/context-api) to set the config for all components. It has a few shortcuts for common options such as `cloudName` and `apiKey`. You'll likely want to run this in your root component, for example in SvelteKit this would be in `src/routes/+layout.svelte`.
+## Config Helper
+
+If you're unable to use [environment variables](#using-environment-variables), or there isn't one for a config option you want to set *globally*, you can use the `configureCloudinary` function. It uses the Svelte [`context api`](https://learn.svelte.dev/tutorial/context-api), so it needs to be called in your root Svelte component (or root layout in SvelteKit). Since context flows down in Svelte, any children of this root component will automatically be able to detect the Svelte Cloudinary config.
 
 ```svelte
 <script>
@@ -27,7 +30,7 @@ The following options are available:
 
 ```ts
 // These options are available on every helper/component
-// (see #config-overrides below)
+// (see Config Overrides below)
 interface ConfigOptions {
 	cloud?: {}
 	url?: {}
@@ -43,7 +46,7 @@ interface GlobalCloudinaryConfig extends ConfigOptions {
 
 ## Config Overrides
 
-You can overwrite the config on individual components/helpers. All components have a `config` prop which accepts the Cloudinary config object. This doesn't include the shortcuts such as the top level `cloudName`, and `apiKey` that the global config does.
+You can overwrite the config on individual components/helpers. All components have a `config` prop which accepts the Cloudinary `ConfigOptions` object. This doesn't include the shortcuts such as the top level `cloudName`, and `apiKey` that the global config does.
 
 ```svelte
 <script>
@@ -53,12 +56,11 @@ You can overwrite the config on individual components/helpers. All components ha
 <CldImage config={{ cloud: { cloudName: 'cloudName' }}} />
 ```
 
-## Using environment variables
+## Priority
 
-If you're using Vite/SvelteKit the following environment variables are supported:
+Config options are used in the following order:
 
-- `VITE_CLOUDINARY_CLOUD_NAME`
-- `VITE_CLOUDINARY_API_KEY`
-- `VITE_CLOUDINARY_PRIVATE_CDN`
-- `VITE_CLOUDINARY_SECURE_DISTRIBUTION`
-- `VITE_CLOUDINARY_UPLOAD_PRESET`
+- [Options overrides](#config-overrides)
+- [`configureCloudinary`](#config-helper): `.cloudName` and `.apiKey`
+- [`configureCloudinary`](#config-helper): `.cloud` and `.url`
+- [Environment variables](#using-environment-variables)
