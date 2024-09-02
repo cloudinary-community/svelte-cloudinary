@@ -2,6 +2,13 @@
 title: Configuring Svelte Cloudinary
 ---
 
+Config options are used in the following order:
+
+- Options provided by component/helper props
+- `configureCloudinary`: `.cloudName` and `.apiKey`
+- `configureCloudinary`: `.cloud` and `.url`
+- Environment variables
+
 ## Global Config
 
 The global config option works at runtime by using the [`context api`](https://learn.svelte.dev/tutorial/context-api) to set the config for all components. It has a few shortcuts for common options such as `cloudName` and `apiKey`. You'll likely want to run this in your root component, for example in SvelteKit this would be in `src/routes/+layout.svelte`.
@@ -48,40 +55,10 @@ You can overwrite the config on individual components/helpers. All components ha
 
 ## Using environment variables
 
-We don't currently load these for you, so you'll need to import/reference them and pass it into the runtime config.
+We support the following environment variables, which are tested to work in: Svelte + Vite, and SvelteKit:
 
-### Vite
-
-```bash
-# .env
-VITE_CLOUDINARY_CLOUD_NAME="cloudName"
-```
-
-```svelte
-<script>
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary({
-        cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
-    });
-</script>
-```
-
-### SvelteKit
-
-```bash
-# .env
-PUBLIC_CLOUDINARY_CLOUD_NAME="cloudName"
-```
-
-```svelte
-<!-- src/routes/+layout.svelte -->
-<script>
-	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary({
-        cloudName: PUBLIC_CLOUDINARY_CLOUD_NAME
-    });
-</script>
-```
+- `PUBLIC_CLOUDINARY_CLOUD_NAME`
+- `PUBLIC_CLOUDINARY_API_KEY`
+- `PUBLIC_CLOUDINARY_PRIVATE_CDN`
+- `PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION`
+- `PUBLIC_CLOUDINARY_UPLOAD_PRESET`

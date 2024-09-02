@@ -25,35 +25,84 @@ export interface GlobalCloudinaryConfig extends ConfigOptions {
 	apiKey?: string;
 }
 
+// overrides
+// configureCloudinary
+// 		.cloudName, .apiKey
+//		.cloud
+// env vars
+//
+
+// todo getConfig -> getGlobalConfig
+// todo getConfigStore -> ??
+
+function getEnvConfig() {
+	try {
+		return {
+			cloud: {
+				cloudName: process.env.PUBLIC_CLOUDINARY_CLOUD_NAME,
+				apiKey: process.env.PUBLIC_CLOUDINARY_API_KEY,
+			},
+			url: {
+				privateCdn: !!process.env.PUBLIC_CLOUDINARY_PRIVATE_CDN,
+				secureDistribution:
+					process.env.PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION,
+			},
+			extra: {
+				uploadPreset: process.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+			},
+		};
+	} catch (error) {
+		console.warn(
+			'[svelte-cloudinary] error trying to read config environment varialbes',
+			error,
+		);
+
+		return {};
+	}
+}
+
 export function mergeGlobalConfig(
 	configOverride?: ConfigOptions,
 	analyticsOverride?: AnalyticsOptions,
 ) {
 	const globalConfig = getConfig();
+	const envConfig = getEnvConfig();
 
 	const config = defu(
+		// Overrides have the highest priorty
 		structuredClone(configOverride),
+
+		// Merge the global config `cloudName` and `apiKey`
 		{
 			cloud: {
 				cloudName: globalConfig?.cloudName,
 				apiKey: globalConfig?.apiKey,
 			},
 		},
+		// Merge the global config `cloud` and `url` properties
 		{ cloud: globalConfig?.cloud, url: globalConfig?.url },
+		// Merge the environment variables
+		{ cloud: envConfig.cloud, url: envConfig.url },
 	) as ConfigOptions;
 
 	const analytics = defu(
+		// Overrides have the highest priorty
 		structuredClone(analyticsOverride),
+		// Merge the global config analytics
 		globalConfig?.analytics,
+		// Merge the default analytics
 		DEFAULT_ANALYTICS,
 	) as AnalyticsOptions;
+
+	const extra = defu(
+		{ uploadPreset: globalConfig?.uploadPreset },
+		envConfig.extra,
+	);
 
 	return {
 		config,
 		analytics,
-		extra: {
-			uploadPreset: globalConfig?.uploadPreset,
-		},
+		extra,
 	};
 }
 

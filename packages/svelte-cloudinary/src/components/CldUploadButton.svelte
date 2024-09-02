@@ -24,6 +24,8 @@
 
 	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
 
+	// todo fix events
+
 	$: ({ config, uploadPreset, signatureEndpoint, options, ...buttonProps } =
 		$$props as $$Props);
 </script>

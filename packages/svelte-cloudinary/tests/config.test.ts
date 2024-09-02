@@ -25,6 +25,7 @@ vi.mock('svelte', () => {
 describe('configureCloudinary()', () => {
 	beforeEach(() => {
 		configureCloudinary({});
+		vi.unstubAllEnvs();
 	});
 
 	it('should set the context store', () => {
@@ -68,7 +69,7 @@ describe('mergeGlobalConfig()', () => {
 
 		const config = mergeGlobalConfig();
 
-		expect(config.config).toEqual({
+		expect(config.config).toMatchObject({
 			cloud: {
 				cloudName,
 			},
@@ -118,7 +119,7 @@ describe('mergeGlobalConfig()', () => {
 
 		const { config } = mergeGlobalConfig();
 
-		expect(config).toEqual({
+		expect(config).toMatchObject({
 			cloud: { cloudName, apiKey },
 		});
 	});
@@ -132,7 +133,7 @@ describe('mergeGlobalConfig()', () => {
 
 		const { config } = mergeGlobalConfig();
 
-		expect(config.url).toEqual({
+		expect(config.url).toMatchObject({
 			cname,
 		});
 	});
@@ -149,12 +150,14 @@ describe('mergeGlobalConfig()', () => {
 
 		const { config } = mergeGlobalConfig();
 
-		expect(config).toEqual({
+		expect(config).toMatchObject({
 			cloud: { cloudName: randomA, apiKey: randomA },
 		});
 	});
 
 	it('should correctly merge passed config', () => {
+		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', crypto.randomUUID());
+
 		configureCloudinary({
 			cloudName: crypto.randomUUID(),
 			cloud: {
@@ -216,5 +219,49 @@ describe('mergeGlobalConfig()', () => {
 			product,
 			feature,
 		});
+	});
+
+	it('should correctly merge PUBLIC_CLOUDINARY_CLOUD_NAME env var', () => {
+		const cloudName = crypto.randomUUID();
+		vi.stubEnv('PUBLIC_CLOUDINARY_CLOUD_NAME', cloudName);
+
+		const { config } = mergeGlobalConfig();
+
+		expect(config.cloud?.cloudName).toBe(cloudName);
+	});
+
+	it('should correctly merge PUBLIC_CLOUDINARY_API_KEY env var', () => {
+		const apiKey = crypto.randomUUID();
+		vi.stubEnv('PUBLIC_CLOUDINARY_API_KEY', apiKey);
+
+		const { config } = mergeGlobalConfig();
+
+		expect(config.cloud?.apiKey).toBe(apiKey);
+	});
+
+	it('should correctly merge PUBLIC_CLOUDINARY_UPLOAD_PRESET env var', () => {
+		const uploadPreset = crypto.randomUUID();
+		vi.stubEnv('PUBLIC_CLOUDINARY_UPLOAD_PRESET', uploadPreset);
+
+		const { extra } = mergeGlobalConfig();
+
+		expect(extra.uploadPreset).toBe(uploadPreset);
+	});
+
+	it('should correctly merge PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION env var', () => {
+		const secureDistribution = crypto.randomUUID();
+		vi.stubEnv('PUBLIC_CLOUDINARY_SECURE_DISTRIBUTION', secureDistribution);
+
+		const { config } = mergeGlobalConfig();
+
+		expect(config.url?.secureDistribution).toBe(secureDistribution);
+	});
+
+	it('should correctly merge PUBLIC_CLOUDINARY_PRIVATE_CDN env var', () => {
+		vi.stubEnv('PUBLIC_CLOUDINARY_PRIVATE_CDN', 'true');
+
+		const { config } = mergeGlobalConfig();
+
+		expect(config.url?.privateCdn).toBe(true);
 	});
 });
