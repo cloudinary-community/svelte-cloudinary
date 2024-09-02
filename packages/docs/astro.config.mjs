@@ -28,6 +28,10 @@ export default defineConfig({
 					link: '/get-started',
 				},
 				{
+					label: 'Configure',
+					link: '/config',
+				},
+				{
 					label: 'Components',
 					items: [
 						{
