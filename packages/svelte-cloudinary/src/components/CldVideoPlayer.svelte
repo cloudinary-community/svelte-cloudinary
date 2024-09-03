@@ -161,12 +161,10 @@
 				loaded = true;
 			},
 			onError() {
-				// todo
+				console.error('Failed to load the Cloudinary Video Player SDK');
 			},
 		});
 	});
-
-	// todo onDestroy
 </script>
 
 <svelte:head>
