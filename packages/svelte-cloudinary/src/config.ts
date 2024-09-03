@@ -1,5 +1,4 @@
 import { VERSION as SVELTE_CLOUDINARY_VERSION } from './version';
-import { get, writable, type Writable } from 'svelte/store';
 import { VERSION as SVELTE_VERSION } from 'svelte/compiler';
 import { setContext, getContext } from 'svelte';
 import { defu } from 'defu';
@@ -87,30 +86,23 @@ export function mergeGlobalConfig(
 	};
 }
 
-export type ConfigStore = Writable<GlobalCloudinaryConfig>;
-
 export function configureCloudinary(globalConfig: GlobalCloudinaryConfig) {
-	setContext<ConfigStore>(STORE_KEY, writable(structuredClone(globalConfig)));
+	setContext<GlobalCloudinaryConfig>(
+		STORE_KEY,
+		structuredClone(globalConfig),
+	);
 }
 
-function getGlobalConfigStore(): ConfigStore | null {
+export function getGlobalConfig(): GlobalCloudinaryConfig | null {
 	try {
-		const currentStore = getContext<ConfigStore>(STORE_KEY);
-		if (currentStore) return currentStore;
-
-		configureCloudinary({});
-		return getContext<ConfigStore>(STORE_KEY);
+		const config = getContext<GlobalCloudinaryConfig>(STORE_KEY);
+		return config ?? null;
 	} catch (error) {
 		console.warn(
-			'[svelte-cloudinary] Unable to get config store, did you call configureCloudinary?',
+			'[svelte-cloudinary] Unable to get config, did you call configureCloudinary?',
 			{ cause: error },
 		);
 
 		return null;
 	}
-}
-
-export function getGlobalConfig(): GlobalCloudinaryConfig | null {
-	const store = getGlobalConfigStore();
-	return store ? get(store) : null;
 }

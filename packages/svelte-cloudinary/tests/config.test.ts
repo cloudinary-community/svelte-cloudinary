@@ -1,11 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { getContext } from 'svelte';
-import { get } from 'svelte/store';
 import {
+	type GlobalCloudinaryConfig,
 	configureCloudinary,
 	DEFAULT_ANALYTICS,
 	mergeGlobalConfig,
-	type ConfigStore,
 	getGlobalConfig,
 } from '$src/config';
 
@@ -32,10 +31,12 @@ describe('configureCloudinary()', () => {
 		const cloudName = crypto.randomUUID();
 		configureCloudinary({ cloudName });
 
-		const config = getContext<ConfigStore>('svelte-cloudinary-v2-config');
+		const config = getContext<GlobalCloudinaryConfig>(
+			'svelte-cloudinary-v2-config',
+		);
 
 		expect(config).toBeTruthy();
-		expect(get(config)).toEqual({ cloudName });
+		expect(config).toEqual({ cloudName });
 	});
 
 	it('should work with getConfig()', () => {
