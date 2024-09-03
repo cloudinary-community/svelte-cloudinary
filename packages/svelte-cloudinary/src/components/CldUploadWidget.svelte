@@ -27,9 +27,8 @@
 		CloudinaryUploadWidgetOptions,
 		CloudinaryUploadWidgetResults,
 		CloudinaryUploadWidgetInstanceMethods,
+		CloudinaryUploadWidget,
 	} from '@cloudinary-util/types';
-
-	type CloudinaryUploadWidget = CloudinaryUploadWidgetInstanceMethods;
 
 	/**
 	 * The event that fires when there is a widget related error

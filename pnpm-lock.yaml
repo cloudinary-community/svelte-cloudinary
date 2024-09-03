@@ -121,14 +121,14 @@ importers:
   packages/svelte-cloudinary:
     dependencies:
       '@cloudinary-util/types':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.5.3
+        version: 1.5.3
       '@cloudinary-util/url-loader':
-        specifier: ^5.8.0
-        version: 5.8.0
+        specifier: ^5.10.0
+        version: 5.10.0
       '@cloudinary-util/util':
-        specifier: ^3.3.1
-        version: 3.3.1
+        specifier: ^3.3.2
+        version: 3.3.2
       '@unpic/svelte':
         specifier: 0.0.53
         version: 0.0.53(svelte@4.2.18)
@@ -800,29 +800,21 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cloudinary-util/types@1.2.0:
-    resolution: {integrity: sha512-2Mo5juB1HV+GmVLq2+bU0Yg5FB6r+csbHyDN6njc0AqkEkp+AW+Q6kYbbTYkT7zk3x9tBWfKn3lfR7wUCwowJw==}
+  /@cloudinary-util/types@1.5.3:
+    resolution: {integrity: sha512-/EbFhGKw942gAmBYN8iLCB8+7PfQR6DRIkfJWWoDf8OxInIrnVAhWHy+m1g1oltrTHZKbkF57oPJmi9Yv/4IIQ==}
     dev: false
 
-  /@cloudinary-util/types@1.4.0:
-    resolution: {integrity: sha512-0zWtZ78IlIKS2xrdtPXHCYtLuAbxtlWpNTKb5CGP86wJUCm/r7e12v5xzjcx3tSzY6NlEsnxV88xhp64s834LA==}
-    dev: false
-
-  /@cloudinary-util/url-loader@5.8.0:
-    resolution: {integrity: sha512-p79dB1OQiP0JWmM90lkAi/QNH+FdcaYAs+iI19doWuo0Pv74kHf8R0EC1Z4hFK9sxFbN73VLtvALPiXa9Q3eOw==}
+  /@cloudinary-util/url-loader@5.10.0:
+    resolution: {integrity: sha512-FW2hkDpOQ9LgeecrID5NTx84Zfk7MSZXMy2W+sJ0g3R2SaXZyykqtcMluzX94CypPgsu1OoM8qPs3l1gKTwarQ==}
     dependencies:
-      '@cloudinary-util/types': 1.4.0
-      '@cloudinary-util/util': 3.2.0
+      '@cloudinary-util/types': 1.5.3
+      '@cloudinary-util/util': 3.3.2
       '@cloudinary/url-gen': 1.15.0
       zod: 3.23.8
     dev: false
 
-  /@cloudinary-util/util@3.2.0:
-    resolution: {integrity: sha512-VJBqAT3W0HQ9kyMagv+EzXkM/VYR9Ks01ewGxsS8T8b2N0NZFPAhYKeU2H9fOXSl6BVrD6aVYjJZAoT8pfQIyA==}
-    dev: false
-
-  /@cloudinary-util/util@3.3.1:
-    resolution: {integrity: sha512-RaD18gv/+H/qtycNJp/8BQwLAub5vxRYeAG0wNAg8ub/0QZfZR83VQe18F+NmQHgX+jAiDsx/yOeZgyVcngiwQ==}
+  /@cloudinary-util/util@3.3.2:
+    resolution: {integrity: sha512-Cc0iFxzfl7fcOXuznpeZFGYC885Of/vDgccRDnhTe/8Rf8YKv2PjLtezyo0VgmdA/CpeZy29NCXAsf6liokbwg==}
     dev: false
 
   /@cloudinary/transformation-builder-sdk@1.14.1:
