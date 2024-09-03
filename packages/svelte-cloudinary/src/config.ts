@@ -98,9 +98,6 @@ function getGlobalConfigStore(): ConfigStore | null {
 		const currentStore = getContext<ConfigStore>(STORE_KEY);
 		if (currentStore) return currentStore;
 
-		console.warn(
-			'[svelte-cloudinary] Config store is empty, did you call configureCloudinary?',
-		);
 		configureCloudinary({});
 		return getContext<ConfigStore>(STORE_KEY);
 	} catch (error) {
