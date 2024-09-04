@@ -24,10 +24,29 @@
 
 	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
 
-	// todo fix events
-
-	$: ({ config, uploadPreset, signatureEndpoint, options, ...buttonProps } =
-		$$props as $$Props);
+	$: ({
+		config,
+		uploadPreset,
+		signatureEndpoint,
+		options,
+		onError,
+		onOpen,
+		onAbort,
+		onBatchCancelled,
+		onClose,
+		onDisplayChanged,
+		onPublicId,
+		onQueuesEnd,
+		onQueuesStart,
+		onRetry,
+		onShowCompleted,
+		onSourceChanged,
+		onSuccess,
+		onTags,
+		onUploadAdded,
+		onUpload,
+		...buttonProps
+	} = $$props as $$Props);
 </script>
 
 <CldUploadWidget
@@ -35,6 +54,22 @@
 	{uploadPreset}
 	{signatureEndpoint}
 	{options}
+	{onError}
+	{onOpen}
+	{onAbort}
+	{onBatchCancelled}
+	{onClose}
+	{onDisplayChanged}
+	{onPublicId}
+	{onQueuesEnd}
+	{onQueuesStart}
+	{onRetry}
+	{onShowCompleted}
+	{onSourceChanged}
+	{onSuccess}
+	{onTags}
+	{onUploadAdded}
+	{onUpload}
 	let:open
 	let:isLoading>
 	<button {...buttonProps} on:click={() => open()} disabled={isLoading}>
