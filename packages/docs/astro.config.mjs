@@ -110,6 +110,9 @@ export default defineConfig({
 		svelte(),
 	],
 	vite: {
+		optimizeDeps: {
+			exclude: ['svelte-cloudinary'],
+		},
 		plugins: [
 			{
 				// https://github.com/sveltejs/svelte/issues/9288#issuecomment-1748034687
