@@ -90,7 +90,7 @@
 	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
 	import { loadScript } from '../helpers/scripts';
 	import { mergeGlobalConfig } from '../config';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	const PLAYER_VERSION = '1.11.1';
 
@@ -164,6 +164,11 @@
 				console.error('Failed to load the Cloudinary Video Player SDK');
 			},
 		});
+	});
+
+	onDestroy(() => {
+		// @ts-expect-error missing type
+		player?.dispose();
 	});
 </script>
 
