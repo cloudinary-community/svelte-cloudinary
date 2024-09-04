@@ -11,6 +11,9 @@ The `CldVideoPlayer` can be used to embed Cloudinary videos using the [Cloudinar
 The only required props are `width`, `height`, and `src`:
 
 <CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
 	width="1920"
 	height="1080"
 	src="videos/mountain-stars"
