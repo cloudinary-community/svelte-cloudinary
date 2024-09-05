@@ -167,6 +167,46 @@ For instance, to crop the original source image, which will then later resize it
 />
 ```
 
+### Extract
+
+`extract`: Extracts an area or multiple areas of an image, described in natural language.
+
+<CldImage
+	src="samples/animals/three-dogs"
+	width="960"
+	height="600"
+	crop="fill"
+	extract={{
+		prompt: 'dogs',
+		multiple: true,
+	}}
+	alt=""
+	sizes="100vw"
+/>
+
+```svelte
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	src="samples/animals/three-dogs"
+	width="960"
+	height="600"
+	crop="fill"
+	extract={{
+		prompt: 'dogs',
+		multiple: true,
+	}}
+	alt=""
+	sizes="100vw"
+/>
+```
+
+:::note
+The extract transformation is currently in Beta. [Learn more](https://cloudinary.com/documentation/transformation_reference#e_extract).
+:::
+
 ### Generative Fill
 
 `fillBackground`: Fills the background of an image using Generative AI
