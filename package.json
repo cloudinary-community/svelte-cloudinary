@@ -20,5 +20,10 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
     "@svitejs/changesets-changelog-github-compact": "^1.1.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@astrojs/starlight@0.26.2": "patches/@astrojs__starlight@0.26.2.patch"
+    }
   }
 }

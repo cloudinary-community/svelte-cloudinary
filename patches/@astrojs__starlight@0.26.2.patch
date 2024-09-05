@@ -1,0 +1,22 @@
+diff --git a/components/SidebarSublist.astro b/components/SidebarSublist.astro
+index 232525016ee16f1ad1fe8f06a330bec4962ad63f..aba4371495b59e286efb0cb1fcc1ca6fdde626e2 100644
+--- a/components/SidebarSublist.astro
++++ b/components/SidebarSublist.astro
+@@ -9,6 +9,8 @@ interface Props {
+ }
+ 
+ const { sublist, nested } = Astro.props;
++
++console.log(sublist)
+ ---
+ 
+ <ul class:list={{ 'top-level': !nested }}>
+@@ -19,7 +21,7 @@ const { sublist, nested } = Astro.props;
+ 					<a
+ 						href={entry.href}
+ 						aria-current={entry.isCurrent && 'page'}
+-						class:list={[{ large: !nested }, entry.attrs.class]}
++						class:list={[{ large: !nested || sublist.some(e => e.type != 'link') }, entry.attrs.class]}
+ 						{...entry.attrs}
+ 					>
+ 						<span>{entry.label}</span>
