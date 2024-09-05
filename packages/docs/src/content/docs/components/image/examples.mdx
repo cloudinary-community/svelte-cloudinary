@@ -129,7 +129,7 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 />
 ```
 
-Cloudinary additionally supports dynamic crop modes like thumb that may provide a different result based on the given width and height. To help provide more options for controlling cropping images, you can specify and object or array of objects.
+Cloudinary additionally supports dynamic crop modes like `thumb` that may provide a different result based on the given width and height. To help provide more options for controlling cropping images, you can specify and object or array of objects.
 
 For instance, to crop the original source image, which will then later resize it to the initial width and height, you can use:
 
@@ -164,6 +164,50 @@ For instance, to crop the original source image, which will then later resize it
 		source: true,
 	}}
 	alt=""
+/>
+```
+
+Which will provide a consistent crop for all rendered sizes.
+
+You can also use coordinates to crop to the exact location you need:
+
+<CldImage
+	src="images/woman-headphones"
+	width="300"
+	height="300"
+	crop={{
+		type: 'crop',
+		width: 400,
+		height: 400,
+		x: 80,
+		y: 350,
+		gravity: 'north_east',
+		source: true,
+	}}
+	alt=""
+	sizes="100vw"
+/>
+
+```svelte {9-17}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	src="images/woman-headphones"
+	width="300"
+	height="300"
+	crop={{
+		type: 'crop',
+		width: 400,
+		height: 400,
+		x: 80,
+		y: 350,
+		gravity: 'north_east',
+		source: true,
+	}}
+	alt=""
+	sizes="100vw"
 />
 ```
 
