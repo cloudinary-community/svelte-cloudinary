@@ -12,8 +12,8 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 
 <CldImage
 	src="images/turtle"
-	width={960}
-	height={600}
+	height="600"
+	width="960"
 	overlays={[
 		{
 			text: {
@@ -27,13 +27,13 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 	]}
 />
 
-```svelte
+```svelte {7-17}
 <script>
     import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
 <CldOgImage
-	src="images/turtle"
+	src="<Your Public ID>"
 	overlays={[
 		{
 			text: {
@@ -54,8 +54,11 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 
 <CldImage
 	src="images/turtle"
-	tint="100:0000FF:0p:FF1493:100p"
+	height="600"
+	width="960"
 	blur="2000"
+	tint="100:0000FF:0p:FF1493:100p"
+	underlay="images/galaxy"
 	removeBackground
 	overlays={[
 		{
@@ -68,18 +71,18 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 			},
 		},
 	]}
-	underlay="images/galaxy"
 />
 
-```svelte
+```svelte {9-10}
 <script>
     import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
 <CldOgImage
-	src="images/turtle"
-	tint="100:0000FF:0p:FF1493:100p"
+	src="<Your Public ID>"
 	blur="2000"
+	tint="100:0000FF:0p:FF1493:100p"
+	underlay="<Your Public ID>"
 	removeBackground
 	overlays={[
 		{
@@ -92,6 +95,9 @@ CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded
 			},
 		},
 	]}
-	underlay="images/galaxy"
 />
 ```
+
+---
+
+You can find more examples on the [`<CldImage />` page](/components/image/examples).

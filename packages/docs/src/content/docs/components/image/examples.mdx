@@ -20,16 +20,23 @@ not only deliver, but easily edit and build new images on the fly.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	removeBackground
 	alt=""
+	removeBackground
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" removeBackground alt="" />
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	alt=""
+	removeBackground
+/>
 ```
 
 :::note
@@ -45,12 +52,12 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	background="blueviolet"
-	alt=""
 />
 
-```svelte
+```svelte {11-12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -60,9 +67,9 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="600"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	background="blueviolet"
-	alt=""
 />
 ```
 
@@ -75,12 +82,12 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	underlay="images/galaxy"
-	alt=""
 />
 
-```svelte
+```svelte {11-12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -90,9 +97,9 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="600"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	underlay="<Your Public ID>"
-	alt=""
 />
 ```
 
@@ -110,11 +117,11 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="300"
 	src="images/woman-headphones"
 	sizes="100vw"
-	crop="fill"
 	alt=""
+	crop="fill"
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -124,8 +131,8 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	height="300"
 	src="<Your Public ID>"
 	sizes="100vw"
-	crop="fill"
 	alt=""
+	crop="fill"
 />
 ```
 
@@ -138,16 +145,16 @@ For instance, to crop the original source image, which will then later resize it
 	height="300"
 	src="images/woman-headphones"
 	sizes="100vw"
+	alt=""
 	crop={{
 		width: 600,
 		height: 600,
 		type: 'thumb',
 		source: true,
 	}}
-	alt=""
 />
 
-```svelte
+```svelte {11-16}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -157,13 +164,13 @@ For instance, to crop the original source image, which will then later resize it
 	height="300"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	crop={{
 		width: 600,
 		height: 600,
 		type: 'thumb',
 		source: true,
 	}}
-	alt=""
 />
 ```
 
@@ -175,6 +182,8 @@ You can also use coordinates to crop to the exact location you need:
 	src="images/woman-headphones"
 	width="300"
 	height="300"
+	alt=""
+	sizes="100vw"
 	crop={{
 		type: 'crop',
 		width: 400,
@@ -184,11 +193,9 @@ You can also use coordinates to crop to the exact location you need:
 		gravity: 'north_east',
 		source: true,
 	}}
-	alt=""
-	sizes="100vw"
 />
 
-```svelte {9-17}
+```svelte {11-19}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -197,6 +204,8 @@ You can also use coordinates to crop to the exact location you need:
 	src="images/woman-headphones"
 	width="300"
 	height="300"
+	alt=""
+	sizes="100vw"
 	crop={{
 		type: 'crop',
 		width: 400,
@@ -206,8 +215,6 @@ You can also use coordinates to crop to the exact location you need:
 		gravity: 'north_east',
 		source: true,
 	}}
-	alt=""
-	sizes="100vw"
 />
 ```
 
@@ -220,15 +227,15 @@ You can also use coordinates to crop to the exact location you need:
 	width="960"
 	height="600"
 	crop="fill"
+	alt=""
+	sizes="100vw"
 	extract={{
 		prompt: 'dogs',
 		multiple: true,
 	}}
-	alt=""
-	sizes="100vw"
 />
 
-```svelte
+```svelte {12-15}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -238,12 +245,12 @@ You can also use coordinates to crop to the exact location you need:
 	width="960"
 	height="600"
 	crop="fill"
+	alt=""
+	sizes="100vw"
 	extract={{
 		prompt: 'dogs',
 		multiple: true,
 	}}
-	alt=""
-	sizes="100vw"
 />
 ```
 
@@ -259,14 +266,13 @@ The extract transformation is currently in Beta. [Learn more](https://cloudinary
 	src="images/woman-headphones"
 	width="960"
 	height="600"
-	crop="pad"
-	fillBackground
 	alt=""
 	sizes="100vw"
+	crop="pad"
+	fillBackground
 />
 
-```svelte
-
+```svelte {11-12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -274,11 +280,11 @@ The extract transformation is currently in Beta. [Learn more](https://cloudinary
 <CldImage
 	src="<Your Public ID>"
 	width="960"
-	height="600" // Original 1440
-	crop="pad"  // Returns the given size with padding
-	fillBackground
+	height="600"
 	alt=""
 	sizes="100vw"
+	crop="pad"
+	fillBackground
 />
 ```
 
@@ -295,12 +301,12 @@ The generative fill transformation is currently in Beta. <a href="https://cloudi
 	width="960"
 	height="600"
 	crop="fill"
-	recolor={['shoelaces', 'purple']}
 	alt=""
 	sizes="100vw"
+	recolor={['shoelaces', 'purple']}
 />
 
-```svelte
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -310,9 +316,9 @@ The generative fill transformation is currently in Beta. <a href="https://cloudi
 	width="960"
 	height="600"
 	crop="fill"
-	recolor={['shoelaces', 'purple']}
 	alt=""
 	sizes="100vw"
+	recolor={['shoelaces', 'purple']}
 />
 ```
 
@@ -329,12 +335,12 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	width="960"
 	height="600"
 	crop="fill"
-	remove="mountain"
 	alt=""
 	sizes="100vw"
+	remove="mountain"
 />
 
-```svelte
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -344,9 +350,9 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	width="960"
 	height="600"
 	crop="fill"
-	remove="mountain"
 	alt=""
 	sizes="100vw"
+	remove="<Your Prompt>"
 />
 ```
 
@@ -363,12 +369,12 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	width="960"
 	height="600"
 	crop="fill"
-	replace={['turtle', 'shark']}
 	alt=""
 	sizes="100vw"
+	replace={['turtle', 'shark']}
 />
 
-```svelte
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -378,9 +384,9 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	height="600"
 	crop="fill"
 	src="<Your Public ID>"
-	replace={['turtle', 'shark']}
 	alt=""
 	sizes="100vw"
+	replace={['turtle', 'shark']}
 />
 ```
 
@@ -390,7 +396,9 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 
 ### Generative Restore
 
-`restore`: Restores an image using Generative AI
+`restore`: Restores an image using Generative AI.
+
+Before:
 
 <CldImage
 	src="images/galaxy-poor"
@@ -400,6 +408,8 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	alt=""
 	sizes="100vw"
 />
+
+After:
 
 <CldImage
 	src="images/galaxy-poor"
@@ -411,7 +421,7 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	sizes="100vw"
 />
 
-```svelte
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -421,9 +431,9 @@ The generative replace transformation is currently in Beta. <a href="https://clo
 	width="960"
 	height="600"
 	crop="fill"
-	restore
 	sizes="100vw"
 	alt=""
+	restore
 />
 ```
 
@@ -438,90 +448,90 @@ Uses generative AI to replace the background of your image. It can either genera
 #### Contextual Replace
 
 <CldImage
-	replaceBackground
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground
 />
 
-```svelte {6}
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-	replaceBackground
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground
 />
 ```
 
 #### Prompt
 
 <CldImage
-	replaceBackground="fish tank"
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground="fish tank"
 />
 
-```svelte {6}
+```svelte {12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-	replaceBackground="fish tank"
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground="fish tank"
 />
 ```
 
 You can also pass in a seed to the prompt:
 
 <CldImage
-	replaceBackground={{
-		prompt: 'fish tank',
-		seed: 3,
-	}}
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground={{
+		prompt: 'fish tank',
+		seed: 3,
+	}}
 />
 
-```svelte {6-9}
+```svelte {12-15}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-	replaceBackground={{
-		prompt: "fish tank",
-		seed: 3
-	}}
 	src="images/turtle"
 	width="960"
 	height="600"
 	crop="fill"
 	sizes="100vw"
 	alt=""
+	replaceBackground={{
+		prompt: "fish tank",
+		seed: 3
+	}}
 />
 ```
 
@@ -543,16 +553,23 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	blur="1200"
 	alt=""
+	blur="1200"
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" blur="1200" alt="" />
+<CldImage
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	alt=""
+	blur="1200"
+/>
 ```
 
 ### Grayscale
@@ -564,16 +581,23 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	grayscale
 	alt=""
+	grayscale
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" grayscale alt="" />
+<CldImage
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	alt=""
+	grayscale
+/>
 ```
 
 ### Opacity
@@ -585,16 +609,23 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	opacity="50"
 	alt=""
+	opacity="50"
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" opacity="50" alt="" />
+<CldImage
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	alt=""
+	opacity="50"
+/>
 ```
 
 ### Pixelate
@@ -606,16 +637,23 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	pixelate
 	alt=""
+	pixelate
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage width="960" height="600" src="<Your Public ID>" sizes="100vw" pixelate alt="" />
+<CldImage
+	width="960"
+	height="600"
+	src="<Your Public ID>"
+	sizes="100vw"
+	alt=""
+	pixelate
+/>
 ```
 
 ### Tint
@@ -627,11 +665,11 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
-	tint="equalize:80:blue:blueviolet"
 	alt=""
+	tint="equalize:80:blue:blueviolet"
 />
 
-```svelte
+```svelte {11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -641,8 +679,8 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	height="600"
 	src="<Your Public ID>"
 	sizes="100vw"
-	tint="equalize:80:blue:blueviolet"
 	alt=""
+	tint="equalize:80:blue:blueviolet"
 />
 ```
 
@@ -654,6 +692,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	width="960"
 	height="600"
 	src="images/turtle"
+	alt=""
 	effects={[
 		{
 			background: 'green',
@@ -665,10 +704,9 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 			gradientFade: 'symetric,x_0.5',
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {10-20}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -677,6 +715,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	width="960"
 	height="600"
 	src="<Your Public ID>"
+	alt=""
 	effects={[
 		{
 			background: 'green'
@@ -688,7 +727,6 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 			gradientFade: 'symetric,x_0.5'
 		}
 	]}
-	alt=""
 />
 ```
 
@@ -709,6 +747,7 @@ Image overlays allow you to place one or multiple images on top of another image
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			publicId: 'images/earth',
@@ -727,10 +766,9 @@ Image overlays allow you to place one or multiple images on top of another image
 			],
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {11-28}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -740,6 +778,7 @@ Image overlays allow you to place one or multiple images on top of another image
 	height="600"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			publicId: '<Your Public ID>',
@@ -758,7 +797,6 @@ Image overlays allow you to place one or multiple images on top of another image
 			]
 		}
 	]}
-	alt=""
 />
 ```
 
@@ -772,6 +810,7 @@ that applies a blend mode, such as "multiply"
 	height="600"
 	crop="fill"
 	src="images/galaxy"
+	alt=""
 	overlays={[
 		{
 			publicId: 'images/earth',
@@ -791,10 +830,9 @@ that applies a blend mode, such as "multiply"
 			],
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {11-29}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -804,6 +842,7 @@ that applies a blend mode, such as "multiply"
 	height="600"
 	crop="fill"
 	src="<Your Public ID>"
+	alt=""
 	overlays={[
 		{
 			publicId: '<Your Public ID>',
@@ -823,7 +862,6 @@ that applies a blend mode, such as "multiply"
 			]
 		}
 	]}
-	alt=""
 />
 ```
 
@@ -840,12 +878,12 @@ Image underlays allow you to place one or multiple images behind a base image.
 	height="600"
 	src="images/turtle"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	underlay="images/galaxy"
-	alt=""
 />
 
-```svelte
+```svelte {11-12}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -855,9 +893,9 @@ Image underlays allow you to place one or multiple images behind a base image.
 	height="600"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	removeBackground
 	underlay="<Your Public ID>"
-	alt=""
 />
 ```
 
@@ -871,6 +909,7 @@ Image underlays allow you to place one or multiple images behind a base image.
 	src="images/turtle"
 	sizes="100vw"
 	removeBackground
+	alt=""
 	underlays={[
 		{
 			publicId: 'images/galaxy',
@@ -893,10 +932,9 @@ Image underlays allow you to place one or multiple images behind a base image.
 			flags: ['relative'],
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {12-33}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -907,6 +945,7 @@ Image underlays allow you to place one or multiple images behind a base image.
 	src="<Your Public ID>"
 	sizes="100vw"
 	removeBackground
+	alt=""
 	underlays={[
 	    {
 			publicId: 'images/galaxy',
@@ -929,7 +968,6 @@ Image underlays allow you to place one or multiple images behind a base image.
 			flags: ['relative']
 		},
 	]}
-	alt=""
 />
 ```
 
@@ -946,13 +984,13 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="images/galaxy"
 	sizes="100vw"
+	alt=""
+	text="Cool Beans"
 	blur="2000"
 	brightness="300"
-	text="Cool Beans"
-	alt=""
 />
 
-```svelte
+```svelte {11-13}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -962,10 +1000,10 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
+	text="Cool Beans"
 	blur="2000"
 	brightness="300"
-	text="Cool Beans"
-	alt=""
 />
 ```
 
@@ -978,6 +1016,7 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="images/sneakers"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			width: 2670 - 20,
@@ -999,10 +1038,9 @@ Text overlays allow you to place text on top of an image.
 			},
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {11-31}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -1012,6 +1050,7 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			width: 2670 - 20,
@@ -1033,7 +1072,6 @@ Text overlays allow you to place text on top of an image.
 			}
 		}
 	]}
-	alt=""
 />
 ```
 
@@ -1046,6 +1084,7 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="images/galaxy"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			text: {
@@ -1063,10 +1102,9 @@ Text overlays allow you to place text on top of an image.
 			],
 		},
 	]}
-	alt=""
 />
 
-```svelte
+```svelte {11-27}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -1076,6 +1114,7 @@ Text overlays allow you to place text on top of an image.
 	height="891"
 	src="<Your Public ID>"
 	sizes="100vw"
+	alt=""
 	overlays={[
 		{
 			text: {
@@ -1093,7 +1132,6 @@ Text overlays allow you to place text on top of an image.
 			]
 		}
 	]}
-	alt=""
 />
 ```
 

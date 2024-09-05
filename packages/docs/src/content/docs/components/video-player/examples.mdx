@@ -23,7 +23,11 @@ Standard Cloudinary Video Player with playback.
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
-<CldVideoPlayer width="1920" height="1080" src="videos/mountain-stars" />
+<CldVideoPlayer
+	width="1620"
+	height="1080"
+	src="<Your Public ID>"
+/>
 ```
 
 ## Playback
@@ -36,25 +40,25 @@ Standard Cloudinary Video Player with playback.
 	}}
 	client:load
 	id="adaptive-bitrate-streaming"
+	src="videos/mountain-stars"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	transformation={{
 		streaming_profile: 'hd',
 	}}
 	sourceTypes={['hls']}
 />
 
-```svelte
+```svelte {10-13}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="adaptive-bitrate-streaming"
+	src="<Your Public ID>"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	transformation={{
 		streaming_profile: 'hd',
 	}}
@@ -72,22 +76,22 @@ Utilizes the browser's Picture-in-Picture API to create a floating video on top 
 	}}
 	client:load
 	id="picture-in-picture"
+	src="videos/mountain-stars"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	pictureInPictureToggle
 />
 
-```svelte
+```svelte {10}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="picture-in-picture"
+	src="<Your Public ID>"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	pictureInPictureToggle
 />
 ```
@@ -104,9 +108,9 @@ Adding a button to select chapters.
 	}}
 	client:load
 	id="chapters-selector"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	chapters={{
 		0: 'Chapter 1',
 		6: 'Chapter 2',
@@ -115,16 +119,16 @@ Adding a button to select chapters.
 	chaptersButton
 />
 
-```svelte
+```svelte {10-15}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="chapters-selector"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	chapters={{
 		0: 'Chapter 1',
 		6: 'Chapter 2',
@@ -144,9 +148,9 @@ Changing the player theme using colors and fonts.
 	}}
 	client:load
 	id="custom-colors-font"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	colors={{
 		accent: '#ff0000',
 		base: '#00ff00',
@@ -155,16 +159,16 @@ Changing the player theme using colors and fonts.
 	fontFace="Source Serif Pro"
 />
 
-```svelte
+```svelte {10-15}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="custom-colors-font"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	colors={{
 		accent: '#ff0000',
 		base: '#00ff00',
@@ -184,25 +188,25 @@ Adding a custom logo to the player chrome.
 	}}
 	client:load
 	id="custom-logo"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	logo={{
 		imageUrl: '/svelte.png',
 		onClickUrl: 'https://svelte.dev',
 	}}
 />
 
-```svelte
+```svelte {10-13}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="custom-logo"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	logo={{
 		imageUrl: '/svelte.png',
 		onClickUrl: 'https://svelte.dev',
@@ -220,32 +224,27 @@ Allows you to change the poster used for the player.
 	}}
 	client:load
 	id="poster-custom-url"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
-	poster={getCldImageUrl(
-		{
-			src: 'images/turtle',
-		},
-		{
-			cloud: {
-				cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
-			},
-		},
-	)}
+	poster={getCldImageUrl({
+		src: 'images/turtle',
+	})}
 />
 
-```svelte
+```svelte {10-13}
 <script>
-	import { CldVideoPlayer } from 'svelte-cloudinary';
+	import { CldVideoPlayer, getCldImageUrl } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="poster-custom-url"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
-	poster={getCldImageUrl({ src: 'images/turtle' })}
+	poster={getCldImageUrl({
+		src: '<Your Public ID>',
+	})}
 />
 ```
 
@@ -259,24 +258,24 @@ Adding effects to the video's auto-generated thumb.
 	}}
 	client:load
 	id="poster-transformations"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	poster={{
 		tint: 'equalize:80:blue:blueviolet',
 	}}
 />
 
-```svelte
+```svelte {10-12}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="poster-transformations"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	poster={{
 		tint: 'equalize:80:blue:blueviolet',
 	}}
@@ -293,9 +292,9 @@ Adding effects to the video's auto-generated thumb.
 	}}
 	client:load
 	id="cropping-resizing"
+	src="videos/dog-running-snow"
 	width="500"
 	height="500"
-	src="videos/dog-running-snow"
 	transformation={{
 		width: 500,
 		height: 500,
@@ -304,16 +303,16 @@ Adding effects to the video's auto-generated thumb.
 	}}
 />
 
-```svelte
+```svelte {10-15}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="cropping-resizing"
+	src="<Your Public ID>"
 	width="500"
 	height="500"
-	src="videos/dog-running-snow"
 	transformation={{
 		width: 500,
 		height: 500,
@@ -333,9 +332,9 @@ Place an image over the video (e.g. watermarks).
 	}}
 	client:load
 	id="image-overlays"
+	src="videos/mountain-stars"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	transformation={{
 		overlay: 'images/earth',
 		width: 150,
@@ -346,18 +345,18 @@ Place an image over the video (e.g. watermarks).
 	}}
 />
 
-```svelte
+```svelte {10-17}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="image-overlays"
+	src="<Your Public ID>"
 	width="1620"
 	height="1080"
-	src="videos/mountain-stars"
 	transformation={{
-		overlay: 'images/earth',
+		overlay: '<Your Public ID>',
 		width: 150,
 		gravity: 'north_east',
 		x: 50,
@@ -379,9 +378,9 @@ Provides localization options for player labels. Uses [Video.js JSON format](htt
 	}}
 	client:load
 	id="localization"
+	src="videos/mountain-stars"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	language="es"
 	languages={{
 		es: {
@@ -420,16 +419,16 @@ Provides localization options for player labels. Uses [Video.js JSON format](htt
 	}}
 />
 
-```svelte
+```svelte {10-45}
 <script>
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
 <CldVideoPlayer
 	id="localization"
+	src="<Your Public ID>"
 	width="4096"
 	height="2160"
-	src="videos/mountain-stars"
 	language="es"
 	languages={{
 		es: {
