@@ -62,8 +62,3 @@
 	-webkit-backdrop-filter: blur(16px);
 	backdrop-filter: blur(16px);
 }
-
-#starlight__sidebar .group-label .large,
-#starlight__sidebar a.large {
-	font-weight: normal;
-}
