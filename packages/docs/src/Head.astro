@@ -2,12 +2,12 @@
 import DefaultHead from '@astrojs/starlight/components/Head.astro'
 import type { Props } from '@astrojs/starlight/props'
 import { getCldOgImageUrl } from 'svelte-cloudinary'
+import { klona } from 'klona'
 
-const props = Astro.props as Props;
-const title = props.entry.data.title;
+const props = klona(Astro.props)
+const title = props.entry.data.title
 
-console.log({title})
-
+props.entry.data.title = props.entry.data.title.replace(/<|\s?\/?>/g, '')
 
 const image = getCldOgImageUrl({
     src: 'images/next-cloudinary-social-background',
@@ -60,7 +60,7 @@ const image = getCldOgImageUrl({
 })
 ---
 
-<DefaultHead {...Astro.props}>
+<DefaultHead {...props}>
     <slot />
 </DefaultHead>
 
