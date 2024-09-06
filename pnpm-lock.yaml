@@ -126,11 +126,11 @@ importers:
   packages/svelte-cloudinary:
     dependencies:
       '@cloudinary-util/types':
-        specifier: ^1.5.3
-        version: 1.5.3
+        specifier: ^1.5.6
+        version: 1.5.6
       '@cloudinary-util/url-loader':
-        specifier: ^5.10.0
-        version: 5.10.0
+        specifier: ^5.10.2
+        version: 5.10.2
       '@cloudinary-util/util':
         specifier: ^3.3.2
         version: 3.3.2
@@ -813,14 +813,14 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cloudinary-util/types@1.5.3:
-    resolution: {integrity: sha512-/EbFhGKw942gAmBYN8iLCB8+7PfQR6DRIkfJWWoDf8OxInIrnVAhWHy+m1g1oltrTHZKbkF57oPJmi9Yv/4IIQ==}
+  /@cloudinary-util/types@1.5.6:
+    resolution: {integrity: sha512-Xz6j0c7mbqxlHOTHyCsnxp319nI5yX2jbuXIXsAH58r1t9cNcBQVdiW4dcabuO3txFHAOozqLABRsMeHcjfP0w==}
     dev: false
 
-  /@cloudinary-util/url-loader@5.10.0:
-    resolution: {integrity: sha512-FW2hkDpOQ9LgeecrID5NTx84Zfk7MSZXMy2W+sJ0g3R2SaXZyykqtcMluzX94CypPgsu1OoM8qPs3l1gKTwarQ==}
+  /@cloudinary-util/url-loader@5.10.2:
+    resolution: {integrity: sha512-pgSidiWjFdxLwgDw44g0EPmiKJpQTDkUIx/2Ai6YmqS8aQxBJL6TlpcNCZ6mop/TIHjK+GgQNbitHkD++Ytdmw==}
     dependencies:
-      '@cloudinary-util/types': 1.5.3
+      '@cloudinary-util/types': 1.5.6
       '@cloudinary-util/util': 3.3.2
       '@cloudinary/url-gen': 1.15.0
       zod: 3.23.8

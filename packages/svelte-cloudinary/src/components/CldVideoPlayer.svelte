@@ -167,7 +167,6 @@
 	});
 
 	onDestroy(() => {
-		// @ts-expect-error missing type
 		player?.dispose();
 	});
 </script>
