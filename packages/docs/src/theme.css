@@ -62,3 +62,15 @@
 	-webkit-backdrop-filter: blur(16px);
 	backdrop-filter: blur(16px);
 }
+
+.expressive-code .ec-line.mark {
+	filter: brightness(1.1) contrast(1.1);
+}
+
+[data-theme='dark'] .expressive-code .ec-line.mark {
+	--tmLineBgCol: #413e5c3b;
+}
+
+[data-theme='light'] .expressive-code .ec-line.mark {
+	--tmLineBgCol: #9b9b9b3b;
+}
