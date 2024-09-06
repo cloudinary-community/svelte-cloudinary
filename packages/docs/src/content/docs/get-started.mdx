@@ -8,18 +8,4 @@ Svelte Cloudinary works with both Svelte and SvelteKit, you can get started by i
 npm install svelte-cloudinary -D
 ```
 
-## Configuring
-
-You'll need to set your Global Cloudinary config in your root Svelte component. For example in SvelteKit this would be in `src/routes/+layout.svelte`. We are using the [`context api`](https://learn.svelte.dev/tutorial/context-api) under the hood.
-
-```svelte
-<script>
-	import { configureCloudinary } from 'svelte-cloudinary';
-
-	configureCloudinary({
-		cloudName: 'cloudName',
-	});
-</script>
-```
-
-Read more, including how to configure environment variables, [here](/config).
+Then you'll need to set your [cloud name](https://cloudinary.com/documentation/finding_your_credentials_tutorial), which can be set wih the `VITE_CLOUDINARY_CLOUD_NAME` environment variable if you're using Vite or SvelteKit. You can read more about [configuring svelte-cloudinary here](/config), including how to use other bundlers. 
