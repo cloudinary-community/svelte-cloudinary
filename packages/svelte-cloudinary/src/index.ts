@@ -26,6 +26,11 @@ export {
 	type CldUploadWidgetUploadEvent,
 } from './components/CldUploadWidget.svelte';
 
+export {
+	default as CldUploadButton,
+	type CldUploadButtonProps,
+} from './components/CldUploadButton.svelte';
+
 export { configureCloudinary } from './config.js';
 
 export { VERSION } from './version';

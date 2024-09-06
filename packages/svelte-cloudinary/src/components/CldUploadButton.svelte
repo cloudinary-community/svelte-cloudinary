@@ -17,12 +17,17 @@
 	```
 -->
 
+<script context="module" lang="ts">
+	export type CldUploadButtonProps = CldUploadWidgetProps &
+		HTMLButtonAttributes;
+</script>
+
 <script lang="ts">
 	import type { CldUploadWidgetProps } from './CldUploadWidget.svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import CldUploadWidget from './CldUploadWidget.svelte';
 
-	type $$Props = CldUploadWidgetProps & HTMLButtonAttributes;
+	type $$Props = CldUploadButtonProps;
 
 	$: ({
 		config,
