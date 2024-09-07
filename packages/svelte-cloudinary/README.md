@@ -12,8 +12,6 @@
 
 ---
 
-<br>
-
 # Svelte Cloudinary
 
 High-performance image delivery and uploading at scale in Svelte powered by Cloudinary. This is a community library supported by the Cloudinary Developer Experience team.
