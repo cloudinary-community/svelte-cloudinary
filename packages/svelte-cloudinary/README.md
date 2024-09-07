@@ -99,6 +99,7 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://beacons.ai/codingcatdev"><img src="https://avatars.githubusercontent.com/u/3102249?v=4?s=100" width="100px;" alt="Alex Patterson"/><br /><sub><b>Alex Patterson</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=codercatdev" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/heronet"><img src="https://avatars.githubusercontent.com/u/61063136?v=4?s=100" width="100px;" alt="Sirat"/><br /><sub><b>Sirat</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=heronet" title="Code">💻</a> <a href="https://github.com/cloudinary-community/svelte-cloudinary/issues?q=author%3Aheronet" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://twitter.com/lihautan"><img src="https://avatars.githubusercontent.com/u/2338632?v=4?s=100" width="100px;" alt="Tan Li Hau"/><br /><sub><b>Tan Li Hau</b></sub></a><br /><a href="#tutorial-tanhauhau" title="Tutorials">✅</a></td>
     </tr>
   </tbody>
 </table>
