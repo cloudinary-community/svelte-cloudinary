@@ -74,3 +74,7 @@
 [data-theme='light'] .expressive-code .ec-line.mark {
 	--tmLineBgCol: #9b9b9b3b;
 }
+
+.vjs-poster {
+	margin: 0px !important;
+}
