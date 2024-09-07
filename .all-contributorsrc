@@ -1,12 +1,75 @@
 {
   "files": [
-    "README.md"
+    "README.md",
+    "packages/svelte-cloudinary/README.md"
   ],
   "imageSize": 100,
   "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
   "contributors": [
+    {
+      "login": "ghostdevv",
+      "name": "Willow (GHOST)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47755378?v=4",
+      "profile": "https://github.com/ghostdevv",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "data",
+        "test",
+        "bug",
+        "blog",
+        "content",
+        "a11y",
+        "design",
+        "ideas",
+        "maintenance",
+        "review",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "matiasfha",
+      "name": "Matías Hernández Arellano",
+      "avatar_url": "https://avatars.githubusercontent.com/u/282006?v=4",
+      "profile": "https://matiashernandez.dev/",
+      "contributions": [
+        "a11y",
+        "bug",
+        "blog",
+        "code",
+        "content",
+        "data",
+        "doc",
+        "design",
+        "example",
+        "ideas",
+        "maintenance",
+        "review",
+        "test",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "colbyfayock",
+      "name": "Colby Fayock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1045274?v=4",
+      "profile": "https://colbyfayock.com/newsletter",
+      "contributions": [
+        "bug",
+        "blog",
+        "code",
+        "content",
+        "doc",
+        "example",
+        "ideas",
+        "review",
+        "question",
+        "tutorial"
+      ]
+    },
     {
       "login": "troyciesco",
       "name": "Troy Ciesco",
@@ -41,6 +104,25 @@
       "profile": "http://carlo.vercel.app",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "codercatdev",
+      "name": "Alex Patterson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3102249?v=4",
+      "profile": "https://beacons.ai/codingcatdev",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "heronet",
+      "name": "Sirat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61063136?v=4",
+      "profile": "https://github.com/heronet",
+      "contributions": [
+        "code",
+        "bug"
       ]
     }
   ],
