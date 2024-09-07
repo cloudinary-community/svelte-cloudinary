@@ -46,6 +46,8 @@ npm install svelte-cloudinary
 VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
 ```
 
+[Learn more about configuring Cloudinary](https://svelte.cloudinary.dev/config)
+
 ### Adding an Image
 
 ```svelte
@@ -60,11 +62,11 @@ VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
   alt="<Alt Text>" />
 ```
 
+[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
+
 ## 📘 Docs
 
 https://svelte.cloudinary.dev
-
-[Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
 
 ## ❤️ Community & Support
 
