@@ -16,18 +16,7 @@
       "contributions": [
         "code",
         "doc",
-        "example",
-        "data",
-        "test",
-        "bug",
-        "blog",
-        "content",
-        "a11y",
-        "design",
-        "ideas",
-        "maintenance",
-        "review",
-        "tutorial"
+        "example"
       ]
     },
     {
@@ -36,20 +25,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/282006?v=4",
       "profile": "https://matiashernandez.dev/",
       "contributions": [
-        "a11y",
-        "bug",
-        "blog",
         "code",
-        "content",
-        "data",
         "doc",
-        "design",
-        "example",
-        "ideas",
-        "maintenance",
-        "review",
-        "test",
-        "tutorial"
+        "example"
       ]
     },
     {
@@ -58,16 +36,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/1045274?v=4",
       "profile": "https://colbyfayock.com/newsletter",
       "contributions": [
-        "bug",
-        "blog",
         "code",
-        "content",
         "doc",
-        "example",
-        "ideas",
-        "review",
-        "question",
-        "tutorial"
+        "example"
       ]
     },
     {
@@ -121,8 +92,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/61063136?v=4",
       "profile": "https://github.com/heronet",
       "contributions": [
-        "code",
-        "bug"
+        "code"
       ]
     },
     {
