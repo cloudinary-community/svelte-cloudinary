@@ -282,6 +282,35 @@ Adding effects to the video's auto-generated thumb.
 />
 ```
 
+### Captions and Subtitles
+
+The `textTracks` prop allows you to add captions or subtitles to the player. Each Text Track is an object containing details about where the captions or subtitles should
+be loaded from as well as any customization of that track.
+
+```svelte {10-12}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="subtitles"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	textTracks={{
+		captions: {
+			label: 'English',
+			language: 'en',
+			default: true,
+			url: 'https://res.cloudinary.com/<Cloud Name>/raw/upload/<FileName>.vtt'
+		}
+	}}
+/>
+```
+
+Learn more on the [Video Player Reference](https://cloudinary.com/documentation/video_player_api_reference#text_tracks) or
+the [Subtitles and Captions guide](https://cloudinary.com/documentation/video_player_customization#subtitles_and_captions).
+
 ## Transformations
 
 ### Cropping & Resizing
