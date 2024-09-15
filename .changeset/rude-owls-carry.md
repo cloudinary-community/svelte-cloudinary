@@ -1,5 +1,5 @@
 ---
-"svelte-cloudinary": major
+"svelte-cloudinary": minor
 ---
 
-breaking: overhaull config system
+feat: add new `configureCloudinary` config helper
