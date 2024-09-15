@@ -13,9 +13,9 @@ export function getCldOgImageUrl(
 	return getCldImageUrl(
 		{
 			...options,
-			format: options.format || 'jpg',
-			width: options.width || 1200,
-			height: options.height || 627,
+			format: options.format ?? 'jpg',
+			width: options.width ?? 1200,
+			height: options.height ?? 627,
 		},
 		configOverride,
 		analyticsOverride,

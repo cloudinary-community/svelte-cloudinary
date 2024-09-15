@@ -79,12 +79,17 @@
 		...options
 	} = $$props as CldOgImageProps);
 
-	$: url = getCldOgImageUrl(options, config);
+	$: image = getCldOgImageUrl(options, config);
+
+	$: twitterImage = getCldOgImageUrl(
+		{ ...options, format: options.format ?? 'webp' },
+		config,
+	);
 </script>
 
 <svelte:head>
-	<meta property="og:image" content={url} />
-	<meta property="og:image:secure_url" content={url} />
+	<meta property="og:image" content={image} />
+	<meta property="og:image:secure_url" content={image} />
 	<meta property="og:image:width" content={width.toString()} />
 	<meta property="og:image:height" content={height.toString()} />
 	<meta property="og:image:alt" content={alt} />
@@ -92,5 +97,5 @@
 		<meta property="twitter:title" content={twitterTitle || ' '} />
 	{/if}
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:image" content={url} />
+	<meta property="twitter:image" content={twitterImage} />
 </svelte:head>
