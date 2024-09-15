@@ -98,11 +98,6 @@ export function getGlobalConfig(): GlobalCloudinaryConfig | null {
 		const config = getContext<GlobalCloudinaryConfig>(STORE_KEY);
 		return config ?? null;
 	} catch (error) {
-		console.warn(
-			'[svelte-cloudinary] Unable to get config, did you call configureCloudinary?',
-			{ cause: error },
-		);
-
 		return null;
 	}
 }
