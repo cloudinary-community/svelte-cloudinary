@@ -2,7 +2,7 @@
 title: getCldImageUrl
 ---
 
-You can use the `getCldImageUrl` helper to get a Cloudinary image URL outside the component. It uses the exact same API under the hood.
+You can use the `getCldImageUrl` helper to get a Cloudinary image URL outside the component. [`<CldImage />`](/components/image) uses this helper under the hood, so it has all the same props. The main difference is that this won't react to changes such as the screen width, or generate different sizes of image etc.
 
 ## Basic Usage
 
@@ -17,7 +17,3 @@ const url = getCldImageUrl({
 	width: 960,
 })
 ```
-
-:::note
-If you call this outside a Svelte component you will need to pass the `config` option
-:::
