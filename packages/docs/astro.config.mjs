@@ -66,6 +66,14 @@ export default defineConfig({
 							],
 						},
 						{
+							label: '<CldUploadButton />',
+							link: '/components/upload-button',
+						},
+						{
+							label: '<CldUploadWidget />',
+							link: '/components/upload-widget',
+						},
+						{
 							label: '<CldVideoPlayer />',
 							items: [
 								{
@@ -77,14 +85,6 @@ export default defineConfig({
 									link: '/components/video-player/examples',
 								},
 							],
-						},
-						{
-							label: '<CldUploadWidget />',
-							link: '/components/upload-widget',
-						},
-						{
-							label: '<CldUploadButton />',
-							link: '/components/upload-button',
 						},
 					],
 				},
