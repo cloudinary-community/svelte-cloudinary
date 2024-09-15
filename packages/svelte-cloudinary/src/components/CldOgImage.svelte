@@ -55,6 +55,12 @@
 		 * @see https://svelte.cloudinary.dev/config
 		 */
 		config?: ConfigOptions;
+
+		/**
+		 * An array of tags to exclude from being created.
+		 * Currently only the `twitter:title` tag is supported.
+		 */
+		excludeTags?: 'twitter:title'[];
 	};
 </script>
 
@@ -69,6 +75,7 @@
 		height = 627,
 		twitterTitle,
 		config,
+		excludeTags,
 		...options
 	} = $$props as CldOgImageProps);
 
@@ -81,7 +88,9 @@
 	<meta property="og:image:width" content={width.toString()} />
 	<meta property="og:image:height" content={height.toString()} />
 	<meta property="og:image:alt" content={alt} />
-	<meta property="twitter:title" content={twitterTitle || ' '} />
+	{#if !excludeTags?.includes('twitter:title')}
+		<meta property="twitter:title" content={twitterTitle || ' '} />
+	{/if}
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:image" content={url} />
 </svelte:head>
