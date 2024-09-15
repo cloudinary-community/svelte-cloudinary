@@ -16,6 +16,8 @@ You'll first need to install [`pnpm@8`](https://pnpm.io/) and [`node@>18`](https
 pnpm install
 ```
 
+It's also worth running `pnpm package` if you haven't before. The `svelte-cloudinary` requires being built to work in the docs or playground. You can run all 3 in watch mode with `pnpm dev`.
+
 Both the [playground](packages/playground) and [docs](packages/docs) need to have environment variables in order to run. You can find the template in the `.env.example` files located in each package. Simply create and fill out a `.env` file based on this template.
 
 ### Developing
