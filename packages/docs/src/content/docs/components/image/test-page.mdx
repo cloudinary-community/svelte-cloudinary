@@ -1,0 +1,51 @@
+---
+title: <CldImage /> Configuration
+---
+
+import imageDoc from '$api/CldImage.svelte.doc.json';
+
+<p>{imageDoc.comment.summary}</p>
+
+## Props
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {imageDoc.props.map(p => (
+            <tr>
+                <td>{p.name}</td>
+                <td>{p.type}</td>
+                <td>{p.comment?.summary || ''}</td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+
+## Events
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {imageDoc.events.map(p => (
+            <tr>
+                <td>{p.name}</td>
+                <td>{p.type}</td>
+                <td>{p.comment?.summary || ''}</td>
+            </tr>
+        ))}
+    </tbody>
+</table>
