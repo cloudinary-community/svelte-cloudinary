@@ -45,6 +45,7 @@
 		const gui = new Gooey({
 			title: '&lt;CldImage/&gt;',
 			container: document.documentElement,
+			position: 'top-right',
 		});
 
 		const unsub = gui.presetManager.activePreset.subscribe((preset) => {
