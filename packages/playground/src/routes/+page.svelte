@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Code from '$lib/code/Code.svelte';
 	import { titleCase } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import { Gooey } from 'gooey';
@@ -7,7 +8,6 @@
 		getCldImageUrl,
 		CldImage,
 	} from 'svelte-cloudinary';
-	import Code from '$lib/code/Code.svelte';
 
 	const IMAGES = ['turtle', 'woman-headphones', 'sneakers', 'earth'] as const;
 
@@ -238,18 +238,16 @@
 	}
 </script>
 
-<main class="flex flex-col gap-12 mt-16 items-center">
-	<h1 class="text-3xl text-center font-display font-extrabold">
-		&lt;CldImage/&gt;
-	</h1>
+<h1 class="text-3xl text-center font-display font-extrabold">
+	&lt;CldImage/&gt;
+</h1>
 
-	<CldImage
-		on:load={() => (loadingImage = false)}
-		class={loadingImage ? 'opacity-50 blur-lg transition-all' : ''}
-		{...props} />
+<CldImage
+	on:load={() => (loadingImage = false)}
+	class={loadingImage ? 'opacity-50 blur-lg transition-all' : ''}
+	{...props} />
 
-	<Code code={svelteCode} />
-</main>
+<Code code={svelteCode} />
 
 <style>
 	:global(.gui-image-button) {

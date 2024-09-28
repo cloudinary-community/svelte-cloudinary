@@ -9,38 +9,34 @@
 	}
 </script>
 
-<main class="flex flex-col gap-12 mt-16 items-center">
-	<div class="w-[400px] h-[400px] bg-slate-800">
-		{#if img}
-			<CldImage src={img} width={400} height={400} alt="uploaded image"
-			></CldImage>
-		{/if}
-	</div>
+<div class="w-[400px] h-[400px] bg-slate-800">
+	{#if img}
+		<CldImage src={img} width={400} height={400} alt="uploaded image"
+		></CldImage>
+	{/if}
+</div>
 
-	<div class="flex items-center gap-4">
-		<CldUploadWidget
-			let:open
-			let:isLoading
-			uploadPreset="svelte-cloudinary-unsigned"
-			{onSuccess}>
-			<button class="btn" on:click={() => open()} disabled={isLoading}>
-				Unsigned Upload
-			</button>
-		</CldUploadWidget>
-
-		<CldUploadWidget
-			let:open
-			let:isLoading
-			uploadPreset="svelte-cloudinary-signed"
-			signatureEndpoint="/api/sign-cloudinary-params"
-			{onSuccess}>
-			<button class="btn" on:click={() => open()} disabled={isLoading}>
-				Signed Upload
-			</button>
-		</CldUploadWidget>
-
-		<button class="btn outline" on:click={() => (img = null)}>
-			Clear
+<div class="flex items-center gap-4">
+	<CldUploadWidget
+		let:open
+		let:isLoading
+		uploadPreset="svelte-cloudinary-unsigned"
+		{onSuccess}>
+		<button class="btn" on:click={() => open()} disabled={isLoading}>
+			Unsigned Upload
 		</button>
-	</div>
-</main>
+	</CldUploadWidget>
+
+	<CldUploadWidget
+		let:open
+		let:isLoading
+		uploadPreset="svelte-cloudinary-signed"
+		signatureEndpoint="/api/sign-cloudinary-params"
+		{onSuccess}>
+		<button class="btn" on:click={() => open()} disabled={isLoading}>
+			Signed Upload
+		</button>
+	</CldUploadWidget>
+
+	<button class="btn outline" on:click={() => (img = null)}> Clear </button>
+</div>

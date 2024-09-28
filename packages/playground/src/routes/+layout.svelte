@@ -2,4 +2,6 @@
 	import '../app.postcss';
 </script>
 
-<slot />
+<main class="flex flex-col gap-12 mt-16 items-center">
+	<slot />
+</main>
