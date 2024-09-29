@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { VERSION } from '$src/version';
 import { getContext } from 'svelte';
 import {
 	type GlobalCloudinaryConfig,
@@ -20,6 +21,10 @@ vi.mock('svelte', () => {
 		},
 	};
 });
+
+vi.mock('$src/version', () => ({
+	VERSION: '2.0.0-testing',
+}));
 
 describe('configureCloudinary()', () => {
 	beforeEach(() => {
@@ -264,5 +269,18 @@ describe('mergeGlobalConfig()', () => {
 		const { config } = mergeGlobalConfig();
 
 		expect(config.url?.privateCdn).toBe(true);
+	});
+});
+
+describe('analytics', () => {
+	it('version to be the mocked value', () => {
+		expect(VERSION).toBe('2.0.0-testing');
+	});
+
+	it('analytics should _normalise_ the version', () => {
+		const cfg = mergeGlobalConfig({});
+
+		// @ts-expect-error something weird with the types for analytifsc
+		expect(cfg.analytics.sdkSemver).toBe('2.0.0');
 	});
 });

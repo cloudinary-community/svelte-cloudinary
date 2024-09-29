@@ -9,9 +9,13 @@ import type {
 
 const STORE_KEY = 'svelte-cloudinary-v2-config';
 
+function normaliseVersion(version: string) {
+	return version.includes('-') ? version.split('-')[0] : version;
+}
+
 export const DEFAULT_ANALYTICS: AnalyticsOptions = Object.freeze({
-	techVersion: SVELTE_VERSION,
-	sdkSemver: SVELTE_CLOUDINARY_VERSION,
+	techVersion: normaliseVersion(SVELTE_VERSION),
+	sdkSemver: normaliseVersion(SVELTE_CLOUDINARY_VERSION),
 	sdkCode: 'E',
 	product: 'B',
 	feature: '',
