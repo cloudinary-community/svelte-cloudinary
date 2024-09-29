@@ -11,7 +11,7 @@
 
 <div class="w-[400px] h-[400px] bg-slate-800">
 	{#if img}
-		<CldImage src={img} width={400} height={400} alt="uploaded image"
+		<CldImage src={img} width="400" height="400" alt="uploaded image"
 		></CldImage>
 	{/if}
 </div>

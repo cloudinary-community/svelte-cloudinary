@@ -42,13 +42,13 @@
 		 * The width of your og image
 		 * @default 1200
 		 */
-		width?: number;
+		width?: string | number;
 
 		/**
 		 * The height of your og image
 		 * @default 627
 		 */
-		height?: number;
+		height?: string | number;
 
 		/**
 		 * Overrides for the global Cloudinary config.

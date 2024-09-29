@@ -37,6 +37,16 @@
 			 * @see https://svelte.cloudinary.dev/config
 			 */
 			config?: ConfigOptions;
+
+			/**
+			 * The target width of the image
+			 */
+			width: string | number;
+
+			/**
+			 * The target height of the image
+			 */
+			height: string | number;
 		};
 </script>
 
