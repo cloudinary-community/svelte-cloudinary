@@ -14,6 +14,12 @@ export {
 	default as CldVideoPlayer,
 	type CldVideoPlayerProps,
 } from './components/CldVideoPlayer.svelte';
+export type {
+	CloudinaryVideoPlayer,
+	CloudinaryVideoPlayerOptions,
+	CloudinaryVideoPlayerOptionsColors,
+	CloudinaryVideoPlayerOptionsLogo,
+} from '@cloudinary-util/types';
 
 export {
 	default as CldUploadWidget,
@@ -25,6 +31,19 @@ export {
 	type CldUploadWidgetEvent,
 	type CldUploadWidgetUploadEvent,
 } from './components/CldUploadWidget.svelte';
+export type {
+	CloudinaryUploadWidgetOptions,
+	CloudinaryUploadWidgetResults,
+	CloudinaryUploadWidgetInfo,
+	CloudinaryUploadWidgetInstanceMethods,
+	CloudinaryUploadWidgetInstanceMethodCloseOptions,
+	CloudinaryUploadWidgetInstanceMethodDestroyOptions,
+	CloudinaryUploadWidgetInstanceMethodOpenOptions,
+	CloudinaryUploadWidgetInstanceMethodUpdateOptions,
+	CloudinaryUploadWidgetSources,
+	CloudinaryUploadWidgetError,
+	CloudinaryUploadWidget,
+} from '@cloudinary-util/types';
 
 export {
 	default as CldUploadButton,
