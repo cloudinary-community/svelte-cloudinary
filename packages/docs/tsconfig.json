@@ -1,12 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "$assets/*": ["./src/assets/*"],
-      "$examples/*": ["./src/examples/*"],
-      "$api/*": ["./src/api/*"],
+      "$examples/*": ["./src/examples/*"]
     }
   },
   "exclude": ["node_modules/**"]
