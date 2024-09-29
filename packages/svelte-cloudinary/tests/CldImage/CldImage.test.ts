@@ -82,8 +82,8 @@ describe('CldImage', () => {
 
 		// @ts-expect-error todo
 		render(CldImage, {
-			src: 'sample',
 			props: {
+				src: 'sample',
 				alt: 'sample image',
 				config: { cloud: { cloudName } },
 			},
