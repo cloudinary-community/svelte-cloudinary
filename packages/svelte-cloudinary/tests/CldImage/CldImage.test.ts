@@ -67,8 +67,8 @@ describe('CldImage', () => {
 
 	it('should fail to render with no config passed', () => {
 		expect(() => {
+			// @ts-expect-error todo
 			render(CldImage, {
-				// @ts-expect-error todo
 				props: {
 					src: 'sample',
 					alt: 'sample image',
@@ -80,10 +80,10 @@ describe('CldImage', () => {
 	it('should work with a config prop passed', () => {
 		const cloudName = crypto.randomUUID();
 
+		// @ts-expect-error todo
 		render(CldImage, {
-			// @ts-expect-error todo
+			src: 'sample',
 			props: {
-				src: 'sample',
 				alt: 'sample image',
 				config: { cloud: { cloudName } },
 			},
@@ -98,8 +98,8 @@ describe('CldImage', () => {
 		const cloudName = crypto.randomUUID();
 		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', cloudName);
 
+		// @ts-expect-error todo
 		render(CldImage, {
-			// @ts-expect-error todo
 			props: {
 				src: 'sample',
 				alt: 'sample image',
