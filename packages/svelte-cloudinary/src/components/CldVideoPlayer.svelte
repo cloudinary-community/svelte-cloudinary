@@ -88,7 +88,7 @@
 
 <script lang="ts">
 	import { getVideoPlayerOptions } from '@cloudinary-util/url-loader';
-	import { loadScript } from '../helpers/scripts';
+	import { loadScript } from '../internal/scripts';
 	import { mergeGlobalConfig } from '../config';
 	import { onDestroy, onMount } from 'svelte';
 

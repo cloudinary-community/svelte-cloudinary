@@ -207,7 +207,7 @@
 </script>
 
 <script lang="ts">
-	import { loadScript } from '../helpers/scripts';
+	import { loadScript } from '../internal/scripts';
 	import { mergeGlobalConfig } from '../config';
 	import { onDestroy, onMount } from 'svelte';
 	import {

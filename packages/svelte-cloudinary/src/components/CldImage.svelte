@@ -52,7 +52,7 @@
 
 <script lang="ts">
 	import { pollForProcessingImage } from '@cloudinary-util/util';
-	import { createLoader } from '../helpers/loader';
+	import { createLoader } from '../internal/loader';
 	import { Image } from '@unpic/svelte';
 
 	type $$Props = CldImageProps;

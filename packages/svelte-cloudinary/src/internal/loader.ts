@@ -1,6 +1,6 @@
 import type { CldImageProps } from '../components/CldImage.svelte';
 import type { ImageOptions } from '@cloudinary-util/url-loader';
-import { getCldImageUrl } from './getCldImageUrl';
+import { getCldImageUrl } from '../helpers/getCldImageUrl';
 import type { ImageProps } from '@unpic/svelte';
 
 type URLTransformer = Exclude<ImageProps['transformer'], undefined>;
