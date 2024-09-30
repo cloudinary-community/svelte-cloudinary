@@ -91,7 +91,7 @@
 
 {#key key}
 	<Image
-		{transformer}
+		transformer={(options) => transformer(options)}
 		cdn="cloudinary"
 		on:load
 		on:error={handleError}
