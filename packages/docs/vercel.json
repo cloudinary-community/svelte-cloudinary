@@ -1,0 +1,128 @@
+{
+    "redirects": [
+        {
+            "source": "/installation",
+            "destination": "/get-started"
+        },
+        {
+            "source": "/cldimage/usage",
+            "destination": "/components/image"
+        },
+        {
+            "source": "/cldimage/configuration",
+            "destination": "/components/image/configuration"
+        },
+        {
+            "source": "/cldimage/examples",
+            "destination": "/components/image/examples"
+        },
+        {
+            "source": "/cldogimage/usage",
+            "destination": "/components/og-image"
+        },
+        {
+            "source": "/cldogimage/examples",
+            "destination": "/components/og-image/examples"
+        },
+        {
+            "source": "/clduploadbutton/usage",
+            "destination": "/components/upload-button"
+        },
+        {
+            "source": "/clduploadwidget/usage",
+            "destination": "/components/upload-widget"
+        },
+        {
+            "source": "/clduploadwidget/configuration",
+            "destination": "/components/upload-widget/configuration"
+        },
+        {
+            "source": "/clduploadwidget/signed-uploads",
+            "destination": "/components/upload-widget#signed"
+        },
+        {
+            "source": "/cldvideoplayer/usage",
+            "destination": "/components/video-player"
+        },
+        {
+            "source": "/cldvideoplayer/configuration",
+            "destination": "/components/video-player/configuration"
+        },
+        {
+            "source": "/cldvideoplayer/examples",
+            "destination": "/components/video-player/examples"
+        },
+        {
+            "source": "/cldvideoplayer/transformations",
+            "destination": "/components/video-player/examples#transformations"
+        },
+        {
+            "source": "/getcldimageurl/usage",
+            "destination": "/helpers/getcldimageurl"
+        },
+        {
+            "source": "/getcldimageurl/configuration",
+            "destination": "/helpers/getcldimageurl/configuration"
+        },
+        {
+            "source": "/getcldogimageurl/usage",
+            "destination": "/helpers/getcldogimageurl"
+        },
+        {
+            "source": "/getcldogimageurl/configuration",
+            "destination": "/helpers/getcldogimageurl/configuration"
+        },
+        {
+            "source": "/getcldogimageurl/examples",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/background-removal",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/image-optimization",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/image-overlays",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/image-underlays",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/placeholders",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/responsive-images",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/social-media-cards",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/text-overlays",
+            "destination": "/missing"
+        },
+        {
+            "source": "/guides/uploading-images-and-videos",
+            "destination": "/missing"
+        },
+        {
+            "source": "/templates",
+            "destination": "/missing"
+        },
+        {
+            "source": "/templates/social-media-cards",
+            "destination": "/missing"
+        }
+    ]
+}
