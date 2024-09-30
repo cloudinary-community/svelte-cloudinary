@@ -43,8 +43,12 @@ export default defineConfig({
 							label: '<CldImage />',
 							items: [
 								{
-									label: 'Usage & Configuration',
+									label: 'Get Started',
 									link: '/components/image',
+								},
+								{
+									label: 'Configuration',
+									link: '/components/image/configuration',
 								},
 								{
 									label: 'Examples',
@@ -56,9 +60,13 @@ export default defineConfig({
 							label: '<CldOgImage />',
 							items: [
 								{
-									label: 'Usage & Configuration',
+									label: 'Get Started',
 									link: '/components/og-image',
 								},
+								// {
+								// 	label: 'Configuration',
+								// 	link: '/components/og-image/configuration',
+								// },
 								{
 									label: 'Examples',
 									link: '/components/og-image/examples',
@@ -67,18 +75,40 @@ export default defineConfig({
 						},
 						{
 							label: '<CldUploadButton />',
-							link: '/components/upload-button',
+							items: [
+								{
+									label: 'Get Started',
+									link: '/components/upload-button',
+								},
+								// {
+								// 	label: 'Configuration',
+								// 	link: '/components/upload-button/configuration',
+								// },
+							],
 						},
 						{
 							label: '<CldUploadWidget />',
-							link: '/components/upload-widget',
+							items: [
+								{
+									label: 'Get Started',
+									link: '/components/upload-widget',
+								},
+								{
+									label: 'Configuration',
+									link: '/components/upload-widget/configuration',
+								},
+							],
 						},
 						{
 							label: '<CldVideoPlayer />',
 							items: [
 								{
-									label: 'Usage & Configuration',
+									label: 'Get Started',
 									link: '/components/video-player',
+								},
+								{
+									label: 'Configuration',
+									link: '/components/video-player/configuration',
 								},
 								{
 									label: 'Examples',
@@ -93,11 +123,29 @@ export default defineConfig({
 					items: [
 						{
 							label: 'getCldImageUrl',
-							link: '/helpers/get-image-url',
+							items: [
+								{
+									label: 'Get Started',
+									link: '/helpers/getcldimageurl',
+								},
+								{
+									label: 'Configuration',
+									link: '/helpers/getcldimageurl/configuration',
+								},
+							],
 						},
 						{
 							label: 'getCldOgImageUrl',
-							link: '/helpers/get-og-image-url',
+							items: [
+								{
+									label: 'Get Started',
+									link: '/helpers/getcldogimageurl',
+								},
+								{
+									label: 'Configuration',
+									link: '/helpers/getcldogimageurl/configuration',
+								},
+							],
 						},
 					],
 				},

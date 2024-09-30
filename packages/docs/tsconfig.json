@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "$assets/*": ["./src/assets/*"],
-      "$examples/*": ["./src/examples/*"]
+      "$lib/*": ["./src/lib/*"]
     }
   },
   "exclude": ["node_modules/**"]

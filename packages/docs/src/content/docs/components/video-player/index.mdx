@@ -27,16 +27,3 @@ The only required props are `width`, `height`, and `src`:
 
 <CldVideoPlayer width="1920" height="1080" src="videos/mountain-stars" />
 ```
-
-## Events
-
-Events are passed in as props rather than using the `on:event` syntax. Every event current recieves an object with the `player` and `video` element:
-
-| Event            | Description                                  |
-| ---------------- | -------------------------------------------- |
-| `onError`        | Fires when an error in video playback occurs |
-| `onDataLoad`     | Fires when video data is loaded              |
-| `onMetadataLoad` | Fires when video metadata is loaded          |
-| `onPause`        | Fires when the video is paused               |
-| `onPlay`         | Fires when the video is played               |
-| `onEnded`        | Fires when the video ends                    |
