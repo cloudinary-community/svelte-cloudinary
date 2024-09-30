@@ -8,10 +8,9 @@
 	],
 	"license": "MIT",
 	"scripts": {
-		"dev": "svelte-package --watch --input src",
-		"build": "svelte-package --input src",
+		"dev": "node scripts/version.js && svelte-package --watch --input src",
+		"build": "node scripts/version.js && svelte-package --input src",
 		"prepublishOnly": "node scripts/version.js",
-		"postinstall": "node scripts/version.js",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
