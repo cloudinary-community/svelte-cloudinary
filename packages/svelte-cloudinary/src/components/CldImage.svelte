@@ -30,8 +30,8 @@
 		ImageOptions,
 	} from '@cloudinary-util/url-loader';
 
-	export type CldImageProps = ImageProps &
-		ImageOptions & {
+	export type CldImageProps = Omit<ImageProps, 'width' | 'height'> &
+		Omit<ImageOptions, 'width' | 'height'> & {
 			/**
 			 * Overrides for the global Cloudinary config.
 			 * @see https://svelte.cloudinary.dev/config
@@ -57,7 +57,8 @@
 
 	type $$Props = CldImageProps;
 
-	$: props = $$props as CldImageProps;
+	$: ({ width, height, layout, ...props } = $$props as CldImageProps);
+	$: transformer = createLoader($$props as CldImageProps);
 
 	let key = 0;
 	async function handleError(event: Event) {
@@ -90,10 +91,12 @@
 
 {#key key}
 	<Image
-		transformer={createLoader(props)}
+		{transformer}
 		cdn="cloudinary"
 		on:load
 		on:error={handleError}
 		on:error
+		width={+width}
+		height={+height}
 		{...props}></Image>
 {/key}
