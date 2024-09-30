@@ -1,0 +1,498 @@
+---
+title: <CldVideoPlayer /> Examples
+---
+
+import { CldVideoPlayer, getCldImageUrl } from 'svelte-cloudinary';
+
+## Basic Usage
+
+Standard Cloudinary Video Player with playback.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	width="1620"
+	height="1080"
+	src="videos/mountain-stars"
+/>
+
+```svelte
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	width="1620"
+	height="1080"
+	src="<Your Public ID>"
+/>
+```
+
+## Playback
+
+### Adaptive Bitrate Streaming (ABR)
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="adaptive-bitrate-streaming"
+	src="videos/mountain-stars"
+	width="1620"
+	height="1080"
+	transformation={{
+		streaming_profile: 'hd',
+	}}
+	sourceTypes={['hls']}
+/>
+
+```svelte {10-13}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="adaptive-bitrate-streaming"
+	src="<Your Public ID>"
+	width="1620"
+	height="1080"
+	transformation={{
+		streaming_profile: 'hd',
+	}}
+	sourceTypes={['hls']}
+/>
+```
+
+### Picture-in-Picture
+
+Utilizes the browser's Picture-in-Picture API to create a floating video on top of other windows.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="picture-in-picture"
+	src="videos/mountain-stars"
+	width="1620"
+	height="1080"
+	pictureInPictureToggle
+/>
+
+```svelte {10}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="picture-in-picture"
+	src="<Your Public ID>"
+	width="1620"
+	height="1080"
+	pictureInPictureToggle
+/>
+```
+
+## Player Customization
+
+### Chapters & Selector
+
+Adding a button to select chapters.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="chapters-selector"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	chapters={{
+		0: 'Chapter 1',
+		6: 'Chapter 2',
+		9: 'Chapter 3',
+	}}
+	chaptersButton
+/>
+
+```svelte {10-15}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="chapters-selector"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	chapters={{
+		0: 'Chapter 1',
+		6: 'Chapter 2',
+		9: 'Chapter 3',
+	}}
+	chaptersButton
+/>
+```
+
+### Colors & Font
+
+Changing the player theme using colors and fonts.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="custom-colors-font"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	colors={{
+		accent: '#ff0000',
+		base: '#00ff00',
+		text: '#0000ff',
+	}}
+	fontFace="Source Serif Pro"
+/>
+
+```svelte {10-15}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="custom-colors-font"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	colors={{
+		accent: '#ff0000',
+		base: '#00ff00',
+		text: '#0000ff',
+	}}
+	fontFace="Source Serif Pro"
+/>
+```
+
+### Logo
+
+Adding a custom logo to the player chrome.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="custom-logo"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	logo={{
+		imageUrl: '/svelte.png',
+		onClickUrl: 'https://svelte.dev',
+	}}
+/>
+
+```svelte {10-13}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="custom-logo"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	logo={{
+		imageUrl: '/svelte.png',
+		onClickUrl: 'https://svelte.dev',
+	}}
+/>
+```
+
+### Poster URL
+
+Allows you to change the poster used for the player.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="poster-custom-url"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	poster={getCldImageUrl({
+		src: 'images/turtle',
+	})}
+/>
+
+```svelte {10-13}
+<script>
+	import { CldVideoPlayer, getCldImageUrl } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="poster-custom-url"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	poster={getCldImageUrl({
+		src: '<Your Public ID>',
+	})}
+/>
+```
+
+### Poster Transformations
+
+Adding effects to the video's auto-generated thumb.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="poster-transformations"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	poster={{
+		tint: 'equalize:80:blue:blueviolet',
+	}}
+/>
+
+```svelte {10-12}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="poster-transformations"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	poster={{
+		tint: 'equalize:80:blue:blueviolet',
+	}}
+/>
+```
+
+### Captions and Subtitles
+
+The `textTracks` prop allows you to add captions or subtitles to the player. Each Text Track is an object containing details about where the captions or subtitles should
+be loaded from as well as any customization of that track.
+
+```svelte {10-12}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="subtitles"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	textTracks={{
+		captions: {
+			label: 'English',
+			language: 'en',
+			default: true,
+			url: 'https://res.cloudinary.com/<Cloud Name>/raw/upload/<FileName>.vtt'
+		}
+	}}
+/>
+```
+
+Learn more on the [Video Player Reference](https://cloudinary.com/documentation/video_player_api_reference#text_tracks) or
+the [Subtitles and Captions guide](https://cloudinary.com/documentation/video_player_customization#subtitles_and_captions).
+
+## Transformations
+
+### Cropping & Resizing
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="cropping-resizing"
+	src="videos/dog-running-snow"
+	width="500"
+	height="500"
+	transformation={{
+		width: 500,
+		height: 500,
+		crop: 'fill',
+		gravity: 'auto',
+	}}
+/>
+
+```svelte {10-15}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="cropping-resizing"
+	src="<Your Public ID>"
+	width="500"
+	height="500"
+	transformation={{
+		width: 500,
+		height: 500,
+		crop: 'fill',
+		gravity: 'auto',
+	}}
+/>
+```
+
+### Image Overlays
+
+Place an image over the video (e.g. watermarks).
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="image-overlays"
+	src="videos/mountain-stars"
+	width="1620"
+	height="1080"
+	transformation={{
+		overlay: 'images/earth',
+		width: 150,
+		gravity: 'north_east',
+		x: 50,
+		y: 50,
+		opacity: 80,
+	}}
+/>
+
+```svelte {10-17}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="image-overlays"
+	src="<Your Public ID>"
+	width="1620"
+	height="1080"
+	transformation={{
+		overlay: '<Your Public ID>',
+		width: 150,
+		gravity: 'north_east',
+		x: 50,
+		y: 50,
+		opacity: 80,
+	}}
+/>
+```
+
+## Advanced
+
+### Localization
+
+Provides localization options for player labels. Uses [Video.js JSON format](https://videojs.com/guides/languages/#json-format) to provide labels.
+
+<CldVideoPlayer
+	config={{
+		cloud: { cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME },
+	}}
+	client:load
+	id="localization"
+	src="videos/mountain-stars"
+	width="4096"
+	height="2160"
+	language="es"
+	languages={{
+		es: {
+			Play: 'Reproducción',
+			'Play Video': 'Reproduce el Video',
+			Pause: 'Pausa',
+			'Current Time': 'Tiempo reproducido',
+			Duration: 'Duración total',
+			'Remaining Time': 'Tiempo restante',
+			'Stream Type': 'Tipo de secuencia',
+			LIVE: 'DIRECTO',
+			Loaded: 'Cargado',
+			Progress: 'Progreso',
+			Fullscreen: 'Pantalla completa',
+			'Non-Fullscreen': 'Pantalla no completa',
+			Mute: 'Silenciar',
+			Unmute: 'No silenciado',
+			'Playback Rate': 'Velocidad de reproducción',
+			Subtitles: 'Subtítulos',
+			'subtitles off': 'Subtítulos desactivados',
+			Captions: 'Subtítulos especiales',
+			'captions off': 'Subtítulos especiales desactivados',
+			Chapters: 'Capítulos',
+			'Close Modal Dialog': 'Cerca de diálogo modal',
+			'You aborted the video playback':
+				'Ha interrumpido la reproducción del vídeo.',
+			'A network error caused the video download to fail part-way.':
+				'Un error de red ha interrumpido la descarga del vídeo.',
+			'The video could not be loaded, either because the server or network failed or because the format is not supported.':
+				'No se ha podido cargar el vídeo debido a un fallo de red o del servidor o porque el formato es incompatible.',
+			'The video playback was aborted due to a corruption problem or because the video used features your browser did not support.':
+				'La reproducción de vídeo se ha interrumpido por un problema de corrupción de datos o porque el vídeo precisa funciones que su navegador no ofrece.',
+			'No compatible source was found for this video.':
+				'No se ha encontrado ninguna fuente compatible con este vídeo.',
+		},
+	}}
+/>
+
+```svelte {10-45}
+<script>
+	import { CldVideoPlayer } from 'svelte-cloudinary';
+</script>
+
+<CldVideoPlayer
+	id="localization"
+	src="<Your Public ID>"
+	width="4096"
+	height="2160"
+	language="es"
+	languages={{
+		es: {
+			Play: 'Reproducción',
+			'Play Video': 'Reproduce el Video',
+			Pause: 'Pausa',
+			'Current Time': 'Tiempo reproducido',
+			Duration: 'Duración total',
+			'Remaining Time': 'Tiempo restante',
+			'Stream Type': 'Tipo de secuencia',
+			LIVE: 'DIRECTO',
+			Loaded: 'Cargado',
+			Progress: 'Progreso',
+			Fullscreen: 'Pantalla completa',
+			'Non-Fullscreen': 'Pantalla no completa',
+			Mute: 'Silenciar',
+			Unmute: 'No silenciado',
+			'Playback Rate': 'Velocidad de reproducción',
+			Subtitles: 'Subtítulos',
+			'subtitles off': 'Subtítulos desactivados',
+			Captions: 'Subtítulos especiales',
+			'captions off': 'Subtítulos especiales desactivados',
+			Chapters: 'Capítulos',
+			'Close Modal Dialog': 'Cerca de diálogo modal',
+			'You aborted the video playback':
+				'Ha interrumpido la reproducción del vídeo.',
+			'A network error caused the video download to fail part-way.':
+				'Un error de red ha interrumpido la descarga del vídeo.',
+			'The video could not be loaded, either because the server or network failed or because the format is not supported.':
+				'No se ha podido cargar el vídeo debido a un fallo de red o del servidor o porque el formato es incompatible.',
+			'The video playback was aborted due to a corruption problem or because the video used features your browser did not support.':
+				'La reproducción de vídeo se ha interrumpido por un problema de corrupción de datos o porque el vídeo precisa funciones que su navegador no ofrece.',
+			'No compatible source was found for this video.':
+				'No se ha encontrado ninguna fuente compatible con este vídeo.',
+		},
+	}}
+/>
+```

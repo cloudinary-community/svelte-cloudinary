@@ -10,10 +10,15 @@
 		"strict": true,
 		"noEmit": true,
 		"allowImportingTsExtensions": true,
-		"types": ["vitest/globals"],
-		"lib": ["esnext", "DOM", "DOM.Iterable"],
 		"moduleResolution": "Bundler",
 		"module": "esnext",
-		"target": "esnext"
-	}
+		"target": "esnext",
+		"verbatimModuleSyntax": true,
+		"baseUrl": ".",
+		"paths": {
+			"$src/*": ["./src/*"],
+			"$src": ["./src"]
+		}
+	},
+	"exclude": ["node_modules/**", "dist/**"]
 }

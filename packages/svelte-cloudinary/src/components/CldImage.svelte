@@ -1,90 +1,102 @@
-<script lang="ts">
-	import type { CldImageProps } from './CldImageTypes.ts';
-	// This unused import is a hack to get around a bug in svelte2tsx
-	import type { UrlTransformer, ImageCdn } from 'unpic';
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
-	import { getTransformations } from '@cloudinary-util/util';
-	import { transformationPlugins } from '@cloudinary-util/url-loader';
-	import { Image } from '@unpic/svelte';
-	import { getCldImageUrl } from '../helpers/getCldImageUrl.js';
-	import { cloudinaryLoader } from '../loaders/cloudinary-loader.js';
+<!--
+	@component
+	
+	Renders an image from Cloudinary. It supports all of the regular <img>
+	props, Cloudinary specific options, and options from unpic. This component
+	wraps `@unpic/svelte` which brings high performance and responsive images.  
+	
+	@see https://svelte.cloudinary.dev/components/image
 
-	/**
-	 * set the compomnent $$props to be of type CldImageProps
-	 */
+	@example Simple Image
+
+	```svelte
+	<script>
+		import { CldImage } from 'svelte-cloudinary';
+	</script>
+
+	<CldImage
+		height={150}
+		width={150}
+		src="path"
+		alt="An awesome image from Cloudinary"
+	/>
+	```
+-->
+
+<script context="module" lang="ts">
+	import type { ImageProps } from '@unpic/svelte';
+	import type {
+		ConfigOptions,
+		ImageOptions,
+	} from '@cloudinary-util/url-loader';
+
+	export type CldImageProps = Omit<ImageProps, 'width' | 'height'> &
+		Omit<ImageOptions, 'width' | 'height'> & {
+			/**
+			 * Overrides for the global Cloudinary config.
+			 * @see https://svelte.cloudinary.dev/config
+			 */
+			config?: ConfigOptions;
+
+			/**
+			 * The target width of the image
+			 */
+			width: string | number;
+
+			/**
+			 * The target height of the image
+			 */
+			height: string | number;
+		};
+</script>
+
+<script lang="ts">
+	import { pollForProcessingImage } from '@cloudinary-util/util';
+	import { createLoader } from '../helpers/loader';
+	import { Image } from '@unpic/svelte';
+
 	type $$Props = CldImageProps;
 
-	const CLD_OPTIONS = ['config', 'deliveryType', 'preserveTransformations'];
+	$: ({ width, height, layout, ...props } = $$props as CldImageProps);
+	$: transformer = createLoader($$props as CldImageProps);
 
-	// reactively destructure the props
-	$: ({ alt, src, width, height, config } = $$props as $$Props);
+	let key = 0;
+	async function handleError(event: Event) {
+		console.warn(
+			'[svelte-cloudinary]',
+			'image failed to load, polling for updates',
+		);
 
-	transformationPlugins.forEach(({ props = [] }) => {
-		props.forEach((prop) => {
-			if (CLD_OPTIONS.includes(prop)) {
-				throw new Error(`Option ${prop} already exists!`);
-			}
-			CLD_OPTIONS.push(prop);
-		});
-	});
+		const src = (event.target as HTMLImageElement | null)?.src;
 
-	$: imageProps = {
-		alt,
-		src,
-		width: typeof width === 'string' ? parseInt(width) : width,
-		height: typeof height === 'string' ? parseInt(height) : height
-	} as $$Props;
-
-	$: if (imageProps) {
-		(Object.keys($$props) as Array<keyof $$Props>)
-			.filter((key) => !CLD_OPTIONS.includes(key))
-			.forEach((key) => {
-				//@ts-expect-error imageProps doesn't know the types of the keys
-				imageProps[key] = $$props[key];
-			});
-	}
-
-	// Construct Cloudinary-specific props by looking for values for any of the supported prop keys
-
-	const cldOptions = {};
-
-	CLD_OPTIONS.forEach((key) => {
-		if ($$props[key]) {
-			// @ts-expect-error cldOptions doesn't know the types of the keys
-			cldOptions[key] = $$props[key] || undefined;
+		if (!src) {
+			console.warn('[svelte-cloudinary]', 'unable to find the image src');
+			return;
 		}
-	});
 
-	// Try to preserve the original transformations from the Cloudinary URL passed in
-	// to the component. This only works if the URL has a version number on it and otherwise
-	// will fail to load
-	$: if ($$props.preserveTransformations) {
-		try {
-			const transformations = getTransformations(imageProps.src).map((t) => t.join(','));
-			// @ts-expect-error rawTranformations key is not declared in cldOptions
-			cldOptions.rawTransformations = [
-				...transformations.flat(),
-				...($$props.rawTransformations || [])
-			];
-		} catch (e) {
-			console.warn(`Failed to preserve transformations: ${(e as Error).message}`);
+		const success = await pollForProcessingImage({ src });
+
+		console.warn(
+			'[svelte-cloudinary]',
+			success ? 'successfully loaded' : 'failed to load',
+			'image',
+		);
+
+		if (success) {
+			// Force image to update
+			key++;
 		}
 	}
 </script>
 
-{#if imageProps.src}
+{#key key}
 	<Image
-		{...imageProps}
+		transformer={(options) => transformer(options)}
 		cdn="cloudinary"
-		transformer={(loaderOptions) => {
-			return cloudinaryLoader({
-				loaderOptions,
-				imageProps,
-				cldOptions: { ...cldOptions, width: imageProps.width },
-				cldConfig: config
-			});
-		}}
 		on:load
+		on:error={handleError}
 		on:error
-	/>
-{/if}
+		width={+width}
+		height={+height}
+		{...props}></Image>
+{/key}

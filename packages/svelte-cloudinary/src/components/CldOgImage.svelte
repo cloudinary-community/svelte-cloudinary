@@ -1,74 +1,101 @@
-<script lang="ts">
-	import { getCldImageUrl } from '../helpers/getCldImageUrl.js';
-	import type { ImageOptions } from '@cloudinary-util/url-loader';
-	import type { CldImageProps } from './CldImageTypes.ts';
-	import { OG_IMAGE_WIDTH, OG_IMAGE_WIDTH_RESIZE, OG_IMAGE_HEIGHT } from '../constants/sizes.js';
+<!--
+	@component
+	
+	This component will use Cloudinary to power your open graph images (and twitter).
+	It'll automatically generate your meta tags and place them in the head of your
+	page.
 
-	const TWITTER_CARD = 'summary_large_image';
+	@see https://svelte.cloudinary.dev/components/og-image
 
-	type CldOgImageProps = Omit<CldImageProps, 'heigth' | 'heigth' | 'layout'> & {
-		excludeTags?: Array<string>;
-		keys?: object;
+	@example Simple OG Image
+
+	```svelte
+	<script>
+		import { CldOgImage } from 'svelte-cloudinary';
+	</script>
+
+	<CldOgImage
+		src="images/turtle"
+		alt="Turtle"
+	/>
+	```
+-->
+
+<script context="module" lang="ts">
+	import type {
+		ConfigOptions,
+		ImageOptions,
+	} from '@cloudinary-util/url-loader';
+
+	export type CldOgImageProps = ImageOptions & {
+		/**
+		 * The title to use on twitter
+		 */
 		twitterTitle?: string;
+
+		/**
+		 * The image alt text
+		 */
+		alt: string;
+
+		/**
+		 * The width of your og image
+		 * @default 1200
+		 */
 		width?: string | number;
+
+		/**
+		 * The height of your og image
+		 * @default 627
+		 */
 		height?: string | number;
+
+		/**
+		 * Overrides for the global Cloudinary config.
+		 * @see https://svelte.cloudinary.dev/config
+		 */
+		config?: ConfigOptions;
+
+		/**
+		 * An array of tags to exclude from being created.
+		 * Currently only the `twitter:title` tag is supported.
+		 */
+		excludeTags?: 'twitter:title'[];
 	};
+</script>
+
+<script lang="ts">
+	import { getCldOgImageUrl } from '../helpers/getCldOgImageUrl';
+
 	type $$Props = CldOgImageProps;
 
-	const options: ImageOptions = {
-		...$$props,
-		crop: $$props.crop || 'fill',
-		gravity: $$props.gravity || 'center',
-		height: $$props.height || OG_IMAGE_HEIGHT,
-		src: $$props.src,
-		width: $$props.width || OG_IMAGE_WIDTH,
-		widthResize: $$props.width || OG_IMAGE_WIDTH_RESIZE
-	};
+	$: ({
+		alt,
+		width = 1200,
+		height = 627,
+		twitterTitle,
+		config,
+		excludeTags,
+		...options
+	} = $$props as CldOgImageProps);
 
-	let width = typeof options.width === 'string' ? parseInt(options.width) : options.width;
-	let height = typeof options.height === 'string' ? parseInt(options.height) : options.height;
-	let { alt, excludeTags = [], twitterTitle } = $$props;
+	$: image = getCldOgImageUrl(options, config);
 
-	// Resize the height based on the widthResize property
-
-	if (typeof height === 'number' && typeof width === 'number') {
-		height = (OG_IMAGE_WIDTH_RESIZE / width) * height;
-	}
-
-	width = OG_IMAGE_WIDTH_RESIZE;
-
-	// Render the final URLs. We use two different format versions to deliver
-	// webp for Twitter as it supports it (and we can control with tags) where
-	// other platforms may not support webp, so we deliver jpg
-
-	const ogImageUrl = getCldImageUrl({
-		...options,
-		format: $$props.format || 'jpg'
-	});
-
-	const twitterImageUrl = getCldImageUrl({
-		...options,
-		format: $$props.format || 'webp'
-	});
+	$: twitterImage = getCldOgImageUrl(
+		{ ...options, format: options.format ?? 'webp' },
+		config,
+	);
 </script>
 
 <svelte:head>
-	<meta property="og:image" content={ogImageUrl} />
-	<meta property="og:image:secure_url" content={ogImageUrl} />
-	<meta property="og:image:width" content={`${width}`} />
-	<meta property="og:image:height" content={`${height}`} />
-
-	{#if alt}
-		<meta property="og:image:alt" content={alt} />
-	{/if}
-
-	<!-- Required for summary_large_image, exclude vai excludeTags -->
-	<!-- https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image -->
-
-	{#if !excludeTags.includes('twitter:title')}
+	<meta property="og:image" content={image} />
+	<meta property="og:image:secure_url" content={image} />
+	<meta property="og:image:width" content={width.toString()} />
+	<meta property="og:image:height" content={height.toString()} />
+	<meta property="og:image:alt" content={alt} />
+	{#if !excludeTags?.includes('twitter:title')}
 		<meta property="twitter:title" content={twitterTitle || ' '} />
 	{/if}
-
-	<meta property="twitter:card" content={TWITTER_CARD} />
-	<meta property="twitter:image" content={twitterImageUrl} />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:image" content={twitterImage} />
 </svelte:head>

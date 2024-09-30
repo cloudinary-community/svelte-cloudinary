@@ -5,7 +5,7 @@ import type {
 	CldUploadWidgetPropsOptions,
 	ResultsEvents,
 	ResultCallback,
-	UploadWidget
+	UploadWidget,
 } from '$lib/components/CldUploadWidgetTypes.ts';
 declare global {
 	namespace App {
@@ -19,7 +19,7 @@ declare global {
 			applyUploadWidget: ({
 				element,
 				options,
-				resultCallback
+				resultCallback,
 			}: {
 				element: HTMLElement;
 				options: CldUploadWidgetPropsOptions;
@@ -27,11 +27,11 @@ declare global {
 			}) => void;
 			createUploadWidget(
 				{ cloudName, uploadPreset, apiKey }: CreateUploadWidgetProps,
-				resultCallback: ResultCallback
+				resultCallback: ResultCallback,
 			): UploadWidget;
 			openUploadWidget({
 				options,
-				resultCallback
+				resultCallback,
 			}: {
 				options: CldUploadWidgetPropsOptions;
 				resultCallback: ResultCallback;

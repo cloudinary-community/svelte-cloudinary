@@ -1,0 +1,78 @@
+---
+title: <CldImage />
+---
+
+import { CldImage } from 'svelte-cloudinary';
+
+The `CldImage` component is the main way of displaying a Cloudinary image in your Svelte app.
+
+### Basic Usage
+
+The required props are `width`, `height`, `src`, and `alt`:
+
+<CldImage
+	src="images/turtle"
+	alt="Turtle"
+	width={960}
+	height={600}
+/>
+
+```svelte
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  src="images/turtle"
+  alt="Turtle"
+  width={960}
+  height={600}
+/>
+```
+
+### Transformations
+
+You can use Cloudinary transformations with simple props which are fully typed:
+
+<CldImage
+	width={960}
+	height={600}
+	src="images/turtle"
+	alt="Blue Turtle"
+	tint="70:blue:purple"
+/>
+
+```svelte
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width={960}
+  height={600}
+  src="images/turtle"
+  alt="Blue Turtle"
+  tint="70:blue:purple"
+/>
+```
+
+### Using Cloudinary URLs
+
+We support passing a Cloudinary URL as the `src` as long as it contains a version number (`/v1234`).
+
+```svelte
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  width={960}
+  height={600}
+  src="https://res.cloudinary.com/svelte-cloudinary/image/upload/v1/images/turtle"
+  alt="Turtle"
+/>
+```
+
+#### Preserve Transformations
+
+If you're using the full Cloudinary URL as your `src` it might contain transformations. To preserve these transformations you can set the `preserveTransformations` prop.

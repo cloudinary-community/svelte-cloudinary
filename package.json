@@ -1,23 +1,29 @@
 {
   "name": "svelte-cloudinary",
-  "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
-  "author": "Matias Hernandez <hola@matiashernandez.dev>",
   "license": "MIT",
   "private": true,
+  "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
+  "contributors": [
+    "Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
+    "Colby Fayock <hello@colbyfayock.com>",
+    "Matias Hernandez <hola@matiashernandez.dev>"
+  ],
   "scripts": {
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "check": "pnpm -r check",
     "format": "pnpm --parallel -r format",
     "test": "pnpm --filter svelte-cloudinary -r test",
-    "dev": "pnpm --parallel --filter playground --filter svelte-cloudinary -r dev",
+    "dev": "pnpm --parallel -r dev",
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^11.0.3",
-    "gh-release": "7.0.2",
-    "semantic-release": "^23.0.2"
+    "@changesets/cli": "^2.27.7",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@astrojs/starlight@0.26.2": "patches/@astrojs__starlight@0.26.2.patch"
+    }
   }
 }

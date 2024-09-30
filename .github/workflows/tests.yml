@@ -1,0 +1,45 @@
+name: Test & Release
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  tests:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: https://registry.npmjs.org/
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: 8.12.1
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm package
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Astro & Svelte Check
+        run: pnpm check
+
+      - name: Test
+        run: pnpm test
+

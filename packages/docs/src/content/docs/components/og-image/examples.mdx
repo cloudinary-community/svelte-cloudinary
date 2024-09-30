@@ -1,0 +1,103 @@
+---
+title: <CldOgImage /> Examples
+---
+
+import { CldImage } from 'svelte-cloudinary';
+
+:::note
+CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded on a page. The following examples make use of the `<CldImage>` tag to showcase what's possible.
+:::
+
+## Text Overlays
+
+<CldImage
+	src="images/turtle"
+	height="600"
+	width="960"
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+/>
+
+```svelte {7-17}
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+	src="<Your Public ID>"
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+/>
+```
+
+## Background Removal
+
+`underlay`: Specifies a public ID to use as an underlaying image.
+
+<CldImage
+	src="images/turtle"
+	height="600"
+	width="960"
+	blur="2000"
+	tint="100:0000FF:0p:FF1493:100p"
+	underlay="images/galaxy"
+	removeBackground
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+/>
+
+```svelte {9-10}
+<script>
+    import { CldOgImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+	src="<Your Public ID>"
+	blur="2000"
+	tint="100:0000FF:0p:FF1493:100p"
+	underlay="<Your Public ID>"
+	removeBackground
+	overlays={[
+		{
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 120,
+				fontWeight: 'bold',
+				text: 'Svelte Cloudinary',
+			},
+		},
+	]}
+/>
+```
+
+---
+
+You can find more examples on the [`<CldImage />` page](/components/image/examples).

@@ -1,261 +1,360 @@
-<script lang="ts">
-	import { onMount } from 'svelte';
-	import { triggerOnIdle, loadCloudinary } from '../util.js';
-	import { checkCloudinaryCloudName } from '../cloudinary.js';
+<!--
+	@component
+	
+	This component provides an API for rendering the Cloudinary Upload Widget.
+	It won't render anything on it's own so must have a button nested
+	which calls `open()`.
+
+	@see https://svelte.cloudinary.dev/components/upload-widget
+
+	@example Upload Widget
+
+	```svelte
+	<script>
+		import { CldUploadWidget } from 'svelte-cloudinary';
+	</script>
+
+	<CldUploadWidget uploadPreset="<your upload preset>" let:open>
+		<button on:click={open}>
+			Open the widget
+		</button>
+	</CldUploadWidget>
+	```
+-->
+
+<script lang="ts" context="module">
 	import type {
-		CldUploadWidgetProps,
-		CldUploadWidgetInstanceMethods,
-		CldUploadWidgetCloseInstanceMethodOptions,
-		CldUploadWidgetDetsroyInstanceMethodOptions,
-		CldUploadWidgetOpenWidgetSources,
-		CldUploadWidgetOpenInstanceMethodOptions,
-		CldUploadEventCallback,
-		CldUploadWidgetError,
-		CldUploadWidgetResults,
-		CldUploadWidgetWidgetInstance,
-		CldUploadWidgetCloudinaryInstance
-	} from './CldUploadWidgetTypes.ts';
+		CloudinaryUploadWidgetOptions,
+		CloudinaryUploadWidgetResults,
+		CloudinaryUploadWidgetInstanceMethods,
+		CloudinaryUploadWidget,
+	} from '@cloudinary-util/types';
+
+	/**
+	 * The event that fires when there is a widget related error
+	 * @param error The error message
+	 * @param options The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetErrorEvent = (
+		error: string,
+		options: CloudinaryUploadWidgetInstanceMethods & {
+			widget?: CloudinaryUploadWidget;
+		},
+	) => unknown;
+
+	/**
+	 * The event which fires on widget open
+	 * @param widget The widget that opened
+	 */
+	export type CldUploadWidgetOpenEvent = (
+		widget: CloudinaryUploadWidget,
+	) => void;
+
+	/**
+	 * Generic Cloudinary upload widget event
+	 * @param results The event results
+	 * @param options The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetGenericEvent = (
+		results: CloudinaryUploadWidgetResults,
+		options: CldUploadWidgetGenericEventOptions,
+	) => unknown;
+
+	/**
+	 * The widget instance methods and underlying widget
+	 */
+	export type CldUploadWidgetGenericEventOptions = {
+		widget: CloudinaryUploadWidget;
+	} & CloudinaryUploadWidgetInstanceMethods;
+
+	/**
+	 * Use onSuccess instead. This will be removed in the next major release.
+	 * @deprecated
+	 */
+	export type CldUploadWidgetUploadEvent = (
+		results: CloudinaryUploadWidgetResults,
+		widget: CloudinaryUploadWidget,
+	) => void;
+
+	/**
+	 * Any upload widget event.
+	 * @see https://svelte.cloudinary.dev/components/upload-widget#events
+	 */
+	export type CldUploadWidgetEvent =
+		| CldUploadWidgetErrorEvent
+		| CldUploadWidgetOpenEvent
+		| CldUploadWidgetGenericEvent
+		| CldUploadWidgetUploadEvent;
+
+	export interface CldUploadWidgetProps {
+		/**
+		 * Overrides for the global Cloudinary config.
+		 * @see https://svelte.cloudinary.dev/config
+		 */
+		config?: ConfigOptions;
+
+		/**
+		 * Upload Presets are configured on Cloudinary and provide a way to centrally define a set of upload options.
+		 * @see https://cloudinary.com/documentation/upload_presets
+		 */
+		uploadPreset?: string;
+
+		/**
+		 * Signing requests is the recommended way to upload images as it provides enhanced security for your uploads.
+		 */
+		signatureEndpoint?: string;
+
+		/**
+		 * Options to customise and configure the upload widget.
+		 */
+		options?: CloudinaryUploadWidgetOptions;
+
+		/**
+		 * Fires when an error occurs uploading.
+		 */
+		onError?: CldUploadWidgetErrorEvent;
+
+		/**
+		 * Fires when the widget is opened.
+		 */
+		onOpen?: CldUploadWidgetOpenEvent;
+
+		/**
+		 * Fires when the user aborted the upload.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#abort
+		 */
+		onAbort?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the uploading was cancelled.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#batch_cancelled
+		 */
+		onBatchCancelled?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the user closes the widget.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#close_event
+		 */
+		onClose?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the widget display type changes.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#display_changed
+		 */
+		onDisplayChanged?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the public id input field changes.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#publicid
+		 */
+		onPublicId?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when all files have finished uploading.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_end
+		 */
+		onQueuesEnd?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the files are about to begin uploading.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#queues_start
+		 */
+		onQueuesStart?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the user retried after uploads failed.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#retry
+		 */
+		onRetry?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the user clicks the "Show Completed" button.
+		 * Requires the showCompletedButton option be set to true.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#show_completed
+		 */
+		onShowCompleted?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the user selects a different upload source.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#source_changed
+		 */
+		onSourceChanged?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the upload has successfully completed.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#success
+		 */
+		onSuccess?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when the contents of the tags input field change.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#tags
+		 */
+		onTags?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Fires when a new file was selected to be uploaded.
+		 * @see https://cloudinary.com/documentation/upload_widget_reference#upload_added
+		 */
+		onUploadAdded?: CldUploadWidgetGenericEvent;
+
+		/**
+		 * Use onSuccess instead. This will be removed in the next major release.
+		 * @deprecated
+		 */
+		onUpload?: CldUploadWidgetUploadEvent;
+	}
+</script>
+
+<script lang="ts">
+	import { loadScript } from '../helpers/scripts';
+	import { mergeGlobalConfig } from '../config';
+	import { onDestroy, onMount } from 'svelte';
+	import {
+		UPLOAD_WIDGET_EVENTS as _WIDGET_EVENTS,
+		generateUploadWidgetResultCallback,
+		generateSignatureCallback,
+		getUploadWidgetOptions,
+		type ConfigOptions,
+	} from '@cloudinary-util/url-loader';
 
 	type $$Props = CldUploadWidgetProps;
 
-	// destructure the props
-	const { uploadPreset, signatureEndpoint, onError, onUpload, options, onOpen, onClose } =
-		$$props as $$Props;
+	$: ({
+		uploadPreset,
+		signatureEndpoint,
+		config,
+		options = {},
+		...events
+	} = $$props as $$Props);
 
-	// References
-	let cloudinary: CldUploadWidgetCloudinaryInstance;
-	let widget: CldUploadWidgetWidgetInstance;
-	const signed = !!signatureEndpoint;
-	const WIDGET_WATCHED_EVENTS = ['success', 'display-changed'];
+	let loaded =
+		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
 
-	const WIDGET_EVENTS: { [key: string]: string } = {
-		abort: 'onAbort',
-		'batch-cancelled': 'onBatchCancelled',
-		// 'close': 'onClose', // TODO: should follow other event patterns
-		'display-changed': 'onDisplayChanged',
-		publicid: 'onPublicId',
-		'queues-end': 'onQueuesEnd',
-		'queues-start': 'onQueuesStart',
-		retry: 'onRetry',
-		'show-completed': 'onShowCompleted',
-		'source-changed': 'onSourceChanged',
-		success: 'onSuccess',
-		tags: 'onTags',
-		'upload-added': 'onUploadAdded'
+	let widget: CloudinaryUploadWidget | undefined;
+
+	const instanceMethods: CloudinaryUploadWidgetInstanceMethods = {
+		close: (...args) => widget?.close(...args),
+		destroy: async (...args) => await widget?.destroy(...args),
+		hide: () => widget?.hide(),
+		isDestroyed: () => widget?.isDestroyed() ?? true,
+		isMinimized: () => widget?.isMinimized() ?? false,
+		isShowing: () => widget?.isShowing() ?? false,
+		minimize: () => widget?.minimize(),
+		show: () => widget?.show(),
+		update: (...args) => widget?.update(...args),
+		open: (...args) => {
+			if (!widget) createWidget(config);
+			widget?.open(...args);
+			events.onOpen?.(widget!);
+		},
 	};
 
-	// Validation
-	checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+	const WIDGET_EVENTS = _WIDGET_EVENTS as Record<
+		string,
+		Exclude<
+			Extract<keyof CldUploadWidgetProps, `on${string}`>,
+			'onOpen' | 'onError' | 'onUpload'
+		>
+	>;
 
-	// State
-	let isLoading = true;
-	const uploadOptions = {
-		cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
-		uploadPreset: uploadPreset || import.meta.env.PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-		apiKey: import.meta.env.VITE_PUBLIC_CLOUDINARY_API_KEY,
-		...options
-	};
+	function createWidget(config: $$Props['config']) {
+		if (widget) return;
 
-	if (signed) {
-		uploadOptions.uploadSignature = generateSignature;
+		const cfg = mergeGlobalConfig(config);
 
-		if (!uploadOptions.apiKey) {
-			console.warn(`Missing dependency: Signed Upload requires an API key`);
-		}
-	}
+		const uploadOptions = getUploadWidgetOptions(
+			{
+				...options,
+				uploadPreset: uploadPreset || cfg.extra.uploadPreset,
+				uploadSignature:
+					signatureEndpoint &&
+					generateSignatureCallback({
+						signatureEndpoint,
+						fetch,
+					}),
+			},
+			cfg.config,
+		);
 
-	/**
-	 * handleOnLoad
-	 * @description Stores the Cloudinary window instance to a ref when the widget script loads
-	 */
-	function handleOnLoad() {
-		isLoading = false;
-		if (!cloudinary) {
-			cloudinary = window.cloudinary;
-		}
-		triggerOnIdle(() => {
-			if (!widget) {
-				widget = createWidget();
-			}
+		const callback = generateUploadWidgetResultCallback({
+			onError: (error) => {
+				const message = error
+					? typeof error == 'string'
+						? error
+						: error?.statusText
+					: 'Unknown Error';
+
+				events.onError?.(message, {
+					...instanceMethods,
+					widget: widget!,
+				});
+			},
+			onResult: (results) => {
+				if (typeof results?.event !== 'string') return;
+
+				const options: CldUploadWidgetGenericEventOptions = {
+					...instanceMethods,
+					widget: widget!,
+				};
+
+				const handlerName = WIDGET_EVENTS[`${results.event}`];
+
+				switch (handlerName) {
+					case 'onDisplayChanged':
+						events.onDisplayChanged?.(results, options);
+
+						if (results.info === 'hidden') {
+							events.onClose?.(results, options);
+						}
+						break;
+
+					case 'onSuccess':
+						events.onSuccess?.(results, options);
+						events.onUpload?.(results, options);
+						break;
+
+					default: {
+						const handler = events[handlerName];
+						handler?.(results, options);
+						break;
+					}
+				}
+			},
 		});
-	}
 
-	/**
-	 * generateSignature
-	 * @description Makes a request to an endpoint to sign Cloudinary parameters as part of widget creation
-	 */
-
-	function generateSignature(callback: Function, paramsToSign: object) {
-		if (typeof signatureEndpoint === 'undefined') {
-			throw Error('Failed to generate signature: signatureEndpoint undefined.');
-		}
-		fetch(signatureEndpoint, {
-			method: 'POST',
-			body: JSON.stringify({
-				paramsToSign
-			})
-		})
-			.then((r) => r.json())
-			.then(({ signature }) => {
-				callback(signature);
-			});
-	}
-
-	/**
-	 * createWidget
-	 * @description Creates a new instance of the Cloudinary widget and stores in a ref
-	 */
-
-	function createWidget() {
-		return cloudinary?.createUploadWidget(
+		widget = window.cloudinary?.createUploadWidget?.(
 			uploadOptions,
-			(uploadError: CldUploadWidgetError, uploadResult: CldUploadWidgetResults) => {
-				if (uploadError && uploadError !== null) {
-					handleError(uploadError);
-				}
-
-				if (typeof uploadResult?.event === 'string') {
-					if (WIDGET_WATCHED_EVENTS.includes(uploadResult?.event)) {
-						handleResults(uploadResult);
-					}
-
-					const widgetEvent = WIDGET_EVENTS[uploadResult.event] as keyof typeof $$props;
-
-					if (
-						typeof widgetEvent === 'string' &&
-						typeof $$props[widgetEvent] === 'function' &&
-						typeof $$props[widgetEvent]
-					) {
-						const callback = $$props[widgetEvent] as CldUploadEventCallback;
-						callback(uploadResult, {
-							widget,
-							...instanceMethods
-						});
-					}
-				}
-			}
+			callback,
 		);
 	}
 
-	function onLoadingError() {
-		console.error(`Failed to load Cloudinary Upload Widget`);
-	}
-	// Side effects
-
-	function handleResults(results: CldUploadWidgetResults) {
-		if (results != null) {
-			const isSuccess = results.event === 'success';
-			const isClosed = results.event === 'display-changed' && results.info === 'hidden';
-			if (isSuccess && typeof onUpload === 'function') {
-				onUpload(results, widget);
-			}
-
-			if (isClosed && typeof onClose === 'function') {
-				onClose(widget);
-			}
-		}
+	$: if (loaded) {
+		instanceMethods.destroy();
+		createWidget(config);
 	}
 
-	function handleError(error: any) {
-		if (error && typeof onError === 'function') {
-			onError(error, widget);
-		}
-	}
 	onMount(() => {
-		if (!window.cloudinary?.createUploadWidget) {
-			return loadCloudinary({ onLoad: handleOnLoad, onError: handleError });
-		}
-		return handleOnLoad();
+		loadScript({
+			src: 'https://upload-widget.cloudinary.com/global/all.js',
+			onLoad() {
+				loaded = true;
+			},
+			onError() {
+				events.onError?.('Unable to load script', {
+					...instanceMethods,
+					widget,
+				});
+			},
+		});
 	});
 
-	/**
-	 * Instance Methods
-	 * Gives the ability to interface directly with the Upload Widget instance methods like open and close
-	 * https://cloudinary.com/documentation/upload_widget_reference#instance_methods
-	 */
+	onDestroy(() => {
+		instanceMethods.destroy();
+	});
 
-	function invokeInstanceMethod<TMethod extends keyof CldUploadWidgetInstanceMethods>(
-		method: TMethod,
-		options: Parameters<CldUploadWidgetInstanceMethods[TMethod]> = [] as Parameters<
-			CldUploadWidgetInstanceMethods[TMethod]
-		>
-	) {
-		if (!widget) {
-			widget = createWidget();
-		}
-
-		if (typeof widget?.[method] === 'function') {
-			return widget?.[method](...options);
-		}
-	}
-
-	function close(options?: CldUploadWidgetCloseInstanceMethodOptions) {
-		invokeInstanceMethod('close', [options]);
-	}
-
-	function destroy(options?: CldUploadWidgetDetsroyInstanceMethodOptions) {
-		return invokeInstanceMethod('destroy', [options]);
-	}
-
-	function hide() {
-		invokeInstanceMethod('hide');
-	}
-
-	function isDestroyed() {
-		return invokeInstanceMethod('isDestroyed');
-	}
-
-	function isMinimized() {
-		return invokeInstanceMethod('isMinimized');
-	}
-
-	function isShowing() {
-		return invokeInstanceMethod('isShowing');
-	}
-
-	function minimize() {
-		invokeInstanceMethod('minimize');
-	}
-
-	/**
-	 * open
-	 * @description When triggered, uses the current widget instance to open the upload modal
-	 * user can pass custom parameters to customize the experience, check more
-	 * https://cloudinary.com/documentation/upload_widget_reference#open
-	 * widgetSource can only be string | null
-	 * options can be a Map or undefined
-	 */
-	function open(
-		widgetSource?: CldUploadWidgetOpenWidgetSources,
-		options?: CldUploadWidgetOpenInstanceMethodOptions
-	) {
-		invokeInstanceMethod('open', [typeof widgetSource === 'string' ? widgetSource : null, options]);
-
-		if (typeof onOpen === 'function') {
-			onOpen(widget);
-		}
-	}
-
-	function show() {
-		invokeInstanceMethod('show');
-	}
-
-	function update() {
-		invokeInstanceMethod('update');
-	}
-
-	const instanceMethods: CldUploadWidgetInstanceMethods = {
-		close,
-		destroy,
-		hide,
-		isDestroyed,
-		isMinimized,
-		isShowing,
-		minimize,
-		open,
-		show,
-		update
-	};
+	let cloudinary: typeof window.cloudinary | null = null;
+	$: cloudinary = (loaded && window.cloudinary) || null;
 </script>
 
-<slot {widget} {cloudinary} {isLoading} {...instanceMethods} data-testid="slot" />
+<slot {widget} {cloudinary} isLoading={!loaded} {...instanceMethods} />

@@ -1,9 +1,9 @@
-import preprocess from 'svelte-preprocess';
+import { sveltePreprocess } from 'svelte-preprocess';
 
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [preprocess()]
+	preprocess: [sveltePreprocess()],
 };
 
 export default config;

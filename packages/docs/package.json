@@ -1,50 +1,26 @@
 {
-	"name": "docs",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check .",
-		"format": "prettier --write ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^5.1.1",
-		"@sveltejs/kit": "^2.5.4",
-		"@sveltejs/vite-plugin-svelte": "3.0.2",
-		"@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
-		"@tailwindcss/typography": "^0.5.10",
-		"autoprefixer": "^10.4.18",
-		"daisyui": "^4.7.3",
-		"mdsvex": "^0.11.0",
-		"postcss": "^8.4.35",
-		"postcss-load-config": "^5.0.3",
-		"prettier": "^3.2.5",
-		"prettier-plugin-svelte": "^3.2.2",
-		"sass": "1.72.0",
-		"svelte": "^4.2.12",
-		"svelte-check": "^3.6.7",
-		"svelte-preprocess": "^5.1.3",
-		"tailwindcss": "^3.4.1",
-		"tslib": "^2.6.2",
-		"typescript": "^5.4.2",
-		"vite": "^5.1.6"
-	},
-	"type": "module",
-	"dependencies": {
-		"@iconify/svelte": "3.1.6",
-		"@microflash/rehype-toc": "1.0.2",
-		"@vercel/analytics": "1.2.2",
-		"cloudinary": "^2.0.3",
-		"flowbite-svelte": "0.44.24",
-		"rehype-autolink-headings": "7.1.0",
-		"rehype-slug": "6.0.0",
-		"svelte-cloudinary": "workspace:*",
-		"svelte-hamburgers": "4.2.0",
-		"svelte-typeahead": "4.4.1",
-		"theme-change": "2.5.0"
-	}
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/starlight": "^0.26.2",
+    "@astrojs/svelte": "^5.7.0",
+    "astro": "^4.15.2",
+    "css-tree": "^2.3.1",
+    "klona": "^2.0.6",
+    "sharp": "^0.33.5",
+    "starlight-links-validator": "^0.12.1",
+    "svelte": "^4.2.19",
+    "svelte-cloudinary": "workspace:^",
+    "typescript": "^5.5.4"
+  }
 }

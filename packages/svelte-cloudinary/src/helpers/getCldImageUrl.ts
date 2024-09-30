@@ -1,57 +1,35 @@
-import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
-import { checkCloudinaryCloudName } from '../cloudinary.js';
-import type { ImageOptions, ConfigOptions, AnalyticsOptions } from '@cloudinary-util/url-loader';
-
+import { mergeGlobalConfig } from '../config';
 import {
-	SVELTE_CLOUDINARY_ANALYTICS_ID,
-	SVELTE_CLOUDINARY_VERSION,
-	SVELTE_VERSION
-} from '../constants/analytics.js';
-/**
- * getCldImage
- */
+	constructCloudinaryUrl,
+	type AnalyticsOptions,
+	type ConfigOptions,
+	type ImageOptions,
+} from '@cloudinary-util/url-loader';
 
-export interface GetCldImageUrlOptions extends ImageOptions {}
-export interface GetCldImageUrlConfig extends ConfigOptions {}
-export interface GetCldImageUrlAnalytics extends AnalyticsOptions {}
-
-export interface GetCldImageUrl {
-	options: GetCldImageUrlOptions;
-	config?: GetCldImageUrlConfig;
-	analytics?: GetCldImageUrlAnalytics;
-}
-
-/**
- * Generates the Cloudinary url for the assets
- * based on the configuration passed to the function
- * @returns string
- */
 export function getCldImageUrl(
 	options: ImageOptions,
-	config?: ConfigOptions,
-	analytics?: AnalyticsOptions
+	configOverride?: ConfigOptions,
+	analyticsOverride?: AnalyticsOptions,
 ) {
-	// Validation
-	checkCloudinaryCloudName(import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME);
+	const { config, analytics } = mergeGlobalConfig(
+		configOverride,
+		analyticsOverride,
+	);
+
+	if (!config.cloud?.cloudName) {
+		throw new Error('[svelte-cloudinary] unable to find a cloud name');
+	}
 
 	return constructCloudinaryUrl({
-		options,
-		config: Object.assign(
-			{
-				cloud: {
-					cloudName: import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME
-				}
+		analytics,
+		config,
+		options: {
+			...options,
+			crop: options.crop || {
+				type: 'fill',
+				gravity: 'center',
+				source: true,
 			},
-			config
-		),
-		analytics: Object.assign(
-			{
-				sdkCode: SVELTE_CLOUDINARY_ANALYTICS_ID,
-				sdkSemver: SVELTE_CLOUDINARY_VERSION,
-				techVersion: SVELTE_VERSION,
-				product: 'B'
-			},
-			analytics
-		)
+		},
 	});
 }

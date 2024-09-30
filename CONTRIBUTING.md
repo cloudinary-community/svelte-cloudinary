@@ -1,33 +1,64 @@
-# Contributing
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+## How to Contribute
 
-## Issues
+We welcome all types of contributions, including but not limited to:
 
-### Creating an Issue
-If you find a bug or problem, or maybe the documentation just doesn't make sense, please create an Issue to document the concern.
+- Code
+- Documentation
+- Bug reports
+- Feature requests
+- Design
+- Translations
 
-### Description
-Please be descriptive in your Issue. The more info you provide, the more likely someone will be able to help.
+We use the [All Contributors](https://allcontributors.org/) specification to recognise all types of contributions!
 
-### Code Examples
-If you're experiencing an issue with the code, the most helpful thing you can do is create an example where you can reproduce the problem. This can be an open-source GitHub repo, a private repo you can share with the maintainers, a [CodeSandbox](https://codesandbox.io/), or anything to show the issue live with code alongside it.
+## Picking Issues
 
-## Pull Requests
+1. Check our issue tracker for open issues.
+2. Look for issues labeled "good first issue" or "help wanted" if you're new to the project.
+3. Comment on the issue you'd like to work on to let others know you're tackling it.
 
-### Creating a Pull Request
-If you're able to fix an active Issue, feel free to create a new Pull Request addressing the problem. There are no guarantees that the code will be merged in "as is", but chances are, if you're willing to work with the maintainers, everyone will be able to come up with a solution everyone can be happy with.
+## Making Changes
 
-### Description
-Please be descriptive in your Pull Request. Whether big or small, it's important to be able to see the context of a change throughout the history of a project.
+If you're new to GitHub, or even git, take a look at the EddieHub [open-source-practise repo](https://github.com/EddieHubCommunity/open-source-practice).
 
-### Linking Fixed Issues
-If the Pull Request is addressing an Issue, please link that issue by specifying the `Fixes [Issue #]` syntax within the Pull Request.
+### Monorepo Structure
 
-### Getting Added to All Contributors in the README.md
-Once your Pull Request is successfully merged, feel free to tag yourself using the [All Contributors syntax](https://allcontributors.org/docs/en/bot/usage), which will create a new Pull Request requesting to add you in.
+| Package                                         | Description                                                 |
+| ----------------------------------------------- | ----------------------------------------------------------- |
+| [svelte-cloudinary](packages/svelte-cloudinary) | [Documentation here](https://svelte.cloudinary.dev)         |
+| [playground](packages/playground)               | Development playground to experiment with svelte-cloudinary |
+| [docs](packages/docs)                           | Source for the [docs](https://svelte.cloudinary.dev)        |
 
+### Setup
+
+You'll first need to install [`pnpm@8`](https://pnpm.io/) and [`node@>18`](https://nodejs.org). Then, after cloning this repo, you can run:
+
+```bash
+pnpm install
 ```
-@all-contributors please add <username> for <contributions>
-```
 
-If your Pull Request is merged in and you're not added, please let someone know if you don't want to tag yourself, as we want to recognize everyone for their help.
+It's also worth running `pnpm package` if you haven't before. The `svelte-cloudinary` requires being built to work in the docs or playground. You can run all 3 in watch mode with `pnpm dev`.
+
+Both the [playground](packages/playground) and [docs](packages/docs) need to have environment variables in order to run. You can find the template in the `.env.example` files located in each package. Simply create and fill out a `.env` file based on this template.
+
+### Developing
+
+You can run the packages in dev mode with the `pnpm dev` script. This will build `svelte-cloudinary` in watch mode, and run the docs/playground.
+
+### Scripts
+
+This is a list of the top-level scripts available, which can be run with `pnpm run <script-name>`:
+
+| Script Name | Description                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- |
+| `dev`       | Run all the packages in dev mode - starts the playground/docs, and builds svelte-cloudinary |
+| `build`     | Builds every package/site in the monorepo                                                   |
+| `package`   | Just build `svelte-cloudinary`                                                              |
+| `lint`      | Check the codebase is following the style guide                                             |
+| `test`      | Runs the automated test suite                                                               |
+| `check`     | Runs `svelte-check` and `astro-check` to find TypeScript/a11y errors                        |
+| `format`    | Format the codebase with prettier                                                           |
+
+## Questions
+
+Please reach out to us if you need any help: either via the issue you're trying to tackle, or on [GitHub discussions](https://github.com/cloudinary-community/svelte-cloudinary/discussions).

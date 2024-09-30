@@ -1,29 +1,55 @@
-// Reexport your entry components here
-import CldImage from './components/CldImage.svelte';
-export { CldImage };
-export type { CldImageProps } from './components/CldImageTypes.ts';
-
-import CldOgImage from './components/CldOgImage.svelte';
-export { CldOgImage };
-
-import CldUploadWidget from './components/CldUploadWidget.svelte';
-export { CldUploadWidget };
-
-import CldUploadButton from './components/CldUploadButton.svelte';
-export { CldUploadButton };
-
-import CldVideoPlayer from './components/CldVideoPlayer.svelte';
-export { CldVideoPlayer };
-
+export {
+	default as CldImage,
+	type CldImageProps,
+} from './components/CldImage.svelte';
 export { getCldImageUrl } from './helpers/getCldImageUrl.js';
-export type {
-	GetCldImageUrl,
-	GetCldImageUrlOptions,
-	GetCldImageUrlConfig,
-	GetCldImageUrlAnalytics
-} from './helpers/getCldImageUrl.ts';
 
+export {
+	default as CldOgImage,
+	type CldOgImageProps,
+} from './components/CldOgImage.svelte';
 export { getCldOgImageUrl } from './helpers/getCldOgImageUrl.js';
-export type { GetCldOgImageUrl } from './helpers/getCldOgImageUrl.ts';
 
-// export type { CloudinaryVideoPlayer, CloudinaryVideoPlayerOptions, CloudinaryVideoPlayerOptionsColors, CloudinaryVideoPlayerOptionsLogo } from '../types/player.ts';
+export {
+	default as CldVideoPlayer,
+	type CldVideoPlayerProps,
+} from './components/CldVideoPlayer.svelte';
+export type {
+	CloudinaryVideoPlayer,
+	CloudinaryVideoPlayerOptions,
+	CloudinaryVideoPlayerOptionsColors,
+	CloudinaryVideoPlayerOptionsLogo,
+} from '@cloudinary-util/types';
+
+export {
+	default as CldUploadWidget,
+	type CldUploadWidgetProps,
+	type CldUploadWidgetErrorEvent,
+	type CldUploadWidgetOpenEvent,
+	type CldUploadWidgetGenericEvent,
+	type CldUploadWidgetGenericEventOptions,
+	type CldUploadWidgetEvent,
+	type CldUploadWidgetUploadEvent,
+} from './components/CldUploadWidget.svelte';
+export type {
+	CloudinaryUploadWidgetOptions,
+	CloudinaryUploadWidgetResults,
+	CloudinaryUploadWidgetInfo,
+	CloudinaryUploadWidgetInstanceMethods,
+	CloudinaryUploadWidgetInstanceMethodCloseOptions,
+	CloudinaryUploadWidgetInstanceMethodDestroyOptions,
+	CloudinaryUploadWidgetInstanceMethodOpenOptions,
+	CloudinaryUploadWidgetInstanceMethodUpdateOptions,
+	CloudinaryUploadWidgetSources,
+	CloudinaryUploadWidgetError,
+	CloudinaryUploadWidget,
+} from '@cloudinary-util/types';
+
+export {
+	default as CldUploadButton,
+	type CldUploadButtonProps,
+} from './components/CldUploadButton.svelte';
+
+export { configureCloudinary } from './config.js';
+
+export { VERSION } from './version';

@@ -1,12 +1,16 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vitest/config';
+import { join } from 'desm';
 
 export default defineConfig({
 	plugins: [svelte()],
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}'],
-		globals: true,
+		include: ['tests/**/*.test.ts'],
 		environment: 'happy-dom',
-		alias: [{ find: /^svelte$/, replacement: 'svelte/internal' }]
-	}
+		clearMocks: true,
+		unstubEnvs: true,
+		alias: {
+			$src: join(import.meta.url, './src'),
+		},
+	},
 });

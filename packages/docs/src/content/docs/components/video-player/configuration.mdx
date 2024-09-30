@@ -1,0 +1,896 @@
+---
+title: Configuring CldVideoPlayer
+---
+
+import { CldVideoPlayer } from 'svelte-cloudinary';
+import Table from '$lib/Table.astro';
+
+## Required Props
+
+The basic props required to use CldVideoPlayer include:
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'required',
+			title: 'Required',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'height',
+			type: 'string | number',
+			required: 'Yes',
+			example: 1080,
+			more: 'Player Height',
+		},
+		{
+			prop: 'src',
+			type: 'string',
+			required: 'Yes',
+			example: '"videos/publicid"',
+			more: 'Cloudinary Public ID',
+		},
+		{
+			prop: 'width',
+			type: 'string | number',
+			required: 'Yes',
+			example: 1920,
+			more: 'Player Width',
+		},
+	]}
+/>
+
+## Customization
+
+The CldVideoPlayer component allows you to customize your player opting into
+more advanced capabilities like an AI-based highlights graph and simpler
+options like configuring the color scheme.
+
+<Table
+  columns={[
+    {
+      id: 'prop',
+      title: 'Prop'
+    },
+    {
+      id: 'type',
+      title: 'Type'
+    },
+    {
+      id: 'default',
+      title: 'Default'
+    },
+    {
+      id: 'example',
+      title: 'Example'
+    },
+    {
+      id: 'more'
+    },
+  ]}
+  data={[
+    {
+      prop: 'aiHighlightsGraph',
+      type: 'boolean',
+      default: 'false',
+      example: 'true',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'bigPlayButton',
+      type: 'boolean | string',
+      default: 'true',
+      example: '"init"',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+
+    {
+      prop: 'chaptersButton',
+      type: 'boolean',
+      default: 'false',
+      example: 'true',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'colors',
+      type: 'object',
+      default: 'See Colors Below',
+      example: 'See Colors Below',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'controlBar',
+      type: 'object',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="#">More Info</a>)
+    },
+    {
+      prop: 'controls',
+      type: 'boolean',
+      default: 'true',
+      example: 'true',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'floatingWhenNotVisible',
+      type: 'string',
+      default: '-',
+      example: '"left"',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#floatingwhennotvisible">More Info</a>)
+    },
+    {
+      prop: 'fluid',
+      type: 'boolean',
+      default: 'true',
+      example: 'false',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'fontFace',
+      type: 'string',
+      default: 'Fira Sans',
+      example: '`"Source Serif Pro"`',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#fontface">More Info</a>)
+    },
+    {
+      prop: 'hideContextMenu',
+      type: 'boolean',
+      default: 'false',
+      example: 'true',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'interactionAreas',
+      type: 'any',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_interactive_videos#interactionareas">More Info</a>)
+    },
+    {
+      prop: 'logo',
+      type: 'boolean | object',
+      default: '-',
+      example: 'See Logo Below',
+      more: () => (<a href="#logo">More Info</a>)
+    },
+    {
+      prop: 'playbackRates',
+      type: 'array',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'playlistWidget',
+      type: 'object',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#playlistwidgetprops">More Info</a>)
+    },
+    {
+      prop: 'poster',
+      type: 'string/object',
+      default: '-',
+      example: 'See Poster Below',
+      more: () => (<a href="#poster">More Info</a>)
+    },
+    {
+      prop: 'posterOptions',
+      type: 'object',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'showJumpControls',
+      type: 'boolean',
+      default: '-',
+      example: ' ',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'showLogo',
+      type: 'boolean',
+      default: 'true',
+      example: 'false',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+      prop: 'seekThumbnails',
+      type: 'boolean',
+      default: 'true',
+      example: 'false',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+
+]}
+/>
+
+### Colors
+
+The `colors` prop takes an object that can control what colors are used in the player:
+
+<Table
+  columns={[
+    {
+      id: 'prop',
+      title: 'Prop'
+    },
+    {
+      id: 'type',
+      title: 'Type'
+    },
+    {
+      id: 'default',
+      title: 'Default'
+    },
+    {
+      id: 'example',
+      title: 'Example'
+    },
+    {
+      id: 'more'
+    },
+  ]}
+  data={[
+    {
+      prop: 'accent',
+      type: 'string',
+      default: '"#FF620C"',
+      example: '"#FF00FF"',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+
+      prop: 'base',
+      type: 'string',
+      default: '"#000000"',
+      example: '"#FF00FF"',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+
+      prop: 'text',
+      type: 'string',
+      default: '"#FFFFFF"',
+      example: '"#FF00FF"',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+
+]}
+/>
+
+Learn more about the color scheme options and how they're used [on the Cloudinary docs](https://cloudinary.com/documentation/video_player_customization#color_scheme).
+
+### Logo
+
+The `logo` prop gives the option to customize the player's logo.
+
+`logo` defaults to `true`, showing the Cloudinary logo and linking to https://cloudinary.com when clicked.
+
+When `logo` is set to `false`, no logo will be displayed.
+
+To customize the logo, the following options are available in the form of an object:
+
+<Table
+  columns={[
+    {
+      id: 'prop',
+      title: 'Prop'
+    },
+    {
+      id: 'type',
+      title: 'Type'
+    },
+    {
+      id: 'default',
+      title: 'Default'
+    },
+    {
+      id: 'example',
+      title: 'Example'
+    },
+    {
+      id: 'more'
+    },
+  ]}
+  data={[
+    {
+      prop: 'imageUrl',
+      type: 'string',
+      deafult: '-',
+      example: 'https://.../image.jpg',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+    {
+
+      prop: 'onClickUrl',
+      type: 'string',
+      deafult: '-',
+      example: 'https://spacejelly.dev',
+      more: () => (<a href="https://cloudinary.com/documentation/video_player_api_reference#player_visuals">More Info</a>)
+    },
+
+]}
+/>
+
+### Poster
+
+The `poster` prop optionally takes a string or object to customize the generated poster.
+
+When passing a string, you can either pass a Cloudinary Public ID or a remote URL to rendered the desired image.
+
+When passing an object, use same configuration and API as [getCldImageUrl](/helpers/getcldimageurl/configuration) to customize the image.
+You can either specify a `src` option with a custom public ID or omit the `src`, which will use the video's
+ID to render an automatically generated preview image.
+
+[View examples](/components/video-player/examples#poster-url).
+
+## Transformations
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'default',
+			title: 'Default',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'sourceTransformation',
+			type: 'object',
+			default: '-',
+			example: ' ',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#video_config">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'transformation',
+			type: 'object | array | string',
+			default: '-',
+			example: `{ width: 200, height: 200, crop: 'fill' }`,
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#video_config">
+					More Info
+				</a>
+			),
+		},
+	]}
+/>
+
+## Advanced
+
+### Ads & Analytics
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'default',
+			title: 'Default',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'ads',
+			type: 'object',
+			default: '-',
+			example: ' ',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#adsprops">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'analytics',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#ads_and_analytics">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'allowUsageReport',
+			type: 'boolean',
+			default: 'true',
+			example: 'false',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#ads_and_analytics">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'cloudinaryAnalytics',
+			type: 'boolean',
+			default: 'true',
+			example: 'false',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#ads_and_analytics">
+					More Info
+				</a>
+			),
+		},
+	]}
+/>
+
+### Configuration & Delivery
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'default',
+			title: 'Default',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'chapters',
+			type: 'object',
+			default: '-',
+			example: '{ 0: "Chapter 1" }',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#video_config">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'class',
+			type: 'string',
+			required: 'Yes',
+			example: 'my-video-player',
+			more: 'Additional class names added to the video container.',
+		},
+		{
+			prop: 'config',
+			type: 'object',
+			default: '-',
+			example: () => (
+				<code>{`{ url: { cloudName: 'spacejelly' } }`}</code>
+			),
+			more: () => (
+				<a
+					className="whitespace-nowrap"
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
+				>
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'cname',
+			type: 'string',
+			example: () => <code>{`spacejelly.dev`}</code>,
+			more: () => (
+				<a
+					className="whitespace-nowrap"
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
+				>
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'id',
+			type: 'string',
+			required: 'Yes',
+			example: 'my-video',
+			more: 'Player instance and DOM ID',
+		},
+		{
+			prop: 'preload',
+			type: 'string',
+			default: '`auto`',
+			example: ' ',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#video_config">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'privateCdn',
+			type: 'boolean',
+			example: () => <code>{`true`}</code>,
+			more: () => (
+				<a
+					className="whitespace-nowrap"
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
+				>
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'secureDistribution',
+			type: 'string',
+			example: () => <code>{`spacejelly.dev`}</code>,
+			more: () => (
+				<a
+					className="whitespace-nowrap"
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
+				>
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'sourceTypes',
+			type: 'Array<string>',
+			default: '-',
+			example: `['hls']`,
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#video_config">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'queryParams',
+			type: 'string/object',
+			example: () => <code>{`{myParam: 'value'}`}</code>,
+			more: () => (
+				<a
+					className="whitespace-nowrap"
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
+				>
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'videoJS',
+			type: 'object',
+			default: '-',
+			example: ' ',
+			more: () => <a href="https://docs.videojs.com/player">More Info</a>,
+		},
+	]}
+/>
+
+#### `config`
+
+Allows configuration for the Cloudinary environment.
+
+**Examples**
+
+```jsx
+config={{
+  cloud: {
+    cloudName: '<Your Cloud Name>',
+  }
+}}
+```
+
+#### `cname`
+
+The custom domain name (CNAME) to use for building URLs, requires secure: false.
+
+**Examples**
+
+```jsx
+cname = 'spacejelly.dev';
+```
+
+#### `privateCdn`
+
+Set this parameter to true if you are an Advanced plan user with a private CDN distribution
+
+**Examples**
+
+```jsx
+privateCdn={true}
+```
+
+#### `secureDistribution`
+
+The custom domain name (CNAME) to use for building URLs, requires secure: true.
+
+**Examples**
+
+```jsx
+secureDistribution = 'spacejelly.dev';
+```
+
+#### `queryParams`
+
+Query parameters to append to video URL.
+
+**Examples**
+
+```jsx
+queryParams={{
+  myParam: 'value'
+}}
+```
+
+#### `videoJS`
+
+Enables you to access all underlying capabilities of the VideoJS API.
+
+Learn more on the [VideoJS Docs](https://docs.videojs.com/player).
+
+### Events
+
+Events are passed in as props rather than using the `on:event` syntax. Every event current recieves an object with the `player` and `video` element:
+
+| Event            | Description                                  |
+| ---------------- | -------------------------------------------- |
+| `onError`        | Fires when an error in video playback occurs |
+| `onDataLoad`     | Fires when video data is loaded              |
+| `onMetadataLoad` | Fires when video metadata is loaded          |
+| `onPause`        | Fires when the video is paused               |
+| `onPlay`         | Fires when the video is played               |
+| `onEnded`        | Fires when the video ends                    |
+
+### Localization
+
+You can add custom localization options to control the languages of the player provides labels in.
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'default',
+			title: 'Default',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'language',
+			type: 'string',
+			default: '-',
+			example: 'pt',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'languages',
+			type: 'object',
+			default: '-',
+			example: '{ "Play Video": "Reproduzir vídeo" }',
+			more: () => (
+				<a href="https://videojs.com/guides/languages/#json-format">
+					More Info
+				</a>
+			),
+		},
+	]}
+/>
+
+Uses Video.js JSON format for localization customization: https://videojs.com/guides/languages/#json-format
+
+### Player Behavior
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'default',
+			title: 'Default',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'autoplay',
+			type: 'string | boolean',
+			default: '"never"',
+			example: '"on-scroll", true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#floatingwhennotvisible">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'autoShowRecommendations',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'loop',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'maxTries',
+			type: 'number',
+			default: '3',
+			example: '5',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'muted',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'pictureInPictureToggle',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'playedEventPercents',
+			type: 'Array<number>',
+			default: '[25, 50, 75, 100]',
+			example: '[20, 40, 60, 80, 100]',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'playedEventTimes',
+			type: 'Array<number> | null',
+			default: 'null',
+			example: '[30, 60]',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'playsinline',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'videoTimeout',
+			type: 'number',
+			default: '55000',
+			example: '60000',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+		{
+			prop: 'withCredentials',
+			type: 'boolean',
+			default: 'false',
+			example: 'true',
+			more: () => (
+				<a href="https://cloudinary.com/documentation/video_player_api_reference#player_behavior">
+					More Info
+				</a>
+			),
+		},
+	]}
+/>

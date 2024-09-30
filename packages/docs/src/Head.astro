@@ -1,0 +1,71 @@
+---
+import DefaultHead from '@astrojs/starlight/components/Head.astro'
+import type { Props } from '@astrojs/starlight/props'
+import { getCldOgImageUrl } from 'svelte-cloudinary'
+import { klona } from 'klona'
+
+const props = klona(Astro.props)
+const title = props.entry.data.title
+
+props.entry.data.title = props.entry.data.title.replace(/<|\s?\/?>/g, '')
+
+const image = getCldOgImageUrl({
+    src: 'images/next-cloudinary-social-background',
+    crop: 'fit',
+    overlays: [
+		{
+			width: 2000,
+			crop: 'fit',
+			position: {
+				y: -160
+			},
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 200,
+				fontWeight: 'black',
+				text: title,
+				alignment: 'center',
+				lineSpacing: -50
+			}
+		},
+		{
+			publicId: 'images/cloudinary-white',
+			position: {
+				x: -350,
+				y: 180
+			}
+		},
+		{
+			publicId: 'images/svelte-white',
+			position: {
+				x: 300,
+				y: 180
+			}
+		},
+		{
+			position: {
+				y: 320,
+				x: -50
+			},
+			text: {
+				color: 'white',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 60,
+				fontWeight: 'bold',
+				text: 'svelte.cloudinary.dev'
+			}
+		}
+	]
+})
+---
+
+<DefaultHead {...props}>
+    <slot />
+</DefaultHead>
+
+<meta property="og:image" content={image} />
+<meta property="og:image:secure_url" content={image} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="627" />
+<meta property="og:image:alt" content={title} />

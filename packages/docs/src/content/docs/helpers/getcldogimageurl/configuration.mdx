@@ -1,0 +1,103 @@
+---
+title: Configuring getCldOgImageUrl
+description: Options and configuration for getCldOgImageUrl in Svelte.
+---
+
+import { CldImage } from 'svelte-cloudinary';
+import Table from '$lib/Table.astro';
+
+The getCldOgImageUrl helper provides a wide range of options for being able to easily generate social cards for Open Graph images.
+
+Configuration for getCldOgImageUrl is the same as [getCldImageUrl](/helpers/getcldimageurl/configuration). The only difference is getCldOgImageUrl
+provides the following default settings to make generating an OG image URL simpler.
+
+:::tip
+To see all available options, visit [getCldImageUrl](/helpers/getcldimageurl/configuration).
+:::
+
+## Required Props
+
+<Table
+	columns={[
+		{
+			id: 'prop',
+			title: 'Prop',
+		},
+		{
+			id: 'type',
+			title: 'Type',
+		},
+		{
+			id: 'required',
+			title: 'Required',
+		},
+		{
+			id: 'example',
+			title: 'Example',
+		},
+		{
+			id: 'more',
+		},
+	]}
+	data={[
+		{
+			prop: 'src',
+			type: 'string',
+			required: 'Yes',
+			example: () => <code>my-public-id</code>,
+		},
+	]}
+/>
+
+## Basic Transformations
+
+<Table
+  columns={[
+    {
+      id: 'prop',
+      title: 'Prop'
+    },
+    {
+      id: 'type',
+      title: 'Type'
+    },
+    {
+      id: 'default',
+      title: 'Default'
+    },
+    {
+      id: 'example',
+      title: 'Example'
+    },
+    {
+      id: 'more'
+    },
+  ]}
+  data={[
+    {
+      prop: 'crop',
+      type: 'string',
+      default: () => (<code>{`{ type: 'fill', gravity: 'center', source: true }`}</code>),
+      example: () => (<code>scale</code>),
+      more: () => (<a className="whitespace-nowrap" href="https://cloudinary.com/documentation/transformation_reference#c_crop_resize">More Info</a>)
+    },
+    {
+      prop: 'height',
+      type: 'number',
+      default: () => (<code>630</code>),
+      example: () => (<code>630</code>),
+      more: () => (<a className="whitespace-nowrap" href="https://cloudinary.com/documentation/transformation_reference#h_height">More Info</a>)
+    },
+
+    {
+      prop: 'width',
+      type: 'number',
+      default: () => (<code>1200</code>),
+      example: () => (<code>1200</code>),
+      more: () => (<a className="whitespace-nowrap" href="https://cloudinary.com/documentation/transformation_reference#w_width">More Info</a>)
+    },
+
+]}
+/>
+
+Find more configuration settings over at [getCldImageUrl configuration](/helpers/getcldimageurl/configuration).

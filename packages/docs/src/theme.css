@@ -1,0 +1,80 @@
+/**
+  * Based on code from Starlight
+  *	https://github.com/withastro/starlight/blob/f0181d2689248a46ff3eb6fc604bfcd95d4cb1aa/docs/src/assets/landing.css
+  */
+
+:root {
+	--sl-color-accent-low: #172145;
+	--sl-color-accent: #3f56e0;
+	--sl-color-accent-high: #b7c7f7;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #e7eeff;
+	--sl-color-gray-2: #b9c2d7;
+	--sl-color-gray-3: #7b8bb3;
+	--sl-color-gray-4: #49577c;
+	--sl-color-gray-5: #2a3659;
+	--sl-color-gray-6: #1a2545;
+	--sl-color-black: #121827;
+}
+
+:root[data-has-hero] {
+	--sl-color-accent-high: #ff3e03;
+}
+
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #c9d6fa;
+	--sl-color-accent: #4059e2;
+	--sl-color-accent-high: #1e2c67;
+	--sl-color-white: #121827;
+	--sl-color-gray-1: #1a2545;
+	--sl-color-gray-2: #2a3659;
+	--sl-color-gray-3: #49577c;
+	--sl-color-gray-4: #7b8bb3;
+	--sl-color-gray-5: #b9c2d7;
+	--sl-color-gray-6: #e7eeff;
+	--sl-color-gray-7: #f3f6ff;
+	--sl-color-black: #ffffff;
+}
+
+[data-has-hero] a.primary {
+	color: var(--sl-color-white);
+	font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0px;
+}
+
+[data-theme='light'][data-has-hero] a.primary {
+	color: var(--sl-color-black);
+}
+
+[data-has-hero] .page {
+	background:
+		linear-gradient(215deg, #ff3e0020, transparent 40%),
+		radial-gradient(#ff3e0020, transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
+		radial-gradient(#ff3e0020, transparent 65%) no-repeat 50% calc(100% + 20rem) /
+			60rem 30rem;
+}
+
+[data-has-hero] header {
+	border-bottom: 1px solid transparent;
+	background-color: transparent;
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+}
+
+.expressive-code .ec-line.mark {
+	filter: brightness(1.1) contrast(1.1);
+}
+
+[data-theme='dark'] .expressive-code .ec-line.mark {
+	--tmLineBgCol: #413e5c3b;
+}
+
+[data-theme='light'] .expressive-code .ec-line.mark {
+	--tmLineBgCol: #9b9b9b3b;
+}
+
+.vjs-poster {
+	margin: 0px !important;
+}
