@@ -16,6 +16,10 @@ export function getCldImageUrl(
 		analyticsOverride,
 	);
 
+	if (!config.cloud?.cloudName) {
+		throw new Error('[svelte-cloudinary] unable to find a cloud name');
+	}
+
 	return constructCloudinaryUrl({
 		analytics,
 		config,
