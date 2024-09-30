@@ -1,3 +1,4 @@
+import starlightLinksValidator from 'starlight-links-validator';
 import { createRequire } from 'node:module';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
@@ -11,6 +12,7 @@ export default defineConfig({
 	output: 'static',
 	integrations: [
 		starlight({
+			plugins: [starlightLinksValidator()],
 			title: 'Svelte Cloudinary',
 			description:
 				'High-performance image and video delivery and uploading at scale in Svelte powered by Cloudinary.',

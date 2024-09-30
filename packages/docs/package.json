@@ -18,6 +18,7 @@
     "css-tree": "^2.3.1",
     "klona": "^2.0.6",
     "sharp": "^0.33.5",
+    "starlight-links-validator": "^0.12.1",
     "svelte": "^4.2.19",
     "svelte-cloudinary": "workspace:^",
     "typescript": "^5.5.4"

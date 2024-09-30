@@ -413,7 +413,7 @@ image cropped using the `thumb` crop mode with dimensions 600x600 will
 give different results than 1200x1200 (assuming a gravity of auto or similar,
 which is the default for CldImage).
 
-This is especially important in the context of [Responsive Images](/guides/responsive-images)
+This is especially important in the context of Responsive Images
 where due to the resize mechanism, different device sizes may result
 in different looking images, which doesn't provide a great experience.
 
@@ -1950,7 +1950,7 @@ underlays={[{
 		<code>effects</code>
 	</strong>
 	Objects in the `effects` array can include everything in [Basic
-	Transformations](##basic-transformations) and [Filters &
+	Transformations](#basic-transformations) and [Filters &
 	Effects](#filters--effects) above as well as:
 </div>
 
@@ -2644,8 +2644,8 @@ By enabling Strict Transformations, you restrict the ability to generate transfo
 approval through the Cloudinary dashboard.
 
 :::tip
-This disables [optimization](#optimization) and [responsive sizing](/guides/responsive-images)
-only allowing [named transformations](#transformations) to be applied. The width and height are not applied to the URL,
+This disables [optimization](#optimization) and responsive sizing
+only allowing [named transformations](#basic-transformations) to be applied. The width and height are not applied to the URL,
 but are still included on the image tag rendered to the DOM.
 :::
 
