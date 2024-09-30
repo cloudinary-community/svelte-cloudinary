@@ -59,6 +59,10 @@ This is a list of the top-level scripts available, which can be run with `pnpm r
 | `check`     | Runs `svelte-check` and `astro-check` to find TypeScript/a11y errors                        |
 | `format`    | Format the codebase with prettier                                                           |
 
+### Changesets
+
+We use [changesets](https://github.com/changesets/changesets) for our release system. If your pull request includes a change that should be released on npm (i.e. a change to the svelte-cloudinary pacakge), then please run `pnpm changeset` at the root of the repository and follow the instructions.
+
 ## Questions
 
 Please reach out to us if you need any help: either via the issue you're trying to tackle, or on [GitHub discussions](https://github.com/cloudinary-community/svelte-cloudinary/discussions).
