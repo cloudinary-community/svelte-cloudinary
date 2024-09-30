@@ -94,6 +94,23 @@ export function mergeGlobalConfig(
 	};
 }
 
+/**
+ * This can be used to configure cloudinary in your Svelte components.
+ * This should be used when you can't use environment variables, or they don't
+ * support a config option you need.
+ *
+ * @see https://svelte.cloudinary.dev/config
+ *
+ * @example
+ *
+ * <script>
+ *   import { configureCloudinary } from 'svelte-cloudinary';
+ *
+ *   configureCloudinary({
+ *     cloudName: 'cloudName',
+ *   });
+ * </script>
+ */
 export function configureCloudinary(globalConfig: GlobalCloudinaryConfig) {
 	setContext<GlobalCloudinaryConfig>(
 		STORE_KEY,
