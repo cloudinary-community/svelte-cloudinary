@@ -1,15 +1,33 @@
 import type { CldImageProps } from '../components/CldImage.svelte';
+import type { ImageOptions } from '@cloudinary-util/url-loader';
 import { getCldImageUrl } from './getCldImageUrl';
 import type { ImageProps } from '@unpic/svelte';
 
 type URLTransformer = Exclude<ImageProps['transformer'], undefined>;
 
 export function createLoader(props: CldImageProps): URLTransformer {
-	return (loaderOptions) => {
-		const options = structuredClone(props);
+	const { config, ...imageProps } = structuredClone(props);
 
-		options.width = parseInt(`${options.width}`);
-		options.height = parseInt(`${options.height}`);
+	// Normalize width and height to number to allow flexibility in how the values
+	// are passed through as props
+
+	imageProps.width =
+		typeof imageProps.width === 'string'
+			? Number.parseInt(imageProps.width)
+			: imageProps.width;
+
+	imageProps.height =
+		typeof imageProps.height === 'string'
+			? Number.parseInt(imageProps.height)
+			: imageProps.height;
+
+	return function loader(loaderOptions) {
+		const options: ImageOptions = {
+			...imageProps,
+			src: loaderOptions.url.toString(),
+			width: loaderOptions.width,
+			height: loaderOptions.height,
+		};
 
 		// The loader options are used to create dynamic sizing when working with responsive images
 		// so these should override the default options collected from the props alone if
@@ -37,14 +55,12 @@ export function createLoader(props: CldImageProps): URLTransformer {
 			typeof loaderOptions?.width === 'number' &&
 			typeof options?.width !== 'number'
 		) {
-			// If we don't have a width on the options object, this may mean that the component is using
-			// the fill option: https://nextjs.org/docs/pages/api-reference/components/image#fill
-			// The Fill option does not allow someone to pass in a width or a height
-			// If this is the case, we still need to define a width for sizing optimization but also
+			// If we don't have an explicitly defined width, we still need to define a width for sizing optimization but also
 			// for responsive sizing to take effect, so we can utilize the loader width for the base width
+			// Note: This is primarily an artifact from Next.js, is this applicable here?
 			options.width = loaderOptions?.width;
 		}
 
-		return getCldImageUrl(options, options.config);
+		return getCldImageUrl(options, config);
 	};
 }
