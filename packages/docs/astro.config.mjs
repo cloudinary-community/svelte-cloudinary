@@ -10,6 +10,7 @@ const require = createRequire(import.meta.url);
 export default defineConfig({
 	site: 'https://svelte.cloudinary.dev',
 	output: 'static',
+	trailingSlash: 'never',
 	integrations: [
 		starlight({
 			plugins: [starlightLinksValidator()],
