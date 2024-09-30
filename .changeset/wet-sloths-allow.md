@@ -2,7 +2,7 @@
 "svelte-cloudinary": major
 ---
 
-breaking: rename environment variables
+breaking: rename environment variables, the old ones will be removed in the next major
 
 | Old Name                            | New Name                     | Description                            |
 | ----------------------------------- | ---------------------------- | -------------------------------------- |
