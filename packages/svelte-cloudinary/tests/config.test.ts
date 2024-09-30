@@ -270,6 +270,19 @@ describe('mergeGlobalConfig()', () => {
 
 		expect(config.url?.privateCdn).toBe(true);
 	});
+
+	it('should support deprecated env vars', () => {
+		const cloudName = crypto.randomUUID();
+		vi.stubEnv('VITE_PUBLIC_CLOUDINARY_CLOUD_NAME', cloudName);
+
+		const apiKey = crypto.randomUUID();
+		vi.stubEnv('VITE_PUBLIC_CLOUDINARY_API_KEY', apiKey);
+
+		const { config } = mergeGlobalConfig();
+
+		expect(config.cloud?.cloudName).toBe(cloudName);
+		expect(config.cloud?.apiKey).toBe(apiKey);
+	});
 });
 
 describe('analytics', () => {

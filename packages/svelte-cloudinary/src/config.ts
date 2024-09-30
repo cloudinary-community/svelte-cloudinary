@@ -31,8 +31,12 @@ export interface GlobalCloudinaryConfig extends ConfigOptions {
 function getEnvConfig() {
 	return {
 		cloud: {
-			cloudName: import.meta.env?.VITE_CLOUDINARY_CLOUD_NAME,
-			apiKey: import.meta.env?.VITE_CLOUDINARY_API_KEY,
+			cloudName:
+				import.meta.env?.VITE_CLOUDINARY_CLOUD_NAME ||
+				import.meta.env?.VITE_PUBLIC_CLOUDINARY_CLOUD_NAME,
+			apiKey:
+				import.meta.env?.VITE_CLOUDINARY_API_KEY ||
+				import.meta.env?.VITE_PUBLIC_CLOUDINARY_API_KEY,
 		},
 		url: {
 			privateCdn: !!import.meta.env?.VITE_CLOUDINARY_PRIVATE_CDN,
