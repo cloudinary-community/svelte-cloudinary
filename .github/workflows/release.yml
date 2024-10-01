@@ -8,6 +8,9 @@ on:
 jobs:
   release:
     if: github.repository == 'cloudinary-community/svelte-cloudinary'
+    permissions:
+      contents: write # to create release (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
     name: Release
     runs-on: ubuntu-latest
     steps:
