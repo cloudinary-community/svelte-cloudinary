@@ -37,6 +37,7 @@
 	"dependencies": {
 		"@iconify/svelte": "3.1.6",
 		"@microflash/rehype-toc": "1.0.2",
+		"@sveltejs/adapter-static": "^3.0.5",
 		"@vercel/analytics": "1.2.2",
 		"cloudinary": "^2.0.3",
 		"flowbite-svelte": "0.44.24",
