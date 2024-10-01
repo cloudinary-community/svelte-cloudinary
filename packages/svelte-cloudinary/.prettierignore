@@ -15,3 +15,4 @@ package.json
 
 src/metadata.json
 dist
+CHANGELOG.md
