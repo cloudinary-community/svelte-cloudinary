@@ -31,7 +31,7 @@ If you're new to GitHub, or even git, take a look at the EddieHub [open-source-p
 
 ### Setup
 
-You'll first need to install [`pnpm@8`](https://pnpm.io/) and [`node@>18`](https://nodejs.org). Then, after cloning this repo, you can run:
+You'll first need to install [`pnpm@9`](https://pnpm.io/) and [`node@>18`](https://nodejs.org). Then, after cloning this repo, you can run:
 
 ```bash
 pnpm install
