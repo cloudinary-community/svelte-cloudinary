@@ -10,6 +10,7 @@ import {
  * This can be used to get a Cloudinary image URL outside the component. 
  * 
  * This helper provides a wide range of options for being able to easily optimize and transform images.
+ *
  * @see https://svelte.cloudinary.dev/helpers/getcldimageurl/configuration
  * 
  * @example
