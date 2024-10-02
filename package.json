@@ -1,5 +1,5 @@
 {
-  "name": "svelte-cloudinary",
+  "name": "svelte-cloudinary-monorepo",
   "license": "MIT",
   "private": true,
   "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
@@ -25,5 +25,15 @@
     "patchedDependencies": {
       "@astrojs/starlight@0.26.2": "patches/@astrojs__starlight@0.26.2.patch"
     }
+  },
+  "engines": {
+    "pnpm": "^9.0.0",
+    "npm": "forbidden, use pnpm",
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@9.11.0",
+  "volta": {
+    "node": "18.20.4",
+    "pnpm": "9.11.0"
   }
 }
