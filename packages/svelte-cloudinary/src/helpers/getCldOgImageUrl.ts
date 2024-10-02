@@ -7,11 +7,9 @@ import type {
 
 
 /**
- * This can be used  to get a Cloudinary Open Graph image URL outside the component.
- * 
- * This helper provides a wide range of options for being able to easily generate social cards for Open Graph images.
- * 
- * Configuration for getCldOgImageUrl is the same as getCldImageUrl. 
+ * This can be used  to get a Cloudinary Open Graph image URL outside the component. This helper
+ * provides a wide range of options for being able to easily generate social card images and has
+ * sensible defaults, such as a width and height.
  *
  * @see https://svelte.cloudinary.dev/helpers/getcldogimageurl/configuration
  * 
