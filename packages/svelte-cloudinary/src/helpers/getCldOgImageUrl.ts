@@ -12,7 +12,7 @@ import type {
  * This helper provides a wide range of options for being able to easily generate social cards for Open Graph images.
  * 
  * Configuration for getCldOgImageUrl is the same as getCldImageUrl. 
- * The only difference is getCldOgImageUrl provides the following default settings to make generating an OG image URL simpler.
+ *
  * @see https://svelte.cloudinary.dev/helpers/getcldogimageurl/configuration
  * 
  * @example
