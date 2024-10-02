@@ -6,7 +6,7 @@ const pkg = JSON.parse(
 );
 
 const tpl = `// THIS FILE IS GENERATED
-export const VERSION = '${pkg.version}';
+export const VERSION: string = '${pkg.version}';
 `;
 
 await writeFile(join(import.meta.url, '../src/version.ts'), tpl, 'utf-8');
