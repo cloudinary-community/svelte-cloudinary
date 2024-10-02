@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { VERSION } from '$src/version';
 import { getContext } from 'svelte';
 import {
@@ -67,6 +67,13 @@ describe('configureCloudinary()', () => {
 describe('mergeGlobalConfig()', () => {
 	beforeEach(() => {
 		configureCloudinary({});
+		vi.unstubAllEnvs();
+		// clear the global env var so the test doesn't recieve it
+		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', '');
+	});
+
+	afterEach(() => {
+		vi.unstubAllEnvs();
 	});
 
 	it('should return global config', () => {
@@ -292,8 +299,6 @@ describe('analytics', () => {
 
 	it('analytics should _normalise_ the version', () => {
 		const cfg = mergeGlobalConfig({});
-
-		// @ts-expect-error something weird with the types for analytifsc
 		expect(cfg.analytics.sdkSemver).toBe('2.0.0');
 	});
 });

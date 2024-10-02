@@ -66,4 +66,5 @@ jobs:
 
       - name: Test
         run: pnpm test
-
+        env:
+          VITE_CLOUDINARY_CLOUD_NAME: svelte-cloudinary

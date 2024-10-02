@@ -6,6 +6,7 @@ import { tick } from 'svelte';
 describe('CldImage', () => {
 	afterEach(() => {
 		cleanup();
+		vi.unstubAllEnvs();
 	});
 
 	it('should render a Cloudinary image with the given attributes', () => {
@@ -66,6 +67,9 @@ describe('CldImage', () => {
 	});
 
 	it('should fail to render with no config passed', () => {
+		// clear the global env var so the test doesn't recieve it
+		vi.stubEnv('VITE_CLOUDINARY_CLOUD_NAME', '');
+
 		expect(() => {
 			render(CldImage, {
 				props: {
