@@ -31,6 +31,7 @@ describe('CldImage', () => {
 		render(CldOgImage, {
 			props: {
 				src: 'og_image',
+				alt: '',
 				config: { cloud: { cloudName } },
 			},
 		});
