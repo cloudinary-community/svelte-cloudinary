@@ -1,0 +1,97 @@
+---
+title: "Adding a Custom Domain"
+---
+
+## Configuring svelte-cloudinary with Private CDN and Custom Domain
+
+Enhance the delivery and security of your media assets by integrating **svelte-cloudinary** with a private CDN and a custom domain. This configuration ensures that your assets are served securely through your own domain, providing better control and performance.
+
+## Prerequisites
+
+:::note
+**Private CDN** and **Custom Domain** features are available exclusively on [Cloudinary's Advanced plan](https://cloudinary.com/pricing). Ensure your account is upgraded to access these functionalities.
+:::
+
+## Step-by-Step Configuration
+
+### 1. Install Dependencies
+
+Ensure you have **svelte-cloudinary** installed in your project:
+
+```bash
+npm install svelte-cloudinary
+```
+
+### 2. Set Up Environment Variables
+
+Create a `.env` file in your project root (if it doesn't exist already) and add the following variables:
+
+```plaintext
+VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
+VITE_CLOUDINARY_PRIVATE_CDN=true
+VITE_CLOUDINARY_SECURE_DISTRIBUTION=your-custom-domain.com
+```
+
+Replace `your_cloud_name` with your actual Cloudinary cloud name and `your-custom-domain.com` with your custom domain.
+
+:::caution
+Never commit your `.env` file to version control. Add it to your `.gitignore` file to keep sensitive information secure.
+:::
+
+### 3. Configure Cloudinary
+
+Update your Cloudinary configuration to use these environment variables:
+
+```javascript
+import { configureCloudinary } from 'svelte-cloudinary';
+
+export function setupCloudinary() {
+  configureCloudinary({
+    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
+    privateCdn: import.meta.env.VITE_CLOUDINARY_PRIVATE_CDN === 'true',
+    secureDistribution: import.meta.env.VITE_CLOUDINARY_SECURE_DISTRIBUTION,
+  });
+}
+```
+
+### 4. Initialize Configuration in Your Application
+
+Invoke the configuration setup in your main application file, such as the root `+layout.svelte` in SvelteKit:
+
+```svelte
+<script>
+  import { onMount } from 'svelte';
+  import { setupCloudinary } from '$lib/configureCloudinary';
+
+  onMount(() => {
+    setupCloudinary();
+  });
+</script>
+
+<slot />
+```
+
+## Example Usage
+
+With the configuration in place, use the `<CldImage />` component to serve images through your private CDN and custom domain:
+
+```svelte
+<script>
+  import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+  src="sample.jpg"
+  alt="Sample Image"
+  width="800"
+  height="600"
+/>
+```
+
+This setup ensures that the image URL follows your custom domain structure:
+
+- **Before:** `https://res.cloudinary.com/your_cloud_name/image/upload/sample.jpg`
+- **After:** `https://your-custom-domain.com/image/upload/sample.jpg`
+
+
+Learn more about setting up CNAME records on the [Cloudinary docs](https://cloudinary.com/documentation/advanced_url_delivery_options#private_cdns_and_custom_delivery_hostnames_cnames).
