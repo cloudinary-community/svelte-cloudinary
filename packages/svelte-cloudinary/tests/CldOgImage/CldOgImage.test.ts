@@ -51,7 +51,7 @@ describe('CldImage', () => {
 		render(CldOgImage, {
 			props: {
 				src: 'og_image',
-				alt: ''
+				alt: '',
 			},
 		});
 
