@@ -1,5 +1,11 @@
 # svelte-cloudinary
 
+## 2.1.1
+
+### Patch Changes
+
+-   deps: bump @cloudinary-util/types & @cloudinary-util/url-loader ([#156](https://github.com/cloudinary-community/svelte-cloudinary/pull/156))
+
 ## 2.1.0
 
 ### Minor Changes
