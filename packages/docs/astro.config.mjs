@@ -153,20 +153,20 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Migrate',
-					items: [
-						{
-							label: 'v2',
-							link: '/migrate/v2',
-						},
-					],
-				},
-				{
 					label: 'Guides',
 					items: [
 						{
 							label: 'Custom Domain',
 							link: '/guides/custom-domain',
+						},
+					],
+				},
+				{
+					label: 'Migrate',
+					items: [
+						{
+							label: 'v2',
+							link: '/migrate/v2',
 						},
 					],
 				},
