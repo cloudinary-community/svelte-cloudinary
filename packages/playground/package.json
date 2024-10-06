@@ -1,6 +1,7 @@
 {
 	"name": "playground",
 	"private": true,
+	"type": "module",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
@@ -10,31 +11,28 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.2.4",
-		"@sveltejs/kit": "^2.5.25",
+		"@sveltejs/adapter-auto": "^3.2.5",
+		"@sveltejs/kit": "^2.6.1",
 		"@sveltejs/vite-plugin-svelte": "3.1.2",
 		"@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
-		"cloudinary": "^2.4.0",
+		"cloudinary": "^2.5.0",
 		"gooey": "^0.2.12",
 		"highlight.js": "^11.10.0",
-		"postcss": "^8.4.44",
+		"postcss": "^8.4.47",
 		"postcss-load-config": "^6.0.1",
 		"postcss-nesting": "^13.0.0",
 		"prettier": "^3.3.3",
-		"prettier-plugin-svelte": "^3.2.6",
+		"prettier-plugin-svelte": "^3.2.7",
+		"shiki": "^1.21.0",
 		"svelte": "^4.2.19",
 		"svelte-cloudinary": "workspace:^",
 		"svelte-highlight": "^7.7.0",
-		"svelte-preprocess": "^6.0.2",
-		"tailwindcss": "^3.4.10",
+		"svelte-preprocess": "^6.0.3",
+		"tailwindcss": "^3.4.13",
 		"tslib": "^2.7.0",
-		"typescript": "^5.5.4",
-		"vite": "^5.4.3"
-	},
-	"type": "module",
-	"dependencies": {
-		"shiki": "^1.16.1"
+		"typescript": "^5.6.2",
+		"vite": "^5.4.8"
 	}
 }
