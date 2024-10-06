@@ -161,6 +161,15 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					label: 'Guides',
+					items: [
+						{
+							label: 'Custom Domain',
+							link: '/guides/custom-domain',
+						},
+					],
+				},
 			],
 		}),
 		svelte(),
