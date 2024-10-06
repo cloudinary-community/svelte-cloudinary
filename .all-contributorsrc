@@ -103,6 +103,24 @@
       "contributions": [
         "tutorial"
       ]
+    },
+    {
+      "login": "braebo",
+      "name": "Braden Wiggins",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55504972?v=4",
+      "profile": "https://github.com/braebo",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "ovindu-a",
+      "name": "Ovindu Atukorala",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72530078?v=4",
+      "profile": "https://ovindu.atukorala.com/",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
