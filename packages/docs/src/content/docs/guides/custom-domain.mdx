@@ -33,22 +33,6 @@ Replace your_cloud_name with your actual Cloudinary cloud name and your-custom-d
 Never commit your `.env` file to version control. Add it to your `.gitignore` file to keep sensitive information secure.
 :::
 
-### 3. Configure Cloudinary
-
-Update your Cloudinary configuration to use these environment variables:
-
-```javascript
-import { configureCloudinary } from 'svelte-cloudinary';
-
-export function setupCloudinary() {
-  configureCloudinary({
-    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
-    privateCdn: import.meta.env.VITE_CLOUDINARY_PRIVATE_CDN === 'true',
-    secureDistribution: import.meta.env.VITE_CLOUDINARY_SECURE_DISTRIBUTION,
-  });
-}
-```
-
 ## Example Usage
 
 With the configuration in place, use the `<CldImage />` component to serve images through your private CDN and custom domain:
