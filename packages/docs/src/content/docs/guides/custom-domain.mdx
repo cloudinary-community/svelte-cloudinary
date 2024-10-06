@@ -8,7 +8,6 @@ Enhance the delivery of your media assets by integrating svelte-cloudinary with 
 **Private CDN** and **Custom Domain** features are available exclusively on [Cloudinary's Advanced plan](https://cloudinary.com/pricing).  
 :::  
 
-
 ## Step-by-Step Configuration
 
 ### 1. Install Dependencies
@@ -50,8 +49,6 @@ export function setupCloudinary() {
 }
 ```
 
-
-
 ## Example Usage
 
 With the configuration in place, use the `<CldImage />` component to serve images through your private CDN and custom domain:
@@ -73,6 +70,5 @@ This setup ensures that the image URL follows your custom domain structure:
 
 - **Before:** `https://res.cloudinary.com/your_cloud_name/image/upload/sample.jpg`
 - **After:** `https://your-custom-domain.com/image/upload/sample.jpg`
-
 
 Learn more about setting up CNAME records on the [Cloudinary docs](https://cloudinary.com/documentation/advanced_url_delivery_options#private_cdns_and_custom_delivery_hostnames_cnames).
