@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { getCldImageUrl } from '../../src/helpers/getCldImageUrl';
-import type {
-	AnalyticsOptions,
-	ConfigOptions,
-	ImageOptions,
-} from '@cloudinary-util/url-loader';
+import type { ConfigOptions, ImageOptions } from '@cloudinary-util/url-loader';
 
 describe('getCldImageUrl', () => {
 	it('should generate a Cloudinary URL with basic image options', () => {
