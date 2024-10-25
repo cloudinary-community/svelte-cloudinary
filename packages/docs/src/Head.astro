@@ -4,6 +4,9 @@ import type { Props } from '@astrojs/starlight/props'
 import { getCldOgImageUrl } from 'svelte-cloudinary'
 import { klona } from 'klona'
 
+// @ts-expect-error Hack to stop Astro erroring
+delete Astro.props.labels
+
 const props = klona(Astro.props)
 const title = props.entry.data.title
 

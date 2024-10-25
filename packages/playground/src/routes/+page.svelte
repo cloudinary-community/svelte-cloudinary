@@ -186,7 +186,6 @@
 			{
 				value: 'fill',
 				onChange(type) {
-					// @ts-expect-error needs narrowing to obj
 					props.crop!.type = type.value;
 				},
 			},
@@ -208,7 +207,6 @@
 			{
 				value: 'center',
 				onChange(gravity) {
-					// @ts-expect-error needs narrowing to obj
 					props.crop!.gravity = gravity.value;
 				},
 			},

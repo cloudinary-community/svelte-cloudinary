@@ -12,15 +12,15 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.27.1",
-    "@astrojs/svelte": "^5.7.1",
-    "astro": "^4.15.11",
+    "@astrojs/starlight": "^0.28.3",
+    "@astrojs/svelte": "^5.7.2",
+    "astro": "^4.16.7",
     "css-tree": "^3.0.0",
     "klona": "^2.0.6",
     "sharp": "^0.33.5",
     "starlight-links-validator": "^0.12.3",
     "svelte": "^4.2.19",
     "svelte-cloudinary": "workspace:^",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
