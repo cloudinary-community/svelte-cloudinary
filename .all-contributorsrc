@@ -140,6 +140,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "moonlander101",
+      "name": "Himath Samarakoon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114925949?v=4",
+      "profile": "https://github.com/moonlander101",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

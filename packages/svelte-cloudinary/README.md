@@ -105,6 +105,9 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/error9098x"><img src="https://avatars.githubusercontent.com/u/43810146?v=4?s=100" width="100px;" alt="ProCodec"/><br /><sub><b>ProCodec</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=error9098x" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sccalabr"><img src="https://avatars.githubusercontent.com/u/4111230?v=4?s=100" width="100px;" alt="sccalabr"/><br /><sub><b>sccalabr</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=sccalabr" title="Tests">⚠️</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/moonlander101"><img src="https://avatars.githubusercontent.com/u/114925949?v=4?s=100" width="100px;" alt="Himath Samarakoon"/><br /><sub><b>Himath Samarakoon</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=moonlander101" title="Tests">⚠️</a></td>
+    </tr>
   </tbody>
 </table>
 
