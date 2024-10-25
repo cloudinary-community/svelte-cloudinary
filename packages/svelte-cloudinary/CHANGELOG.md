@@ -1,5 +1,13 @@
 # svelte-cloudinary
 
+## 2.2.0
+
+### Minor Changes
+
+-   feat: better error message is logged when an image fails to load ([#163](https://github.com/cloudinary-community/svelte-cloudinary/pull/163))
+
+-   deps: update types and url-loader packages ([#165](https://github.com/cloudinary-community/svelte-cloudinary/pull/165))
+
 ## 2.1.1
 
 ### Patch Changes
