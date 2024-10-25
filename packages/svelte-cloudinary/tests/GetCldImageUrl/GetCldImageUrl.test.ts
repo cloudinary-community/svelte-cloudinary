@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getCldImageUrl } from '../../src/helpers/getCldImageUrl';
+import { getCldImageUrl } from '$src/helpers/getCldImageUrl';
 import type { ConfigOptions, ImageOptions } from '@cloudinary-util/url-loader';
 
 describe('getCldImageUrl', () => {
