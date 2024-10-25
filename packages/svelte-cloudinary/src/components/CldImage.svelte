@@ -74,17 +74,17 @@
 			return;
 		}
 
-		const success = await pollForProcessingImage({ src });
+		const result = await pollForProcessingImage({ src });
 
-		console.warn(
-			'[svelte-cloudinary]',
-			success ? 'successfully loaded' : 'failed to load',
-			'image',
-		);
-
-		if (success) {
+		if (result.success) {
 			// Force image to update
 			key++;
+		} else {
+			console.warn('[svelte-cloudinary] Failed to load image:', {
+				src: props.src,
+				error: result.error,
+				status: result.status,
+			});
 		}
 	}
 </script>

@@ -57,7 +57,7 @@
 	"dependencies": {
 		"@cloudinary-util/types": "^1.5.10",
 		"@cloudinary-util/url-loader": "^5.10.4",
-		"@cloudinary-util/util": "^3.3.2",
+		"@cloudinary-util/util": "^4.0.0",
 		"@unpic/svelte": "0.0.53",
 		"defu": "^6.1.4"
 	},
