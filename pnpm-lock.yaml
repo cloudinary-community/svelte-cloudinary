@@ -126,11 +126,11 @@ importers:
   packages/svelte-cloudinary:
     dependencies:
       '@cloudinary-util/types':
-        specifier: ^1.5.10
-        version: 1.5.10
+        specifier: ^1.5.11
+        version: 1.5.11
       '@cloudinary-util/url-loader':
-        specifier: ^5.10.4
-        version: 5.10.4
+        specifier: ^5.10.6
+        version: 5.10.6
       '@cloudinary-util/util':
         specifier: ^4.0.0
         version: 4.0.0
@@ -413,14 +413,11 @@ packages:
   '@changesets/write@0.3.2':
     resolution: {integrity: sha512-kDxDrPNpUgsjDbWBvUo27PzKX4gqeKOlhibaOXDJA6kuBisGqNHv/HwGJrAu8U/dSf8ZEFIeHIPtvSlZI1kULw==}
 
-  '@cloudinary-util/types@1.5.10':
-    resolution: {integrity: sha512-n5lrm7SdAXhgWEbkSJKHZGnaoO9G/g4WYS6HYnq/k4nLj79sYfQZOoKjyR8hF2iyLRdLkT+qlk68RNFFv5tKew==}
+  '@cloudinary-util/types@1.5.11':
+    resolution: {integrity: sha512-b3slV/oFV/3SZO1aiw9+UgYEmK3Ft/Ts03euek5v217Y39mhj6zXWGGJ/OVxQFBzp/zK3RE5+5mzZf/rXY4/Lw==}
 
-  '@cloudinary-util/url-loader@5.10.4':
-    resolution: {integrity: sha512-gHkdvOaV+rlcwuIT7Vqd0ts/H5bsH4+bwFten/gIZ8oRjzdTBvgIY3R6F8bbJt0pFIEfpFEQLe4rPkl0NNqEWg==}
-
-  '@cloudinary-util/util@3.3.2':
-    resolution: {integrity: sha512-Cc0iFxzfl7fcOXuznpeZFGYC885Of/vDgccRDnhTe/8Rf8YKv2PjLtezyo0VgmdA/CpeZy29NCXAsf6liokbwg==}
+  '@cloudinary-util/url-loader@5.10.6':
+    resolution: {integrity: sha512-xd7lG5eOlRx/MPWZTGB8xvIWxpruXMJlDyJHL+WSBqjq7sk87e9le2cOLxzXhDmUwaSewnbh8QOJ/r/CvGQOZQ==}
 
   '@cloudinary-util/util@4.0.0':
     resolution: {integrity: sha512-S4xcou/3A7l5o+bcKlw2VHBNgwups7/0lbVDT/cO5YmtrcEYXgj6LGmwnjvpTm/x571VPVN8x5jWdT3rLZiKJQ==}
@@ -3859,16 +3856,14 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@cloudinary-util/types@1.5.10': {}
+  '@cloudinary-util/types@1.5.11': {}
 
-  '@cloudinary-util/url-loader@5.10.4':
+  '@cloudinary-util/url-loader@5.10.6':
     dependencies:
-      '@cloudinary-util/types': 1.5.10
-      '@cloudinary-util/util': 3.3.2
+      '@cloudinary-util/types': 1.5.11
+      '@cloudinary-util/util': 4.0.0
       '@cloudinary/url-gen': 1.15.0
       zod: 3.23.8
-
-  '@cloudinary-util/util@3.3.2': {}
 
   '@cloudinary-util/util@4.0.0': {}
 
