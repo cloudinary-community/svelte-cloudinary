@@ -1,6 +1,7 @@
 import { VERSION as SVELTE_CLOUDINARY_VERSION } from './version';
 import { VERSION as SVELTE_VERSION } from 'svelte/compiler';
 import { setContext, getContext } from 'svelte';
+import { klona } from './internal/klona';
 import { defu } from 'defu';
 import type {
 	AnalyticsOptions,
@@ -58,7 +59,7 @@ export function mergeGlobalConfig(
 
 	const config = defu(
 		// Overrides have the highest priorty
-		structuredClone(configOverride),
+		klona(configOverride),
 
 		// Merge the global config `cloudName` and `apiKey`
 		{
@@ -75,7 +76,7 @@ export function mergeGlobalConfig(
 
 	const analytics = defu(
 		// Overrides have the highest priorty
-		structuredClone(analyticsOverride),
+		klona(analyticsOverride),
 		// Merge the global config analytics
 		globalConfig?.analytics,
 		// Merge the default analytics
@@ -112,10 +113,7 @@ export function mergeGlobalConfig(
  * </script>
  */
 export function configureCloudinary(globalConfig: GlobalCloudinaryConfig) {
-	setContext<GlobalCloudinaryConfig>(
-		STORE_KEY,
-		structuredClone(globalConfig),
-	);
+	setContext<GlobalCloudinaryConfig>(STORE_KEY, klona(globalConfig));
 }
 
 export function getGlobalConfig(): GlobalCloudinaryConfig | null {

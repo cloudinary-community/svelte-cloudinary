@@ -2,11 +2,12 @@ import type { CldImageProps } from '../components/CldImage.svelte';
 import type { ImageOptions } from '@cloudinary-util/url-loader';
 import { getCldImageUrl } from '../helpers/getCldImageUrl';
 import type { ImageProps } from '@unpic/svelte';
+import { klona } from './klona';
 
 type URLTransformer = Exclude<ImageProps['transformer'], undefined>;
 
 export function createLoader(props: CldImageProps): URLTransformer {
-	const { config, ...imageProps } = structuredClone(props);
+	const { config, ...imageProps } = klona(props);
 
 	// Normalize width and height to number to allow flexibility in how the values
 	// are passed through as props
