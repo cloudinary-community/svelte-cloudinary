@@ -1,5 +1,11 @@
 # svelte-cloudinary
 
+## 2.3.0
+
+### Minor Changes
+
+-   feat: add svelte 5 support using s4 compatibility mode ([#172](https://github.com/cloudinary-community/svelte-cloudinary/pull/172))
+
 ## 2.2.1
 
 ### Patch Changes
