@@ -1,5 +1,6 @@
 ---
 title: <CldImage />
+description: se Cloudinary to power your images, includes powerful options for resizing, transformations, generative AI, and more.
 ---
 
 import { CldImage } from 'svelte-cloudinary';
@@ -10,12 +11,7 @@ The `CldImage` component is the main way of displaying a Cloudinary image in you
 
 The required props are `width`, `height`, `src`, and `alt`:
 
-<CldImage
-	src="images/turtle"
-	alt="Turtle"
-	width={960}
-	height={600}
-/>
+<CldImage src="images/turtle" alt="Turtle" width={960} height={600} />
 
 ```svelte
 <script>

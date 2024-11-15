@@ -40,6 +40,8 @@ High-performance image delivery and uploading at scale in Svelte powered by Clou
 npm install svelte-cloudinary
 ```
 
+We support Svelte v3, v4, v5 (compatibility mode), and SvelteKit!
+
 -   Add an environment variable with your Cloud Name:
 
 ```bash
