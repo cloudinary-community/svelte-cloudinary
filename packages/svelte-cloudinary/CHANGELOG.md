@@ -1,5 +1,11 @@
 # svelte-cloudinary
 
+## 2.2.1
+
+### Patch Changes
+
+-   fix: use `klona` instead of `structuredClone` for cloning options ([`3700ba0`](https://github.com/cloudinary-community/svelte-cloudinary/commit/3700ba0b32209db64bb6efc47dc951ba0d539bd9))
+
 ## 2.2.0
 
 ### Minor Changes
