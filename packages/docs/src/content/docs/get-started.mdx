@@ -1,11 +1,65 @@
 ---
 title: Get Started
+description: Learn how to get started with Cloudinary & Svelte!
 ---
 
-Svelte Cloudinary works with both Svelte and SvelteKit, you can get started by installing the package:
+import {
+	Tabs,
+	TabItem,
+	Steps,
+	LinkCard,
+	CardGrid,
+} from '@astrojs/starlight/components';
 
-```bash title="Install dependencies..."
-npm install svelte-cloudinary -D
-```
+<Steps>
+    1.  Install Svelte Cloudinary. We support Svelte v3, v4, v5 (compatibility mode), and SvelteKit!
 
-Then you'll need to set your [cloud name](https://cloudinary.com/documentation/finding_your_credentials_tutorial), which can be set wih the `VITE_CLOUDINARY_CLOUD_NAME` environment variable if you're using Vite or SvelteKit. You can read more about [configuring svelte-cloudinary here](/config), including how to use other bundlers. 
+        <Tabs>
+        <TabItem label="npm">
+            ```bash
+            npm install svelte-cloudinary -D
+            ```
+        </TabItem>
+        <TabItem label="pnpm">
+            ```bash
+            pnpm add svelte-cloudinary -D
+            ```
+        </TabItem>
+        <TabItem label="yarn">
+            ```bash
+            yarn add svelte-cloudinary
+            ```
+        </TabItem>
+        </Tabs>
+
+    2.  Configure svelte-cloudinary
+
+        When using Vite/SvelteKit all you need to do is set the `VITE_CLOUDINARY_CLOUD_NAME` environment variable to your [cloud name](https://cloudinary.com/documentation/finding_your_credentials_tutorial). If you don't have a Cloudinary account you can [create one for free here](https://cloudinary.com/users/register_free?utm_campaign=devx_sveltecloudinary&utm_medium=referral&utm_source=sveltecloudinary)! If you're not using Vite/SvelteKit, or want to learn more about configuration, you can [read the guide here](/config).
+
+        ```env title=".env"
+        # https://cloudinary.com/documentation/finding_your_credentials_tutorial
+        VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
+        ```
+
+    3.  Start using Cloudinary!
+
+        <CardGrid>
+            <LinkCard
+                title="Images"
+                description="Use Cloudinary to power your images, includes powerful options for resizing, transformations, generative AI, and more."
+                href="/components/image/" />
+            <LinkCard
+                title="Open Graph tags"
+                description="Svelte Cloudinary makes it easy to create your open graph tags and images with Cloudinary."
+                href="/components/og-image/" />
+            <LinkCard
+                title="Upload Widget"
+                description="Allow users to easily upload images and then serve them in your app with Cloudinary."
+                href="/components/upload-widget/" />
+            <LinkCard
+                title="Video Player"
+                description="Play videos uploaded to your Cloudinary account with our built-in video player."
+                href="/components/video-player/" />
+        </CardGrid>
+
+</Steps>
