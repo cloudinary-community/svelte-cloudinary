@@ -12,14 +12,14 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.28.3",
-    "@astrojs/svelte": "^5.7.2",
-    "astro": "^4.16.7",
-    "css-tree": "^3.0.0",
+    "@astrojs/starlight": "^0.29.0",
+    "@astrojs/svelte": "^5.7.3",
+    "astro": "^4.16.12",
+    "css-tree": "^3.0.1",
     "klona": "^2.0.6",
     "sharp": "^0.33.5",
-    "starlight-links-validator": "^0.12.3",
-    "svelte": "^4.2.19",
+    "starlight-links-validator": "^0.13.2",
+    "svelte": "^5.2.0",
     "svelte-cloudinary": "workspace:^",
     "typescript": "^5.6.3"
   }
