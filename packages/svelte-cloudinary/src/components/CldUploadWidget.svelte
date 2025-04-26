@@ -229,7 +229,7 @@
 	} = $$props as $$Props);
 
 	let loaded =
-		typeof window != 'undefined' && !!window.cloudinary?.videoPlayer;
+		typeof window != 'undefined' && !!window.cloudinary?.createUploadWidget;
 
 	let widget: CloudinaryUploadWidget | undefined;
 
