@@ -31,6 +31,17 @@
       ]
     },
     {
+      "login": "colbyfayock",
+      "name": "Colby Fayock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1045274?v=4",
+      "profile": "https://colbyfayock.com/newsletter",
+      "contributions": [
+        "code",
+        "doc",
+        "example"
+      ]
+    },
+    {
       "login": "troyciesco",
       "name": "Troy Ciesco",
       "avatar_url": "https://avatars.githubusercontent.com/u/24758859?v=4",
