@@ -5,7 +5,6 @@
   "repository": "git@github.com:cloudinary-community/svelte-cloudinary.git",
   "contributors": [
     "Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)",
-    "Colby Fayock <hello@colbyfayock.com>",
     "Matias Hernandez <hola@matiashernandez.dev>"
   ],
   "scripts": {
