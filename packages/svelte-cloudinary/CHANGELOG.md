@@ -1,5 +1,11 @@
 # svelte-cloudinary
 
+## 2.3.1
+
+### Patch Changes
+
+-   fix: loaded check condition in upload widget ([`f8c0ef4`](https://github.com/cloudinary-community/svelte-cloudinary/commit/f8c0ef45903789dc8d08d329667b898bb0434aa1))
+
 ## 2.3.0
 
 ### Minor Changes
