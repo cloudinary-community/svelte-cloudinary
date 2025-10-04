@@ -81,10 +81,12 @@
 
 	$: image = getCldOgImageUrl(options, config);
 
-	$: twitterImage = getCldOgImageUrl(
-		{ ...options, format: options.format ?? 'webp' },
-		config,
-	);
+	$: twitterImage = getCldOgImageUrl({ 
+		...options,
+		format: options.format ?? 'webp',
+		width: 1200,
+		height: 675,
+	}, config);
 </script>
 
 <svelte:head>
