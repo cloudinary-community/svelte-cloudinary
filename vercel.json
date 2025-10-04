@@ -78,46 +78,6 @@
             "destination": "/missing"
         },
         {
-            "source": "/guides",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/background-removal",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/image-optimization",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/image-overlays",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/image-underlays",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/placeholders",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/responsive-images",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/social-media-cards",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/text-overlays",
-            "destination": "/missing"
-        },
-        {
-            "source": "/guides/uploading-images-and-videos",
-            "destination": "/missing"
-        },
-        {
             "source": "/templates",
             "destination": "/missing"
         },
