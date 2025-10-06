@@ -48,7 +48,7 @@ then pass it in to our CldImage component.
 
     Inside of the SvelteKit app, we can utilize server side code to generate a data URL from our image.
 
-<CodeBlock>
+
 
 ```js
 
@@ -70,7 +70,7 @@ export const load = () => {
 }
 ```
 
-</CodeBlock>
+
 
     Then when rendering CldImage, utilize the `dataUrl` using `placeholder` and `blurDataURL`:
 
@@ -109,7 +109,7 @@ our images are loading.
 
 Inside of the SvelteKit app you can use a server side code `+page.server.js` to generate a data URL from our image.
 
-<CodeBlock>
+
 
 ```js
 export const load = () => {
@@ -137,7 +137,7 @@ export const load = () => {
 };
 ```
 
-</CodeBlock>
+
 
     Then when rendering CldImage, utilize the `dataUrl` using `placeholder`:
 
