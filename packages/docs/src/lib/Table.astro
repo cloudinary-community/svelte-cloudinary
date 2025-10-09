@@ -11,8 +11,7 @@ const { columns, data } = Astro.props;
 ---
 
 <table
-	class="block overflow-x-scroll scrollbar w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-6 p-0 first:mt-0"
->
+	class="block overflow-x-scroll scrollbar w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-6 p-0 first:mt-0">
 	{
 		Array.isArray(columns) && (
 			<thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
@@ -21,8 +20,7 @@ const { columns, data } = Astro.props;
 						return (
 							<th
 								scope="col"
-								class="whitespace-nowrap	px-6 py-4 font-bold first:pl-0 last pr-0"
-							>
+								class="whitespace-nowrap	px-6 py-4 font-bold first:pl-0 last pr-0">
 								{title || ' '}
 							</th>
 						);
@@ -48,8 +46,7 @@ const { columns, data } = Astro.props;
 									return (
 										<th
 											scope="row"
-											class="px-6 py-3 font-normal text-gray-900 whitespace-nowrap dark:text-white first:pl-0"
-										>
+											class="px-6 py-3 font-normal text-gray-900 whitespace-nowrap dark:text-white first:pl-0">
 											{Child}
 										</th>
 									);

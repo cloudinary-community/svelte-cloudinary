@@ -35,8 +35,7 @@ not only deliver, but easily edit and build new images on the fly.
 	src="images/turtle"
 	sizes="100vw"
 	alt=""
-	removeBackground
-/>
+	removeBackground />
 ```
 
 :::note
@@ -69,8 +68,7 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	sizes="100vw"
 	alt=""
 	removeBackground
-	background="blueviolet"
-/>
+	background="blueviolet" />
 ```
 
 #### Image Background
@@ -99,8 +97,7 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	sizes="100vw"
 	alt=""
 	removeBackground
-	underlay="<Your Public ID>"
-/>
+	underlay="<Your Public ID>" />
 ```
 
 ### Cropping & Resizing
@@ -132,8 +129,7 @@ The Cloudinary AI Background Removal add-on is required to use this feature.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	crop="fill"
-/>
+	crop="fill" />
 ```
 
 Cloudinary additionally supports dynamic crop modes like `thumb` that may provide a different result based on the given width and height. To help provide more options for controlling cropping images, you can specify and object or array of objects.
@@ -170,8 +166,7 @@ For instance, to crop the original source image, which will then later resize it
 		height: 600,
 		type: 'thumb',
 		source: true,
-	}}
-/>
+	}} />
 ```
 
 Which will provide a consistent crop for all rendered sizes.
@@ -214,8 +209,7 @@ You can also use coordinates to crop to the exact location you need:
 		y: 350,
 		gravity: 'north_east',
 		source: true,
-	}}
-/>
+	}} />
 ```
 
 ### Extract
@@ -250,8 +244,7 @@ You can also use coordinates to crop to the exact location you need:
 	extract={{
 		prompt: 'dogs',
 		multiple: true,
-	}}
-/>
+	}} />
 ```
 
 ### Generative Fill
@@ -280,8 +273,7 @@ You can also use coordinates to crop to the exact location you need:
 	alt=""
 	sizes="100vw"
 	crop="pad"
-	fillBackground
-/>
+	fillBackground />
 ```
 
 ### Generative Recolor
@@ -310,8 +302,7 @@ You can also use coordinates to crop to the exact location you need:
 	crop="fill"
 	alt=""
 	sizes="100vw"
-	recolor={['shoelaces', 'purple']}
-/>
+	recolor={['shoelaces', 'purple']} />
 ```
 
 ### Generative Remove
@@ -340,8 +331,7 @@ You can also use coordinates to crop to the exact location you need:
 	crop="fill"
 	alt=""
 	sizes="100vw"
-	remove="<Your Prompt>"
-/>
+	remove="<Your Prompt>" />
 ```
 
 ### Generative Replace
@@ -370,8 +360,7 @@ You can also use coordinates to crop to the exact location you need:
 	src="<Your Public ID>"
 	alt=""
 	sizes="100vw"
-	replace={['turtle', 'shark']}
-/>
+	replace={['turtle', 'shark']} />
 ```
 
 ### Generative Restore
@@ -413,8 +402,7 @@ After:
 	crop="fill"
 	sizes="100vw"
 	alt=""
-	restore
-/>
+	restore />
 ```
 
 ### Generative Replace Background
@@ -445,8 +433,7 @@ Uses generative AI to replace the background of your image. It can either genera
 	crop="fill"
 	sizes="100vw"
 	alt=""
-	replaceBackground
-/>
+	replaceBackground />
 ```
 
 #### Prompt
@@ -473,8 +460,7 @@ Uses generative AI to replace the background of your image. It can either genera
 	crop="fill"
 	sizes="100vw"
 	alt=""
-	replaceBackground="fish tank"
-/>
+	replaceBackground="fish tank" />
 ```
 
 You can also pass in a seed to the prompt:
@@ -505,10 +491,9 @@ You can also pass in a seed to the prompt:
 	sizes="100vw"
 	alt=""
 	replaceBackground={{
-		prompt: "fish tank",
-		seed: 3
-	}}
-/>
+		prompt: 'fish tank',
+		seed: 3,
+	}} />
 ```
 
 ## Filters & Effects
@@ -540,8 +525,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	blur="1200"
-/>
+	blur="1200" />
 ```
 
 ### Grayscale
@@ -568,8 +552,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	grayscale
-/>
+	grayscale />
 ```
 
 ### Opacity
@@ -596,8 +579,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	opacity="50"
-/>
+	opacity="50" />
 ```
 
 ### Pixelate
@@ -624,8 +606,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	pixelate
-/>
+	pixelate />
 ```
 
 ### Tint
@@ -652,8 +633,7 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	src="<Your Public ID>"
 	sizes="100vw"
 	alt=""
-	tint="equalize:80:blue:blueviolet"
-/>
+	tint="equalize:80:blue:blueviolet" />
 ```
 
 ### Chaining Multiple Effects
@@ -690,16 +670,15 @@ that allow you to recolor, improve, fix, and artistically transform your images.
 	alt=""
 	effects={[
 		{
-			background: 'green'
+			background: 'green',
 		},
 		{
-			gradientFade: true
+			gradientFade: true,
 		},
 		{
-			gradientFade: 'symetric,x_0.5'
-		}
-	]}
-/>
+			gradientFade: 'symetric,x_0.5',
+		},
+	]} />
 ```
 
 ### More Filters & Effects
@@ -757,19 +736,18 @@ Image overlays allow you to place one or multiple images on top of another image
 			position: {
 				x: 50,
 				y: 50,
-				gravity: 'north_west'
+				gravity: 'north_west',
 			},
 			effects: [
 				{
 					crop: 'fill',
 					gravity: 'auto',
 					width: 500,
-					height: 500
-				}
-			]
-		}
-	]}
-/>
+					height: 500,
+				},
+			],
+		},
+	]} />
 ```
 
 ### Overlay Image with Blend Mode
@@ -824,17 +802,16 @@ that applies a blend mode, such as "multiply"
 					gravity: 'auto',
 					width: '1.0',
 					height: '1.0',
-				}
+				},
 			],
 			flags: ['relative'],
 			appliedEffects: [
 				{
-					multiply: true
-				}
-			]
-		}
-	]}
-/>
+					multiply: true,
+				},
+			],
+		},
+	]} />
 ```
 
 ## Image Underlays
@@ -867,8 +844,7 @@ Image underlays allow you to place one or multiple images behind a base image.
 	sizes="100vw"
 	alt=""
 	removeBackground
-	underlay="<Your Public ID>"
-/>
+	underlay="<Your Public ID>" />
 ```
 
 ### Replace Background with Multiple Images
@@ -919,15 +895,15 @@ Image underlays allow you to place one or multiple images behind a base image.
 	removeBackground
 	alt=""
 	underlays={[
-	    {
+		{
 			publicId: 'images/galaxy',
 			width: '0.5',
 			height: '1.0',
 			crop: 'fill',
 			position: {
-				gravity: 'north_west'
+				gravity: 'north_west',
 			},
-			flags: ['relative']
+			flags: ['relative'],
 		},
 		{
 			publicId: 'images/mountain',
@@ -935,12 +911,11 @@ Image underlays allow you to place one or multiple images behind a base image.
 			height: '1.0',
 			crop: 'fill',
 			position: {
-				gravity: 'south_east'
+				gravity: 'south_east',
 			},
-			flags: ['relative']
+			flags: ['relative'],
 		},
-	]}
-/>
+	]} />
 ```
 
 ## Text Overlays
@@ -975,8 +950,7 @@ Text overlays allow you to place text on top of an image.
 	alt=""
 	text="Cool Beans"
 	blur="2000"
-	brightness="300"
-/>
+	brightness="300" />
 ```
 
 ### Adding Custom Text
@@ -1031,7 +1005,7 @@ Text overlays allow you to place text on top of an image.
 				x: 140,
 				y: 140,
 				angle: -20,
-				gravity: 'south_east'
+				gravity: 'south_east',
 			},
 			text: {
 				color: 'blueviolet',
@@ -1040,11 +1014,10 @@ Text overlays allow you to place text on top of an image.
 				fontWeight: 'bold',
 				textDecoration: 'underline',
 				letterSpacing: 14,
-				text: 'Cool Beans'
-			}
-		}
-	]}
-/>
+				text: 'Cool Beans',
+			},
+		},
+	]} />
 ```
 
 ### Adding Text with Effects
@@ -1094,15 +1067,14 @@ Text overlays allow you to place text on top of an image.
 				fontFamily: 'Source Sans Pro',
 				fontSize: 160,
 				fontWeight: 'bold',
-				text: 'Cool Beans'
+				text: 'Cool Beans',
 			},
 			effects: [
 				{
 					shear: '40:0',
-					opacity: 50
-				}
-			]
-		}
-	]}
-/>
+					opacity: 50,
+				},
+			],
+		},
+	]} />
 ```

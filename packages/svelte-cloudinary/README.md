@@ -54,14 +54,10 @@ VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="600"
-  height="600"
-  src="<Your Public ID>"
-  alt="<Alt Text>" />
+<CldImage width="600" height="600" src="<Your Public ID>" alt="<Alt Text>" />
 ```
 
 [Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
