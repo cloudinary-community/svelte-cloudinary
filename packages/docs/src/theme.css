@@ -40,8 +40,8 @@
 [data-has-hero] a.primary {
 	color: var(--sl-color-white);
 	font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0px;
+	font-size: 1.1rem;
+	letter-spacing: 0px;
 }
 
 [data-theme='light'][data-has-hero] a.primary {
@@ -51,9 +51,10 @@
 [data-has-hero] .page {
 	background:
 		linear-gradient(215deg, #ff3e0020, transparent 40%),
-		radial-gradient(#ff3e0020, transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
-		radial-gradient(#ff3e0020, transparent 65%) no-repeat 50% calc(100% + 20rem) /
-			60rem 30rem;
+		radial-gradient(#ff3e0020, transparent 40%) no-repeat -60vw -40vh /
+			105vw 200vh,
+		radial-gradient(#ff3e0020, transparent 65%) no-repeat 50%
+			calc(100% + 20rem) / 60rem 30rem;
 }
 
 [data-has-hero] header {
