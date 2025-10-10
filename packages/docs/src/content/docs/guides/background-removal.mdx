@@ -2,6 +2,7 @@
 title: Guides/Background Removal
 ---
 
+import { CldImage } from 'svelte-cloudinary';
 
 # Removing a Background from an Image
 
@@ -25,9 +26,6 @@ The CldImage component allows you to easily remove backgrounds from images using
 </div>
 
 ```svelte
-<script>
-	import { CldImage } from 'svelte-cloudinary';
-</script>
 
 <CldImage
 	width="960"
@@ -39,13 +37,10 @@ The CldImage component allows you to easily remove backgrounds from images using
 />
 ```
 
-  </Tab>
-  <Tab title="getCldImageUrl">
 
 ```html
 <script>
-	import { getCldImageUrl } from 'svelte-cloudinary';
-
+	
 	const cldUrl = getCldImageUrl({
 		width: 960,
 		height: 600,
