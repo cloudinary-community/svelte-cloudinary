@@ -149,6 +149,33 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "aarya-16",
+      "name": "aarya-16",
+      "avatar_url": "https://avatars.githubusercontent.com/u/145715221?v=4",
+      "profile": "https://github.com/aarya-16",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "daniloff200",
+      "name": "Dmytro Danylov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13692220?v=4",
+      "profile": "https://github.com/daniloff200",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "SanchitMahajan236",
+      "name": "SanchitMahajan236",
+      "avatar_url": "https://avatars.githubusercontent.com/u/116559051?v=4",
+      "profile": "https://github.com/SanchitMahajan236",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

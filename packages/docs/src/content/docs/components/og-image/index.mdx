@@ -11,13 +11,10 @@ The only required props are `src` and `alt`:
 
 ```svelte
 <script>
-    import { CldOgImage } from 'svelte-cloudinary';
+	import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
-<CldOgImage
-	src="images/turtle"
-	alt="Turtle"
-/>
+<CldOgImage src="images/turtle" alt="Turtle" />
 ```
 
 This will generate the following meta tags:
@@ -25,12 +22,10 @@ This will generate the following meta tags:
 ```html
 <meta
 	property="og:image"
-	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0"
-/>
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0" />
 <meta
 	property="og:image:secure_url"
-	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0"
-/>
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="627" />
 <meta property="og:image:alt" content="Turtle" />
@@ -38,8 +33,7 @@ This will generate the following meta tags:
 <meta property="twitter:card" content="summary_large_image" />
 <meta
 	property="twitter:image"
-	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0"
-/>
+	content="https://res.cloudinary.com/svelte-cloudinary/image/upload/f_auto/q_auto/v1/images/turtle?_a=BATAXdTE0" />
 ```
 
 ## Twitter Title
@@ -51,11 +45,7 @@ You'll need to set the `twitterTitle` prop if you want the images to render on t
 	import { CldOgImage } from 'svelte-cloudinary';
 </script>
 
-<CldOgImage
-	twitterTitle="Turtles!"
-	src="images/turtle"
-	alt="Turtle"
-/>
+<CldOgImage twitterTitle="Turtles!" src="images/turtle" alt="Turtle" />
 ```
 
 Which will generate the following meta tag:

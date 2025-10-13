@@ -23,11 +23,7 @@ Standard Cloudinary Video Player with playback.
 	import { CldVideoPlayer } from 'svelte-cloudinary';
 </script>
 
-<CldVideoPlayer
-	width="1620"
-	height="1080"
-	src="<Your Public ID>"
-/>
+<CldVideoPlayer width="1620" height="1080" src="<Your Public ID>" />
 ```
 
 ## Playback
@@ -62,8 +58,7 @@ Standard Cloudinary Video Player with playback.
 	transformation={{
 		streaming_profile: 'hd',
 	}}
-	sourceTypes={['hls']}
-/>
+	sourceTypes={['hls']} />
 ```
 
 ### Picture-in-Picture
@@ -92,8 +87,7 @@ Utilizes the browser's Picture-in-Picture API to create a floating video on top 
 	src="<Your Public ID>"
 	width="1620"
 	height="1080"
-	pictureInPictureToggle
-/>
+	pictureInPictureToggle />
 ```
 
 ## Player Customization
@@ -134,8 +128,7 @@ Adding a button to select chapters.
 		6: 'Chapter 2',
 		9: 'Chapter 3',
 	}}
-	chaptersButton
-/>
+	chaptersButton />
 ```
 
 ### Colors & Font
@@ -174,8 +167,7 @@ Changing the player theme using colors and fonts.
 		base: '#00ff00',
 		text: '#0000ff',
 	}}
-	fontFace="Source Serif Pro"
-/>
+	fontFace="Source Serif Pro" />
 ```
 
 ### Logo
@@ -210,8 +202,7 @@ Adding a custom logo to the player chrome.
 	logo={{
 		imageUrl: '/svelte.png',
 		onClickUrl: 'https://svelte.dev',
-	}}
-/>
+	}} />
 ```
 
 ### Poster URL
@@ -244,8 +235,7 @@ Allows you to change the poster used for the player.
 	height="2160"
 	poster={getCldImageUrl({
 		src: '<Your Public ID>',
-	})}
-/>
+	})} />
 ```
 
 ### Poster Transformations
@@ -278,8 +268,7 @@ Adding effects to the video's auto-generated thumb.
 	height="2160"
 	poster={{
 		tint: 'equalize:80:blue:blueviolet',
-	}}
-/>
+	}} />
 ```
 
 ### Captions and Subtitles
@@ -302,10 +291,9 @@ be loaded from as well as any customization of that track.
 			label: 'English',
 			language: 'en',
 			default: true,
-			url: 'https://res.cloudinary.com/<Cloud Name>/raw/upload/<FileName>.vtt'
-		}
-	}}
-/>
+			url: 'https://res.cloudinary.com/<Cloud Name>/raw/upload/<FileName>.vtt',
+		},
+	}} />
 ```
 
 Learn more on the [Video Player Reference](https://cloudinary.com/documentation/video_player_api_reference#text_tracks) or
@@ -347,8 +335,7 @@ the [Subtitles and Captions guide](https://cloudinary.com/documentation/video_pl
 		height: 500,
 		crop: 'fill',
 		gravity: 'auto',
-	}}
-/>
+	}} />
 ```
 
 ### Image Overlays
@@ -391,8 +378,7 @@ Place an image over the video (e.g. watermarks).
 		x: 50,
 		y: 50,
 		opacity: 80,
-	}}
-/>
+	}} />
 ```
 
 ## Advanced
@@ -493,6 +479,5 @@ Provides localization options for player labels. Uses [Video.js JSON format](htt
 			'No compatible source was found for this video.':
 				'No se ha encontrado ninguna fuente compatible con este vídeo.',
 		},
-	}}
-/>
+	}} />
 ```

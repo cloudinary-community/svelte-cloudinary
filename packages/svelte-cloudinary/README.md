@@ -54,14 +54,10 @@ VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  width="600"
-  height="600"
-  src="<Your Public ID>"
-  alt="<Alt Text>" />
+<CldImage width="600" height="600" src="<Your Public ID>" alt="<Alt Text>" />
 ```
 
 [Learn more about CldImage on the Svelte Cloudinary Docs](https://svelte-cloudinary.vercel.app/components/cldimage/basic-usage)
@@ -109,6 +105,9 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/moonlander101"><img src="https://avatars.githubusercontent.com/u/114925949?v=4?s=100" width="100px;" alt="Himath Samarakoon"/><br /><sub><b>Himath Samarakoon</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=moonlander101" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aarya-16"><img src="https://avatars.githubusercontent.com/u/145715221?v=4?s=100" width="100px;" alt="aarya-16"/><br /><sub><b>aarya-16</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=aarya-16" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/daniloff200"><img src="https://avatars.githubusercontent.com/u/13692220?v=4?s=100" width="100px;" alt="Dmytro Danylov"/><br /><sub><b>Dmytro Danylov</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=daniloff200" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SanchitMahajan236"><img src="https://avatars.githubusercontent.com/u/116559051?v=4?s=100" width="100px;" alt="SanchitMahajan236"/><br /><sub><b>SanchitMahajan236</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=SanchitMahajan236" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

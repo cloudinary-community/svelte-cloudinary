@@ -1,12 +1,12 @@
 ---
-title: "Adding a Custom Domain"
+title: 'Adding a Custom Domain'
 ---
 
-Enhance the delivery of your media assets by integrating svelte-cloudinary with a [private CDN and/or custom domain](https://cloudinary.com/documentation/advanced_url_delivery_options#private_cdns_and_custom_delivery_hostnames_cnames).  
+Enhance the delivery of your media assets by integrating svelte-cloudinary with a [private CDN and/or custom domain](https://cloudinary.com/documentation/advanced_url_delivery_options#private_cdns_and_custom_delivery_hostnames_cnames).
 
 :::note  
 **Private CDN** and **Custom Domain** features are available exclusively on [Cloudinary's Advanced plan](https://cloudinary.com/pricing).  
-:::  
+:::
 
 ## Step-by-Step Configuration
 
@@ -23,10 +23,11 @@ npm install svelte-cloudinary
 Create a `.env` file in your project root (if it doesn't exist already) and add the following variables:
 
 ```bash
-VITE_CLOUDINARY_CLOUD_NAME="your_cloud_name"  
-VITE_CLOUDINARY_PRIVATE_CDN="true"  
-VITE_CLOUDINARY_SECURE_DISTRIBUTION="your-custom-domain.com"  
+VITE_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+VITE_CLOUDINARY_PRIVATE_CDN="true"
+VITE_CLOUDINARY_SECURE_DISTRIBUTION="your-custom-domain.com"
 ```
+
 Replace your_cloud_name with your actual Cloudinary cloud name and your-custom-domain.com with your custom domain. Read more about [configuring svelte-cloudinary here](https://svelte.cloudinary.dev/config).
 
 :::caution
@@ -39,20 +40,15 @@ With the configuration in place, use the `<CldImage />` component to serve image
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  src="<Your Public ID>" 
-  alt="Sample Image"
-  width="800"
-  height="600"
-/>
+<CldImage src="<Your Public ID>" alt="Sample Image" width="800" height="600" />
 ```
 
 This setup ensures that the image URL follows your custom domain structure:
 
-- **Before:** `https://res.cloudinary.com/your_cloud_name/image/upload/sample.jpg`
-- **After:** `https://your-custom-domain.com/image/upload/sample.jpg`
+-   **Before:** `https://res.cloudinary.com/your_cloud_name/image/upload/sample.jpg`
+-   **After:** `https://your-custom-domain.com/image/upload/sample.jpg`
 
 Learn more about setting up CNAME records on the [Cloudinary docs](https://cloudinary.com/documentation/advanced_url_delivery_options#private_cdns_and_custom_delivery_hostnames_cnames).

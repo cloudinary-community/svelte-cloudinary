@@ -83,8 +83,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#a_angle"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#a_angle">
 					More Info
 				</a>
 			),
@@ -101,8 +100,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#b_background"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#b_background">
 					More Info
 				</a>
 			),
@@ -115,8 +113,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#c_crop_resize"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#c_crop_resize">
 					More Info
 				</a>
 			),
@@ -129,22 +126,20 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_enhance"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_enhance">
 					More Info
 				</a>
 			),
 		},
 		{
-			prop: 'fillBackground (Beta)',
+			prop: 'fillBackground',
 			type: 'boolean | object',
 			default: '-',
 			example: () => <code>{`{{ gravity: 'east' }}`}</code>,
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#b_gen_fill"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#b_gen_fill">
 					More Info
 				</a>
 			),
@@ -157,8 +152,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#g_gravity"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#g_gravity">
 					More Info
 				</a>
 			),
@@ -170,8 +164,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_loop"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_loop">
 					More Info
 				</a>
 			),
@@ -184,8 +177,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gen_recolor"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gen_recolor">
 					More Info
 				</a>
 			),
@@ -198,8 +190,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gen_remove"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gen_remove">
 					More Info
 				</a>
 			),
@@ -212,8 +203,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_background_removal"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_background_removal">
 					More Info
 				</a>
 			),
@@ -226,8 +216,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gen_replace"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gen_replace">
 					More Info
 				</a>
 			),
@@ -240,8 +229,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gen_background_replace"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gen_background_replace">
 					More Info
 				</a>
 			),
@@ -254,8 +242,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gen_restore"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gen_restore">
 					More Info
 				</a>
 			),
@@ -268,8 +255,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#z_zoom"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#z_zoom">
 					More Info
 				</a>
 			),
@@ -282,8 +268,7 @@ right inside of Svelte.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_zoompan"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_zoompan">
 					More Info
 				</a>
 			),
@@ -416,10 +401,6 @@ crop: {
 
 #### `enhance`
 
-:::tip
-Generative Enhance is currently in beta.
-:::
-
 Uses generative AI to enhance the visual appeal of an image.
 
 The `enhance` prop can be used as a boolean.
@@ -433,10 +414,6 @@ enhance: true;
 [Learn more about the Generative Enhance transformation](https://cloudinary.com/documentation/transformation_reference#e_enhance) on the Cloudinary docs.
 
 #### `fillBackground`
-
-:::tip
-Generative Fill is currently in beta.
-:::
 
 Automatically fills the padded area using generative AI to extend the image seamlessly.
 
@@ -474,6 +451,11 @@ a background, or an object, which can take the following options:
 			type: 'string',
 			example: () => <code>cupcakes</code>,
 		},
+		{
+			prop: 'seed',
+			type: 'number',
+			example: () => <code>3</code>,
+		},
 	]}
 />
 
@@ -491,7 +473,8 @@ Customizing options:
 fillBackground: {
   crop: 'clpad',
   gravity: 'south',
-  prompt: 'cupcakes'
+  prompt: 'cupcakes',
+  seed: '3'
 }
 ```
 
@@ -522,10 +505,6 @@ loop: true;
 [Learn more about loop](https://cloudinary.com/documentation/transformation_reference#e_loop) on the Cloudinary docs.
 
 #### `recolor`
-
-:::tip
-Generative Recolor is currently in beta.
-:::
 
 Uses generative AI to recolor parts of your image, maintaining the relative shading.
 
@@ -591,10 +570,6 @@ recolor: {
 [Learn more about the Generative Recolor transformation](https://cloudinary.com/documentation/transformation_reference#e_gen_recolor) on the Cloudinary docs.
 
 #### `remove`
-
-:::tip
-Generative Remove is currently in beta.
-:::
 
 Uses generative AI to remove unwanted parts of your image, replacing the area with realistic pixels.
 
@@ -706,10 +681,6 @@ removeBackground: true;
 
 #### `replace`
 
-:::tip
-Generative Replace is currently in beta.
-:::
-
 Uses generative AI to replace parts of your image with something else.
 
 The `replace` prop can either be an array with the objects to be replaced or an object
@@ -771,10 +742,6 @@ replace: {
 
 #### `replaceBackground`
 
-:::tip
-Generative Replace Background is currently in beta.
-:::
-
 Uses generative AI to replace the background of your image.
 
 The `replaceBackground` prop can be a boolean, string, or object
@@ -835,10 +802,6 @@ replaceBackground: {
 [Learn more about the Generative Replace Background transformation](https://cloudinary.com/documentation/transformation_reference#e_gen_background_replace) on the Cloudinary docs.
 
 #### `restore`
-
-:::tip
-Generative Restore is currently in beta.
-:::
 
 Uses generative AI to restore details in poor quality images or images that may have become degraded through repeated processing and compression.
 
@@ -966,8 +929,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_art"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_art">
 					More Info
 				</a>
 			),
@@ -984,8 +946,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_auto_brightness"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_auto_brightness">
 					More Info
 				</a>
 			),
@@ -1002,8 +963,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_auto_color"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_auto_color">
 					More Info
 				</a>
 			),
@@ -1020,8 +980,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_auto_contrast"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_auto_contrast">
 					More Info
 				</a>
 			),
@@ -1038,8 +997,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_assist_colorblind"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_assist_colorblind">
 					More Info
 				</a>
 			),
@@ -1056,8 +1014,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_blackwhite"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_blackwhite">
 					More Info
 				</a>
 			),
@@ -1074,8 +1031,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_blur"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_blur">
 					More Info
 				</a>
 			),
@@ -1092,8 +1048,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_blur_faces"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_blur_faces">
 					More Info
 				</a>
 			),
@@ -1110,8 +1065,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_blur_region"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_blur_region">
 					More Info
 				</a>
 			),
@@ -1134,8 +1088,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_brightness"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_brightness">
 					More Info
 				</a>
 			),
@@ -1152,8 +1105,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_brightness_hsb"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_brightness_hsb">
 					More Info
 				</a>
 			),
@@ -1170,8 +1122,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_cartoonify"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_cartoonify">
 					More Info
 				</a>
 			),
@@ -1190,8 +1141,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_colorize"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_colorize">
 					More Info
 				</a>
 			),
@@ -1208,8 +1158,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_contrast"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_contrast">
 					More Info
 				</a>
 			),
@@ -1227,8 +1176,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_distort"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_distort">
 					More Info
 				</a>
 			),
@@ -1245,8 +1193,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_fill_light"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_fill_light">
 					More Info
 				</a>
 			),
@@ -1263,8 +1210,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gamma"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gamma">
 					More Info
 				</a>
 			),
@@ -1281,8 +1227,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_gradient_fade"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_gradient_fade">
 					More Info
 				</a>
 			),
@@ -1295,8 +1240,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_grayscale"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_grayscale">
 					More Info
 				</a>
 			),
@@ -1313,8 +1257,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_improve"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_improve">
 					More Info
 				</a>
 			),
@@ -1327,8 +1270,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_multiply"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_multiply">
 					More Info
 				</a>
 			),
@@ -1341,8 +1283,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_negate"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_negate">
 					More Info
 				</a>
 			),
@@ -1359,8 +1300,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_oil_paint"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_oil_paint">
 					More Info
 				</a>
 			),
@@ -1373,8 +1313,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#o_opacity"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#o_opacity">
 					More Info
 				</a>
 			),
@@ -1392,8 +1331,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_outline"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_outline">
 					More Info
 				</a>
 			),
@@ -1406,8 +1344,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_overlay"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_overlay">
 					More Info
 				</a>
 			),
@@ -1424,8 +1361,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate">
 					More Info
 				</a>
 			),
@@ -1442,8 +1378,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate_faces"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate_faces">
 					More Info
 				</a>
 			),
@@ -1460,8 +1395,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate_region"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_pixelate_region">
 					More Info
 				</a>
 			),
@@ -1474,8 +1408,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_redeye"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_redeye">
 					More Info
 				</a>
 			),
@@ -1493,8 +1426,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_replace_color"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_replace_color">
 					More Info
 				</a>
 			),
@@ -1515,8 +1447,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#fl_sanitize"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#fl_sanitize">
 					More Info
 				</a>
 			),
@@ -1533,8 +1464,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_saturation"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_saturation">
 					More Info
 				</a>
 			),
@@ -1547,8 +1477,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_screen"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_screen">
 					More Info
 				</a>
 			),
@@ -1565,8 +1494,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_sepia"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_sepia">
 					More Info
 				</a>
 			),
@@ -1583,8 +1511,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_shadow"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_shadow">
 					More Info
 				</a>
 			),
@@ -1601,8 +1528,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_sharpen"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_sharpen">
 					More Info
 				</a>
 			),
@@ -1615,8 +1541,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_shear"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_shear">
 					More Info
 				</a>
 			),
@@ -1629,8 +1554,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_simulate_colorblind"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_simulate_colorblind">
 					More Info
 				</a>
 			),
@@ -1647,8 +1571,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_tint"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_tint">
 					More Info
 				</a>
 			),
@@ -1665,8 +1588,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_trim"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_trim">
 					More Info
 				</a>
 			),
@@ -1683,8 +1605,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_unsharp_mask"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_unsharp_mask">
 					More Info
 				</a>
 			),
@@ -1701,8 +1622,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_vectorize"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_vectorize">
 					More Info
 				</a>
 			),
@@ -1719,8 +1639,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_vibrance"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_vibrance">
 					More Info
 				</a>
 			),
@@ -1737,8 +1656,7 @@ to easily change the appearance of an image.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#e_vignette"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#e_vignette">
 					More Info
 				</a>
 			),
@@ -2021,8 +1939,7 @@ The `position` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#a_angle"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#a_angle">
 					More Info
 				</a>
 			),
@@ -2034,8 +1951,7 @@ The `position` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#g_gravity"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#g_gravity">
 					More Info
 				</a>
 			),
@@ -2047,8 +1963,7 @@ The `position` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#x_y_coordinates"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#x_y_coordinates">
 					More Info
 				</a>
 			),
@@ -2060,8 +1975,7 @@ The `position` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#x_y_coordinates"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#x_y_coordinates">
 					More Info
 				</a>
 			),
@@ -2104,8 +2018,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#bo_border"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#bo_border">
 					More Info
 				</a>
 			),
@@ -2117,8 +2030,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#co_color"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#co_color">
 					More Info
 				</a>
 			),
@@ -2130,8 +2042,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2143,8 +2054,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2156,8 +2066,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2169,8 +2078,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2182,8 +2090,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2199,8 +2106,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2212,8 +2118,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#styling_parameters">
 					More Info
 				</a>
 			),
@@ -2256,8 +2161,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/image_transformations#transformation_url_structure"
-				>
+					href="https://cloudinary.com/documentation/image_transformations#transformation_url_structure">
 					More Info
 				</a>
 			),
@@ -2272,8 +2176,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters"
-				>
+					href="https://cloudinary.com/documentation/cloudinary_sdks#configuration_parameters">
 					More Info
 				</a>
 			),
@@ -2286,8 +2189,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/image_transformations#delivery_types"
-				>
+					href="https://cloudinary.com/documentation/image_transformations#delivery_types">
 					More Info
 				</a>
 			),
@@ -2300,8 +2202,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#d_default_image"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#d_default_image">
 					More Info
 				</a>
 			),
@@ -2314,8 +2215,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#fl_flag"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#fl_flag">
 					More Info
 				</a>
 			),
@@ -2328,8 +2228,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/advanced_url_delivery_options#dynamic_seo_suffixes"
-				>
+					href="https://cloudinary.com/documentation/advanced_url_delivery_options#dynamic_seo_suffixes">
 					More Info
 				</a>
 			),
@@ -2342,8 +2241,7 @@ The `text` property can include:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/advanced_url_delivery_options#asset_versions"
-				>
+					href="https://cloudinary.com/documentation/advanced_url_delivery_options#asset_versions">
 					More Info
 				</a>
 			),
@@ -2495,8 +2393,7 @@ organized ways of applying transformations and effects.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/image_transformations#named_transformations"
-				>
+					href="https://cloudinary.com/documentation/image_transformations#named_transformations">
 					More Info
 				</a>
 			),
@@ -2523,8 +2420,7 @@ organized ways of applying transformations and effects.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/control_access_to_media#strict_transformations"
-				>
+					href="https://cloudinary.com/documentation/control_access_to_media#strict_transformations">
 					More Info
 				</a>
 			),
@@ -2537,8 +2433,7 @@ organized ways of applying transformations and effects.
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/image_transformations#named_transformations"
-				>
+					href="https://cloudinary.com/documentation/image_transformations#named_transformations">
 					More Info
 				</a>
 			),
@@ -2672,8 +2567,7 @@ You can customize and manage these properties using the options below:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#dpr_dpr"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#dpr_dpr">
 					More Info
 				</a>
 			),
@@ -2686,8 +2580,7 @@ You can customize and manage these properties using the options below:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#f_format"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#f_format">
 					More Info
 				</a>
 			),
@@ -2700,8 +2593,7 @@ You can customize and manage these properties using the options below:
 			more: () => (
 				<a
 					className="whitespace-nowrap"
-					href="https://cloudinary.com/documentation/transformation_reference#q_quality"
-				>
+					href="https://cloudinary.com/documentation/transformation_reference#q_quality">
 					More Info
 				</a>
 			),

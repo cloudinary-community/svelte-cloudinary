@@ -1,26 +1,26 @@
 ---
-import DefaultHead from '@astrojs/starlight/components/Head.astro'
-import type { Props } from '@astrojs/starlight/props'
-import { getCldOgImageUrl } from 'svelte-cloudinary'
-import { klona } from 'klona'
+import DefaultHead from '@astrojs/starlight/components/Head.astro';
+import type { Props } from '@astrojs/starlight/props';
+import { getCldOgImageUrl } from 'svelte-cloudinary';
+import { klona } from 'klona';
 
 // @ts-expect-error Hack to stop Astro erroring
-delete Astro.props.labels
+delete Astro.props.labels;
 
-const props = klona(Astro.props)
-const title = props.entry.data.title
+const props = klona(Astro.props);
+const title = props.entry.data.title;
 
-props.entry.data.title = props.entry.data.title.replace(/<|\s?\/?>/g, '')
+props.entry.data.title = props.entry.data.title.replace(/<|\s?\/?>/g, '');
 
 const image = getCldOgImageUrl({
-    src: 'images/next-cloudinary-social-background',
-    crop: 'fit',
-    overlays: [
+	src: 'images/next-cloudinary-social-background',
+	crop: 'fit',
+	overlays: [
 		{
 			width: 2000,
 			crop: 'fit',
 			position: {
-				y: -160
+				y: -160,
 			},
 			text: {
 				color: 'white',
@@ -29,42 +29,42 @@ const image = getCldOgImageUrl({
 				fontWeight: 'black',
 				text: title,
 				alignment: 'center',
-				lineSpacing: -50
-			}
+				lineSpacing: -50,
+			},
 		},
 		{
 			publicId: 'images/cloudinary-white',
 			position: {
 				x: -350,
-				y: 180
-			}
+				y: 180,
+			},
 		},
 		{
 			publicId: 'images/svelte-white',
 			position: {
 				x: 300,
-				y: 180
-			}
+				y: 180,
+			},
 		},
 		{
 			position: {
 				y: 320,
-				x: -50
+				x: -50,
 			},
 			text: {
 				color: 'white',
 				fontFamily: 'Source Sans Pro',
 				fontSize: 60,
 				fontWeight: 'bold',
-				text: 'svelte.cloudinary.dev'
-			}
-		}
-	]
-})
+				text: 'svelte.cloudinary.dev',
+			},
+		},
+	],
+});
 ---
 
 <DefaultHead {...props}>
-    <slot />
+	<slot />
 </DefaultHead>
 
 <meta property="og:image" content={image} />

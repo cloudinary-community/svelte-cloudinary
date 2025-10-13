@@ -15,15 +15,10 @@ The required props are `width`, `height`, `src`, and `alt`:
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
-<CldImage
-  src="images/turtle"
-  alt="Turtle"
-  width={960}
-  height={600}
-/>
+<CldImage src="images/turtle" alt="Turtle" width={960} height={600} />
 ```
 
 ### Transformations
@@ -40,16 +35,15 @@ You can use Cloudinary transformations with simple props which are fully typed:
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width={960}
-  height={600}
-  src="images/turtle"
-  alt="Blue Turtle"
-  tint="70:blue:purple"
-/>
+	width={960}
+	height={600}
+	src="images/turtle"
+	alt="Blue Turtle"
+	tint="70:blue:purple" />
 ```
 
 ### Using Cloudinary URLs
@@ -58,15 +52,14 @@ We support passing a Cloudinary URL as the `src` as long as it contains a versio
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  width={960}
-  height={600}
-  src="https://res.cloudinary.com/svelte-cloudinary/image/upload/v1/images/turtle"
-  alt="Turtle"
-/>
+	width={960}
+	height={600}
+	src="https://res.cloudinary.com/svelte-cloudinary/image/upload/v1/images/turtle"
+	alt="Turtle" />
 ```
 
 #### Preserve Transformations

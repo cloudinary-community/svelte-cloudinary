@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+   	"lint": "prettier --check .",
+	"format": "prettier --write ."
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -17,6 +19,9 @@
     "astro": "^4.16.12",
     "css-tree": "^3.0.1",
     "klona": "^2.0.6",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.2.8",
     "sharp": "^0.33.5",
     "starlight-links-validator": "^0.13.2",
     "svelte": "^5.2.0",
