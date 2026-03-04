@@ -1,5 +1,23 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm build",
-  "outputDirectory": "packages/docs/.vercel/output/static"
+  "outputDirectory": "packages/docs/.vercel/output/static",
+  "rewrites": [
+    {
+      "source": "/components/:path(.*)",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/helpers/:path(.*)",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/use-cases/:path(.*)",
+      "destination": "/guides/:path*"
+    },
+    {
+      "source": "/resources",
+      "destination": "/"
+    }
+  ]
 }
