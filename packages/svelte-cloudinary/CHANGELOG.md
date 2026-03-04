@@ -1,5 +1,11 @@
 # svelte-cloudinary
 
+## 2.4.0
+
+### Minor Changes
+
+- deps: update ([#196](https://github.com/cloudinary-community/svelte-cloudinary/pull/196))
+
 ## 2.3.1
 
 ### Patch Changes
