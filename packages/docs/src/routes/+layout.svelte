@@ -29,6 +29,18 @@
 	});
 </script>
 
+<div class="p-4 bg-base-300">
+	<p class="max-w-7xl mx-auto">
+		v1 is no longer maintained,
+		<a
+			href="https://svelte.cloudinary.dev/"
+			class="text-blue-500 hover:text-blue-700 focus:text-blue-700 transition-colors"
+		>
+			checkout v2 here!
+		</a>
+	</p>
+</div>
+
 <div class="bg-base-100 drawer lg:drawer-open max-w-7xl mx-auto">
 	<input id="drawer" type="checkbox" class="drawer-toggle" bind:this={drawer} />
 	<div class="drawer-content">
