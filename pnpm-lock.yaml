@@ -129,13 +129,13 @@ importers:
   packages/svelte-cloudinary:
     dependencies:
       '@cloudinary-util/types':
-        specifier: ^1.5.11
+        specifier: ^1.6.0
         version: 1.6.0
       '@cloudinary-util/url-loader':
         specifier: ^5.10.6
-        version: 5.11.0
+        version: 5.10.6
       '@cloudinary-util/util':
-        specifier: ^4.0.0
+        specifier: ^4.2.0
         version: 4.2.0
       '@unpic/svelte':
         specifier: 0.0.53
@@ -145,7 +145,7 @@ importers:
         version: 6.1.4
     devDependencies:
       '@sveltejs/package':
-        specifier: ^2.3.7
+        specifier: ^2.5.7
         version: 2.5.7(svelte@4.2.20)(typescript@5.9.3)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.1.2
@@ -154,7 +154,7 @@ importers:
         specifier: 5.2.4
         version: 5.2.4(svelte@4.2.20)(vite@5.4.21(@types/node@18.19.130)(lightningcss@1.31.1))(vitest@2.1.9(@types/node@18.19.130)(happy-dom@15.11.6)(lightningcss@1.31.1))
       '@types/node':
-        specifier: ^18.19.64
+        specifier: ^18.19.130
         version: 18.19.130
       desm:
         specifier: ^1.3.1
@@ -163,19 +163,19 @@ importers:
         specifier: 15.11.6
         version: 15.11.6
       prettier:
-        specifier: ^3.3.3
+        specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-svelte:
-        specifier: ^3.2.8
+        specifier: ^3.5.1
         version: 3.5.1(prettier@3.8.1)(svelte@4.2.20)
       publint:
         specifier: ^0.2.12
         version: 0.2.12
       svelte:
-        specifier: ^4.2.19
+        specifier: ^4.2.20
         version: 4.2.20
       svelte-check:
-        specifier: ^4.0.7
+        specifier: ^4.4.4
         version: 4.4.4(picomatch@4.0.3)(svelte@4.2.20)(typescript@5.9.3)
       svelte-preprocess:
         specifier: ^6.0.3
@@ -184,13 +184,13 @@ importers:
         specifier: ^2.8.1
         version: 2.8.1
       typescript:
-        specifier: ^5.6.3
+        specifier: ^5.9.3
         version: 5.9.3
       unpic:
-        specifier: ^3.20.0
+        specifier: ^3.22.0
         version: 3.22.0
       vitest:
-        specifier: ^2.1.5
+        specifier: ^2.1.9
         version: 2.1.9(@types/node@18.19.130)(happy-dom@15.11.6)(lightningcss@1.31.1)
 
 packages:
@@ -321,6 +321,10 @@ packages:
     resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/runtime@7.28.6':
+    resolution: {integrity: sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/template@7.28.6':
     resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
@@ -395,24 +399,23 @@ packages:
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
 
+  '@cloudinary-util/types@1.5.11':
+    resolution: {integrity: sha512-b3slV/oFV/3SZO1aiw9+UgYEmK3Ft/Ts03euek5v217Y39mhj6zXWGGJ/OVxQFBzp/zK3RE5+5mzZf/rXY4/Lw==}
+
   '@cloudinary-util/types@1.6.0':
     resolution: {integrity: sha512-YLpAkvrlQO9nmwA5poiOYYSXP0pMGIBX9IjHOqfU1kGf1ZBR5EwnHlY3b0er7H7uw/f+WlOlko5gE22JCma+TA==}
 
-  '@cloudinary-util/types@2.0.0-beta.3':
-    resolution: {integrity: sha512-4kc+pxC4/AC2Qqhu4MK9E6ZSXJ3ai4B6UgnjG8U91nsr4HtKOVFBSltl5vi5n7hb4szRFDclVOclEN/9KNWwNA==}
+  '@cloudinary-util/url-loader@5.10.6':
+    resolution: {integrity: sha512-xd7lG5eOlRx/MPWZTGB8xvIWxpruXMJlDyJHL+WSBqjq7sk87e9le2cOLxzXhDmUwaSewnbh8QOJ/r/CvGQOZQ==}
 
-  '@cloudinary-util/url-loader@5.11.0':
-    resolution: {integrity: sha512-oku0qqoadBvTl/hu3iArfIxOkQgwGVCmSkS99BNB0CRxn19MXA3U3Q6raZYbfOz6/rwikEvbfGrjR6wAFSGB5A==}
-    deprecated: please use 6.0.0
-
-  '@cloudinary-util/util@4.1.0':
-    resolution: {integrity: sha512-01k2FWwxhVSauFGi3yJhz20WJ7M/l4ytJDHaBVDTIJlxQLNs36p24kynppgE44jn0dNa1DgYhCXB6BFmqUmfJA==}
+  '@cloudinary-util/util@4.0.0':
+    resolution: {integrity: sha512-S4xcou/3A7l5o+bcKlw2VHBNgwups7/0lbVDT/cO5YmtrcEYXgj6LGmwnjvpTm/x571VPVN8x5jWdT3rLZiKJQ==}
 
   '@cloudinary-util/util@4.2.0':
     resolution: {integrity: sha512-3qD0+crtnrP1HUjtDoA3JqOesDndzBMqdD6vUSxpyQX6JO2g73DVNUdvK/YFcvT/vnWVTnLM67Im3dQlk4BtlA==}
 
-  '@cloudinary/transformation-builder-sdk@1.15.2':
-    resolution: {integrity: sha512-oXYaW/whGaQVlR1O/ocp7vYcxaMAy3uGcQ8+8xjbfDCy/+c+zFIuP6JKI8L05kzqw7Wjh0cqzG+4u0X1UpPh+A==}
+  '@cloudinary/transformation-builder-sdk@1.21.2':
+    resolution: {integrity: sha512-ehOgKUaP+Nvuf7B0TosmB8iilL0kdiVjzjl8tIK06cjvsNnwSJI3xP9nEJmKkvqNxwwFwvYXT+mxUTqnSv9JOA==}
 
   '@cloudinary/url-gen@1.15.0':
     resolution: {integrity: sha512-bjU67eZxLUgoRy/Plli4TQio7q6P31OYqnEgXxeN9TKXrzr6h0DeEdIUhKI9gy3HkEBWXWWJIPh7j7gkOJPnyA==}
@@ -1498,8 +1501,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@testing-library/dom@10.4.0':
-    resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
+  '@testing-library/dom@10.4.1':
+    resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
     engines: {node: '>=18'}
 
   '@testing-library/svelte@5.2.4':
@@ -1809,10 +1812,6 @@ packages:
   chai@5.3.3:
     resolution: {integrity: sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw==}
     engines: {node: '>=18'}
-
-  chalk@4.1.2:
-    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
-    engines: {node: '>=10'}
 
   chalk@5.3.0:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
@@ -2261,10 +2260,6 @@ packages:
   happy-dom@15.11.6:
     resolution: {integrity: sha512-elX7iUTu+5+3b2+NGQc0L3eWyq9jKhuJJ4GpOMxxT/c2pg9O3L5H3ty2VECX0XXZgRmmRqXyOK8brA2hDI6LsQ==}
     engines: {node: '>=18.0.0'}
-
-  has-flag@4.0.0:
-    resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
-    engines: {node: '>=8'}
 
   has-flag@5.0.1:
     resolution: {integrity: sha512-CsNUt5x9LUdx6hnk/E2SZLsDyvfqANZSUq4+D3D8RzDJ2M+HDTIkF60ibS1vHaK55vzgiZw1bEPFG9yH7l33wA==}
@@ -3234,11 +3229,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
     engines: {node: '>=10'}
@@ -3364,10 +3354,6 @@ packages:
   supports-color@10.2.2:
     resolution: {integrity: sha512-SS+jx45GF1QjgEXQx4NJZV9ImqmO2NPz5FNsIHrsDjh2YsHnawpan7SNQ1o8NuhrbHZy9AZhIoCUiCeaW/C80g==}
     engines: {node: '>=18'}
-
-  supports-color@7.2.0:
-    resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
-    engines: {node: '>=8'}
 
   supports-hyperlinks@4.4.0:
     resolution: {integrity: sha512-UKbpT93hN5Nr9go5UY7bopIB9YQlMz9nm/ct4IXt/irb5YRkn9WaqrOBJGZ5Pwvsd5FQzSVeYlGdXoCAPQZrPg==}
@@ -4307,6 +4293,8 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.28.6': {}
+
   '@babel/template@7.28.6':
     dependencies:
       '@babel/code-frame': 7.29.0
@@ -4486,27 +4474,28 @@ snapshots:
       human-id: 4.1.3
       prettier: 2.8.8
 
+  '@cloudinary-util/types@1.5.11': {}
+
   '@cloudinary-util/types@1.6.0': {}
 
-  '@cloudinary-util/types@2.0.0-beta.3': {}
-
-  '@cloudinary-util/url-loader@5.11.0':
+  '@cloudinary-util/url-loader@5.10.6':
     dependencies:
-      '@cloudinary-util/types': 2.0.0-beta.3
-      '@cloudinary-util/util': 4.1.0
+      '@cloudinary-util/types': 1.5.11
+      '@cloudinary-util/util': 4.0.0
       '@cloudinary/url-gen': 1.15.0
+      zod: 3.25.76
 
-  '@cloudinary-util/util@4.1.0': {}
+  '@cloudinary-util/util@4.0.0': {}
 
   '@cloudinary-util/util@4.2.0': {}
 
-  '@cloudinary/transformation-builder-sdk@1.15.2':
+  '@cloudinary/transformation-builder-sdk@1.21.2':
     dependencies:
       '@cloudinary/url-gen': 1.15.0
 
   '@cloudinary/url-gen@1.15.0':
     dependencies:
-      '@cloudinary/transformation-builder-sdk': 1.15.2
+      '@cloudinary/transformation-builder-sdk': 1.21.2
 
   '@ctrl/tinycolor@4.1.0': {}
 
@@ -5188,7 +5177,7 @@ snapshots:
       chokidar: 5.0.0
       kleur: 4.1.5
       sade: 1.8.1
-      semver: 7.6.3
+      semver: 7.7.4
       svelte: 4.2.20
       svelte2tsx: 0.7.51(svelte@4.2.20)(typescript@5.9.3)
     transitivePeerDependencies:
@@ -5336,20 +5325,20 @@ snapshots:
       tailwindcss: 4.2.1
       vite: 7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(yaml@2.8.2)
 
-  '@testing-library/dom@10.4.0':
+  '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.29.0
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.28.6
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
-      chalk: 4.1.2
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
+      picocolors: 1.1.1
       pretty-format: 27.5.1
 
   '@testing-library/svelte@5.2.4(svelte@4.2.20)(vite@5.4.21(@types/node@18.19.130)(lightningcss@1.31.1))(vitest@2.1.9(@types/node@18.19.130)(happy-dom@15.11.6)(lightningcss@1.31.1))':
     dependencies:
-      '@testing-library/dom': 10.4.0
+      '@testing-library/dom': 10.4.1
       svelte: 4.2.20
     optionalDependencies:
       vite: 5.4.21(@types/node@18.19.130)(lightningcss@1.31.1)
@@ -5763,11 +5752,6 @@ snapshots:
       deep-eql: 5.0.2
       loupe: 3.2.1
       pathval: 2.0.1
-
-  chalk@4.1.2:
-    dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
 
   chalk@5.3.0: {}
 
@@ -6256,8 +6240,6 @@ snapshots:
       entities: 4.5.0
       webidl-conversions: 7.0.0
       whatwg-mimetype: 3.0.0
-
-  has-flag@4.0.0: {}
 
   has-flag@5.0.1: {}
 
@@ -7667,8 +7649,6 @@ snapshots:
   semver@6.3.1:
     optional: true
 
-  semver@7.6.3: {}
-
   semver@7.7.4: {}
 
   set-cookie-parser@3.0.1: {}
@@ -7835,10 +7815,6 @@ snapshots:
 
   supports-color@10.2.2: {}
 
-  supports-color@7.2.0:
-    dependencies:
-      has-flag: 4.0.0
-
   supports-hyperlinks@4.4.0:
     dependencies:
       has-flag: 5.0.1
@@ -7999,7 +7975,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.5:
     dependencies:
-      semver: 7.6.3
+      semver: 7.7.4
 
   typescript@5.9.3: {}
 
@@ -8267,7 +8243,7 @@ snapshots:
   volar-service-typescript@0.0.68(@volar/language-service@2.4.28):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.6.3
+      semver: 7.7.4
       typescript-auto-import-cache: 0.3.5
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
