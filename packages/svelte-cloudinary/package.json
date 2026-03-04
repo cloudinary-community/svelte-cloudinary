@@ -14,7 +14,8 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
 		"lint": "prettier --check . && publint",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"publint": "publint"
 	},
 	"exports": {
 		".": {

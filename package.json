@@ -9,16 +9,19 @@
   ],
   "scripts": {
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
+    "lint": "prettier --check . && pnpm -r --if-exists publint",
     "check": "pnpm -r check",
-    "format": "pnpm --parallel -r format",
+    "format": "prettier --write . && pnpm --parallel -r format",
     "test": "pnpm --filter svelte-cloudinary -r test",
     "dev": "pnpm --parallel -r dev",
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
-    "@svitejs/changesets-changelog-github-compact": "^1.2.0"
+    "@svitejs/changesets-changelog-github-compact": "^1.2.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.5.1"
   },
   "engines": {
     "pnpm": "^9.0.0",

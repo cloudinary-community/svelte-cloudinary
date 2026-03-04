@@ -1,2 +1,8 @@
 package.json
-.changeset/*.md
+.changeset
+.svelte-kit
+.astro
+node-modules
+dist
+.all-contributorsrc
+pnpm-lock.yaml

@@ -19,7 +19,6 @@ Fixes #<ISSUE_NUMBER>
 - [ ] Fix or improve the documentation
 - [ ] This change requires a documentation update
 
-
 # Checklist
 
 <!-- These must all be followed and checked. -->
