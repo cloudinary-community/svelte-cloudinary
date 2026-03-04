@@ -13,11 +13,15 @@
     "dev": "pnpm --parallel --filter playground --filter svelte-cloudinary -r dev",
     "package": "pnpm --filter svelte-cloudinary -r build"
   },
+  "packageManager": "pnpm@8.15.9",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^11.0.3",
     "gh-release": "7.0.2",
     "semantic-release": "^23.0.2"
+  },
+  "volta": {
+    "node": "20.20.0"
   }
 }

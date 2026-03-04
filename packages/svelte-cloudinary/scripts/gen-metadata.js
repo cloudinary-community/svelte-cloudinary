@@ -1,6 +1,6 @@
 // sed - i - e 's/%{__LIB_VERSION__}%/${VERSION}/g'./ dist / constants / analytics.js
 import fs from 'node:fs';
-import pkg from '../package.json' assert { type: 'json' };
+import pkg from '../package.json' with { type: 'json' };
 
 const metadata = {
 	version: pkg.version

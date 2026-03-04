@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build",
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  }
+}
