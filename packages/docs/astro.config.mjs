@@ -177,6 +177,7 @@ export default defineConfig({
 		optimizeDeps: {
 			exclude: ['svelte-cloudinary'],
 		},
+		envPrefix: ['PUBLIC', 'VITE'],
 		plugins: [
 			{
 				// https://github.com/sveltejs/svelte/issues/9288#issuecomment-1748034687
