@@ -1,31 +1,36 @@
 ---
-title: Guides/Background Removal
+title: Background Removal
 ---
 
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { CldImage } from 'svelte-cloudinary';
 
 # Removing a Background from an Image
 
 The CldImage component allows you to easily remove backgrounds from images using the `removeBackground` prop.
 
-<Callout emoji={false}>
-  Removing backgrounds require enabling the <a href="https://cloudinary.com/documentation/cloudinary_ai_background_removal_addon">Cloudinary AI Background Removal Add-On</a> which includes a free tier for getting started.
-</Callout>
+:::note
+Removing backgrounds require enabling the [Cloudinary AI Background Removal Add-On](https://cloudinary.com/documentation/cloudinary_ai_background_removal_addon) - a free tier is available!
+:::
 
 ## Example
 
-<div style="max-width: 500px; margin: 0 auto">
-    <CldImage
-      width={960}
-      height={600}
-      src={`images/turtle`}
-      sizes="(max-width: 480px) 100vw, 50vw"
-      removeBackground
-      alt=""
-    />
-</div>
+<CldImage
+	width={960}
+	height={600}
+	src="images/turtle"
+	sizes="(max-width: 480px) 100vw, 50vw"
+	removeBackground
+	alt="turtle image"
+/>
 
-```svelte
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {10}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
 
 <CldImage
 	width="960"
@@ -33,27 +38,23 @@ The CldImage component allows you to easily remove backgrounds from images using
 	src="images/turtle"
 	sizes="100vw"
 	removeBackground
-	alt="Turtle"
-/>
+	alt="Turtle" />
 ```
 
+</TabItem>
 
-```html
-<script>
-	
-	const cldUrl = getCldImageUrl({
-		width: 960,
-		height: 600,
-		src: 'images/turtle',
-		removeBackground: true
-	});
-</script>
+<TabItem label="getCldImageUrl()">
+
+```ts {5}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	src: 'images/turtle',
+	removeBackground: true,
+	width: 960,
+	height: 600,
+});
 ```
 
-  </Tab>
+</TabItem>
 </Tabs>
-
-## Learn More
-
-- [CldImage](/cldimage/usage)
-- [getCldImageUrl](/getcldimageurl/usage)

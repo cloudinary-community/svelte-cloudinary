@@ -1,57 +1,48 @@
 ---
-title: Guides/Text Overlays
+title: Text Overlays
 ---
 
-<script>
-
-import Callout from '$lib/components/Callout.svelte'
-import Video from '$lib/components/Video.svelte'
-import { Tabs, Tab} from '$lib/components/Tabs'
-import HeaderImage  from '$lib/components/HeaderImage.svelte'
-import CodeBlock from '$lib/components/CodeBlock.svelte'
-import { CldOgImage, CldImage } from 'svelte-cloudinary'
-
-</script>
-
-# Adding Text to an Image
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
 
 You can add text on top of your image with text-based overlays.
 
 ## Example
 
-<div style="max-width: 500px; margin: 0 auto">
-  <CldImage
-    width="1335"
-    height="891"
-    src={`images/sneakers`}
+<CldImage
+	width="1335"
+	height="891"
+	src="images/sneakers"
     sizes="100vw"
-    overlays={[{
-      width: 2670 - 20,
-      crop: 'fit',
-      position: {
-        x: 140,
-        y: 140,
-        angle: -20,
-        gravity: 'south_east',
-      },
-      text: {
-        color: 'blueviolet',
-        fontFamily: 'Source Sans Pro',
-        fontSize: 160,
-        fontWeight: 'bold',
-        textDecoration: 'underline',
-        letterSpacing: 14,
-        text: 'Cool Beans'
-      }
-    }]}
-    alt="Sneakers with Cool Beans"
-  />
-</div>
+	alt="Sneakers with Cool Beans"
+	overlays={[
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east',
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 160,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Cool Beans',
+			},
+		},
+	]}
 
-<Tabs tabs={['CldImage', 'getCldImageUrl']}>
-<Tab type="code" open title="CldImage">
+/>
 
-```svelte
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {11-30}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -61,6 +52,7 @@ You can add text on top of your image with text-based overlays.
 	height="891"
 	src="images/sneakers"
 	sizes="100vw"
+	alt="Sneakers with Cool Beans"
 	overlays={[
 		{
 			width: 2670 - 20,
@@ -69,7 +61,7 @@ You can add text on top of your image with text-based overlays.
 				x: 140,
 				y: 140,
 				angle: -20,
-				gravity: 'south_east'
+				gravity: 'south_east',
 			},
 			text: {
 				color: 'blueviolet',
@@ -78,54 +70,46 @@ You can add text on top of your image with text-based overlays.
 				fontWeight: 'bold',
 				textDecoration: 'underline',
 				letterSpacing: 14,
-				text: 'Cool Beans'
-			}
-		}
-	]}
-	alt="Sneakers with Cool Beans"
-/>
+				text: 'Cool Beans',
+			},
+		},
+	]} />
 ```
 
-  </Tab>
-  <Tab type="code" title="getCldImageUrl">
+</TabItem>
 
-```svelte
-<script>
-	import { getCldImageUrl } from 'svelte-cloudinary';
+<TabItem label="getCldImageUrl()">
 
-	const cldUrl = getCldImageUrl({
-		width: 1335,
-		height: 891,
-		src: 'images/sneakers',
-		overlays: [
-			{
-				width: 2670 - 20,
-				crop: 'fit',
-				position: {
-					x: 140,
-					y: 140,
-					angle: -20,
-					gravity: 'south_east'
-				},
-				text: {
-					color: 'blueviolet',
-					fontFamily: 'Source Sans Pro',
-					fontSize: 160,
-					fontWeight: 'bold',
-					textDecoration: 'underline',
-					letterSpacing: 14,
-					text: 'Cool Beans'
-				}
-			}
-		]
-	});
-</script>
+```ts {7-27}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	width: 1335,
+	height: 891,
+	src: 'images/sneakers',
+	overlays: [
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east',
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 160,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Cool Beans',
+			},
+		},
+	],
+});
 ```
 
-  </Tab>
+</TabItem>
 </Tabs>
-
-## Learn More
-
-- [CldImage](/cldimage/usage)
-- [getCldImageUrl](/getcldimageurl/usage)

@@ -1,15 +1,9 @@
 ---
-title: Guides/Image Underlays
+title: Image Underlays
 ---
 
-<script>
-
-import Callout from '$lib/components/Callout.svelte'
-import Video from '$lib/components/Video.svelte'
-import { Tabs, Tab} from '$lib/components/Tabs'
-import { CldOgImage, CldImage } from 'svelte-cloudinary'
-
-</script>
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
 
 # Adding Layers Under Images
 
@@ -19,22 +13,20 @@ See the examples above under Overlays to learn more about the available configur
 
 ## Example
 
-<div style="max-width: 500px; margin: 0 auto">
-  <CldImage
-    width="960"
-    height="600"
-    src={`images/turtle`}
-    sizes="100vw"
-    removeBackground
-    underlay="images/galaxy"
-    alt="Turtle swimming in a galaxy"
-  />
-</div>
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	removeBackground
+	underlay="images/galaxy"
+	alt="Turtle swimming in a galaxy"
+/>
 
-<Tabs tabs={['CldImage', 'getCldImageUrl']}>
-<Tab type="code" open title="CldImage">
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
 
-```svelte
+```svelte {10-11}
 <script>
 	import { CldImage } from 'svelte-cloudinary';
 </script>
@@ -46,31 +38,24 @@ See the examples above under Overlays to learn more about the available configur
 	sizes="100vw"
 	removeBackground
 	underlay="images/galaxy"
-	alt="Turtle swimming in a galaxy"
-/>
+	alt="Turtle swimming in a galaxy" />
 ```
 
-  </Tab>
-  <Tab type="code" title="getCldImageUrl">
+</TabItem>
 
-```svelte
-<script>
-	import { getCldImageUrl } from 'svelte-cloudinary';
+<TabItem label="getCldImageUrl()">
 
-	const cldUrl = getCldImageUrl({
-		width: 960,
-		height: 600,
-		src: 'images/turtle',
-		removeBackground: true,
-		underlay: 'images/galaxy'
-	});
-</script>
+```ts {7-8}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	width: 960,
+	height: 600,
+	src: 'images/turtle',
+	removeBackground: true,
+	underlay: 'images/galaxy',
+});
 ```
 
-  </Tab>
+</TabItem>
 </Tabs>
-
-## Learn More
-
-- [CldImage](/cldimage/usage)
-- [getCldImageUrl](/getcldimageurl/usage)

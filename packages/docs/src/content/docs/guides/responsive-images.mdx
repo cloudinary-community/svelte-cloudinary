@@ -1,34 +1,22 @@
 ---
-title: Guides/Responsive Images
+title: Responsive Images
 ---
 
-<script>
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
 
-import Callout from '$lib/components/Callout.svelte'
-import Video from '$lib/components/Video.svelte'
-import { Tabs, Tab} from '$lib/components/Tabs'
-import HeaderImage  from '$lib/components/HeaderImage.svelte'
-import CodeBlock from '$lib/components/CodeBlock.svelte'
-import { CldOgImage, CldImage } from 'svelte-cloudinary'
-
-</script>
-
-# Responsive Images
-
-The [CldImage](/cldimage/usage) component takes advantage of responsive images generated using the [Unpic component](https://unpic.pics/img/svelte/).
+The CldImage component takes advantage of responsive images generated using the Unpic component.
 
 Using the `sizes` prop, you can configure exactly the sizes you need for your application:
 
 ```svelte
 <script>
-  import { CldImage } from 'svelte-cloudinary';
+	import { CldImage } from 'svelte-cloudinary';
 </script>
 
 <CldImage
-  ...
-  sizes="(max-width: 768px) 100vw,
+	sizes="(max-width: 768px) 100vw,
           (max-width: 1200px) 50vw,
-          33vw"
+          33vw" />
 ```
 
 Which would give you roughly full width images on mobile, a 2-column layout on tablets, and 3-column layout on desktop views.
@@ -52,8 +40,7 @@ In an example such as:
 	height="600"
 	sizes="(max-width: 480px) 100vw, 50vw"
 	crop="thumb"
-	gravity="faces"
-/>
+	gravity="faces" />
 ```
 
 Using cropping, we're setting a width of 600px and a height of 600px, telling Cloudinary we want to take our original image, crop it to that size, then position the focal point to the face in the image detected using AI.
@@ -67,7 +54,6 @@ To avoid attempting to load upscaled images, resulting in blurry or grainy image
 For instance, in the above, the resulting responive image in the HTML may look like:
 
 ```jsx copy
-
 <img
   sizes="(max-width: 480px) 100vw, 50vw"
   srcset="
