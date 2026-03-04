@@ -1,14 +1,14 @@
 import { createHighlighterCore } from 'shiki/core';
 import serendipity from '$lib/code/serendipity';
 import svelte from 'shiki/langs/svelte.mjs';
-import getWasm from 'shiki/wasm';
+import { createOnigurumaEngine } from 'shiki';
 
 export async function load() {
 	return {
 		highlighter: await createHighlighterCore({
-			loadWasm: getWasm,
-			langs: [svelte],
+			engine: createOnigurumaEngine(import('shiki/wasm')),
 			themes: [serendipity],
+			langs: [svelte],
 		}),
 	};
 }

@@ -6,7 +6,6 @@
 | [playground](packages/playground)               | Development playground to experiment with svelte-cloudinary |
 | [docs](packages/docs)                           | Source for the [docs](https://svelte.cloudinary.dev)        |
 
-
 ## Contributing & Setup
 
 Please take a look at our [guide](./CONTRIBUTING.md).
