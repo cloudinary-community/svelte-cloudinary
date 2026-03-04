@@ -74,6 +74,14 @@
 			"destination": "/helpers/getcldogimageurl/configuration"
 		},
 		{
+			"source": "/guides/images-overlays",
+			"destination": "/guides/overlays"
+		},
+		{
+			"source": "/guides/text-overlays",
+			"destination": "/guides/overlays"
+		},
+		{
 			"source": "/getcldogimageurl/examples",
 			"destination": "/missing"
 		},

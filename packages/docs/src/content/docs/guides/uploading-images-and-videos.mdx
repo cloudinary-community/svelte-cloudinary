@@ -1,19 +1,18 @@
 ---
 title: Uploading Images and Videos
+description: Learn how to use Cloudinary to enable users to upload images and/or videos.
 ---
 
 import uploadCode from '$lib/examples/Upload.svelte?raw';
 import { Code } from '@astrojs/starlight/components';
 import Upload from '$lib/examples/Upload.svelte';
 
-# Uploading Images & Videos
+You can use the upload widget, or as a shortcut the upload button, to enable the users to upload images and/or videos.
 
-Use the [CldUploadButton](/clduploadbutton/usage) or [CldUploadWidget](/clduploadwidget/usage) components to add upload capabilities to your app.
-
-The components utilize the [Cloudinary Upload Widget](https://cloudinary.com/documentation/upload_widget), built for Svelte.
-
-## Example
+:::caution
+Starlight (the documentation framework we use) messes with the upload widget, we're working on a fix but it'll work fine with your Svelte/SvelteKit websites!
+:::
 
 <Upload client:load />
 
-<Code code={uploadCode} lang="svelte" />
+<Code lang="svelte" code={uploadCode} />

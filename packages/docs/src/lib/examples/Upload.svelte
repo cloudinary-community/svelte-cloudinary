@@ -9,14 +9,6 @@
 	let info = $state<CloudinaryUploadWidgetInfo | null>(null);
 </script>
 
-<CldUploadButton
-	onUpload={(result, widget) => {
-		if (typeof result.info === 'object') {
-			info = result.info;
-			widget.close();
-		}
-	}} />
-
 {#if info?.resource_type === 'video'}
 	<CldVideoPlayer
 		width={info.width}
@@ -29,5 +21,13 @@
 		src={info.public_id}
 		alt="Uploaded Asset" />
 {:else}
-	<p>Try uploading something!</p>
+	<p>Click the button below to try uploading something:</p>
 {/if}
+
+<CldUploadButton
+	onUpload={(result, widget) => {
+		if (typeof result.info === 'object') {
+			info = result.info;
+			widget.close();
+		}
+	}} />
