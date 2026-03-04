@@ -22,19 +22,19 @@ High-performance image delivery and uploading at scale in Svelte powered by Clou
 
 ## ✨ Features
 
--   Automatically optimize images and deliver in modern formats
--   Remove backgrounds from images
--   Dynamically add image and text overlays to images
--   AI-based cropping and resizing
--   Transform images using color and effects
--   Generate Open Graph Social Media cards on the fly
--   ...all at scale with Cloudinary
+- Automatically optimize images and deliver in modern formats
+- Remove backgrounds from images
+- Dynamically add image and text overlays to images
+- AI-based cropping and resizing
+- Transform images using color and effects
+- Generate Open Graph Social Media cards on the fly
+- ...all at scale with Cloudinary
 
 ## 🚀 Getting Started
 
 ### Installation
 
--   Install `svelte-cloudinary` with:
+- Install `svelte-cloudinary` with:
 
 ```bash
 npm install svelte-cloudinary
@@ -42,7 +42,7 @@ npm install svelte-cloudinary
 
 We support Svelte v3, v4, v5 (compatibility mode), and SvelteKit!
 
--   Add an environment variable with your Cloud Name:
+- Add an environment variable with your Cloud Name:
 
 ```bash
 VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
@@ -68,7 +68,7 @@ https://svelte.cloudinary.dev
 
 ## ❤️ Community & Support
 
--   [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new)
+- [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new)
 
 ## 🛠 Contributing
 
@@ -108,6 +108,7 @@ Thanks [cupcakearmy](https://github.com/cupcakearmy) for handing off the origina
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/aarya-16"><img src="https://avatars.githubusercontent.com/u/145715221?v=4?s=100" width="100px;" alt="aarya-16"/><br /><sub><b>aarya-16</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=aarya-16" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/daniloff200"><img src="https://avatars.githubusercontent.com/u/13692220?v=4?s=100" width="100px;" alt="Dmytro Danylov"/><br /><sub><b>Dmytro Danylov</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=daniloff200" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SanchitMahajan236"><img src="https://avatars.githubusercontent.com/u/116559051?v=4?s=100" width="100px;" alt="SanchitMahajan236"/><br /><sub><b>SanchitMahajan236</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=SanchitMahajan236" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ME-Massine"><img src="https://avatars.githubusercontent.com/u/116316715?v=4?s=100" width="100px;" alt="MEmassine"/><br /><sub><b>MEmassine</b></sub></a><br /><a href="https://github.com/cloudinary-community/svelte-cloudinary/commits?author=ME-Massine" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

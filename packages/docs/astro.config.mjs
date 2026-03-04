@@ -17,9 +17,13 @@ export default defineConfig({
 			title: 'Svelte Cloudinary',
 			description:
 				'High-performance image and video delivery and uploading at scale in Svelte powered by Cloudinary.',
-			social: {
-				github: 'https://github.com/cloudinary-community/svelte-cloudinary',
-			},
+			social: [
+				{
+					icon: 'github',
+					label: 'GitHub',
+					href: 'https://github.com/cloudinary-community/svelte-cloudinary',
+				},
+			],
 			favicon: '/favicon.ico',
 			customCss: ['./src/theme.css'],
 			editLink: {
@@ -183,9 +187,7 @@ export default defineConfig({
 				// https://github.com/sveltejs/svelte/issues/9288#issuecomment-1748034687
 				resolveId(id) {
 					if (id === 'css-tree') {
-						return require.resolve(
-							'./node_modules/css-tree/dist/csstree.esm.js',
-						);
+						return require.resolve('./node_modules/css-tree/dist/csstree.esm.js');
 					}
 				},
 			},

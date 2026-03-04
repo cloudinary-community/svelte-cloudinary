@@ -186,6 +186,7 @@
 			{
 				value: 'fill',
 				onChange(type) {
+					// @ts-expect-error type mismatch
 					props.crop!.type = type.value;
 				},
 			},
@@ -207,6 +208,7 @@
 			{
 				value: 'center',
 				onChange(gravity) {
+					// @ts-expect-error type mismatch
 					props.crop!.gravity = gravity.value;
 				},
 			},
