@@ -13,6 +13,6 @@ export const POST = async ({ request }) => {
 		);
 		return json({ signature });
 	} catch (e) {
-		return error(500, `${error}`);
+		return error(500, `${e}`);
 	}
 };

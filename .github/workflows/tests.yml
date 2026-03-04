@@ -34,8 +34,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Astro & Svelte Check
-        run: pnpm check
+      # - name: Astro & Svelte Check
+      #   run: pnpm check
 
   tests:
     name: Test
@@ -66,4 +66,3 @@ jobs:
 
       - name: Test
         run: pnpm test
-

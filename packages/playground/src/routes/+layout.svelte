@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import '../app.postcss';
+	import '../app.css';
 </script>
 
 <div class="flex items-center gap-4 p-4">

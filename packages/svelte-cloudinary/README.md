@@ -22,19 +22,19 @@ High-performance image delivery and uploading at scale in Svelte powered by Clou
 
 ## ✨ Features
 
--   Automatically optimize images and deliver in modern formats
--   Remove backgrounds from images
--   Dynamically add image and text overlays to images
--   AI-based cropping and resizing
--   Transform images using color and effects
--   Generate Open Graph Social Media cards on the fly
--   ...all at scale with Cloudinary
+- Automatically optimize images and deliver in modern formats
+- Remove backgrounds from images
+- Dynamically add image and text overlays to images
+- AI-based cropping and resizing
+- Transform images using color and effects
+- Generate Open Graph Social Media cards on the fly
+- ...all at scale with Cloudinary
 
 ## 🚀 Getting Started
 
 ### Installation
 
--   Install `svelte-cloudinary` with:
+- Install `svelte-cloudinary` with:
 
 ```bash
 npm install svelte-cloudinary
@@ -42,7 +42,7 @@ npm install svelte-cloudinary
 
 We support Svelte v3, v4, v5 (compatibility mode), and SvelteKit!
 
--   Add an environment variable with your Cloud Name:
+- Add an environment variable with your Cloud Name:
 
 ```bash
 VITE_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
@@ -68,7 +68,7 @@ https://svelte.cloudinary.dev
 
 ## ❤️ Community & Support
 
--   [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new)
+- [GitHub: Create an Issue](https://github.com/cloudinary-community/svelte-cloudinary/issues/new)
 
 ## 🛠 Contributing
 

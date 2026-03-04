@@ -38,5 +38,7 @@
 		</button>
 	</CldUploadWidget>
 
-	<button class="btn outline" on:click={() => (img = null)}> Clear </button>
+	<button class="btn outline-solid" on:click={() => (img = null)}>
+		Clear
+	</button>
 </div>
