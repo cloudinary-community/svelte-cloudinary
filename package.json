@@ -21,6 +21,9 @@
     "gh-release": "7.0.2",
     "semantic-release": "^23.0.2"
   },
+  "engines": {
+    "node": "^20.20.0"
+  },
   "volta": {
     "node": "20.20.0"
   }
