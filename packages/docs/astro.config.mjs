@@ -158,12 +158,7 @@ export default defineConfig({
 				},
 				{
 					label: 'Guides',
-					items: [
-						{
-							label: 'Custom Domain',
-							link: '/guides/custom-domain',
-						},
-					],
+					autogenerate: { directory: 'guides' },
 				},
 				{
 					label: 'Migrate',
@@ -182,6 +177,7 @@ export default defineConfig({
 		optimizeDeps: {
 			exclude: ['svelte-cloudinary'],
 		},
+		envPrefix: ['PUBLIC', 'VITE'],
 		plugins: [
 			{
 				// https://github.com/sveltejs/svelte/issues/9288#issuecomment-1748034687

@@ -1,0 +1,35 @@
+---
+title: Responsive Images
+description: Learn how to use Cloudinary to generate performant responsive images.
+---
+
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
+
+Responsive images are great for performance since the browser can load a smaller image on a smaller device, where the drop in quality isn't noticable. This will increase page load times and general user experience for everyone, as they get both a noticably high quality image and faster page load.
+
+You can configure specifically the image sizes you want, using a media query like synax, with the `sizes` prop/option. Cloudinary will generate the necessary sizes on the fly, as usual!
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="(max-width: 768px) 100vw,
+        (max-width: 1200px) 50vw,
+        33vw"
+	alt="turtle image"
+/>
+
+```svelte
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="(max-width: 768px) 100vw,
+        (max-width: 1200px) 50vw,
+        33vw"
+	alt="turtle image" />
+```

@@ -1,0 +1,55 @@
+---
+title: Background Removal
+description: Learn how to use Cloudinary to remove a background from your image.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldImage } from 'svelte-cloudinary';
+
+:::note
+The Cloudinary AI Background Removal add-on is required to use this feature.
+:::
+
+You can use the `removeBackground` option to generatively remove the background from an image, for example:
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	alt="turtle image"
+	removeBackground
+/>
+
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {10}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	alt="turtle image"
+	removeBackground />
+```
+
+</TabItem>
+
+<TabItem label="getCldImageUrl()">
+
+```ts {5}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	src: 'images/turtle',
+	removeBackground: true,
+	width: 960,
+	height: 600,
+});
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,201 @@
+---
+title: Social Media Cards
+description: Learn how to use Cloudinary to generate dynamic social media cards.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
+
+:::note
+CldOgImage does not render an `<img>` tag, meaning it can't be visually embedded on a page. The following examples make use of the `<CldImage>` tag to showcase what's possible.
+:::
+
+<CldImage
+	width="2400"
+	height="1200"
+	crop="fill"
+	gravity="auto"
+	src="images/white"
+	sizes="100w"
+	alt="Svelte Cloudinary with picture of a mountain"
+	overlays={[
+		{
+			publicId: `images/mountain`,
+			position: {
+				x: 0,
+				y: 0,
+				gravity: 'north_east',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: '0.33',
+					height: '1.0',
+				},
+			],
+			flags: ['relative'],
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				text: 'Next Cloudinary',
+			},
+			position: {
+				x: 80,
+				y: -50,
+				gravity: 'west',
+			},
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 40,
+				text: 'Get the power of Cloudinary in a Next.js project with Next Cloudinary!',
+			},
+			position: {
+				x: 80,
+				y: 50,
+				gravity: 'west',
+			},
+		},
+	]}
+/>
+
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {9-58}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldOgImage
+	src="images/white"
+	twitterTitle="Svelte Cloudinary"
+	alt="Svelte Cloudinary with picture of a mountain"
+	overlays={[
+		{
+			publicId: `images/mountain`,
+			position: {
+				x: 0,
+				y: 0,
+				gravity: 'north_east',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: '0.33',
+					height: '1.0',
+				},
+			],
+			flags: ['relative'],
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				text: 'Next Cloudinary',
+			},
+			position: {
+				x: 80,
+				y: -50,
+				gravity: 'west',
+			},
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 40,
+				text: 'Get the power of Cloudinary in a Next.js project with Next Cloudinary!',
+			},
+			position: {
+				x: 80,
+				y: 50,
+				gravity: 'west',
+			},
+		},
+	]} />
+```
+
+</TabItem>
+
+<TabItem label="getCldImageUrl()">
+
+```ts {6-55}
+import { getCldOgImageUrl } from 'svelte-cloudinary';
+
+// You're responsible for adding the correct meta tags
+const url = getCldOgImageUrl({
+	src: 'images/white',
+	overlays: [
+		{
+			publicId: `images/mountain`,
+			position: {
+				x: 0,
+				y: 0,
+				gravity: 'north_east',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: '0.33',
+					height: '1.0',
+				},
+			],
+			flags: ['relative'],
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				text: 'Next Cloudinary',
+			},
+			position: {
+				x: 80,
+				y: -50,
+				gravity: 'west',
+			},
+		},
+		{
+			width: 700,
+			crop: 'fit',
+			text: {
+				color: 'black',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 40,
+				text: 'Get the power of Cloudinary in a Next.js project with Next Cloudinary!',
+			},
+			position: {
+				x: 80,
+				y: 50,
+				gravity: 'west',
+			},
+		},
+	],
+});
+```
+
+</TabItem>
+</Tabs>

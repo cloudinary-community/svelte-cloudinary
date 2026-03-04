@@ -1,0 +1,56 @@
+---
+title: Image Underlays
+description: Learn how to use Cloudinary to programatically place images under images.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
+
+An image underlay allows you to place one image under another (it doesn't work with text). For example we can remove the background from this turtle image, then underlay an image of space:
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	alt="Turtle swimming in a galaxy"
+	removeBackground
+	underlay="images/galaxy"
+/>
+
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {11-12}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	alt="Turtle swimming in a galaxy"
+	removeBackground
+	underlay="images/galaxy" />
+```
+
+</TabItem>
+
+<TabItem label="getCldImageUrl()">
+
+```ts {7-8}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	width: 960,
+	height: 600,
+	src: 'images/turtle',
+	removeBackground: true,
+	underlay: 'images/galaxy',
+});
+```
+
+</TabItem>
+</Tabs>

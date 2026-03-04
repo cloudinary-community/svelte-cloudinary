@@ -1,0 +1,161 @@
+---
+title: Overlays
+description: Learn how to use Cloudinary to programatically place images/text on top of other images/text.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { CldOgImage, CldImage } from 'svelte-cloudinary';
+
+You can use the overlays feature to stack images or text on top of each other, for example:
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	alt="Turtle with earth"
+	overlays={[
+		{
+			publicId: 'images/earth',
+			position: {
+				x: 50,
+				y: 50,
+				gravity: 'north_west',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: 500,
+					height: 500,
+				},
+			],
+		},
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east',
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Svelte x Cloudinary',
+			},
+		},
+	]}
+/>
+
+<Tabs syncKey="image-api">
+<TabItem label="<CldImage />">
+
+```svelte {11-47}
+<script>
+	import { CldImage } from 'svelte-cloudinary';
+</script>
+
+<CldImage
+	width="960"
+	height="600"
+	src="images/turtle"
+	sizes="100vw"
+	alt="Turtle with earth"
+	overlays={[
+		{
+			publicId: 'images/earth',
+			position: {
+				x: 50,
+				y: 50,
+				gravity: 'north_west',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: 500,
+					height: 500,
+				},
+			],
+		},
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east',
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Svelte x Cloudinary',
+			},
+		},
+	]} />
+```
+
+</TabItem>
+
+<TabItem label="getCldImageUrl()">
+
+```ts {7-43}
+import { getCldImageUrl } from 'svelte-cloudinary';
+
+const url = getCldImageUrl({
+	width: 960,
+	height: 600,
+	src: 'images/turtle',
+	overlays: [
+		{
+			publicId: 'images/earth',
+			position: {
+				x: 50,
+				y: 50,
+				gravity: 'north_west',
+			},
+			effects: [
+				{
+					crop: 'fill',
+					gravity: 'auto',
+					width: 500,
+					height: 500,
+				},
+			],
+		},
+		{
+			width: 2670 - 20,
+			crop: 'fit',
+			position: {
+				x: 140,
+				y: 140,
+				angle: -20,
+				gravity: 'south_east',
+			},
+			text: {
+				color: 'blueviolet',
+				fontFamily: 'Source Sans Pro',
+				fontSize: 80,
+				fontWeight: 'bold',
+				textDecoration: 'underline',
+				letterSpacing: 14,
+				text: 'Svelte x Cloudinary',
+			},
+		},
+	],
+});
+```
+
+</TabItem>
+</Tabs>
